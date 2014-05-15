@@ -1,0 +1,149 @@
+
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+        
+        <title>Indonez | Theme: Prime</title>
+		
+		<link href="http://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet" type="text/css" />
+        
+        <link href="selector/styles.css" rel="stylesheet" media="all" />
+        
+		<!--[if IE]>
+			
+			<style type="text/css">
+			
+				li.purchase a {
+					padding-top: 5px;
+					background-position: 0px -4px;
+				}
+				
+				li.remove_frame a {
+					padding-top: 5px;
+					background-position: 0px -3px;
+				}
+				
+				#theme_select {
+					padding: 8px 8px;
+				}
+				
+				#theme_list {
+					margin-top: 2px;
+				}
+			
+			</style>
+			
+		<![endif]--> 
+		
+		<style type="text/css">
+		
+				
+		</style>
+	        
+        <script type="text/javascript" src="selector/jquery-1.4.2.min.js"></script>
+        
+        <script type="text/javascript">
+        
+        var theme_list_open = false;
+        
+        $(document).ready(function () {
+        
+        	function fixHeight () {
+        	
+        	var headerHeight = $("#switcher").height();
+        	        	
+        	$("#iframe").attr("height", (($(window).height() - 10) - headerHeight) + 'px');
+        	
+        	}
+        	
+        	$(window).resize(function () {
+               	
+        		fixHeight();
+        	
+        	}).resize();
+        	
+        	$("#theme_select").click( function () {
+        	
+        		if (theme_list_open == true) {
+        	
+        		$(".center ul li ul").hide();
+        		
+        		theme_list_open = false;
+        		
+        		} else {
+        		
+        		$(".center ul li ul").show();         		
+        		
+        		theme_list_open = true;
+        		
+        		}
+        		
+        		return false;
+        	
+        	});
+        	
+        	$("#theme_list ul li a").click(function () {
+        	
+        	var theme_data = $(this).attr("rel").split(",");
+        	        	
+        	$("li.purchase a").attr("href", theme_data[1]);
+        	$("li.remove_frame a").attr("href", theme_data[0]);
+        	$("#iframe").attr("src", theme_data[0]);
+        	
+        	$("#theme_list a#theme_select").text($(this).text());
+        	
+        	$(".center ul li ul").hide();
+        	
+        	theme_list_open = false;
+        	
+        	return false;
+        	
+        	});
+        
+        });
+        
+        </script>
+         <script type="text/javascript">
+         $('.remove_frame').delegate('a','click',function(){
+				top.location.href=$('#iframe')[0].contentWindow.location.href;
+				return false;
+			});		 
+		 </script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+
+<body>
+
+	<div id="switcher">
+	
+		<div class="center">
+		
+		<ul>
+		
+		<li><img src="selector/logo.png" alt="" /></li>
+		
+		<li id="theme_list"><a id="theme_select" href="#">Select A Theme...</a>
+		
+			<ul>
+			
+				<li><a href="#" rel="http://themedemo.indonez.com/Prime/,http://themeforest.net/item/prime-simple-business-template-3/1143025?ref=Indonez">Prime</a></li><li><a href="#" rel="http://themedemo.indonez.com/Helios/,http://themeforest.net/item/helios-minimalist-business-template-7/785024?ref=Indonez">Helios</a></li><li><a href="#" rel="http://themedemo.indonez.com/Procyon/,http://themeforest.net/item/procyon-corporate-business-template-6/596234?ref=Indonez">Procyon</a></li><li><a href="#" rel="http://themedemo.indonez.com/Nano/,http://themeforest.net/item/nano-corporate-business-template-5/410935?ref=Indonez">Nano</a></li>				
+			</ul>
+		
+		</li>	
+		
+		<li class="purchase" rel="http://themeforest.net/item/prime-simple-business-template-3/1143025?ref=Indonez"><a href="http://themeforest.net/item/prime-simple-business-template-3/1143025?ref=Indonez">Purchase</a></li>		
+		<li class="remove_frame" rel="http://themedemo.indonez.com/Prime/"><a href="http://themedemo.indonez.com/Prime/">Remove Frame</a></li>		
+		
+		</ul></div>
+		
+		
+	
+	</div>
+	
+    <iframe id="iframe" src="http://themedemo.indonez.com/Prime/" frameborder="0" width="100%"></iframe>
+    
+</body>
+
+</html>
+
