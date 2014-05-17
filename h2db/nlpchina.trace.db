@@ -1,0 +1,39 @@
+05-16 17:30:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE DATABASE[*] NLP_CHINA "; expected "OR, FORCE, VIEW, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, DATATYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL, GLOBAL, TEMP, TEMPORARY, TABLE, PRIMARY, UNIQUE, HASH, SPATIAL, INDEX"; SQL statement:
+create database nlp_china [42001-176]
+05-16 17:39:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INFORMATION_SCHEMA[*].COLLATIONS SELECT * FROM INFORMATION_SCHEMA.CATALOGS"; expected "INSERT, {"; SQL statement:
+INFORMATION_SCHEMA.COLLATIONS SELECT * FROM INFORMATION_SCHEMA.CATALOGS [42001-176]
+05-16 19:20:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO TAG(NAME,TYPE) VALUES('机器学习,1) ;
+insert into tag(name,type) values('分词[*],1) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+insert into tag(name,type) values('机器学习,1) ;
+insert into tag(name,type) values('分词,1) [42001-176]
+05-16 19:20:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO TAG(NAME,TYPE) VALUES('分类,1) ;
+insert into tag(name,type) values('聚类[*],1) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+insert into tag(name,type) values('分类,1) ;
+insert into tag(name,type) values('聚类,1) [42001-176]
+05-16 19:20:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO TAG(NAME,TYPE) VALUES('机器翻译,1) ;
+insert into tag(name,type) values('计算语言学[*],1) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+insert into tag(name,type) values('机器翻译,1) ;
+insert into tag(name,type) values('计算语言学,1) [42001-176]
+05-16 19:20:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO TAG(NAME,TYPE) VALUES('词典,1) ;
+insert into tag(name,type) values('中文信息处理[*],1) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+insert into tag(name,type) values('词典,1) ;
+insert into tag(name,type) values('中文信息处理,1) [42001-176]
+05-16 19:20:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO TAG(NAME,TYPE) VALUES('文本语料,1) ;
+insert into tag(name,type) values('推荐系统[*],1) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+insert into tag(name,type) values('文本语料,1) ;
+insert into tag(name,type) values('推荐系统,1) [42001-176]
+05-16 19:20:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO TAG(NAME,TYPE) VALUES('语音识别,1) ;
+insert into tag(name,type) values('模式识别[*],1) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+insert into tag(name,type) values('语音识别,1) ;
+insert into tag(name,type) values('模式识别,1) [42001-176]
+05-16 20:10:17 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "TAG2" not found; SQL statement:
+SELECT * FROM tag2 [42102-176]

@@ -1,0 +1,14 @@
+*.class
+# Package Files #
+*.war
+*.ear
+.settings/
+.classpath
+.project
+bin/
+.DS_Store
+.data/
+data/
+._.DS_Store
+._*
+target/

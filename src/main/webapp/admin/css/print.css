@@ -1,0 +1,56 @@
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+.row-fluid {
+  display: none;
+}
+.row-fluid.printable {
+  display: block !important;
+}
+body {
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+.content,
+.row-fluid {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.topbar,
+.style-switcher,
+.style-toggler,
+.breadcrumbs,
+.navi,
+.alert {
+  display: none;
+}
+.box-head {
+  display: none;
+}
+.box-content,
+.box {
+  border: 0 !important;
+}
+.invoice-infos {
+  text-align: right;
+}
+.table-invoice thead th {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  text-shadow: 0 0 0 #ffffff;
+  filter: dropshadow(color=#ffffff, offx=0, offy=0);
+}
+.invoice-footer {
+  position: fixed;
+  bottom: 0;
+}

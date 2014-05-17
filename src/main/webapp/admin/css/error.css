@@ -1,0 +1,43 @@
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+body {
+  background: url('../img/bg2.png') repeat;
+}
+.error_page {
+  text-align: center;
+}
+.error_page .error {
+  width: 100%;
+  *zoom: 1;
+  position: absolute;
+  top: 40%;
+  opacity: 0.5;
+  filter: alpha(opacity=0.5);
+  color: #999;
+  text-shadow: 0 -1px 1px #000000, 0 1px 1px #ffffff;
+}
+.error_page .error:before,
+.error_page .error:after {
+  display: table;
+  content: "";
+}
+.error_page .error:after {
+  clear: both;
+}
+.error_page .desc {
+  width: 100%;
+  font-size: 24px;
+  color: #555;
+  position: absolute;
+  top: 15%;
+  line-height: 35px;
+}
