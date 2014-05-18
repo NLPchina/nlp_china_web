@@ -29,7 +29,7 @@ public class ResourceAction {
 	@At("/resource/list")
 	@Ok("jsp:/resource-list.jsp")
 	public void list(HttpServletRequest request, Pager pager) {
-		list(request, null);
+		list(request, null, pager);
 	}
 
 	@At("/resource/list/?")
