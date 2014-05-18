@@ -2,6 +2,7 @@ package org.nlpchina.web.domain;
 
 import java.util.Date;
 
+import org.nlpchina.web.util.StaticValue;
 import org.nutz.dao.entity.annotation.Column;
 import org.nutz.dao.entity.annotation.Id;
 import org.nutz.dao.entity.annotation.Table;
@@ -31,8 +32,8 @@ public class Resource {
 	private String visitUrl;
 	@Column("category_id")
 	private Integer categoryId;
-	
-	private String tags ;
+
+	private String tags;
 
 	public Integer getId() {
 		return id;
@@ -114,5 +115,8 @@ public class Resource {
 		this.tags = tags;
 	}
 
-	
+	public String getCategoryStr() {
+		Category category = StaticValue.categoryMap.get(this.id);
+		return category.getName();
+	}
 }

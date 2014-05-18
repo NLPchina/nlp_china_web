@@ -1,13 +1,17 @@
 package org.nlpchina.web.controller;
 
 import java.util.Date;
-import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.nlpchina.web.domain.Resource;
 import org.nlpchina.web.domain.ResourceTag;
 import org.nlpchina.web.domain.Tag;
 import org.nlpchina.web.service.GeneralService;
+import org.nlpchina.web.service.ResourceService;
+import org.nlpchina.web.util.StaticValue;
 import org.nutz.dao.Cnd;
+import org.nutz.dao.pager.Pager;
 import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.annotation.At;
@@ -22,25 +26,30 @@ public class AdminResourceAction {
 	@Inject
 	private GeneralService generalService;
 
+	@Inject
+	private ResourceService resourceService;
+
 	@At("/admin/resource/list")
 	@Ok("jsp:/admin/resource-list.jsp")
-	public List<Resource> adminList() {
-		return generalService.search(Resource.class, "id");
+	public void adminList(HttpServletRequest request, @Param("category_id") Integer categoryId, @Param("::pager") Pager pager) {
+		request.setAttribute("obj", resourceService.search(categoryId, "id", pager));
+		request.setAttribute("pager", pager);
 	}
 
 	@At("/admin/resource/editer")
 	@Ok("jsp:/admin/resource-editer.jsp")
-	public Resource edite() {
-		return editer(null);
+	public Resource edite(HttpServletRequest request) {
+		return editer(null, request);
 	}
 
 	@At("/admin/resource/editer/?")
 	@Ok("jsp:/admin/resource-editer.jsp")
-	public Resource editer(Integer id) {
+	public Resource editer(Integer id, HttpServletRequest request) {
+		request.setAttribute("categorys", StaticValue.categorys);
 		if (id == null || id < 1) {
 			return null;
 		} else {
-			return generalService.find(id, Resource.class);
+			return resourceService.get(id);
 		}
 	}
 
@@ -63,7 +72,7 @@ public class AdminResourceAction {
 			obj.setAuthor("ansj");
 
 			if (obj.getId() != null) {
-				old = generalService.find(obj.getId(), Resource.class);
+				old = resourceService.get(obj.getId());
 			}
 
 			obj.setUpdateTime(new Date());

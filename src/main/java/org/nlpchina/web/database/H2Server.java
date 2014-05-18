@@ -20,7 +20,7 @@ public class H2Server {
 		}
 		try {
 			System.out.println("正在启动h2...");
-			server = Server.createTcpServer().start();
+			server = Server.createTcpServer("-webPort","9093","-tcpPort","9092").start();
 		} catch (SQLException e) {
 			System.out.println("启动h2出错：" + e.toString());
 			e.printStackTrace();

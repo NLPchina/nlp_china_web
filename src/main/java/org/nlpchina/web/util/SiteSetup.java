@@ -1,10 +1,6 @@
 package org.nlpchina.web.util;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.nlpchina.web.database.H2Server;
-import org.nlpchina.web.domain.Tag;
 import org.nlpchina.web.service.GeneralService;
 import org.nutz.mvc.NutConfig;
 import org.nutz.mvc.Setup;
@@ -20,6 +16,11 @@ public class SiteSetup implements Setup {
 	 */
 	public void init(NutConfig nc) {
 		H2Server.startServer();
+		
+		//加载全站数据
+		GeneralService generalService = nc.getIoc().get(GeneralService.class) ;
+		StaticValue.updateCategorys(generalService);
+		StaticValue.updateTags(generalService);
 	}
 
 	public void destroy(NutConfig nc) {

@@ -24,6 +24,10 @@ create table category (
 	name  varchar(31) NOT NULL
 ) ;
 
+insert into category(id,name) values(1,'学术论文') ;
+insert into CATEGORY(id,name) values(2,'语料资源') ;
+insert into CATEGORY(id,name) values(3,'技术文档') ;
+insert into CATEGORY(id,name) values(4,'开源项目') ;
 
 
 create table resource (

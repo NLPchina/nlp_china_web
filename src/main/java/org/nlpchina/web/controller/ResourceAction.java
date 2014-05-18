@@ -1,14 +1,10 @@
 package org.nlpchina.web.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
-import org.nlpchina.web.domain.Resource;
-import org.nlpchina.web.domain.Tag;
 import org.nlpchina.web.service.GeneralService;
+import org.nlpchina.web.service.ResourceService;
 import org.nlpchina.web.util.StaticValue;
-import org.nutz.dao.Cnd;
 import org.nutz.dao.pager.Pager;
 import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
@@ -27,24 +23,20 @@ public class ResourceAction {
 	@Inject
 	private GeneralService generalService;
 
+	@Inject
+	private ResourceService resourceService;
+
 	@At("/resource/list")
 	@Ok("jsp:/resource-list.jsp")
-	public void list(HttpServletRequest request) {
+	public void list(HttpServletRequest request, Pager pager) {
 		list(request, null);
 	}
 
 	@At("/resource/list/?")
 	@Ok("jsp:/resource-list.jsp")
-	public void list(HttpServletRequest request, Integer categoryId) {
-		List<Resource> all = null;
-
-		if (categoryId == null) {
-			all = generalService.search(Resource.class, "id");
-		} else {
-			all = generalService.search(Resource.class, Cnd.where("categoryId", "=", categoryId));
-		}
-
+	public void list(HttpServletRequest request, Integer categoryId, Pager pager) {
 		request.setAttribute("tags", StaticValue.tags);
-		request.setAttribute("all", all);
+		request.setAttribute("all", resourceService.search(categoryId, "id", pager));
+		request.setAttribute("pager", pager);
 	}
 }

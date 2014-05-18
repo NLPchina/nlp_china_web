@@ -1,4 +1,5 @@
 <%@page language="java" pageEncoding="UTF-8"%>
+<%@include file="/common/taglibs.jsp"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -35,16 +36,16 @@
 									<div class="control-group">
 										<label for="check" class="control-label">标题</label>
 										<div class="controls">
-											<input type="text" name="obj.title" id="obj.title" class='span6 input-square required'/>
+											<input type="text" name="obj.title" id="obj.title" class='span6 input-square required' value="${obj.title}"/>
 											&nbsp;&nbsp;&nbsp;&nbsp;
 											<select name="obj.categoryId" id="obj.categoryId">
-												<option value="1">学术论文</option>
-												<option value="2">语料资源</option>
-												<option value="3">技术文档</option>
-												<option value="4">开源项目</option>
+												<c:forEach items="${categorys }" var="category">
+												<option value="${category.id }">${category.name }</option>
+												</c:forEach>
 											</select>
 										</div>
 									</div>
+									
 									
 									<div class="control-group">
 										<label for="check" class="control-label">类型图片</label>
@@ -53,37 +54,37 @@
 												<tr>
 													<td>
 														<label>
-															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="calulator" checked="checked">
+															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="calulator" checked="${obj.id==null?"checked":""}${obj.sysImg=="calulator"?"checked":""}">
 															<img src="${ctx}/images/file-ico/calulator.png" style="width: 64px;height: 64px;"/>
 														</label>
 													</td>
 													<td>
 														<label>
-															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="document">
+															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="document" checked="${obj.sysImg=="document"?"checked":""}">
 															<img src="${ctx}/images/file-ico/document.png" style="width: 64px;height: 64px;"/>
 														</label>
 													</td>
 													<td>
 														<label>
-															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="pdf">
+															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="pdf" checked="${obj.sysImg=="pdf"?"checked":""}">
 															<img src="${ctx}/images/file-ico/pdf.png" style="width: 64px;height: 64px;"/>
 														</label>
 													</td>
 													<td>
 														<label>
-															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="rar">
+															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="rar"  checked="${obj.sysImg=="rar"?"checked":""}">
 															<img src="${ctx}/images/file-ico/rar.png" style="width: 64px;height: 64px;"/>
 														</label>
 													</td>
 													<td>
 														<label>
-															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="soft">
+															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="soft"  checked="${obj.sysImg=="soft"?"checked":""}">
 															<img src="${ctx}/images/file-ico/soft.png" style="width: 64px;height: 64px;"/>
 														</label>
 													</td>
 													<td>
 														<label>
-															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="word">
+															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="word"  checked="${obj.sysImg=="word"?"checked":""}">
 															<img src="${ctx}/images/file-ico/word.png" style="width: 64px;height: 64px;"/>
 														</label>
 													</td>
@@ -95,21 +96,21 @@
 									<div class="control-group">
 										<label for="textcounter" class="control-label">摘要</label>
 										<div class="controls">
-											<textarea name="obj.summary" id="obj.summary" class='input-square span9 counter required' data-max="255" rows='6'></textarea>
+											<textarea name="obj.summary" id="obj.summary" class='input-square span9 counter required' data-max="255" rows='6'>${obj.summary }</textarea>
 										</div>
 									</div>
 									
 									<div class="control-group">
 										<label for="check" class="control-label">访问地址</label>
 										<div class="controls">
-											<input type="text" name="obj.visitUrl" id="obj.visitUrl" class='span9 input-square'/>
+											<input type="text" name="obj.visitUrl" id="obj.visitUrl" class='span9 input-square' value="${obj.visitUrl }"/>
 										</div>
 									</div>
 									
 									<div class="control-group">
 										<label for="tags" class="control-label">Tags</label>
 										<div class="controls">
-											<input type="text" id="obj.tags" name="obj.tags" value="" class='tagsinput span9'/>
+											<input type="text" id="obj.tags" name="obj.tags" value="${obj.tags }" class='tagsinput span9'/>
 										</div>
 									</div>
 									<div class="form-actions" align="left">
