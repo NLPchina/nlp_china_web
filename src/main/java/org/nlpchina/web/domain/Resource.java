@@ -31,6 +31,8 @@ public class Resource {
 	private String visitUrl;
 	@Column("category_id")
 	private Integer categoryId;
+	
+	private String tags ;
 
 	public Integer getId() {
 		return id;
@@ -104,4 +106,13 @@ public class Resource {
 		this.categoryId = categoryId;
 	}
 
+	public String getTags() {
+		return tags;
+	}
+
+	public void setTags(String tags) {
+		this.tags = tags;
+	}
+
+	
 }

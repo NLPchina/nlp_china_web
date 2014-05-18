@@ -1,4 +1,4 @@
-package org.nlpchina.web.dao;
+package org.nlpchina.web.service;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -31,9 +31,9 @@ import org.nutz.ioc.loader.annotation.IocBean;
  * @author Administrator
  */
 @IocBean
-public class BasicDao {
+public class GeneralService {
 
-    public BasicDao(String jdbcUrl, String name, String password) {
+    public GeneralService(String jdbcUrl, String name, String password) {
         SimpleDataSource ds = new SimpleDataSource();
         ds.setJdbcUrl(jdbcUrl);
         ds.setUsername(name);
@@ -41,7 +41,7 @@ public class BasicDao {
         this.dao = new NutDao(ds);
     }
 
-    public BasicDao() {
+    public GeneralService() {
 
     }
 

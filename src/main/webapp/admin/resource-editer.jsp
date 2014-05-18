@@ -109,7 +109,7 @@
 									<div class="control-group">
 										<label for="tags" class="control-label">Tags</label>
 										<div class="controls">
-											<input type="text" id="tags" name="tags" value="" class='tagsinput span9'/>
+											<input type="text" id="obj.tags" name="obj.tags" value="" class='tagsinput span9'/>
 										</div>
 									</div>
 									<div class="form-actions" align="left">

@@ -4,9 +4,10 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.nlpchina.web.dao.BasicDao;
 import org.nlpchina.web.domain.Resource;
 import org.nlpchina.web.domain.Tag;
+import org.nlpchina.web.service.GeneralService;
+import org.nlpchina.web.util.StaticValue;
 import org.nutz.dao.Cnd;
 import org.nutz.dao.pager.Pager;
 import org.nutz.ioc.loader.annotation.Inject;
@@ -24,7 +25,7 @@ import org.nutz.mvc.annotation.Ok;
 public class ResourceAction {
 
 	@Inject
-	private BasicDao basicDao;
+	private GeneralService generalService;
 
 	@At("/resource/list")
 	@Ok("jsp:/resource-list.jsp")
@@ -35,16 +36,15 @@ public class ResourceAction {
 	@At("/resource/list/?")
 	@Ok("jsp:/resource-list.jsp")
 	public void list(HttpServletRequest request, Integer categoryId) {
-		List<Tag> tags = basicDao.search(Tag.class, Cnd.where("type", "=", 1));
-		List<Resource> all = null ;
-		
-		if(categoryId==null){
-			all = basicDao.search(Resource.class, "id");
-		}else{
-			all = basicDao.search(Resource.class, Cnd.where("categoryId", "=", categoryId));
+		List<Resource> all = null;
+
+		if (categoryId == null) {
+			all = generalService.search(Resource.class, "id");
+		} else {
+			all = generalService.search(Resource.class, Cnd.where("categoryId", "=", categoryId));
 		}
-		
-		request.setAttribute("tags", tags);
+
+		request.setAttribute("tags", StaticValue.tags);
 		request.setAttribute("all", all);
 	}
 }
