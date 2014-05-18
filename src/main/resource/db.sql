@@ -35,7 +35,6 @@ create table resource (
 	publish_time  varchar(255) NOT NULL,
 	update_time  varchar(255) NOT NULL,
 	author  varchar(31) NOT NULL,
-	down_url  varchar(255) ,
 	visit_url  varchar(255) ,
 	category_id int 
 ) ;

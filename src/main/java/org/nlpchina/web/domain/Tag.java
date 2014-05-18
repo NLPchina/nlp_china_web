@@ -12,6 +12,15 @@ import org.nutz.dao.entity.annotation.Table;
  */
 @Table("tag")
 public class Tag {
+
+	public Tag() {
+	};
+
+	public Tag(String name, Integer type) {
+		this.name = name;
+		this.type = type;
+	}
+
 	@Id
 	private Integer id;
 	@Column

@@ -2,23 +2,34 @@ package org.nlpchina.web.domain;
 
 import java.util.Date;
 
+import org.nutz.dao.entity.annotation.Column;
+import org.nutz.dao.entity.annotation.Id;
+import org.nutz.dao.entity.annotation.Table;
+
 /**
  * 资源实体类
  * 
  * @author ansj
  * 
  */
+@Table("resource")
 public class Resource {
+	@Id
 	private Integer id;
+	@Column
 	private String title;
-	private String bannerImg; // 广告图片
+	@Column("sys_img")
 	private String sysImg; // 系统图片.
+	@Column
 	private String summary;
+	@Column("publish_time")
 	private Date publishTime;
+	@Column("update_time")
 	private Date updateTime;
+	@Column
 	private String author;
-	private String downUrl;
 	private String visitUrl;
+	@Column("category_id")
 	private Integer categoryId;
 
 	public Integer getId() {
@@ -35,14 +46,6 @@ public class Resource {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public String getBannerImg() {
-		return bannerImg;
-	}
-
-	public void setBannerImg(String bannerImg) {
-		this.bannerImg = bannerImg;
 	}
 
 	public String getSysImg() {
@@ -83,14 +86,6 @@ public class Resource {
 
 	public void setAuthor(String author) {
 		this.author = author;
-	}
-
-	public String getDownUrl() {
-		return downUrl;
-	}
-
-	public void setDownUrl(String downUrl) {
-		this.downUrl = downUrl;
 	}
 
 	public String getVisitUrl() {

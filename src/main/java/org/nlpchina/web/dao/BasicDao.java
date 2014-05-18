@@ -121,6 +121,8 @@ public class BasicDao {
     public <T> List<T> search(Class<T> c, Condition condition) {
         return dao.query(c, condition);
     }
+    
+  
 
     /**
      * 分页查询表中所有数据

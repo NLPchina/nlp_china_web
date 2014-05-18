@@ -17,7 +17,7 @@
 		<a href="dashboard.html" class='company'>NLPChina 后台管理</a>
 		<ul class='mini'>
 			<li class='dropdown dropdown-noclose supportContainer'>
-				<a href="resource-list.jsp" class='dropdown-toggle' data-toggle="dropdown" target="iframepage">
+				<a href="${ctx }/admin/resource/list" class='dropdown-toggle' data-toggle="dropdown" target="iframepage">
 					<img src="img/icons/fugue/book-question.png" alt="">
 					资源管理
 				</a>
@@ -25,7 +25,7 @@
 			<li class='dropdown pendingContainer'>
 				<a href="resource-editer.jsp" data-toggle="dropdown" class='dropdown-toggle' target="iframepage">
 					<img src="img/icons/fugue/document-task.png" alt="">
-					文档管理
+					文档工具
 				</a>
 			</li>
 			<li class='dropdown messageContainer'>
@@ -61,7 +61,7 @@
 
 
 <div class="main">
-		<iframe src="resource-list.jsp" id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%" onLoad="iFrameHeight()" ></iframe>
+		<iframe src="${ctx }/admin/resource/list" id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%" onLoad="iFrameHeight()" ></iframe>
 </div>
 </body>
 

@@ -28,22 +28,22 @@
 <!-- maincontent start here -->
 <section id="content-wrapper">   
     <div class="row">
-        <div class="eight columns">            
-            <!-- blog post 1 -->
+        <div class="eight columns">   
+        
+        <c:forEach items="${all }" var="resource">
             <div class="blog-post">
-            	<img src="${ctx}/images/sample-images/blog-post1.jpg" alt="blog-img">
                 <div class="post-info">
             		<img src="${ctx}/images/file-ico/pdf.png" alt="blog-img" >
                     <div class="big-date">01</div>
                     <div class="small-month">Aug 2012</div>
                     <ul>
-                        <li class="author-icon"><a href="#">Andrew Garfield</a></li>
+                        <li class="author-icon"><a href="#">${resource.author }</a></li>
                     </ul>
                 </div>
-                <div class="post-content">          	                  
-                    <h4><a href="single.html">资源共享：281M企业名录</a></h4>
-                    <p>此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!.</p>
-                    <div>
+                <div class="post-content">            	                  
+                    <h4><a href="single.html">${resource.title }</a></h4>
+                    <p>${resource.summary }</p>
+                     <div>
 	                    <a class="button small blue" href="#">自然语言处理</a>
 	                    <a class="button small green" href="#">机器学习</a>
 	                    <a class="button small orange" href="#">中文分词</a>
@@ -52,122 +52,7 @@
                     </div>
                 </div>     
             </div>
-            
-            <!-- blog post 2 -->
-            <div class="blog-post">
-                <div class="post-info">
-            		<img src="${ctx}/images/file-ico/calulator.png" alt="blog-img" >
-                    <div class="big-date">01</div>
-                    <div class="small-month">Aug 2012</div>
-                    <ul>
-                        <li class="author-icon"><a href="#">Andrew Garfield</a></li>
-                    </ul>
-                </div>
-                <div class="post-content">            	                  
-                    <h4><a href="single.html">资源共享：281M企业名录</a></h4>
-                    <p>此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!.</p>
-                    <div class="tag-cloud">
-	                    <a title="Link title" href="#">自然语言处理</a>
-	                    <a title="Link title" href="#">机器学习</a>
-	                    <a title="Link title" href="#">中文分词</a>
-	                    <a title="Link title" href="#">文本分类</a>
-	                    <a title="Link title" href="#">机器翻译</a>
-                    </div>
-                </div>     
-            </div>
-            
-            <!-- blog post 2 -->
-            <div class="blog-post">
-                <div class="post-info">
-            		<img src="${ctx}/images/file-ico/word.png" alt="blog-img" >
-                    <div class="big-date">01</div>
-                    <div class="small-month">Aug 2012</div>
-                    <ul>
-                        <li class="author-icon"><a href="#">Andrew Garfield</a></li>
-                    </ul>
-                </div>
-                <div class="post-content">            	                  
-                    <h4><a href="single.html">资源共享：281M企业名录</a></h4>
-                    <p>此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!.</p>
-                    <div class="tag-cloud">
-	                    <a title="Link title" href="#">自然语言处理</a>
-	                    <a title="Link title" href="#">机器学习</a>
-	                    <a title="Link title" href="#">中文分词</a>
-	                    <a title="Link title" href="#">文本分类</a>
-	                    <a title="Link title" href="#">机器翻译</a>
-                    </div>
-                </div>     
-            </div>
-            
-            
-             <div class="blog-post">
-                <div class="post-info">
-            		<img src="${ctx}/images/file-ico/rar.png" alt="blog-img" >
-                    <div class="big-date">01</div>
-                    <div class="small-month">Aug 2012</div>
-                    <ul>
-                        <li class="author-icon"><a href="#">Andrew Garfield</a></li>
-                    </ul>
-                </div>
-                <div class="post-content">            	                  
-                    <h4><a href="single.html">资源共享：281M企业名录</a></h4>
-                    <p>此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!.</p>
-                    <div class="tag-cloud">
-	                    <a title="Link title" href="#">自然语言处理</a>
-	                    <a title="Link title" href="#">机器学习</a>
-	                    <a title="Link title" href="#">中文分词</a>
-	                    <a title="Link title" href="#">文本分类</a>
-	                    <a title="Link title" href="#">机器翻译</a>
-                    </div>
-                </div>     
-            </div>
-            
-            
-            <div class="blog-post">
-                <div class="post-info">
-            		<img src="${ctx}/images/file-ico/document.png" alt="blog-img" >
-                    <div class="big-date">01</div>
-                    <div class="small-month">Aug 2012</div>
-                    <ul>
-                        <li class="author-icon"><a href="#">Andrew Garfield</a></li>
-                    </ul>
-                </div>
-                <div class="post-content">            	                  
-                    <h4><a href="single.html">资源共享：281M企业名录</a></h4>
-                    <p>此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!.</p>
-                    <div class="tag-cloud">
-	                    <a title="Link title" href="#">自然语言处理</a>
-	                    <a title="Link title" href="#">机器学习</a>
-	                    <a title="Link title" href="#">中文分词</a>
-	                    <a title="Link title" href="#">文本分类</a>
-	                    <a title="Link title" href="#">机器翻译</a>
-                    </div>
-                </div>     
-            </div>
-            
-            
-            <div class="blog-post">
-                <div class="post-info">
-            		<img src="${ctx}/images/file-ico/soft.png" alt="blog-img" >
-                    <div class="big-date">01</div>
-                    <div class="small-month">Aug 2012</div>
-                    <ul>
-                        <li class="author-icon"><a href="#">Andrew Garfield</a></li>
-                    </ul>
-                </div>
-                <div class="post-content">            	                  
-                    <h4><a href="single.html">资源共享：281M企业名录</a></h4>
-                    <p>此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!此内容包含500w企业名称.可以用于做机构名称的识别,具有较好的研究价值,来源地址不详!.</p>
-                    <div class="tag-cloud">
-	                    <a title="Link title" href="#">自然语言处理</a>
-	                    <a title="Link title" href="#">机器学习</a>
-	                    <a title="Link title" href="#">中文分词</a>
-	                    <a title="Link title" href="#">文本分类</a>
-	                    <a title="Link title" href="#">机器翻译</a>
-                    </div>
-                </div>     
-            </div>
-            
+            </c:forEach>  
             
             <!-- begin of pagination -->
             <div class="blog-pagination">
