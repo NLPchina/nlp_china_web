@@ -23,7 +23,7 @@
 				</a>
 			</li>
 			<li class='dropdown pendingContainer'>
-				<a href="resource-editer.jsp" data-toggle="dropdown" class='dropdown-toggle' target="iframepage">
+				<a href="http://ansjsun.github.io/ansj_seg/" data-toggle="dropdown" class='dropdown-toggle' target="iframepage">
 					<img src="img/icons/fugue/document-task.png" alt="">
 					文档工具
 				</a>

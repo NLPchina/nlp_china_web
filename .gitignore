@@ -1,7 +1,5 @@
 *.class
 # Package Files #
-*.war
-*.ear
 .settings/
 .classpath
 .project
@@ -11,4 +9,4 @@ bin/
 data/
 ._.DS_Store
 ._*
-target/
+/target
