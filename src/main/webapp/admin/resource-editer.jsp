@@ -39,8 +39,8 @@
 											<input type="text" name="obj.title" id="obj.title" class='span6 input-square required' value="${obj.title}"/>
 											&nbsp;&nbsp;&nbsp;&nbsp;
 											<select name="obj.categoryId" id="obj.categoryId">
-												<c:forEach items="${categorys }" var="category">
-												<option value="${category.id }">${category.name }</option>
+												<c:forEach items="${APP_CATEGORYS }" var="category">
+												<option value="${category.id }" ${obj.categoryId==category.id?"selected='selected'":""}>${category.name }</option>
 												</c:forEach>
 											</select>
 										</div>
@@ -54,37 +54,37 @@
 												<tr>
 													<td>
 														<label>
-															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="calulator" checked="${obj.id==null?"checked":""}${obj.sysImg=="calulator"?"checked":""}">
+															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="calulator" ${obj.sysImg=="calulator"?"checked='checked'":""}>
 															<img src="${ctx}/images/file-ico/calulator.png" style="width: 64px;height: 64px;"/>
 														</label>
 													</td>
 													<td>
 														<label>
-															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="document" checked="${obj.sysImg=="document"?"checked":""}">
+															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="document" ${obj.sysImg=="document"?"checked='checked'":""}>
 															<img src="${ctx}/images/file-ico/document.png" style="width: 64px;height: 64px;"/>
 														</label>
 													</td>
 													<td>
 														<label>
-															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="pdf" checked="${obj.sysImg=="pdf"?"checked":""}">
+															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="pdf" ${obj.sysImg=="pdf"?"checked='checked'":""}>
 															<img src="${ctx}/images/file-ico/pdf.png" style="width: 64px;height: 64px;"/>
 														</label>
 													</td>
 													<td>
 														<label>
-															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="rar"  checked="${obj.sysImg=="rar"?"checked":""}">
+															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="rar"  ${obj.sysImg=="rar"?"checked='checked'":""}>
 															<img src="${ctx}/images/file-ico/rar.png" style="width: 64px;height: 64px;"/>
 														</label>
 													</td>
 													<td>
 														<label>
-															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="soft"  checked="${obj.sysImg=="soft"?"checked":""}">
+															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="soft" ${obj.sysImg=="soft"?"checked='checked'":""}>
 															<img src="${ctx}/images/file-ico/soft.png" style="width: 64px;height: 64px;"/>
 														</label>
 													</td>
 													<td>
 														<label>
-															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="word"  checked="${obj.sysImg=="word"?"checked":""}">
+															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="word" ${obj.sysImg=="word"?"checked='checked'":""}>
 															<img src="${ctx}/images/file-ico/word.png" style="width: 64px;height: 64px;"/>
 														</label>
 													</td>
@@ -110,8 +110,9 @@
 									<div class="control-group">
 										<label for="tags" class="control-label">Tags</label>
 										<div class="controls">
-											<input type="text" id="obj.tags" name="obj.tags" value="${obj.tags }" class='tagsinput span9'/>
+											<input type="text" id="tags" name="obj.tags" value="${obj.tags}" class='tagsinput span12'>
 										</div>
+									</div>
 									</div>
 									<div class="form-actions" align="left">
 										<button class="btn btn-primary" type="submit">Send</button>

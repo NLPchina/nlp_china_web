@@ -1,11 +1,16 @@
 package org.nlpchina.web.domain;
 
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 import org.nlpchina.web.util.StaticValue;
 import org.nutz.dao.entity.annotation.Column;
 import org.nutz.dao.entity.annotation.Id;
 import org.nutz.dao.entity.annotation.Table;
+
+import com.alibaba.druid.util.StringUtils;
+import com.google.common.collect.Lists;
 
 /**
  * 资源实体类
@@ -29,6 +34,7 @@ public class Resource {
 	private Date updateTime;
 	@Column
 	private String author;
+	@Column("visit_url")
 	private String visitUrl;
 	@Column("category_id")
 	private Integer categoryId;
@@ -116,7 +122,18 @@ public class Resource {
 	}
 
 	public String getCategoryStr() {
-		Category category = StaticValue.categoryMap.get(this.id);
+		Category category = StaticValue.categoryMap.get(this.categoryId);
+		if(category==null){
+			return null ;
+		}
 		return category.getName();
 	}
+
+	public List<String> getTagList() {
+		if (StringUtils.isEmpty(tags)) {
+			return Collections.emptyList();
+		}
+		return Lists.newArrayList(tags.split(","));
+	}
+	
 }

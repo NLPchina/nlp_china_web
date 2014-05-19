@@ -110,7 +110,7 @@ $(document).ready(function() {
 <section id="content-wrapper">
     <div class="row">
         <div class="three columns mobile-two">
-            <h5>Make life happier &raquo;</h5>
+            <h5>语料资源分享 &raquo;</h5>
             <div class="link-zoom">
                 <a class="fancybox" href="images/portfolio-big/pf-big.jpg" title="Hyperion">
                     <img src="images/sample-images/front-img1.jpg" alt="" class="fade" />
@@ -118,7 +118,7 @@ $(document).ready(function() {
             </div>
         </div>
         <div class="three columns mobile-two">
-            <h5>Why we made it &raquo;</h5>
+            <h5>制作技术文档 &raquo;</h5>
             <div class="link-url">
                 <a href="http://sc.chinaz.com" target="_self">
                     <img src="images/sample-images/front-img2.jpg" alt="" class="fade" />
@@ -126,7 +126,7 @@ $(document).ready(function() {
             </div>
         </div>
         <div class="three columns mobile-two">
-            <h5>Known the process &raquo;</h5>
+            <h5>开源项目展示 &raquo;</h5>
             <div class="link-more">
                 <a href="about.html">
                     <img src="images/sample-images/front-img3.jpg" alt="" class="fade" />
@@ -134,7 +134,7 @@ $(document).ready(function() {
             </div>
         </div>
         <div class="three columns mobile-two">
-            <h5>Take a tour &raquo;</h5>
+            <h5>有趣的开发者们 &raquo;</h5>
             <div class="link-video">
                 <a class="fancybox" href="http://sc.chinaz.com" title="Hyperion Sample Video">
                     <img src="images/sample-images/front-img4.jpg" alt="" class="fade" />

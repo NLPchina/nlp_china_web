@@ -38,8 +38,15 @@ public class ResourceService {
 
 		if (categoryId != null) {
 			query = dao.query(Resource.class, Cnd.where("categoryId", "=", categoryId).desc("id"), pager);
+			if (pager != null) {
+				pager.setRecordCount(dao.count(Resource.class, Cnd.where("categoryId", "=", categoryId)));
+			}
+
 		} else {
 			query = dao.query(Resource.class, Cnd.orderBy().desc("id"), pager);
+			if (pager != null) {
+				pager.setRecordCount(dao.count(Resource.class));
+			}
 		}
 		for (Resource resource : query) {
 			Sql sql = Sqls.create("select t.name from tag as t, resource_tag as rt where rt.resource_id = " + resource.getId() + " and rt.tag_id = t.id");
@@ -49,7 +56,7 @@ public class ResourceService {
 					// TODO Auto-generated method stub
 					List<String> result = new ArrayList<String>();
 					while (rs.next()) {
-						result.add(rs.getString(0));
+						result.add(rs.getString(1));
 					}
 					return Joiner.on(',').join(result);
 				}
@@ -61,6 +68,7 @@ public class ResourceService {
 
 	/**
 	 * 找到一个tag和级联的信息
+	 * 
 	 * @param id
 	 * @return
 	 */
@@ -74,7 +82,7 @@ public class ResourceService {
 				// TODO Auto-generated method stub
 				List<String> result = new ArrayList<String>();
 				while (rs.next()) {
-					result.add(rs.getString(0));
+					result.add(rs.getString(1));
 				}
 				return Joiner.on(',').join(result);
 			}

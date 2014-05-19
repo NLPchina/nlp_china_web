@@ -1,0 +1,16 @@
+<div class="panel">
+	<div class="accordion-heading">
+		<div class="checkbox pull-right">
+			<label> <input id="input-enable-extension-<%= extensionId %>"
+				type="checkbox"<% if(!isOptional) print('disabled') %>>
+				enabled
+			</label>
+		</div>
+		<a data-toggle="collapse" data-parent=".accordion-extensions"
+			class="accordion-toggle" href="#accordion-extensions-collapse-<%= extensionId %>">
+			<%= extensionName %> </a>
+	</div>
+	<div id="accordion-extensions-collapse-<%= extensionId %>" class="collapse">
+		<div class="accordion-inner clearfix"><%= settingsBlock %></div>
+	</div>
+</div>

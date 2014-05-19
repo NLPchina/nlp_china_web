@@ -33,22 +33,21 @@
         <c:forEach items="${all }" var="resource">
             <div class="blog-post">
                 <div class="post-info">
-            		<img src="${ctx}/images/file-ico/pdf.png" alt="blog-img" >
-                    <div class="big-date">01</div>
-                    <div class="small-month">Aug 2012</div>
+            		<img src="${ctx}/images/file-ico/${resource.sysImg }.png" alt="blog-img" >
+                    <div class="big-date"><fmt:formatDate value="${resource.publishTime}" pattern="dd"/></div>
+                    <div class="small-month"><fmt:formatDate value="${resource.publishTime}" pattern="MM"/> <fmt:formatDate value="${resource.publishTime}" pattern="yyyy"/></div>
                     <ul>
                         <li class="author-icon"><a href="#">${resource.author }</a></li>
+                        <li class="tag-icon"><a href="#">${resource.categoryStr }</a></li>
                     </ul>
                 </div>
                 <div class="post-content">            	                  
                     <h4><a href="single.html">${resource.title }</a></h4>
                     <p>${resource.summary }</p>
                      <div>
-	                    <a class="button small blue" href="#">自然语言处理</a>
-	                    <a class="button small green" href="#">机器学习</a>
-	                    <a class="button small orange" href="#">中文分词</a>
-	                    <a class="button small gray" href="#">文本分类</a>
-	                    <a class="button small red" href="#">机器翻译</a>
+                     	<c:forEach items="${resource.tagList }" var="tagName">
+		                    <a name="tag" class="button small blue" href="#">${tagName }</a>
+	                    </c:forEach>
                     </div>
                 </div>     
             </div>
@@ -57,7 +56,14 @@
             <!-- begin of pagination -->
             <div class="blog-pagination">
                 <div class="pages blogpages">
-                    <span class="pageof">Page 1 of 3</span><a href="#" class="current">1</a><a href="#">2</a><a href="#">3</a><a href="#">&raquo;</a>
+                    <span class="pageof">Page ${pager.pageNumber } of ${pager.pageCount }</span>
+                    	<c:forEach var="item" varStatus="status" begin="${pager.pageNumber-3<1?1:pager.pageNumber-3 }" end="${pager.pageNumber+5>=pager.pageCount?pager.pageCount:pager.pageNumber+5 }">
+						  <a href='${requestScope['javax.servlet.forward.request_uri']}?pager.pageNumber=${item}' ${pager.pageNumber==item?"class='current'":"" }>${item }</a>
+						</c:forEach>
+					<c:if test="${pager.pageNumber != pager.pageCount}">
+						<a href="${requestScope['javax.servlet.forward.request_uri']}?pager.pageNumber=${pager.pageNumber+1}">&raquo;</a>
+					</c:if>
+                    
                 </div>
             </div>
             <!-- end of pagination -->            
@@ -76,10 +82,9 @@
         	<aside>
                 <h5>Categories</h5>
                 <ul class="sidebar-list">
-                    <li><a href="#">学术论文</a></li>                    
-                    <li><a href="#">语料资源</a></li>                                
-                    <li><a href="#">技术文档</a></li>
-                    <li><a href="#">开源项目</a></li>
+                	<c:forEach var="category" items="${APP_CATEGORYS }">
+	                    <li><a href="/resource/list/${category.id }">${category.name }</a></li>                    
+                    </c:forEach>
                 </ul>
             </aside>
             
@@ -87,7 +92,7 @@
             <aside>
             	<h5>Tag Cloud</h5>
                 <div class="tag-cloud">
-                	<c:forEach items="${tags }" var="tag">
+                	<c:forEach items="${APP_TAGS }" var="tag">
                     <a title="Link title" href="#">${tag.name }</a>
                     </c:forEach>                        
                 </div>
@@ -96,6 +101,15 @@
     </div>
 </section>
 <!-- maincontent end here -->
+
+<script type="text/javascript">
+	var style = ["white","blue","green","orange","red","gray"] ;
+	var tags = document.getElementsByName("tag") ;
+	var i = 0 ;
+	for(i = 0 ; i<tags.length ;i++){
+		tags[i].className = "button small "+style[i%style.length] ;
+	}
+</script>
 
 <!-- footer start here -->
 <%@include file="foot.jsp"%>

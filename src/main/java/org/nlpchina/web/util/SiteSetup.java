@@ -1,7 +1,6 @@
 package org.nlpchina.web.util;
 
 import org.nlpchina.web.database.H2Server;
-import org.nlpchina.web.service.GeneralService;
 import org.nutz.mvc.NutConfig;
 import org.nutz.mvc.Setup;
 
@@ -16,11 +15,10 @@ public class SiteSetup implements Setup {
 	 */
 	public void init(NutConfig nc) {
 		H2Server.startServer();
-		
 		//加载全站数据
-		GeneralService generalService = nc.getIoc().get(GeneralService.class) ;
-		StaticValue.updateCategorys(generalService);
-		StaticValue.updateTags(generalService);
+		StaticValue.updateCategorys(nc);
+		StaticValue.updateTags(nc);
+		
 	}
 
 	public void destroy(NutConfig nc) {

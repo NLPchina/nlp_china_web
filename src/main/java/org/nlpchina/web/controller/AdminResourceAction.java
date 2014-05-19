@@ -9,7 +9,6 @@ import org.nlpchina.web.domain.ResourceTag;
 import org.nlpchina.web.domain.Tag;
 import org.nlpchina.web.service.GeneralService;
 import org.nlpchina.web.service.ResourceService;
-import org.nlpchina.web.util.StaticValue;
 import org.nutz.dao.Cnd;
 import org.nutz.dao.pager.Pager;
 import org.nutz.ioc.loader.annotation.Inject;
@@ -19,6 +18,7 @@ import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.annotation.Param;
 
 import com.alibaba.druid.util.StringUtils;
+import com.alibaba.fastjson.JSONArray;
 
 @IocBean
 public class AdminResourceAction {
@@ -32,8 +32,12 @@ public class AdminResourceAction {
 	@At("/admin/resource/list")
 	@Ok("jsp:/admin/resource-list.jsp")
 	public void adminList(HttpServletRequest request, @Param("category_id") Integer categoryId, @Param("::pager") Pager pager) {
+		if(pager == null){
+			pager = new Pager() ;
+		}
 		request.setAttribute("obj", resourceService.search(categoryId, "id", pager));
 		request.setAttribute("pager", pager);
+		System.out.println(JSONArray.toJSON(pager));
 	}
 
 	@At("/admin/resource/editer")
@@ -45,7 +49,6 @@ public class AdminResourceAction {
 	@At("/admin/resource/editer/?")
 	@Ok("jsp:/admin/resource-editer.jsp")
 	public Resource editer(Integer id, HttpServletRequest request) {
-		request.setAttribute("categorys", StaticValue.categorys);
 		if (id == null || id < 1) {
 			return null;
 		} else {
@@ -93,13 +96,12 @@ public class AdminResourceAction {
 
 				// 增加新的tag关联
 				for (String tagName : split) {
-					if (StringUtils.isEmpty(tagName)) {
+					if (!StringUtils.isEmpty(tagName)) {
 						Tag tag = generalService.findByCondition(Tag.class, Cnd.where("name", "=", tagName));
 						if (tag == null) {
 							tag = new Tag(tagName, 0);
 							tag = generalService.save(tag);
 						}
-
 						generalService.save(new ResourceTag(obj.getId(), tag.getId()));
 					}
 				}

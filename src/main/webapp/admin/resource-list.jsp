@@ -46,10 +46,10 @@
 												<tr>
 													<th>id</th>
 													<th>标题</th>
-													<th>分类</th>
 													<th>发布时间</th>
-													<th>更新时间</th>
 													<th>作者</th>
+													<th>分类</th>
+													<th>标签</th>
 													<th>操作</th>
 												</tr>
 											</thead>
@@ -58,10 +58,10 @@
 												<tr>
 													<td>${resource.id }</td>
 													<td>${resource.title }</td>
-													<td>${resource.categoryId }</td>
 													<td>${resource.publishTime }</td>
-													<td>${resource.updateTime }</td>
 													<td>${resource.author }</td>
+													<td>${resource.categoryStr }</td>
+													<td>${resource.tags }</td>
 													<td>
 														<a href="${ctx }/admin/resource/editer/${resource.id }">修改</a> 
 														<a href="${ctx }/admin/resource/delete/${resource.id }">删除</a>
@@ -70,6 +70,21 @@
 												</c:forEach>
 											</tbody>
 										</table>
+										<div class="dataTables_info" id="DataTables_Table_3_info">Showing ${pager.pageNumber }  to ${pager.pageCount }</div>
+										<div class="dataTables_paginate paging_bootstrap pagination">
+											<ul>
+												<c:if test="${pager.pageNumber>1}">
+													<li class="prev disabled"><a href="${requestScope['javax.servlet.forward.request_uri']}?pager.pageNumber=${pager.pageNumber-1}">← Previous</a></li>
+												</c:if>
+												<c:forEach var="item" varStatus="status" begin="${pager.pageNumber-3<1?1:pager.pageNumber-3 }" end="${pager.pageNumber+5>=pager.pageCount?pager.pageCount:pager.pageNumber+5 }">
+												<li ${pager.pageNumber==item?"class='active'":"" }><a href='${requestScope['javax.servlet.forward.request_uri']}?pager.pageNumber=${item}'>${item }</a></li>
+													
+												</c:forEach>
+												<c:if test="${pager.pageNumber != pager.pageCount}">
+													<li class="next"><a href="${requestScope['javax.servlet.forward.request_uri']}?pager.pageNumber=${pager.pageNumber+1}">Next → </a></li>
+												</c:if>
+											</ul>
+										</div>
 									</div>
 							</div>
 						</div>

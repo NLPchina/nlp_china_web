@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>StackEdit - Recovery</title>
+        <link rel="canonical" href="https://stackedit.io/">
+        <link rel="icon" href="res-min/img/stackedit-32.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="res-min/img/stackedit-32.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="res-min/themes/default.css">
+        <script>
+            // Use http://.../?debug to serve original JavaScript files instead of minified
+            window.baseDir = 'res-min';
+            window.noStart = true;
+            window.require = {
+                baseUrl: window.baseDir,
+                deps: ['main']
+            };
+            setTimeout(function() {
+                var failure = false;
+                try {
+                    // Try to use StackEdit dependencies to save a file
+                    var utils = require('utils');
+                    utils.saveAs(JSON.stringify(localStorage), "StackEdit local storage.json");
+                }
+                catch (e) {
+                    // Try something safer
+                    document.getElementsByTagName('textarea')[0].value = JSON.stringify(localStorage);
+                    failure = true;
+                }
+                listFiles();
+                
+                // Show finish messages
+                var eltList = document.querySelectorAll(failure ? '.download-failure' : '.download-success');
+                for (var i = 0; i < eltList.length; ++i) {
+                    var elt = eltList[i];
+                    show(elt);
+                }
+            }, 5000);
+
+            function show(elt) {
+                elt.className = elt.className.replace(/ hide/, '');
+            }
+
+            var entityMap = {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': '&quot;',
+                "'": '&#39;',
+                "/": '&#x2F;'
+            };
+            
+            function escapeHtml(string) {
+                return String(string).replace(/[&<>"'\/]/g, function(s) {
+                    return entityMap[s];
+                });
+            }
+            
+            function listFiles() {      
+                // List files
+                var fileListElt = document.querySelector('.file-list');
+                fileListElt.innerHTML = '';
+                var fileIndexList = (localStorage['file.list'] || '').split(';');
+                for (var i = 0; i < fileIndexList.length; ++i) {
+                    var fileIndex = fileIndexList[i];
+                    if(!fileIndex) continue;
+                    var fileTitle = localStorage[fileIndex + '.title'];
+                    var divElt = document.createElement('div');
+                    divElt.innerHTML = [
+                        '<a href="javascript:removeFile(\'',
+                        fileIndex,
+                        '\')" class="icon-trash"></a> ',
+                        escapeHtml(fileTitle),
+                    ].join('');
+                    fileListElt.appendChild(divElt);
+                }
+            }
+                
+            function removeFile(fileIndex) {
+                var ok = confirm('Are you sure you want to remove "' + localStorage[fileIndex + '.title'] + '"?');
+                if(ok) {
+                    // Protect against multiple windows
+                    localStorage.removeItem('frontWindowId');
+                    localStorage['file.list'] = localStorage['file.list'].replace(';' + fileIndex + ';', ';');
+                    for (var key in localStorage){
+                        key.indexOf(fileIndex) === 0 && localStorage.removeItem(key);
+                    }
+                    listFiles();
+                }
+            }
+            
+            function clearLocalStorage() {
+                var ok = confirm('This will remove all your documents and settings. Are you sure?');
+                if(ok) {
+                    localStorage.clear();
+                    listFiles();
+                }
+            }
+        </script>
+        <script src="res-min/require.js"></script>
+    </head>
+    
+    <body>
+        <div class="container">
+            <br/>
+            <a href="https://stackedit.io/">
+            <img src="res-min/img/logo-promo-128.png" width="316" height="64" />
+            </a>
+            <h3>StackEdit recovery</h3>
+            <p>
+                <strong>The download of your documents and settings will start in 5 seconds...</strong>
+            </p>
+            <p>To import your documents and settings back in StackEdit:</p>
+            <blockquote>
+                <i class="icon-provider-stackedit"></i>
+                <code>Menu</code>
+                <i class="icon-angle-right"></i>
+                <i class="icon-cog"></i>
+                <code>Settings</code>
+                <i class="icon-angle-right"></i>
+                <code>Utils</code>
+                <i class="icon-angle-right"></i>
+                <i class="icon-cog-alt"></i>
+                <code>Import docs & settings</code>
+            </blockquote>
+            <p class="download-success hide text-primary">
+                <strong>
+                    <i class="icon-ok"></i>Documents and settings have been downloaded successfully.</strong>
+            </p>
+            <p class="download-failure hide text-danger">
+                <strong>
+                    <i class="icon-cancel"></i>Download failed. Please copy/paste the following content in a file:</strong>
+            </p>
+            <p>
+                <textarea class="download-failure hide form-control" rows="10"></textarea>
+            </p>
+            <p class="download-success download-failure hide">To remove one document from the local storage
+                <a href="javascript:void(0)" onclick="show(document.querySelector('.file-list'))">click here</a>.</p>
+            <p class="file-list hide"></p>
+            <p class="download-success download-failure hide">To fully clear the local storage
+                <a href="javascript:void(0)" onclick="clearLocalStorage()">click here</a>.</p>
+            <p class="download-success download-failure hide">To reopen StackEdit
+                <a href="https://stackedit.io/">click here</a>.</p>
+        </div>
+    </body>
+
+</html>
