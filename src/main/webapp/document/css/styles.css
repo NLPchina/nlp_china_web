@@ -82,10 +82,9 @@ a:hover {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
-  padding: 0.1em 0.1em;
+  padding: 0.3em 0.1em;
   position: fixed;
   overflow: hidden;
-  overflow-y: scroll;
   border-top-left-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0, .6);
   top: 3.6em;
