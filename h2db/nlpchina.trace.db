@@ -1905,3 +1905,9 @@ org.h2.jdbc.JdbcSQLException: Invalid value "0" for parameter "columnIndex" [900
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
 	at java.lang.Thread.run(Thread.java:744)
+05-20 19:02:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DESC[*]  RESOURCE "; expected "DELETE, DROP, DECLARE, DEALLOCATE, {"; SQL statement:
+desc  RESOURCE [42001-176]
+05-20 23:07:49 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "abaa7a93-7eb2-4eb0-9ee2-bb22b8ecba30"; SQL statement:
+SELECT * FROM category  WHERE id=? LIMIT 1 OFFSET 0  [22018-176]

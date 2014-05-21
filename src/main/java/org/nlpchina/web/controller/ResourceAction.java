@@ -10,8 +10,6 @@ import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.annotation.Param;
 
-import com.alibaba.fastjson.JSONArray;
-
 /**
  * 
  * @author ansj

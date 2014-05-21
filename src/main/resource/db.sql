@@ -36,8 +36,8 @@ create table resource (
 	banner_img  varchar(255) ,
 	sys_img  varchar(255) NOT NULL,
 	summary  varchar(1023) NOT NULL,
-	publish_time  varchar(255) NOT NULL,
-	update_time  varchar(255) NOT NULL,
+	publish_time  date NOT NULL,
+	update_time  date NOT NULL,
 	author  varchar(31) NOT NULL,
 	visit_url  varchar(255) ,
 	category_id int 
@@ -48,4 +48,26 @@ create table resource_tag(
 	id int auto_increment PRIMARY KEY,
 	resource_id int NOT NULL,
 	tag_id int NOT NULL
-)
+) ;
+
+
+create table doc_menu(
+	id int auto_increment PRIMARY KEY,
+	content  LONGTEXT NOT NULL,
+	author  varchar(31) NOT NULL,
+	publish_time  datetime NOT NULL,
+	update_time  datetime NOT NULL,
+	extracting_code  varchar(15) NOT NULL
+) ;
+
+DROP TABLE IF EXISTS `document` ;
+create table document(
+	id varchar(36) PRIMARY KEY,
+	content  LONGTEXT NOT NULL,
+	author  varchar(31) NOT NULL,
+	publish_time  datetime NOT NULL,
+	update_time  datetime NOT NULL,
+	extracting_code  varchar(15) NOT NULL,
+	menu_id int default NULL 
+) ;
+
