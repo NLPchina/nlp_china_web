@@ -9,7 +9,9 @@
   font-style: normal;
 }
 
-body,div,ol,ul,li {
+body,div,
+h1,h2,p,
+ol,ul,li {
   margin: 0;
   padding: 0;
   border: 0;
@@ -36,19 +38,57 @@ body {
   font: normal 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+h1 {
+  font-size: 3em;
+  line-height: 1;
+  color: #222;
+  margin-bottom: .5em;
+  float: left;
+  width: 100%;
+}
+
+h2 {
+  float: left;
+  width: 100%;
+  font-size: 1.5em;
+  color: #222;
+  margin: 1em 0 .5em;
+}
+
+p {
+  float: left;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+p.intro {
+  font-size: 1.25em;
+  color: #555;
+  font-weight: bold;
+}
+
+a {
+  color: #f4f4f4;
+  text-decoration: none;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
 
 .main {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
-  padding-left: 0.0em;
-  padding-top: 0.3em ;
+  padding: 3em 4em;
   position: fixed;
   overflow: hidden;
+  overflow-y: scroll;
   border-top-left-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0, .6);
-  top: 3.6em;
+  top: .8em;
   right: 0;
   bottom: 0;
   width: 76%;
@@ -70,7 +110,7 @@ body {
 .nav-collapse {
   position: absolute;
   width: 24%;
-  top: 3.6em;
+  top: 2em;
   left: 0;
 }
 
@@ -143,6 +183,7 @@ body {
     margin: 0 -2em 1em 0;
   }
   .nav-toggle:before {
+    color: #444; /* Edit this to change the icon color */
     font-family: "responsivenav";
     font-style: normal;
     font-weight: normal;
@@ -185,3 +226,7 @@ body {
   }
 }
 
+@media screen and (min-width: 76em) {
+  .nav-collapse { width: 18em }
+  .main { width: auto; left: 18em }
+}

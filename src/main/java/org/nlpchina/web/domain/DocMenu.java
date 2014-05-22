@@ -26,6 +26,9 @@ public class DocMenu {
 	@Column("extracting_code")
 	private String extractingCode;
 	
+	@Column("doc_id")
+	private String docId ;
+	
 	
 	private String html ;
 	
@@ -72,7 +75,13 @@ public class DocMenu {
 		this.updateTime = updateTime;
 	}
 
+	public String getDocId() {
+		return docId;
+	}
 
+	public void setDocId(String docId) {
+		this.docId = docId;
+	}
 
 	public String getHtml() {
 		return html;

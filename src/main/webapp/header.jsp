@@ -35,7 +35,13 @@
 		                <li><a href="${ctx }/resource/list/4">开源项目</a></li>
 	                </ul>
                 </li>
-                <li><a href="#">开发者文档</a></li>
+                <li class="dropdown"><a href="#">开发者文档</a>
+                	<ul> 
+		                <li><a href="${ctx }/doc/single">创建单页文档</a></li>
+		                <li><a href="${ctx }/doc/multi">创建多页文档</a></li>
+		                <li><a href="${ctx }/resource/list/3">查看我的文档</a></li>
+	                </ul>
+                </li>
                 <li class="dropdown"><a href="#">演示平台</a>
                     <ul> 
                         <li><a href="portfolio-2col.html"><span>-</span> portfolio 2 column</a></li>

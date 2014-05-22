@@ -51,12 +51,14 @@ create table resource_tag(
 ) ;
 
 
+DROP TABLE IF EXISTS `doc_menu` ;
 create table doc_menu(
 	id int auto_increment PRIMARY KEY,
 	content  LONGTEXT NOT NULL,
 	author  varchar(31) NOT NULL,
 	publish_time  datetime NOT NULL,
 	update_time  datetime NOT NULL,
+	doc_id varchar(36) NOT NULL,
 	extracting_code  varchar(15) NOT NULL
 ) ;
 

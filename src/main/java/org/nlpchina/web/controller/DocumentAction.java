@@ -1,24 +1,23 @@
 package org.nlpchina.web.controller;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.nlpchina.web.domain.DocMenu;
 import org.nlpchina.web.domain.Document;
 import org.nlpchina.web.service.GeneralService;
+import org.nlpchina.web.util.StringUtil;
 import org.nutz.dao.Cnd;
 import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.annotation.Param;
-
-import com.alibaba.druid.util.StringUtils;
-import com.alibaba.fastjson.JSONObject;
 
 @IocBean
 public class DocumentAction {
@@ -34,12 +33,15 @@ public class DocumentAction {
 	 * @throws Exception
 	 */
 	@At("/doc_menu/save/")
-	@Ok("redirect:/document/${obj.id}?code=${obj.extractingCode}")
+	@Ok("redirect:/docs/editor/${obj.id}?code=${obj.extractingCode}")
 	public DocMenu saveMenu(@Param("::docMenu") DocMenu docMenu) throws Exception {
+
+		makeMenu2Content(docMenu);
 
 		if (docMenu.getId() == null) {
 			docMenu.setPublishTime(new Date());
 			docMenu.setUpdateTime(new Date());
+			docMenu.setDocId(UUID.randomUUID().toString());
 			docMenu.setExtractingCode(UUID.randomUUID().toString().split("-")[1]);
 			docMenu.setAuthor("ansj");
 			generalService.save(docMenu);
@@ -49,128 +51,241 @@ public class DocumentAction {
 			docMenu.setAuthor("ansj");
 			docMenu.setPublishTime(oldMenu.getPublishTime());
 			docMenu.setExtractingCode(oldMenu.getExtractingCode());
+			docMenu.setDocId(oldMenu.getDocId());
 			generalService.update(docMenu);
 		}
 		return docMenu;
 	}
 
 	@At("/doc/save/")
-	@Ok("raw")
-	public String saveDoc(@Param("::document") Document document) throws Exception {
-		//修改时间
+	@Ok("json")
+	public Map<String, String> saveDoc(@Param("::document") Document document) throws Exception {
 		document.setUpdateTime(new Date());
-		
+
+		Map<String, String> result = new HashMap<String, String>();
+
 		// 先查询旧的菜单取得修改码
 		DocMenu docMenu = null;
 		if (document.getMenuId() != null) {
 			docMenu = generalService.find(document.getMenuId(), DocMenu.class);
 			if (docMenu == null) {
-				return "本文档所依付的菜单不存在!";
+				result.put("msg", "保存失败,本文档所依付的菜单不存在!");
+				return result;
 			}
 		}
 
-		Document oldDoc = generalService.findByCondition(Document.class, Cnd.where("id", "=", document.getId()));
+		if (docMenu == null) {
+			result.put("type", "single");
+		} else {
+			result.put("type", "multi");
+		}
 
+		Document oldDoc = null;
+		if (!StringUtil.isBlank(document.getId())) {
+			oldDoc = generalService.findByCondition(Document.class, Cnd.where("id", "=", document.getId()));
+		} else {
+			document.setId(UUID.randomUUID().toString());
+		}
 
 		// 全新的存储
 		if (oldDoc == null) {
 			document.setAuthor("ansj");
 			document.setPublishTime(new Date());
-			if (document.getMenuId() == null && StringUtils.isEmpty(document.getExtractingCode())) {
+			if (document.getMenuId() == null && StringUtil.isBlank(document.getExtractingCode())) {
 				document.setExtractingCode(UUID.randomUUID().toString().split("-")[1]);
 			}
 			generalService.save(document);
-			return "保存成功!";
-		}
-
-		// 验证当前文档和验证码是否一样
-		// TODO:如果当前用户是作者那么不用验证
-		if (docMenu == null) {
-			if (!oldDoc.getExtractingCode().equalsIgnoreCase(document.getExtractingCode())) {
-				return "验证码失败!";
-			}
+			result.put("msg", "保存成功!");
+			result.put("code", document.getExtractingCode());
+			result.put("id", document.getId());
+			return result;
 		} else {
-			if (!docMenu.getExtractingCode().equalsIgnoreCase(document.getExtractingCode())) {
-				return "验证码失败!";
+
+			// 验证当前文档和验证码是否一样
+			// TODO:如果当前用户是作者那么不用验证
+
+			String code = docMenu == null ? oldDoc.getExtractingCode() : docMenu.getExtractingCode();
+
+			if (!code.equalsIgnoreCase(code)) {
+				result.put("msg", "验证码错误!");
+				return result;
 			}
+
+			document.setAuthor("ansj");
+
+			document.setExtractingCode(oldDoc.getExtractingCode());
+
+			generalService.update(document);
+
+			result.put("msg", "更新成功!");
+			result.put("code", document.getExtractingCode());
+			result.put("id", document.getId());
+			return result;
 		}
-
-		document.setAuthor("ansj");
-
-		generalService.update(document);
-
-		return "保存成功";
 	}
 
 	/**
-	 * 多文档编辑
+	 * 多文档编辑初始进入页
+	 * 
+	 * @return
 	 * 
 	 * @return
 	 */
-	@At("/document/")
-	@Ok("jsp:/document/document.jsp")
-	public void multiDocument(HttpServletRequest request) {
-		request.setAttribute("canEditor", true);
-		request.setAttribute("docType", "multi");
+	@At("/docs/")
+	@Ok("jsp:/document/doc_editor.jsp")
+	public String multiDocument(HttpServletRequest request) {
+		return "multi";
 	}
 
 	/**
-	 * 单文档编辑
+	 * 单文档编辑初始进入页
 	 * 
 	 * @return
 	 */
-	@At("/document/single/")
-	@Ok("jsp:/document/document.jsp")
+	@At("/doc")
+	@Ok("jsp:/document/doc_editor.jsp")
 	public String singleDocument() {
 		return "single";
 	}
 
 	/**
-	 * 显示多文档
+	 * 单文档查看
+	 */
+	@At("/doc/?")
+	@Ok("jsp:/document/doc_view.jsp")
+	public void docView(String docId, HttpServletRequest request) {
+		Document document = generalService.findByCondition(Document.class, Cnd.where("id", "=", docId));
+		if (document == null) {
+			request.getRequestDispatcher("/404.jsp");
+		}
+		request.setAttribute("document", document);
+	}
+
+	/**
+	 * 多文档查看
+	 * 
+	 * @param docMenuId
+	 * @param request
+	 * @throws Exception
+	 */
+	@At("/docs/?")
+	@Ok("jsp:/document/doc_view.jsp")
+	public void docView(Integer docMenuId, HttpServletRequest request) throws Exception {
+		docView(docMenuId, null, request);
+	}
+
+	/**
+	 * 多文档查看
+	 * 
+	 * @param docMenuId
+	 * @param docId
+	 * @param extractingCode
+	 * @param request
+	 */
+	@At("/docs/?/?")
+	@Ok("jsp:/document/doc_view.jsp")
+	public void docView(Integer docMenuId, String docId, HttpServletRequest request) {
+
+		DocMenu docMenu = generalService.find(docMenuId, DocMenu.class);
+
+		if (docMenu == null) {
+			request.getRequestDispatcher("/404.jsp");
+		}
+
+		if (StringUtil.isBlank(docId)) {
+			docId = docMenu.getDocId();
+		}
+
+		Document document = generalService.findByCondition(Document.class, Cnd.where("id", "=", docId));
+
+		if (document == null) {
+			request.getRequestDispatcher("/404.jsp");
+		}
+
+		makeMenu2Html(docMenu, false, null);
+
+		request.setAttribute("document", document);
+		request.setAttribute("docMenu", docMenu);
+	}
+
+	/**
+	 * 单文档编辑
 	 * 
 	 * @param id
 	 * @throws Exception
 	 */
-	@At("/document/?")
-	@Ok("jsp:/document/document.jsp")
-	public void showDocuments(Integer id, @Param("code") String extractingCode, HttpServletRequest request) throws Exception {
-		DocMenu docMenu = generalService.find(id, DocMenu.class);
-		if (docMenu == null) {
-			return;
-		}
-
-		boolean canEditor = docMenu.getExtractingCode().equalsIgnoreCase(extractingCode);
-
-		boolean update = makeMenu2Html(docMenu, canEditor, extractingCode);
-
-		if (update) {
-			generalService.update(docMenu);
-		}
-
-		request.setAttribute("canEditor", docMenu.getExtractingCode().equalsIgnoreCase(extractingCode));
-
-		request.setAttribute("docMenu", docMenu);
-
-	}
-
-	@At("/document/?/?")
-	@Ok("jsp:/document/document.jsp")
-	public void showDocuments(Integer docMenuId, String docId, @Param("code") String extractingCode, HttpServletRequest request) {
+	@At("/doc/editor/?")
+	@Ok("jsp:/document/doc_editor.jsp")
+	public void docEditor(String docId, @Param("code") String extractingCode, HttpServletRequest request) {
+		// TODO:先判断用户权限
 
 		Document document = generalService.findByCondition(Document.class, Cnd.where("id", "=", docId));
+		if (document == null) {
+			request.getRequestDispatcher("/404.jsp");
+		}
+		if (!extractingCode.equals(document.getExtractingCode())) {
+			request.setAttribute("message", "你输入的提取码错误!");
+			request.getRequestDispatcher("/404.jsp");
+		}
+
+		request.setAttribute("document", document);
+	}
+
+	/**
+	 * 多文档编辑
+	 * 
+	 * @param id
+	 * @throws Exception
+	 */
+	@At("/docs/editor/?")
+	@Ok("jsp:/document/doc_editor.jsp")
+	public void docEditor(Integer docMenuId, @Param("code") String extractingCode, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		docEditor(docMenuId, null, extractingCode, request, response);
+	}
+
+	/**
+	 * 多文档编辑
+	 * 
+	 * @param docMenuId
+	 * @param docId
+	 * @param extractingCode
+	 * @param request
+	 * @throws Exception
+	 */
+	@At("/docs/editor/?/?")
+	@Ok("jsp:/document/doc_editor.jsp")
+	public void docEditor(Integer docMenuId, String docId, @Param("code") String extractingCode, HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+		// TODO:先判断用户权限
+
 		DocMenu docMenu = generalService.find(docMenuId, DocMenu.class);
+
+		if (docMenu == null) {
+			request.getRequestDispatcher("/404.jsp");
+		}
+
+		if (StringUtil.isBlank(docId)) {
+			docId = docMenu.getDocId();
+		}
+
+		Document document = generalService.findByCondition(Document.class, Cnd.where("id", "=", docId));
 
 		String updateCode = docMenu == null ? document.getExtractingCode() : docMenu.getExtractingCode();
 
 		boolean canEditor = updateCode.equalsIgnoreCase(extractingCode);
 
+		if (!canEditor) {
+			request.setAttribute("message", "你输入的提取码错误!");
+			request.getRequestDispatcher("/404.jsp").forward(request, response);
+			return;
+		}
+
 		makeMenu2Html(docMenu, canEditor, updateCode);
 
-		if(document==null){
-			document = new Document() ;
+		if (document == null) {
+			document = new Document();
 			document.setId(docId);
 		}
-		request.setAttribute("canEditor", canEditor);
 		request.setAttribute("document", document);
 		request.setAttribute("docMenu", docMenu);
 	}
@@ -182,52 +297,65 @@ public class DocumentAction {
 	 * @return
 	 * @throws Exception
 	 */
-	private boolean makeMenu2Html(DocMenu docMenu,boolean canEditor,String extractingCode) {
+	private void makeMenu2Html(DocMenu docMenu, boolean canEditor, String extractingCode) {
 
 		String content = docMenu.getContent();
 
 		String[] split = content.split("\n");
 
 		StringBuilder sb = new StringBuilder();
-		StringBuilder md = new StringBuilder();
-
-		boolean update = false;
 
 		for (String line : split) {
-			if (StringUtils.isEmpty(line)) {
-				md.append(line);
+			if (StringUtil.isBlank(line)) {
+				continue;
+			}
+			String temp = line.trim();
+			if (temp.startsWith("#")) {
+				sb.append("<li><a>" + temp.substring(1) + "</a></li>\n");
 				continue;
 			}
 
-			String[] params = line.trim().split("\\|");
-
-			List<String> list = new ArrayList<String>();
-			for (String param : params) {
-				if (!StringUtils.isEmpty(param)) {
-					list.add(param.trim());
+			String[] strs = temp.split("\\|");
+			if (strs.length == 2) {
+				if (canEditor) {
+					sb.append("<li class='active'><a href='/docs/editor/" + docMenu.getId() + "/" + strs[1] + "?code=" + extractingCode + "'>" + strs[0] + "</a></li>\n");
+				} else {
+					sb.append("<li class='active'><a href='/docs/" + docMenu.getId() + "/" + strs[1].trim() + "'>" + strs[0] + "</a></li>\n");
 				}
 			}
-			if (list.size() == 1) {
-				md.append(list.get(0) + "\n");
-				sb.append("<li><a>" + list.get(0) + "</a></li>\n");
-			} else if (list.size() == 2 && "active".equalsIgnoreCase(list.get(1))) {
-				String uuid = UUID.randomUUID().toString();
-				sb.append("<li class='active'><a href='/document/+" + docMenu.getId() + "/" + uuid +(canEditor?"?code="+extractingCode:"")+ "'>" + list.get(0) + "</a></li>\n");
-				md.append(list.get(0) + "|active|" + uuid + "\n");
-				update = true;
-			} else if (list.size() == 3 && "active".equalsIgnoreCase(list.get(1))) {
-				sb.append("<li class='active'><a href='/document/" + docMenu.getId() + "/" + list.get(2) + (canEditor?"?code="+extractingCode:"") +"'>" + list.get(0) + "</a></li>\n");
-				md.append(list.get(0) + "|active|" + list.get(2) + "\n");
-			} else {
-				md.append(line);
-			}
-
 		}
 
 		docMenu.setHtml(sb.toString());
-
-		docMenu.setContent(md.toString());
-
-		return update;
 	}
+
+	private void makeMenu2Content(DocMenu docMenu) {
+
+		String content = docMenu.getContent().replace("\r", "");
+
+		String[] split = content.split("\n");
+
+		StringBuilder md = new StringBuilder();
+
+		for (String line : split) {
+			if (StringUtil.isBlank(line)) {
+				md.append("\n");
+				continue;
+			}
+			String temp = line.trim();
+			if (temp.startsWith("#")) {
+				md.append(line + "\n");
+				continue;
+			}
+			String[] strs = temp.split("\\|");
+			if (strs.length == 1) {
+				md.append(line + "|" + UUID.randomUUID().toString() + "\n");
+			} else {
+				md.append(line + "\n");
+			}
+		}
+
+		System.out.println(md.toString());
+		docMenu.setContent(md.toString());
+	}
+
 }
