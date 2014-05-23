@@ -1,10 +1,12 @@
 package org.nlpchina.web.controller;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -150,13 +152,16 @@ public class DocumentAction {
 
 	/**
 	 * 单文档查看
+	 * @throws IOException 
+	 * @throws ServletException 
 	 */
 	@At("/doc/?")
 	@Ok("jsp:/document/doc_view.jsp")
-	public void docView(String docId, HttpServletRequest request) {
+	public void docView(String docId, HttpServletRequest request , HttpServletResponse response) throws ServletException, IOException {
 		Document document = generalService.findByCondition(Document.class, Cnd.where("id", "=", docId));
 		if (document == null) {
-			request.getRequestDispatcher("/404.jsp");
+			request.setAttribute("message", "您访问的文档没有找到!");
+			request.getRequestDispatcher("/404.jsp").forward(request, response);;
 		}
 		request.setAttribute("document", document);
 	}
@@ -202,7 +207,7 @@ public class DocumentAction {
 			request.getRequestDispatcher("/404.jsp");
 		}
 
-		makeMenu2Html(docMenu, false, null);
+		makeMenu2Html(docMenu, false, null , docId);
 
 		request.setAttribute("document", document);
 		request.setAttribute("docMenu", docMenu);
@@ -280,7 +285,7 @@ public class DocumentAction {
 			return;
 		}
 
-		makeMenu2Html(docMenu, canEditor, updateCode);
+		makeMenu2Html(docMenu, canEditor, updateCode , docId);
 
 		if (document == null) {
 			document = new Document();
@@ -297,7 +302,7 @@ public class DocumentAction {
 	 * @return
 	 * @throws Exception
 	 */
-	private void makeMenu2Html(DocMenu docMenu, boolean canEditor, String extractingCode) {
+	private void makeMenu2Html(DocMenu docMenu, boolean canEditor, String extractingCode , String activeId) {
 
 		String content = docMenu.getContent();
 
@@ -316,11 +321,25 @@ public class DocumentAction {
 			}
 
 			String[] strs = temp.split("\\|");
+			boolean active = false ;
 			if (strs.length == 2) {
+				
+				active = strs[1].equalsIgnoreCase(activeId) ;
+				
 				if (canEditor) {
-					sb.append("<li class='active'><a href='/docs/editor/" + docMenu.getId() + "/" + strs[1] + "?code=" + extractingCode + "'>" + strs[0] + "</a></li>\n");
+					sb.append("<li class='active'><a href='/docs/editor/" + docMenu.getId() + "/" + strs[1] + "?code=" + extractingCode+"'")  ;
+					if(active){
+						sb.append(" style='color:orange;'>" + strs[0] + "</a></li>\n");
+					}else{
+						sb.append("'>" + strs[0] + "</a></li>\n");
+					}
 				} else {
-					sb.append("<li class='active'><a href='/docs/" + docMenu.getId() + "/" + strs[1].trim() + "'>" + strs[0] + "</a></li>\n");
+					sb.append("<li class='active'><a href='/docs/" + docMenu.getId() + "/" + strs[1].trim() + "'");
+					if(active){
+						sb.append(" style='color:orange;'>" + strs[0] + "</a></li>\n");
+					}else{
+						sb.append("'>" + strs[0] + "</a></li>\n");
+					}
 				}
 			}
 		}

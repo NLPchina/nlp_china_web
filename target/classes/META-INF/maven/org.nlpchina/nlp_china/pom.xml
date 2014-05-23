@@ -9,6 +9,13 @@
 
 	<name>nlp_china</name>
 	<url>http://maven.apache.org</url>
+	
+	<repositories>
+        <repository>
+            <id>mvn-repo</id>
+            <url>http://maven.ansj.org/</url>
+        </repository>
+    </repositories>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -53,7 +60,12 @@
 			<artifactId>guava</artifactId>
 			<version>r09</version>
 		</dependency>
-
+		
+		<dependency>
+            <groupId>org.ansj</groupId>
+            <artifactId>ansj_seg</artifactId>
+            <version>1.4.1</version>
+        </dependency>
 
 		<dependency>
 			<groupId>junit</groupId>

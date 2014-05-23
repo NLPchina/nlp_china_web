@@ -36,7 +36,5 @@
 <script src="${ctx}/js/faq-functions.js"></script>
 <script src="${ctx}/js/theme-functions.js"></script>
  
-<script src="${ctx}/js/page.js"></script>
-
 
 <title>中国自然语言开源组织</title>

@@ -37,18 +37,12 @@
                 </li>
                 <li class="dropdown"><a href="#">开发者文档</a>
                 	<ul> 
-		                <li><a href="${ctx }/doc/single">创建单页文档</a></li>
-		                <li><a href="${ctx }/doc/multi">创建多页文档</a></li>
+		                <li><a href="${ctx }/doc/">创建单页文档</a></li>
+		                <li><a href="${ctx }/docs/">创建多页文档</a></li>
 		                <li><a href="${ctx }/resource/list/3">查看我的文档</a></li>
 	                </ul>
                 </li>
-                <li class="dropdown"><a href="#">演示平台</a>
-                    <ul> 
-                        <li><a href="portfolio-2col.html"><span>-</span> portfolio 2 column</a></li>
-                        <li><a href="portfolio-3col.html"><span>-</span> portfolio 3 column</a></li>
-                        <li><a href="portfolio-4col.html"><span>-</span> portfolio 4 column</a></li>    	
-                    </ul>
-                </li>
+                <li><a href="${ctx }/demo.jsp">演示平台</a></li>
                 <li><a href="about.html">开发者们</a></li>
             </ul>
         </nav>

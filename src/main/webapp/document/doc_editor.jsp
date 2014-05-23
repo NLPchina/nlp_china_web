@@ -110,20 +110,20 @@
 
 
 	<script>
-		previewBtn.onclick = function () {
+		$("#previewBtn").click(function () {
 			resetEditorPage() ;
 			$('#main_div').css("padding-left","4em") ;
 			$('#main_div').css("padding-top","2em") ;
 			var docEditor = window.frames["docEditor"].document ;
 			docEditor.getElementById("in").style.display="none" ;
 			docEditor.getElementById("out").style.left="0%" ;
-		}
+		}) ;
 		
-		splitScreenBtn.onclick = function () {
+		$("#splitScreenBtn").click(function () {
 			resetEditorPage() ;
 			var docEditor = window.frames["docEditor"].document ;
 			docEditor.getElementById("out").style.left="50%" ;
-		}
+		}) ;
 		
 		function resetEditorPage(){
 			$('#main_div').css("padding-left","0.0em") ;
@@ -136,7 +136,7 @@
 		
 		
 		var editor = null ;
-		editer_menuBnt.onclick = function () {
+		$("#editer_menuBnt").click(function () {
 			$('#menu').css("display","none") ;
 			$('#menu_editor').css("display","block") ;
 			if(editor==null){
@@ -147,10 +147,12 @@
 				    lineWrapping: false,
 				    theme: 'xq-dark'
 				});
+				 
 			}
-		}
+		}) ;
+		
 		//保存文档
-		saveDocumentBnt.onclick = function () {
+		$("#saveDocumentBnt").click(function () {
 			var value = window.frames["docEditor"].document.getElementById('code').value ;
 			document.getElementById("document.content").innerHTML = value ;
 			
@@ -164,18 +166,8 @@
 					
 				}
 			,"json");
-		};
-		
-		editorUrl.onclick = function () {
-			bootbox.alert("编辑地址为:<a href='#'>"+window.location.href+"</a></br> 这个地址有写入权限.请妥善保存,不要交给不可信的人!")
-		};
-		
-		viewUrl.onclick = function () {
-			var url = window.location.href ;
-			url = url.replace("/editor/","/").replace(/\?code=.+/,"") ;
-			bootbox.alert("阅读地址为:<a href='"+url+"'>"+url+"</a></br> 这个地址只读权限,你可以交给任何人阅读!") ;
-		};
-		
+		});
+
 		$(window).bind('beforeunload',function(){
 			if(document.getElementById("document.content").value == window.frames["docEditor"].document.getElementById('code').value ){
 				return null ;
@@ -186,6 +178,17 @@
 		<c:if test="${obj=='multi' && docMenu==null}">    
 		$("#editer_menuBnt").trigger("click");
 		</c:if>
+		
+		$("#editorUrl").click(function () {
+			bootbox.alert("编辑地址为:<a href='#'>"+window.location.href+"</a></br> 这个地址有写入权限.请妥善保存,不要交给不可信的人!")
+		});
+		
+		$("#viewUrl").click(function () {
+			var url = window.location.href ;
+			url = url.replace("/editor/","/").replace(/\?code=.+/,"") ;
+			bootbox.alert("阅读地址为:<a href='"+url+"'>"+url+"</a></br> 这个地址只读权限,你可以交给任何人阅读!") ;
+		});
+		
 	</script>
 </body>
 </html>

@@ -64,11 +64,13 @@
 	</div> <!-- /container -->
 	
 	<script type="text/javascript">
-	
-		$("#docEditor").load(function(){
-			var mainheight = $(this).contents().find("body").height()+30;
-			$(this).height(mainheight);
-		}); 
+		
+		$(document).ready(function(){
+			$("#docEditor").load(function(){
+				var mainheight = $(this).contents().find("body").height()+30;
+				$(this).height(mainheight);
+			}); 
+		}) ;
 	</script>
 </body>
 </html>
