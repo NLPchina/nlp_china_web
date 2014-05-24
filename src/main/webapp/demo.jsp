@@ -9,9 +9,11 @@
 <head>
 	<%@include file="common/common.jsp"%>
 	<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="${ctx }/css/wordstyle.css">
 	<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
 	<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	<script src="http://indyarmy.com/awesomeCloud/jquery.awesomeCloud-0.2.min.js"></script>
+	<script src="http://www.bootcss.com/p/chart.js/assets/Chart.js"></script>
 	
 	<style type="text/css">
 		
@@ -27,8 +29,11 @@
 		#demo-page .col-xs-9 .chunk .words .v, #demo-page .col-xs-9 .chunk .words .vd, #demo-page .col-xs-9 .chunk .words .vn, #demo-page .col-xs-9 .chunk .words .vshi, #demo-page .col-xs-9 .chunk .words .vyou, #demo-page .col-xs-9 .chunk .words .vf, #demo-page .col-xs-9 .chunk .words .vx, #demo-page .col-xs-9 .chunk .words .vi, #demo-page .col-xs-9 .chunk .words .vl, #demo-page .col-xs-9 .chunk .words .vg, #demo-page .col-xs-9 .chunk .word-mean .v, #demo-page .col-xs-9 .chunk .word-mean .vd, #demo-page .col-xs-9 .chunk .word-mean .vn, #demo-page .col-xs-9 .chunk .word-mean .vshi, #demo-page .col-xs-9 .chunk .word-mean .vyou, #demo-page .col-xs-9 .chunk .word-mean .vf, #demo-page .col-xs-9 .chunk .word-mean .vx, #demo-page .col-xs-9 .chunk .word-mean .vi, #demo-page .col-xs-9 .chunk .word-mean .vl, #demo-page .col-xs-9 .chunk .word-mean .vg
 		
 		.dl {
-			margin-top: 0;
-			margin-bottom: 20px;
+			display: block;
+			-webkit-margin-before: 1em;
+			-webkit-margin-after: 1em;
+			-webkit-margin-start: 0px;
+			-webkit-margin-end: 0px;
 		}
 	
 		.wordcloud {
@@ -37,8 +42,9 @@
 			padding: 0;
 			page-break-after: always;
 			page-break-inside: avoid;
-			width: 7in;
+			width: 8.5in;
 		}
+		
 	</style>
 </head>
 <body>
@@ -65,18 +71,17 @@
     
     <div style=" width: 100%" >
       <div class="col-md-2">
-      <!--  -->
         <div class="list-group" data-spy="affix" >
-          <a href="#" class="list-group-item active">导航条</a>
-		  <a href="#" class="list-group-item">关键词提取</a>
-		  <a href="#" class="list-group-item">NLP分词</a>
-		  <a href="#" class="list-group-item">摘要&高亮</a>
-		  <a href="#" class="list-group-item">文本分类</a>
-		  <a href="#" class="list-group-item">情感分析</a>
-		  <a href="#" class="list-group-item">语义联想</a>
-		  <a href="#jzfc" class="list-group-item">精准分词</a>
-		  <a href="#" class="list-group-item">索引分词</a>
-		  <a href="#" class="list-group-item">细粒度分词</a>
+          <a href="#" class="list-group-item">导航条</a>
+		  <a href="#keyWords" class="list-group-item">关键词提取</a>
+		  <a href="#nlpResult" class="list-group-item">NLP分词</a>
+		  <a href="#summaryStr" class="list-group-item">摘要&高亮</a>
+		  <a href="#classification" class="list-group-item">文本分类</a>
+		  <a href="#emotional" class="list-group-item">情感分析</a>
+		  <a href="#wordRelation" class="list-group-item">语义联想</a>
+		  <a href="#toResult" class="list-group-item">精准分词</a>
+		  <a href="#indexResult" class="list-group-item">索引分词</a>
+		  <a href="#nlpMinResult" class="list-group-item">细粒度分词</a>
 		  <a class="list-group-item">依存文法(待续)</a>
 		</div>
       </div>
@@ -92,7 +97,7 @@
 			</div>
 	    </div>
 	    
-		<div class="panel panel-default">
+		<div class="panel panel-default" id="keyWords">
 			 <div class="panel-heading">关键词提取</div>
 			 <div class="panel-body wordcloud" id="wordcloud" >
 			 	<c:forEach items="${keyWords }" var="keyWord" varStatus="status">
@@ -101,25 +106,27 @@
 			 </div>
 		</div>
 		
-		<div class="panel panel-default">
+		<div class="panel panel-default" id="nlpResult">
 		
 			 <div class="panel-heading">NLP分词</div>
 			 <div class="panel-body">
-			 		<c:forEach items="${nlpResult }" var="word">
-			 			${word[0] }
-			 		</c:forEach>
-			  </div>
+			 	<dl style="line-height: 32px;">
+		 		<c:forEach items="${nlpResult }" var="word">
+		 			<dd class="word_${word[1] } word_width">${word[0] }</dd>
+		 		</c:forEach>
+		 		</dl>
+			 </div>
 		</div>
 		
-		<div class="panel panel-default">
+		<div class="panel panel-default" id="summaryStr">
 			 <div class="panel-heading">摘要&高亮</div>
 			 <div class="panel-body">
-			 		Orange Data for Development is an open data challenge, 
+			 		${summaryStr } 
 			  </div>
 		</div>
 		
 		
-		<div class="panel panel-default">
+		<div class="panel panel-default" id="classification">
 			 <div class="panel-heading">文本分类</div>
 			 <div class="panel-body">
 			 		Orange Data for Development is an open data challenge, 
@@ -127,56 +134,54 @@
 		</div>
 		
 		
-		<div class="panel panel-default">
+		<div class="panel panel-default" id="emotional">
 			 <div class="panel-heading">情感分析</div>
-			 <div class="panel-body">
-			 		Orange Data for Development is an open data challenge, 
-			  </div>
+			 <div class="panel-body" align="center">
+					<canvas id="pieChartCanvas" width="449" height="300" style="width: 449px; height: 300px;"></canvas>
+			 </div>
 		</div>
 		
-		
-		<div class="panel panel-default" id="jzfc">
-			 <div class="panel-heading">精准分词</div>
-			 <div class="panel-body">
-			 		Orange Data for Development is an open data challenge, 
-			  </div>
-		</div>
-		
-		<div class="panel panel-default">
-			 <div class="panel-heading">索引分词</div>
-			 <div class="panel-body">
-			 		Orange Data for Development is an open data challenge, 
-			  </div>
-		</div>
-		
-		<div class="panel panel-default">
+		<div class="panel panel-default" id="wordRelation">
 			 <div class="panel-heading">语义联想</div>
 			 <div class="panel-body">
 			 		Orange Data for Development is an open data challenge, 
 			  </div>
 		</div>
 		
-		<div class="panel panel-default">
+		<div class="panel panel-default" id="toResult">
+			 <div class="panel-heading">精准分词</div>
+			 <div class="panel-body">
+			 	<dl style="line-height: 32px;">
+		 		<c:forEach items="${toResult }" var="word">
+		 			<dd class="word_${word[1] } word_width">${word[0] }</dd>
+		 		</c:forEach>
+		 		</dl>
+			  </div>
+		</div>
+		
+		<div class="panel panel-default" id="indexResult">
+			 <div class="panel-heading">索引分词</div>
+			 <div class="panel-body">
+			 	<dl style="line-height: 32px;">
+			 		<c:forEach items="${indexResult }" var="word">
+			 			<dd class="word_${word[1] } word_width">${word[0] }</dd>
+			 		</c:forEach>
+		 		</dl>
+			  </div>
+		</div>
+		
+		<div class="panel panel-default" id="nlpMinResult">
 			 <div class="panel-heading">细粒度分词</div>
 			 <div class="panel-body">
-			 		Orange Data for Development is an open data challenge, 
+		 		<dl style="line-height: 32px;">
+		 		<c:forEach items="${nlpMinResult }" var="word">
+		 			<dd class="word_${word[1] } word_width">${word[0] }</dd>
+		 		</c:forEach>
+		 		</dl>
 			  </div>
 		</div>
 		
 		
-		<div class="panel panel-default">
-			 <div class="panel-heading">关键词提取</div>
-			 <div class="panel-body">
-			 		Orange Data for Development is an open data challenge, 
-			  </div>
-		</div>
-		
-		<div class="panel panel-default">
-			 <div class="panel-heading">关键词提取</div>
-			 <div class="panel-body">
-			 		Orange Data for Development is an open data challenge, 
-			  </div>
-		</div>
       </div>
     </div>
 </section>
@@ -186,26 +191,36 @@
 $(document).ready(function(){
 	$("#wordcloud").awesomeCloud({
 		"size" : {
-			"grid" : 12,
+			"grid" : 6,
+			"normalize" : false
 		},
 		"options" : {
 			"color" : "random-dark",
 			"rotationRatio" : 0.3,
-			"printMultiplier" : 3,
-			"sort" : "random"
+			"printMultiplier" : 1,
+			"sort" : "highest"
 		},
-		"font" : "'Times New Roman', Times, serif",
 		"shape" : "square"
 	});
 	
-	$('#myAffix').affix({
-	    offset: {
-	      top: 100
-	    , bottom: function () {
-	        return (this.bottom = $('.bs-footer').outerHeight(true))
-	      }
-	    }
-	  })
+	var pieData = [
+					{
+						value: 30,
+						color:"#F38630"
+					},
+					{
+						value : 50,
+						color : "#E0E4CC"
+					},
+					{
+						value : 100,
+						color : "#69D2E7"
+					}
+
+				];
+
+	var myPie = new Chart(document.getElementById("pieChartCanvas").getContext("2d")).Pie(pieData);
+
 });
 </script>
 <!-- footer start here -->

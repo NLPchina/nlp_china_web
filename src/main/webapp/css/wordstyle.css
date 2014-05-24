@@ -1,0 +1,114 @@
+.word_n,
+.word_nr,
+.word_nr1,
+.word_nr2,
+.word_nrj,
+.word_ns,
+.word_nsf,
+.word_nt,
+.word_nz,
+.word_nl,
+.word_ng,
+.word_nrf {background-color: #488fce;}
+.word_t,
+.word_tg {background-color: #c7aee7;}
+.word_col-xs-9 .chunk .words .s,
+.word_s {background-color: #cee887;}
+.word_col-xs-9 .chunk .words .f,
+.word_f {background-color: #c9aaca;}
+.word_v,
+.word_vd,
+.word_vn,
+.word_vshi,
+.word_vyou,
+.word_vf,
+.word_vx,
+.word_vi,
+.word_vl,
+.word_vg {background-color: #ffcb99;}
+.word_a,
+.word_ad,
+.word_an,
+.word_ag,
+.word_al {background-color: #67ccaa;}
+.word_b,
+.word_bl {background-color: #67a6d9;}
+.word_col-xs-9 .chunk .words .z,
+.word_z {background-color: #f3e988;}
+.word_r,
+.word_rr,
+.word_rz,
+.word_rzt,
+.word_rzs,
+.word_rzv,
+.word_ry,
+.word_ryt,
+.word_rys,
+.word_ryv,
+.word_rg {background-color: #9acccd;}
+.word_m,
+.word_mq {background-color: #986699;}
+.word_q,
+.word_qv,
+.word_qt {background-color: #ff9899;}
+.word_col-xs-9 .chunk .words .d,
+.word_d {background-color: #ffcccb;}
+.word_p,
+.word_pba,
+.word_pbei {background-color: #99cc67;}
+.word_c,
+.word_cc {background-color: #8ea4de;}
+.word_u,
+.word_uzhe,
+.word_ule,
+.word_uguo,
+.word_ude1,
+.word_ude2,
+.word_ude3,
+.word_usuo,
+.word_udeng,
+.word_uyy,
+.word_udh,
+.word_uls,
+.word_uzhi,
+.word_ulian {background-color: #4dd9e6;}
+.word_col-xs-9 .chunk .words .e,
+.word_e {background-color: #d7acd7;}
+.word_col-xs-9 .chunk .words .y,
+.word_y {background-color: #f48363;}
+.word_col-xs-9 .chunk .words .o,
+.word_o {background-color: #f2d404;}
+.word_col-xs-9 .chunk .words .h,
+.word_h {background-color: #30aadd;}
+.word_col-xs-9 .chunk .words .k,
+.word_k {background-color: #55bfcc;}
+.word_col-xs-9 .chunk .words .x, .col-xs-9 .chunk .words .xx, .col-xs-9 .chunk .words .xu, .col-xs-9 .chunk .words .url,
+.word_x,
+.word_xx,
+.word_xu,
+.word_url {background-color: #96dbf8;}
+.word_w,
+.word_wkz,
+.word_wky,
+.word_wyz,
+.word_wyy,
+.word_wj,
+.word_ww,
+.word_wt,
+.word_wd,
+.word_wf,
+.word_wn,
+.word_wm,
+.word_ws,
+.word_wp,
+.word_wb,
+.word_wh {background-color: #cccccc;}
+
+.word_width {
+	padding-left: 0.8em;
+	padding-right: 0.8em;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	display:-moz-inline-box; 
+	display:inline-block;"
+}
