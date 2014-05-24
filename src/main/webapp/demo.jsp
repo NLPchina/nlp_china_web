@@ -45,6 +45,14 @@
 			width: 8.5in;
 		}
 		
+		.affix{
+			top: 10px;
+		}
+		
+		a:VISITED {
+			font-size: 200px; 
+		}
+		
 	</style>
 </head>
 <body>
@@ -71,7 +79,7 @@
     
     <div style=" width: 100%" >
       <div class="col-md-2">
-        <div class="list-group" data-spy="affix" >
+        <div class="list-group" id="sideBar" data-offset-top="230" data-spy="affix" style="width: 166px;" >
           <a href="#" class="list-group-item">导航条</a>
 		  <a href="#keyWords" class="list-group-item">关键词提取</a>
 		  <a href="#nlpResult" class="list-group-item">NLP分词</a>
@@ -85,16 +93,18 @@
 		  <a class="list-group-item">依存文法(待续)</a>
 		</div>
       </div>
-      <div class="col-md-10" role="main">
+      <div class="col-md-10" role="main" id="main">
       
       	<div class=" well" >
 			<ul class="pen">
 	        	<li>单文本分析</li>                           
 	        </ul>
-			<textarea id="txt-analysis" class="input">${content }</textarea>
+	        <form  action="${ctx }/demo" method="post">
+			<textarea id="content" name="content" class="input">${content }</textarea>
 			<div  style="text-align:right;padding: 6px;">
-			<button type="button" class="btn btn-primary btn-lg ">提交文本</button>
+			<button type="submit" class="btn btn-primary btn-lg">提交文本</button>
 			</div>
+			</form>
 	    </div>
 	    
 		<div class="panel panel-default" id="keyWords">
@@ -121,7 +131,7 @@
 		<div class="panel panel-default" id="summaryStr">
 			 <div class="panel-heading">摘要&高亮</div>
 			 <div class="panel-body">
-			 		${summaryStr } 
+			 <pre style="font-size: 20px;">${summaryStr }</pre> 
 			  </div>
 		</div>
 		
@@ -220,7 +230,8 @@ $(document).ready(function(){
 				];
 
 	var myPie = new Chart(document.getElementById("pieChartCanvas").getContext("2d")).Pie(pieData);
-
+	
+	
 });
 </script>
 <!-- footer start here -->

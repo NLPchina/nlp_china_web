@@ -59,7 +59,7 @@ public class DemoAction {
 		// 文档摘要
 		SummaryComputer sc = new SummaryComputer(null, content);
 		Summary summary = sc.toSummary();
-		String summaryStr = new TagContent("<font color=\"red\">", "</font>").tagContent(summary);
+		String summaryStr = new TagContent("<font color=\"red\">", "</font>").tagContent(summary)+"....";
 
 		request.setAttribute("nlpResult", nlpResult);
 		request.setAttribute("nlpMinResult", nlpMinResult);

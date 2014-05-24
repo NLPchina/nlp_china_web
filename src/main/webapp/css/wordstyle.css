@@ -45,6 +45,7 @@
 .word_ryt,
 .word_rys,
 .word_ryv,
+.word_j ,
 .word_rg {background-color: #9acccd;}
 .word_m,
 .word_mq {background-color: #986699;}
@@ -52,13 +53,16 @@
 .word_qv,
 .word_qt {background-color: #ff9899;}
 .word_col-xs-9 .chunk .words .d,
-.word_d {background-color: #ffcccb;}
+.word_d ,
+.word_l ,
+.word_i{background-color: #ffcccb;}
 .word_p,
 .word_pba,
 .word_pbei {background-color: #99cc67;}
 .word_c,
 .word_cc {background-color: #8ea4de;}
 .word_u,
+.word_ul,
 .word_uzhe,
 .word_ule,
 .word_uguo,
@@ -72,18 +76,14 @@
 .word_uls,
 .word_uzhi,
 .word_ulian {background-color: #4dd9e6;}
-.word_col-xs-9 .chunk .words .e,
 .word_e {background-color: #d7acd7;}
-.word_col-xs-9 .chunk .words .y,
 .word_y {background-color: #f48363;}
-.word_col-xs-9 .chunk .words .o,
 .word_o {background-color: #f2d404;}
-.word_col-xs-9 .chunk .words .h,
 .word_h {background-color: #30aadd;}
-.word_col-xs-9 .chunk .words .k,
+.word_uj,
 .word_k {background-color: #55bfcc;}
-.word_col-xs-9 .chunk .words .x, .col-xs-9 .chunk .words .xx, .col-xs-9 .chunk .words .xu, .col-xs-9 .chunk .words .url,
 .word_x,
+.word_en,
 .word_xx,
 .word_xu,
 .word_url {background-color: #96dbf8;}
@@ -103,6 +103,7 @@
 .word_wp,
 .word_wb,
 .word_wh {background-color: #cccccc;}
+.word_nw {background-color: #FF3366;}
 
 .word_width {
 	padding-left: 0.8em;
