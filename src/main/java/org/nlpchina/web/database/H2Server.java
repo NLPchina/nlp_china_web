@@ -1,5 +1,6 @@
 package org.nlpchina.web.database;
 
+import java.io.File;
 import java.sql.SQLException;
 
 import org.h2.tools.Server;
@@ -20,7 +21,8 @@ public class H2Server {
 		}
 		try {
 			System.out.println("正在启动h2...");
-			server = Server.createTcpServer("-webPort","9093","-tcpPort","9092").start();
+			System.out.println(new File("h2db").getAbsolutePath());
+			server = Server.createPgServer(new String[]{"-baseDir","h2db"}).start();
 		} catch (SQLException e) {
 			System.out.println("启动h2出错：" + e.toString());
 			e.printStackTrace();

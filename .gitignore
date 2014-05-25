@@ -10,3 +10,5 @@ data/
 ._.DS_Store
 ._*
 /target
+h2db/
+h2db/*
