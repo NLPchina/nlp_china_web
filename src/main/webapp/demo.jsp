@@ -55,7 +55,7 @@
 		
 	</style>
 </head>
-<body>
+<body  data-spy="scroll" data-target="#sideBar">
 <!-- header start here -->
 <%@include file="header.jsp"%>
 <!-- header end here -->
@@ -79,7 +79,7 @@
     
     <div style=" width: 100%" >
       <div class="col-md-2">
-        <div class="list-group" id="sideBar" data-offset-top="230" data-spy="affix" style="width: 166px;" >
+        <div  class="list-group" id="sideBar" data-offset-top="230" data-spy="affix" style="width: 166px;" >
           <a href="#" class="list-group-item">导航条</a>
 		  <a href="#keyWords" class="list-group-item">关键词提取</a>
 		  <a href="#nlpResult" class="list-group-item">NLP分词</a>
@@ -231,7 +231,31 @@ $(document).ready(function(){
 
 	var myPie = new Chart(document.getElementById("pieChartCanvas").getContext("2d")).Pie(pieData);
 	
-	
+});
+
+//收集所有的div top
+var div_top_arr = new Array();
+
+$(".panel-default").each(function(index,element){
+	var obj = [element.id,$(element).offset().top];
+	div_top_arr.push(obj) ;
+}) ;
+
+
+var active = null ;
+var oldActive = null ;
+
+$(window).scroll(function() {
+	oldActive = active ;
+	 $.each(div_top_arr, function(index,value) {
+		 active = value[0] ;
+		 if($(window).scrollTop()<value[1]){
+			 return false;
+		 }
+	 });
+	 
+	 $("[href!='#"+oldActive+"']").addClass("active") ;
+	 $("[href!='#"+active+"']").removeClass("active") ;
 });
 </script>
 <!-- footer start here -->
