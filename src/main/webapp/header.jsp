@@ -42,8 +42,8 @@
 		                <li><a href="${ctx }/resource/list/3">查看我的文档</a></li>
 	                </ul>
                 </li>
-                <li><a href="${ctx }/demo.jsp">演示平台</a></li>
-                <li><a href="about.html">开发者们</a></li>
+                <li><a href="${ctx }/demo">演示平台</a></li>
+                <li><a href="#">开发者们</a></li>
             </ul>
         </nav>
         <!-- mainmenu end here -->
