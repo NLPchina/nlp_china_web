@@ -8,6 +8,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="cn"> <!--<![endif]-->
 
 <head>
+<meta property="wb:webmaster" content="ea9803886bcbe0a2" />
 <%@include file="common/common.jsp"%>
 <script>
 $(document).ready(function() { 
