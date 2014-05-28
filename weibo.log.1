@@ -1,0 +1,625 @@
+0    DEBUG [2014-05-28 11:03:03]  Request:
+1    DEBUG [2014-05-28 11:03:03]  POSThttps://api.weibo.com/oauth2/access_token
+794  DEBUG [2014-05-28 11:03:04]  Response:
+795  DEBUG [2014-05-28 11:03:04]  https StatusCode:400
+795  DEBUG [2014-05-28 11:03:04]  Server:nginx/1.2.0
+795  DEBUG [2014-05-28 11:03:04]  Date:Wed, 28 May 2014 03:03:03 GMT
+795  DEBUG [2014-05-28 11:03:04]  Transfer-Encoding:chunked
+795  DEBUG [2014-05-28 11:03:04]  Connection:keep-alive
+796  DEBUG [2014-05-28 11:03:04]  Pragma:No-cache
+796  DEBUG [2014-05-28 11:03:04]  Cache-Control:no-cache
+796  DEBUG [2014-05-28 11:03:04]  Expires:Thu, 01 Jan 1970 00:00:00 GMT
+796  DEBUG [2014-05-28 11:03:04]  Api-Server-IP:10.73.89.46
+799  WARN  [2014-05-28 11:03:04]  Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+800  DEBUG [2014-05-28 11:03:04]  {"error":"invalid_grant","error_code":21325,"request":"/oauth2/access_token","error_uri":"/oauth2/access_token","error_description":"invalid authorization code:123"}
+
+0    DEBUG [2014-05-28 11:10:43]  Request:
+1    DEBUG [2014-05-28 11:10:43]  POSThttps://api.weibo.com/oauth2/access_token
+637  DEBUG [2014-05-28 11:10:44]  Response:
+638  DEBUG [2014-05-28 11:10:44]  https StatusCode:200
+638  DEBUG [2014-05-28 11:10:44]  Server:nginx/1.2.0
+638  DEBUG [2014-05-28 11:10:44]  Date:Wed, 28 May 2014 03:10:43 GMT
+639  DEBUG [2014-05-28 11:10:44]  Content-Type:text/plain;charset=UTF-8
+639  DEBUG [2014-05-28 11:10:44]  Content-Length:117
+639  DEBUG [2014-05-28 11:10:44]  Connection:keep-alive
+640  DEBUG [2014-05-28 11:10:44]  Pragma:No-cache
+640  DEBUG [2014-05-28 11:10:44]  Cache-Control:no-cache
+640  DEBUG [2014-05-28 11:10:44]  Expires:Thu, 01 Jan 1970 00:00:00 GMT
+641  DEBUG [2014-05-28 11:10:44]  Api-Server-IP:10.73.89.47
+644  DEBUG [2014-05-28 11:10:44]  {"access_token":"2.00dofGZBQDQppC7edebdd178OJbELC","remind_in":"157679999","expires_in":157679999,"uid":"1434895303"}
+
+0    INFO  [2014-05-28 11:50:04]  Nutz is licensed under the Apache License, Version 2.0 .
+Report bugs : https://github.com/nutzam/nutz/issues
+6    INFO  [2014-05-28 11:50:04]  NutFilter[nutz] starting ...
+747  DEBUG [2014-05-28 11:50:04]  Locations for Scans:
+[JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-logging-1.1.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-httpclient-3.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.apache.jasper.glassfish/2.2.2.v201112011158/org.apache.jasper.glassfish-2.2.2.v201112011158.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web/target/classes], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-xml/8.1.11.v20130520/jetty-xml-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp/2.2.0.v201112011158/javax.servlet.jsp-2.2.0.v201112011158.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/h2database/h2/1.3.176/h2-1.3.176.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/weibo4j.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/google/guava/guava/r09/guava-r09.jar], JarResourceLocation [jarPath=file:/home/ansj/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/ansj/tree_split/1.4/tree_split-1.4.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-webapp/8.1.11.v20130520/jetty-webapp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-servlet/8.1.11.v20130520/jetty-servlet-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-jsp/8.1.11.v20130520/jetty-jsp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp.jstl/1.2.0.v201105211821/javax.servlet.jsp.jstl-1.2.0.v201105211821.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/jackson-all-1.8.5.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/com.sun.el/2.2.0.v201108011116/com.sun.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/alibaba/fastjson/1.1.33/fastjson-1.1.33.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/ansj/ansj_seg/1.4.1/ansj_seg-1.4.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/log4j-1.2.16.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.eclipse.jdt.core/3.7.1/org.eclipse.jdt.core-3.7.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.apache.taglibs.standard.glassfish/1.2.0.v201112081803/org.apache.taglibs.standard.glassfish-1.2.0.v201112081803.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/alibaba/druid/1.0.5/druid-1.0.5.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-codec.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.el/2.2.0.v201108011116/javax.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-security/8.1.11.v20130520/jetty-security-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar]]
+748  INFO  [2014-05-28 11:50:04]  ErrorResourceLocation [loc=/home/ansj/workspace/nlp_china_web/src/main/webapp/WEB-INF/classes], maybe it is in your classpath, but not exist
+748  DEBUG [2014-05-28 11:50:04]  Locations for Scans:
+[JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-logging-1.1.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-httpclient-3.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.apache.jasper.glassfish/2.2.2.v201112011158/org.apache.jasper.glassfish-2.2.2.v201112011158.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web/target/classes], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-xml/8.1.11.v20130520/jetty-xml-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp/2.2.0.v201112011158/javax.servlet.jsp-2.2.0.v201112011158.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/h2database/h2/1.3.176/h2-1.3.176.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/weibo4j.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/google/guava/guava/r09/guava-r09.jar], JarResourceLocation [jarPath=file:/home/ansj/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/ansj/tree_split/1.4/tree_split-1.4.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-webapp/8.1.11.v20130520/jetty-webapp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-servlet/8.1.11.v20130520/jetty-servlet-8.1.11.v20130520.jar], ErrorResourceLocation [loc=/home/ansj/workspace/nlp_china_web/src/main/webapp/WEB-INF/classes], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-jsp/8.1.11.v20130520/jetty-jsp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp.jstl/1.2.0.v201105211821/javax.servlet.jsp.jstl-1.2.0.v201105211821.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/jackson-all-1.8.5.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/com.sun.el/2.2.0.v201108011116/com.sun.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/alibaba/fastjson/1.1.33/fastjson-1.1.33.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/ansj/ansj_seg/1.4.1/ansj_seg-1.4.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/log4j-1.2.16.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.eclipse.jdt.core/3.7.1/org.eclipse.jdt.core-3.7.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.apache.taglibs.standard.glassfish/1.2.0.v201112081803/org.apache.taglibs.standard.glassfish-1.2.0.v201112081803.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/alibaba/druid/1.0.5/druid-1.0.5.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-codec.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.el/2.2.0.v201108011116/javax.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-security/8.1.11.v20130520/jetty-security-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar]]
+751  DEBUG [2014-05-28 11:50:04]  MainModule: <org.nlpchina.web.BootStrap>
+769  DEBUG [2014-05-28 11:50:04]  Loading by class org.nutz.mvc.impl.NutLoading
+772  INFO  [2014-05-28 11:50:04]  Nutz Version : 1.b.50 
+772  INFO  [2014-05-28 11:50:04]  Nutz.Mvc[nutz] is initializing ...
+772  DEBUG [2014-05-28 11:50:04]  Web Container Information:
+773  DEBUG [2014-05-28 11:50:04]   - Default Charset : UTF-8
+773  DEBUG [2014-05-28 11:50:04]   - Current . path  : /home/ansj/workspace/nlp_china_web/.
+773  DEBUG [2014-05-28 11:50:04]   - Java Version    : 1.8.0
+773  DEBUG [2014-05-28 11:50:04]   - File separator  : /
+774  DEBUG [2014-05-28 11:50:04]   - Timezone        : Asia/Shanghai
+774  DEBUG [2014-05-28 11:50:04]   - OS              : Linux amd64
+774  DEBUG [2014-05-28 11:50:04]   - ServerInfo      : jetty/8.1.11.v20130520
+774  DEBUG [2014-05-28 11:50:04]   - ContextPath     : 
+775  DEBUG [2014-05-28 11:50:04]  MainModule: <org.nlpchina.web.BootStrap>
+775  DEBUG [2014-05-28 11:50:04]  >> app.root = /home/ansj/workspace/nlp_china_web/src/main/webapp
+777  DEBUG [2014-05-28 11:50:04]  @IocBy(type=org.nutz.mvc.ioc.provider.ComboIocProvider, args=[Ljava.lang.String;@7fac631b)
+804  DEBUG [2014-05-28 11:50:04]  Found 1 resource by src( ioc.js ) , regex( ^(.+[.])(js|json)$ )
+809  DEBUG [2014-05-28 11:50:04]  Loaded 3 bean define from path=[ioc.js] --> [dao, recommendBasicDao, dataSource]
+818  DEBUG [2014-05-28 11:50:04]  Found 24 resource by src( org/nlpchina/web/ ) , regex( ^.+[.]class$ )
+832  DEBUG [2014-05-28 11:50:04]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.DocumentAction
+840  DEBUG [2014-05-28 11:50:04]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.ResourceAction
+841  DEBUG [2014-05-28 11:50:04]  Found a Class with Ioc-Annotation : class org.nlpchina.web.service.ResourceService
+842  DEBUG [2014-05-28 11:50:04]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.DemoAction
+847  DEBUG [2014-05-28 11:50:04]  Found a Class with Ioc-Annotation : class org.nlpchina.web.service.GeneralService
+855  DEBUG [2014-05-28 11:50:04]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.TestAction
+856  DEBUG [2014-05-28 11:50:04]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.AdminResourceAction
+891  DEBUG [2014-05-28 11:50:04]  Using 91 castor for Castors
+895  INFO  [2014-05-28 11:50:04]  Scan complete ! Found 7 classes in 1 base-packages!
+beans = ["resourceAction", "demoAction", "generalService", "adminResourceAction", "documentAction", "resourceService", "testAction"]
+900  DEBUG [2014-05-28 11:50:04]  MainModule: <org.nlpchina.web.BootStrap>
+902  INFO  [2014-05-28 11:50:04]  Build URL mapping by org.nutz.mvc.impl.UrlMappingImpl ...
+903  DEBUG [2014-05-28 11:50:04]  @Views(DefaultViewMaker)
+910  DEBUG [2014-05-28 11:50:04]  @ChainBy(org.nutz.mvc.impl.NutActionChainMaker)
+913  DEBUG [2014-05-28 11:50:04]   > scan 'org.nlpchina.web.controller'
+924  DEBUG [2014-05-28 11:50:04]  Found 7 resource by src( org/nlpchina/web/controller/ ) , regex( ^.+[.]class$ )
+925  DEBUG [2014-05-28 11:50:04]     >> add 'org.nlpchina.web.controller.DocumentAction'
+925  DEBUG [2014-05-28 11:50:04]     >> add 'org.nlpchina.web.controller.ResourceAction'
+926  DEBUG [2014-05-28 11:50:04]     >> add 'org.nlpchina.web.controller.DemoAction'
+926  DEBUG [2014-05-28 11:50:04]     >> add 'org.nlpchina.web.controller.TestAction'
+926  DEBUG [2014-05-28 11:50:04]     >> add 'org.nlpchina.web.controller.AdminResourceAction'
+926  DEBUG [2014-05-28 11:50:04]  module class location 'file:/home/ansj/workspace/nlp_china_web/target/classes/'
+927  DEBUG [2014-05-28 11:50:04]   > scan 'org.nlpchina.web'
+934  DEBUG [2014-05-28 11:50:04]  Found 24 resource by src( org/nlpchina/web/ ) , regex( ^.+[.]class$ )
+937  DEBUG [2014-05-28 11:50:04]     >> add 'org.nlpchina.web.controller.DocumentAction'
+938  DEBUG [2014-05-28 11:50:04]     >> add 'org.nlpchina.web.controller.ResourceAction'
+938  DEBUG [2014-05-28 11:50:04]     >> add 'org.nlpchina.web.controller.DemoAction'
+940  DEBUG [2014-05-28 11:50:04]     >> add 'org.nlpchina.web.controller.TestAction'
+940  DEBUG [2014-05-28 11:50:04]     >> add 'org.nlpchina.web.controller.AdminResourceAction'
+963  DEBUG [2014-05-28 11:50:04]     '/doc_menu/save/'           >> DocumentAction.saveMenu(...)   : DocMenu    | @Ok(redirect:/docs/editor/${obj.id}?code=${obj.extractingCode}) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+965  DEBUG [2014-05-28 11:50:04]     '/doc/save/'                >> DocumentAction.saveDoc(...)    : Map        | @Ok(json ) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+967  DEBUG [2014-05-28 11:50:04]     '/docs/'                    >> DocumentAction.multiDocument(...) : String     | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+968  DEBUG [2014-05-28 11:50:04]     '/doc'                      >> DocumentAction.singleDocument(...) : String     | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+973  DEBUG [2014-05-28 11:50:04]     '/docs/?/?'                 >> DocumentAction.docView(...)    : void       | @Ok(jsp:/document/doc_view.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+975  DEBUG [2014-05-28 11:50:04]     '/docs/?'                   >> DocumentAction.docView(...)    : void       | @Ok(jsp:/document/doc_view.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+977  DEBUG [2014-05-28 11:50:04]     '/doc/?'                    >> DocumentAction.docView(...)    : void       | @Ok(jsp:/document/doc_view.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+979  DEBUG [2014-05-28 11:50:04]     '/docs/editor/?/?'          >> DocumentAction.docEditor(...)  : void       | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+981  DEBUG [2014-05-28 11:50:04]     '/docs/editor/?'            >> DocumentAction.docEditor(...)  : void       | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+983  DEBUG [2014-05-28 11:50:04]     '/doc/editor/?'             >> DocumentAction.docEditor(...)  : void       | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+985  DEBUG [2014-05-28 11:50:04]     '/resource/?'               >> ResourceAction.findById(...)   : Resource   | @Ok(jsp:/resource.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+987  DEBUG [2014-05-28 11:50:04]     '/resource/list'            >> ResourceAction.list(...)       : void       | @Ok(jsp:/resource-list.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+989  DEBUG [2014-05-28 11:50:04]     '/resource/list/?'          >> ResourceAction.list(...)       : void       | @Ok(jsp:/resource-list.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+990  DEBUG [2014-05-28 11:50:04]     '/demo/'                    >> DemoAction.demo(...)           : void       | @Ok(jsp:/demo.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+993  DEBUG [2014-05-28 11:50:05]     '/test/execute_sql'         >> TestAction.executeSql(...)     : String     | @Ok(raw  ) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+998  DEBUG [2014-05-28 11:50:05]     '/admin/resource/editer'    >> AdminResourceAction.edite(...) : Resource   | @Ok(jsp:/admin/resource-editer.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+999  DEBUG [2014-05-28 11:50:05]     '/admin/resource/list'      >> AdminResourceAction.adminList(...) : void       | @Ok(jsp:/admin/resource-list.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1001 DEBUG [2014-05-28 11:50:05]     '/admin/resource/editer/?'  >> AdminResourceAction.editer(...) : Resource   | @Ok(jsp:/admin/resource-editer.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1003 DEBUG [2014-05-28 11:50:05]     '/admin/resource/delete/?'  >> AdminResourceAction.delete(...) : void       | @Ok(redirect:/admin/resource/list) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1004 DEBUG [2014-05-28 11:50:05]     '/admin/resource/insert'    >> AdminResourceAction.insert(...) : void       | @Ok(redirect:/admin/resource/list) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1004 INFO  [2014-05-28 11:50:05]  Found 20 module methods
+1004 DEBUG [2014-05-28 11:50:05]  @Localization not define
+1005 INFO  [2014-05-28 11:50:05]  Setup application...
+1093 DEBUG [2014-05-28 11:50:05]  Get 'generalService'<class org.nlpchina.web.service.GeneralService>
+1094 DEBUG [2014-05-28 11:50:05]  	 >> Load definition
+1096 DEBUG [2014-05-28 11:50:05]  Found IocObject(generalService) in IocLoader(AnnotationIocLoader@1699113578)
+1096 DEBUG [2014-05-28 11:50:05]  	 >> Make...'generalService'<class org.nlpchina.web.service.GeneralService>
+1097 DEBUG [2014-05-28 11:50:05]  class org.nlpchina.web.service.GeneralService , no config to enable AOP.
+1097 DEBUG [2014-05-28 11:50:05]  Save object 'generalService' to [app] 
+1102 DEBUG [2014-05-28 11:50:05]  Get 'dao'<null>
+1102 DEBUG [2014-05-28 11:50:05]  	 >> Load definition
+1107 DEBUG [2014-05-28 11:50:05]  Loading define for name=dao
+1110 DEBUG [2014-05-28 11:50:05]  Found IocObject(dao) in IocLoader(JsonLoader@1704629915)
+1110 DEBUG [2014-05-28 11:50:05]  	 >> Make...'dao'<null>
+1115 DEBUG [2014-05-28 11:50:05]  class org.nutz.dao.impl.NutDao , no config to enable AOP.
+1115 DEBUG [2014-05-28 11:50:05]  Save object 'dao' to [app] 
+1115 DEBUG [2014-05-28 11:50:05]  Get 'dataSource'<null>
+1115 DEBUG [2014-05-28 11:50:05]  	 >> Load definition
+1115 DEBUG [2014-05-28 11:50:05]  Loading define for name=dataSource
+1122 DEBUG [2014-05-28 11:50:05]  Found IocObject(dataSource) in IocLoader(JsonLoader@1704629915)
+1122 DEBUG [2014-05-28 11:50:05]  	 >> Make...'dataSource'<null>
+1135 DEBUG [2014-05-28 11:50:05]  class com.alibaba.druid.pool.DruidDataSource , no config to enable AOP.
+1135 DEBUG [2014-05-28 11:50:05]  Save object 'dataSource' to [app] 
+1145 DEBUG [2014-05-28 11:50:05]  Get 'dataSource'<null>
+1184 INFO  [2014-05-28 11:50:05]  Init file-pool by: /home/ansj/.nutz/tmp/dao/ [200000]
+1184 DEBUG [2014-05-28 11:50:05]  file-pool.home: '/home/ansj/.nutz/tmp/dao'
+1185 INFO  [2014-05-28 11:50:05]  file-pool.cursor: 0
+1191 DEBUG [2014-05-28 11:50:05]  Jdbcs init complete
+1191 INFO  [2014-05-28 11:50:05]  Get Connection from DataSource for JdbcExpert
+1602 INFO  [2014-05-28 11:50:05]  {dataSource-1} inited
+1620 DEBUG [2014-05-28 11:50:05]  JDBC Driver --> 1.3.176 (2014-04-05)
+1620 DEBUG [2014-05-28 11:50:05]  JDBC Name   --> H2 JDBC Driver
+1621 DEBUG [2014-05-28 11:50:05]  Database info --> H2:[H2 - 1.3.176 (2014-04-05)]
+1653 DEBUG [2014-05-28 11:50:05]  SELECT * FROM category  ORDER BY id ASC  
+1656 DEBUG [2014-05-28 11:50:05]  Get 'generalService'<class org.nlpchina.web.service.GeneralService>
+1660 DEBUG [2014-05-28 11:50:05]  SELECT * FROM tag  WHERE type=?
+    | 1 |
+    |---|
+    | 1 |
+  For example:> "SELECT * FROM tag  WHERE type=1"
+1665 INFO  [2014-05-28 11:50:05]  Nutz.Mvc[nutz] is up in 889ms
+0    INFO  [2014-05-28 11:50:14]  Nutz is licensed under the Apache License, Version 2.0 .
+Report bugs : https://github.com/nutzam/nutz/issues
+5    INFO  [2014-05-28 11:50:14]  NutFilter[nutz] starting ...
+756  DEBUG [2014-05-28 11:50:14]  Locations for Scans:
+[JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-logging-1.1.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-httpclient-3.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.apache.jasper.glassfish/2.2.2.v201112011158/org.apache.jasper.glassfish-2.2.2.v201112011158.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web/target/classes], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-xml/8.1.11.v20130520/jetty-xml-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp/2.2.0.v201112011158/javax.servlet.jsp-2.2.0.v201112011158.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/h2database/h2/1.3.176/h2-1.3.176.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/weibo4j.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/google/guava/guava/r09/guava-r09.jar], JarResourceLocation [jarPath=file:/home/ansj/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/ansj/tree_split/1.4/tree_split-1.4.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-webapp/8.1.11.v20130520/jetty-webapp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-servlet/8.1.11.v20130520/jetty-servlet-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-jsp/8.1.11.v20130520/jetty-jsp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp.jstl/1.2.0.v201105211821/javax.servlet.jsp.jstl-1.2.0.v201105211821.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/jackson-all-1.8.5.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/com.sun.el/2.2.0.v201108011116/com.sun.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/alibaba/fastjson/1.1.33/fastjson-1.1.33.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/ansj/ansj_seg/1.4.1/ansj_seg-1.4.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/log4j-1.2.16.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.eclipse.jdt.core/3.7.1/org.eclipse.jdt.core-3.7.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.apache.taglibs.standard.glassfish/1.2.0.v201112081803/org.apache.taglibs.standard.glassfish-1.2.0.v201112081803.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/alibaba/druid/1.0.5/druid-1.0.5.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-codec.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.el/2.2.0.v201108011116/javax.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-security/8.1.11.v20130520/jetty-security-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar]]
+757  INFO  [2014-05-28 11:50:14]  ErrorResourceLocation [loc=/home/ansj/workspace/nlp_china_web/src/main/webapp/WEB-INF/classes], maybe it is in your classpath, but not exist
+757  DEBUG [2014-05-28 11:50:14]  Locations for Scans:
+[JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-logging-1.1.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-httpclient-3.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.apache.jasper.glassfish/2.2.2.v201112011158/org.apache.jasper.glassfish-2.2.2.v201112011158.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web/target/classes], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-xml/8.1.11.v20130520/jetty-xml-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp/2.2.0.v201112011158/javax.servlet.jsp-2.2.0.v201112011158.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/h2database/h2/1.3.176/h2-1.3.176.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/weibo4j.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/google/guava/guava/r09/guava-r09.jar], JarResourceLocation [jarPath=file:/home/ansj/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/ansj/tree_split/1.4/tree_split-1.4.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-webapp/8.1.11.v20130520/jetty-webapp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-servlet/8.1.11.v20130520/jetty-servlet-8.1.11.v20130520.jar], ErrorResourceLocation [loc=/home/ansj/workspace/nlp_china_web/src/main/webapp/WEB-INF/classes], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-jsp/8.1.11.v20130520/jetty-jsp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp.jstl/1.2.0.v201105211821/javax.servlet.jsp.jstl-1.2.0.v201105211821.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/jackson-all-1.8.5.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/com.sun.el/2.2.0.v201108011116/com.sun.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/alibaba/fastjson/1.1.33/fastjson-1.1.33.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/ansj/ansj_seg/1.4.1/ansj_seg-1.4.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/log4j-1.2.16.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.eclipse.jdt.core/3.7.1/org.eclipse.jdt.core-3.7.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.apache.taglibs.standard.glassfish/1.2.0.v201112081803/org.apache.taglibs.standard.glassfish-1.2.0.v201112081803.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/alibaba/druid/1.0.5/druid-1.0.5.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-codec.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.el/2.2.0.v201108011116/javax.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-security/8.1.11.v20130520/jetty-security-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar]]
+760  DEBUG [2014-05-28 11:50:14]  MainModule: <org.nlpchina.web.BootStrap>
+779  DEBUG [2014-05-28 11:50:14]  Loading by class org.nutz.mvc.impl.NutLoading
+781  INFO  [2014-05-28 11:50:14]  Nutz Version : 1.b.50 
+781  INFO  [2014-05-28 11:50:14]  Nutz.Mvc[nutz] is initializing ...
+782  DEBUG [2014-05-28 11:50:14]  Web Container Information:
+782  DEBUG [2014-05-28 11:50:14]   - Default Charset : UTF-8
+783  DEBUG [2014-05-28 11:50:14]   - Current . path  : /home/ansj/workspace/nlp_china_web/.
+783  DEBUG [2014-05-28 11:50:14]   - Java Version    : 1.8.0
+783  DEBUG [2014-05-28 11:50:14]   - File separator  : /
+783  DEBUG [2014-05-28 11:50:14]   - Timezone        : Asia/Shanghai
+784  DEBUG [2014-05-28 11:50:14]   - OS              : Linux amd64
+784  DEBUG [2014-05-28 11:50:14]   - ServerInfo      : jetty/8.1.11.v20130520
+784  DEBUG [2014-05-28 11:50:14]   - ContextPath     : 
+785  DEBUG [2014-05-28 11:50:14]  MainModule: <org.nlpchina.web.BootStrap>
+786  DEBUG [2014-05-28 11:50:14]  >> app.root = /home/ansj/workspace/nlp_china_web/src/main/webapp
+789  DEBUG [2014-05-28 11:50:14]  @IocBy(type=org.nutz.mvc.ioc.provider.ComboIocProvider, args=[Ljava.lang.String;@7fac631b)
+818  DEBUG [2014-05-28 11:50:14]  Found 1 resource by src( ioc.js ) , regex( ^(.+[.])(js|json)$ )
+828  DEBUG [2014-05-28 11:50:14]  Loaded 3 bean define from path=[ioc.js] --> [dao, recommendBasicDao, dataSource]
+838  DEBUG [2014-05-28 11:50:14]  Found 24 resource by src( org/nlpchina/web/ ) , regex( ^.+[.]class$ )
+855  DEBUG [2014-05-28 11:50:15]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.DocumentAction
+866  DEBUG [2014-05-28 11:50:15]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.ResourceAction
+868  DEBUG [2014-05-28 11:50:15]  Found a Class with Ioc-Annotation : class org.nlpchina.web.service.ResourceService
+869  DEBUG [2014-05-28 11:50:15]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.DemoAction
+874  DEBUG [2014-05-28 11:50:15]  Found a Class with Ioc-Annotation : class org.nlpchina.web.service.GeneralService
+882  DEBUG [2014-05-28 11:50:15]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.TestAction
+883  DEBUG [2014-05-28 11:50:15]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.AdminResourceAction
+923  DEBUG [2014-05-28 11:50:15]  Using 91 castor for Castors
+926  INFO  [2014-05-28 11:50:15]  Scan complete ! Found 7 classes in 1 base-packages!
+beans = ["resourceAction", "demoAction", "generalService", "adminResourceAction", "documentAction", "resourceService", "testAction"]
+931  DEBUG [2014-05-28 11:50:15]  MainModule: <org.nlpchina.web.BootStrap>
+933  INFO  [2014-05-28 11:50:15]  Build URL mapping by org.nutz.mvc.impl.UrlMappingImpl ...
+934  DEBUG [2014-05-28 11:50:15]  @Views(DefaultViewMaker)
+940  DEBUG [2014-05-28 11:50:15]  @ChainBy(org.nutz.mvc.impl.NutActionChainMaker)
+942  DEBUG [2014-05-28 11:50:15]   > scan 'org.nlpchina.web.controller'
+958  DEBUG [2014-05-28 11:50:15]  Found 7 resource by src( org/nlpchina/web/controller/ ) , regex( ^.+[.]class$ )
+959  DEBUG [2014-05-28 11:50:15]     >> add 'org.nlpchina.web.controller.DocumentAction'
+960  DEBUG [2014-05-28 11:50:15]     >> add 'org.nlpchina.web.controller.ResourceAction'
+960  DEBUG [2014-05-28 11:50:15]     >> add 'org.nlpchina.web.controller.DemoAction'
+960  DEBUG [2014-05-28 11:50:15]     >> add 'org.nlpchina.web.controller.TestAction'
+961  DEBUG [2014-05-28 11:50:15]     >> add 'org.nlpchina.web.controller.AdminResourceAction'
+961  DEBUG [2014-05-28 11:50:15]  module class location 'file:/home/ansj/workspace/nlp_china_web/target/classes/'
+962  DEBUG [2014-05-28 11:50:15]   > scan 'org.nlpchina.web'
+969  DEBUG [2014-05-28 11:50:15]  Found 24 resource by src( org/nlpchina/web/ ) , regex( ^.+[.]class$ )
+972  DEBUG [2014-05-28 11:50:15]     >> add 'org.nlpchina.web.controller.DocumentAction'
+972  DEBUG [2014-05-28 11:50:15]     >> add 'org.nlpchina.web.controller.ResourceAction'
+973  DEBUG [2014-05-28 11:50:15]     >> add 'org.nlpchina.web.controller.DemoAction'
+974  DEBUG [2014-05-28 11:50:15]     >> add 'org.nlpchina.web.controller.TestAction'
+974  DEBUG [2014-05-28 11:50:15]     >> add 'org.nlpchina.web.controller.AdminResourceAction'
+1000 DEBUG [2014-05-28 11:50:15]     '/doc_menu/save/'           >> DocumentAction.saveMenu(...)   : DocMenu    | @Ok(redirect:/docs/editor/${obj.id}?code=${obj.extractingCode}) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1002 DEBUG [2014-05-28 11:50:15]     '/doc/save/'                >> DocumentAction.saveDoc(...)    : Map        | @Ok(json ) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1004 DEBUG [2014-05-28 11:50:15]     '/docs/'                    >> DocumentAction.multiDocument(...) : String     | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1005 DEBUG [2014-05-28 11:50:15]     '/doc'                      >> DocumentAction.singleDocument(...) : String     | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1009 DEBUG [2014-05-28 11:50:15]     '/docs/?/?'                 >> DocumentAction.docView(...)    : void       | @Ok(jsp:/document/doc_view.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1011 DEBUG [2014-05-28 11:50:15]     '/docs/?'                   >> DocumentAction.docView(...)    : void       | @Ok(jsp:/document/doc_view.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1013 DEBUG [2014-05-28 11:50:15]     '/doc/?'                    >> DocumentAction.docView(...)    : void       | @Ok(jsp:/document/doc_view.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1016 DEBUG [2014-05-28 11:50:15]     '/docs/editor/?/?'          >> DocumentAction.docEditor(...)  : void       | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1018 DEBUG [2014-05-28 11:50:15]     '/docs/editor/?'            >> DocumentAction.docEditor(...)  : void       | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1020 DEBUG [2014-05-28 11:50:15]     '/doc/editor/?'             >> DocumentAction.docEditor(...)  : void       | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1023 DEBUG [2014-05-28 11:50:15]     '/resource/?'               >> ResourceAction.findById(...)   : Resource   | @Ok(jsp:/resource.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1024 DEBUG [2014-05-28 11:50:15]     '/resource/list'            >> ResourceAction.list(...)       : void       | @Ok(jsp:/resource-list.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1026 DEBUG [2014-05-28 11:50:15]     '/resource/list/?'          >> ResourceAction.list(...)       : void       | @Ok(jsp:/resource-list.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1027 DEBUG [2014-05-28 11:50:15]     '/demo/'                    >> DemoAction.demo(...)           : void       | @Ok(jsp:/demo.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1030 DEBUG [2014-05-28 11:50:15]     '/test/execute_sql'         >> TestAction.executeSql(...)     : String     | @Ok(raw  ) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1035 DEBUG [2014-05-28 11:50:15]     '/admin/resource/editer'    >> AdminResourceAction.edite(...) : Resource   | @Ok(jsp:/admin/resource-editer.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1036 DEBUG [2014-05-28 11:50:15]     '/admin/resource/list'      >> AdminResourceAction.adminList(...) : void       | @Ok(jsp:/admin/resource-list.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1037 DEBUG [2014-05-28 11:50:15]     '/admin/resource/editer/?'  >> AdminResourceAction.editer(...) : Resource   | @Ok(jsp:/admin/resource-editer.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1039 DEBUG [2014-05-28 11:50:15]     '/admin/resource/delete/?'  >> AdminResourceAction.delete(...) : void       | @Ok(redirect:/admin/resource/list) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1040 DEBUG [2014-05-28 11:50:15]     '/admin/resource/insert'    >> AdminResourceAction.insert(...) : void       | @Ok(redirect:/admin/resource/list) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1040 INFO  [2014-05-28 11:50:15]  Found 20 module methods
+1041 DEBUG [2014-05-28 11:50:15]  @Localization not define
+1041 INFO  [2014-05-28 11:50:15]  Setup application...
+1142 DEBUG [2014-05-28 11:50:15]  Get 'generalService'<class org.nlpchina.web.service.GeneralService>
+1143 DEBUG [2014-05-28 11:50:15]  	 >> Load definition
+1144 DEBUG [2014-05-28 11:50:15]  Found IocObject(generalService) in IocLoader(AnnotationIocLoader@1699113578)
+1145 DEBUG [2014-05-28 11:50:15]  	 >> Make...'generalService'<class org.nlpchina.web.service.GeneralService>
+1147 DEBUG [2014-05-28 11:50:15]  class org.nlpchina.web.service.GeneralService , no config to enable AOP.
+1147 DEBUG [2014-05-28 11:50:15]  Save object 'generalService' to [app] 
+1153 DEBUG [2014-05-28 11:50:15]  Get 'dao'<null>
+1153 DEBUG [2014-05-28 11:50:15]  	 >> Load definition
+1153 DEBUG [2014-05-28 11:50:15]  Loading define for name=dao
+1156 DEBUG [2014-05-28 11:50:15]  Found IocObject(dao) in IocLoader(JsonLoader@1704629915)
+1163 DEBUG [2014-05-28 11:50:15]  	 >> Make...'dao'<null>
+1171 DEBUG [2014-05-28 11:50:15]  class org.nutz.dao.impl.NutDao , no config to enable AOP.
+1171 DEBUG [2014-05-28 11:50:15]  Save object 'dao' to [app] 
+1171 DEBUG [2014-05-28 11:50:15]  Get 'dataSource'<null>
+1171 DEBUG [2014-05-28 11:50:15]  	 >> Load definition
+1171 DEBUG [2014-05-28 11:50:15]  Loading define for name=dataSource
+1178 DEBUG [2014-05-28 11:50:15]  Found IocObject(dataSource) in IocLoader(JsonLoader@1704629915)
+1178 DEBUG [2014-05-28 11:50:15]  	 >> Make...'dataSource'<null>
+1192 DEBUG [2014-05-28 11:50:15]  class com.alibaba.druid.pool.DruidDataSource , no config to enable AOP.
+1193 DEBUG [2014-05-28 11:50:15]  Save object 'dataSource' to [app] 
+1202 DEBUG [2014-05-28 11:50:15]  Get 'dataSource'<null>
+1229 INFO  [2014-05-28 11:50:15]  Init file-pool by: /home/ansj/.nutz/tmp/dao/ [200000]
+1229 DEBUG [2014-05-28 11:50:15]  file-pool.home: '/home/ansj/.nutz/tmp/dao'
+1230 INFO  [2014-05-28 11:50:15]  file-pool.cursor: 0
+1234 DEBUG [2014-05-28 11:50:15]  Jdbcs init complete
+1234 INFO  [2014-05-28 11:50:15]  Get Connection from DataSource for JdbcExpert
+1593 INFO  [2014-05-28 11:50:15]  {dataSource-1} inited
+1614 DEBUG [2014-05-28 11:50:15]  JDBC Driver --> 1.3.176 (2014-04-05)
+1614 DEBUG [2014-05-28 11:50:15]  JDBC Name   --> H2 JDBC Driver
+1615 DEBUG [2014-05-28 11:50:15]  Database info --> H2:[H2 - 1.3.176 (2014-04-05)]
+1651 DEBUG [2014-05-28 11:50:15]  SELECT * FROM category  ORDER BY id ASC  
+1653 DEBUG [2014-05-28 11:50:15]  Get 'generalService'<class org.nlpchina.web.service.GeneralService>
+1656 DEBUG [2014-05-28 11:50:15]  SELECT * FROM tag  WHERE type=?
+    | 1 |
+    |---|
+    | 1 |
+  For example:> "SELECT * FROM tag  WHERE type=1"
+1659 INFO  [2014-05-28 11:50:15]  Nutz.Mvc[nutz] is up in 874ms
+8819 DEBUG [2014-05-28 11:50:22]  Search mapping for path=/ : NOT Action match
+80305 INFO  [2014-05-28 11:51:34]  Nutz.Mvc[nutz] is deposing ...
+80306 DEBUG [2014-05-28 11:51:34]  Depose object 'dao' ...
+80306 DEBUG [2014-05-28 11:51:34]  Depose object 'generalService' ...
+80306 DEBUG [2014-05-28 11:51:34]  Depose object 'dataSource' ...
+80308 INFO  [2014-05-28 11:51:34]  {dataSource-1} closed
+80309 DEBUG [2014-05-28 11:51:34]  !!!Ioc is deposed, you can't use it anymore
+80309 INFO  [2014-05-28 11:51:34]  Nutz.Mvc[nutz] is down in 3ms
+0    INFO  [2014-05-28 11:51:40]  Nutz is licensed under the Apache License, Version 2.0 .
+Report bugs : https://github.com/nutzam/nutz/issues
+5    INFO  [2014-05-28 11:51:40]  NutFilter[nutz] starting ...
+755  DEBUG [2014-05-28 11:51:41]  Locations for Scans:
+[JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-logging-1.1.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-httpclient-3.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.apache.jasper.glassfish/2.2.2.v201112011158/org.apache.jasper.glassfish-2.2.2.v201112011158.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web/target/classes], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-xml/8.1.11.v20130520/jetty-xml-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp/2.2.0.v201112011158/javax.servlet.jsp-2.2.0.v201112011158.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/h2database/h2/1.3.176/h2-1.3.176.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/weibo4j.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/google/guava/guava/r09/guava-r09.jar], JarResourceLocation [jarPath=file:/home/ansj/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/ansj/tree_split/1.4/tree_split-1.4.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-webapp/8.1.11.v20130520/jetty-webapp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-servlet/8.1.11.v20130520/jetty-servlet-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-jsp/8.1.11.v20130520/jetty-jsp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp.jstl/1.2.0.v201105211821/javax.servlet.jsp.jstl-1.2.0.v201105211821.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/jackson-all-1.8.5.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/com.sun.el/2.2.0.v201108011116/com.sun.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/alibaba/fastjson/1.1.33/fastjson-1.1.33.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/ansj/ansj_seg/1.4.1/ansj_seg-1.4.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/log4j-1.2.16.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.eclipse.jdt.core/3.7.1/org.eclipse.jdt.core-3.7.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.apache.taglibs.standard.glassfish/1.2.0.v201112081803/org.apache.taglibs.standard.glassfish-1.2.0.v201112081803.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/alibaba/druid/1.0.5/druid-1.0.5.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-codec.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.el/2.2.0.v201108011116/javax.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-security/8.1.11.v20130520/jetty-security-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar]]
+756  INFO  [2014-05-28 11:51:41]  ErrorResourceLocation [loc=/home/ansj/workspace/nlp_china_web/src/main/webapp/WEB-INF/classes], maybe it is in your classpath, but not exist
+757  DEBUG [2014-05-28 11:51:41]  Locations for Scans:
+[JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-logging-1.1.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-httpclient-3.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.apache.jasper.glassfish/2.2.2.v201112011158/org.apache.jasper.glassfish-2.2.2.v201112011158.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web/target/classes], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-xml/8.1.11.v20130520/jetty-xml-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp/2.2.0.v201112011158/javax.servlet.jsp-2.2.0.v201112011158.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/h2database/h2/1.3.176/h2-1.3.176.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/weibo4j.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/google/guava/guava/r09/guava-r09.jar], JarResourceLocation [jarPath=file:/home/ansj/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/ansj/tree_split/1.4/tree_split-1.4.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-webapp/8.1.11.v20130520/jetty-webapp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-servlet/8.1.11.v20130520/jetty-servlet-8.1.11.v20130520.jar], ErrorResourceLocation [loc=/home/ansj/workspace/nlp_china_web/src/main/webapp/WEB-INF/classes], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-jsp/8.1.11.v20130520/jetty-jsp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp.jstl/1.2.0.v201105211821/javax.servlet.jsp.jstl-1.2.0.v201105211821.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/jackson-all-1.8.5.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/com.sun.el/2.2.0.v201108011116/com.sun.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/alibaba/fastjson/1.1.33/fastjson-1.1.33.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/ansj/ansj_seg/1.4.1/ansj_seg-1.4.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/log4j-1.2.16.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.eclipse.jdt.core/3.7.1/org.eclipse.jdt.core-3.7.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.apache.taglibs.standard.glassfish/1.2.0.v201112081803/org.apache.taglibs.standard.glassfish-1.2.0.v201112081803.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/alibaba/druid/1.0.5/druid-1.0.5.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-codec.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.el/2.2.0.v201108011116/javax.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-security/8.1.11.v20130520/jetty-security-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar]]
+759  DEBUG [2014-05-28 11:51:41]  MainModule: <org.nlpchina.web.BootStrap>
+778  DEBUG [2014-05-28 11:51:41]  Loading by class org.nutz.mvc.impl.NutLoading
+780  INFO  [2014-05-28 11:51:41]  Nutz Version : 1.b.50 
+781  INFO  [2014-05-28 11:51:41]  Nutz.Mvc[nutz] is initializing ...
+781  DEBUG [2014-05-28 11:51:41]  Web Container Information:
+782  DEBUG [2014-05-28 11:51:41]   - Default Charset : UTF-8
+782  DEBUG [2014-05-28 11:51:41]   - Current . path  : /home/ansj/workspace/nlp_china_web/.
+783  DEBUG [2014-05-28 11:51:41]   - Java Version    : 1.8.0
+783  DEBUG [2014-05-28 11:51:41]   - File separator  : /
+783  DEBUG [2014-05-28 11:51:41]   - Timezone        : Asia/Shanghai
+784  DEBUG [2014-05-28 11:51:41]   - OS              : Linux amd64
+784  DEBUG [2014-05-28 11:51:41]   - ServerInfo      : jetty/8.1.11.v20130520
+786  DEBUG [2014-05-28 11:51:41]   - ContextPath     : 
+786  DEBUG [2014-05-28 11:51:41]  MainModule: <org.nlpchina.web.BootStrap>
+787  DEBUG [2014-05-28 11:51:41]  >> app.root = /home/ansj/workspace/nlp_china_web/src/main/webapp
+789  DEBUG [2014-05-28 11:51:41]  @IocBy(type=org.nutz.mvc.ioc.provider.ComboIocProvider, args=[Ljava.lang.String;@7fac631b)
+816  DEBUG [2014-05-28 11:51:41]  Found 1 resource by src( ioc.js ) , regex( ^(.+[.])(js|json)$ )
+821  DEBUG [2014-05-28 11:51:41]  Loaded 3 bean define from path=[ioc.js] --> [dao, recommendBasicDao, dataSource]
+829  DEBUG [2014-05-28 11:51:41]  Found 24 resource by src( org/nlpchina/web/ ) , regex( ^.+[.]class$ )
+847  DEBUG [2014-05-28 11:51:41]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.DocumentAction
+862  DEBUG [2014-05-28 11:51:41]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.ResourceAction
+864  DEBUG [2014-05-28 11:51:41]  Found a Class with Ioc-Annotation : class org.nlpchina.web.service.ResourceService
+865  DEBUG [2014-05-28 11:51:41]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.DemoAction
+871  DEBUG [2014-05-28 11:51:41]  Found a Class with Ioc-Annotation : class org.nlpchina.web.service.GeneralService
+879  DEBUG [2014-05-28 11:51:41]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.TestAction
+880  DEBUG [2014-05-28 11:51:41]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.AdminResourceAction
+919  DEBUG [2014-05-28 11:51:41]  Using 91 castor for Castors
+921  INFO  [2014-05-28 11:51:41]  Scan complete ! Found 7 classes in 1 base-packages!
+beans = ["resourceAction", "demoAction", "generalService", "adminResourceAction", "documentAction", "resourceService", "testAction"]
+930  DEBUG [2014-05-28 11:51:41]  MainModule: <org.nlpchina.web.BootStrap>
+932  INFO  [2014-05-28 11:51:41]  Build URL mapping by org.nutz.mvc.impl.UrlMappingImpl ...
+933  DEBUG [2014-05-28 11:51:41]  @Views(DefaultViewMaker)
+940  DEBUG [2014-05-28 11:51:41]  @ChainBy(org.nutz.mvc.impl.NutActionChainMaker)
+944  DEBUG [2014-05-28 11:51:41]   > scan 'org.nlpchina.web.controller'
+948  DEBUG [2014-05-28 11:51:41]  Found 7 resource by src( org/nlpchina/web/controller/ ) , regex( ^.+[.]class$ )
+949  DEBUG [2014-05-28 11:51:41]     >> add 'org.nlpchina.web.controller.DocumentAction'
+949  DEBUG [2014-05-28 11:51:41]     >> add 'org.nlpchina.web.controller.ResourceAction'
+950  DEBUG [2014-05-28 11:51:41]     >> add 'org.nlpchina.web.controller.DemoAction'
+950  DEBUG [2014-05-28 11:51:41]     >> add 'org.nlpchina.web.controller.TestAction'
+950  DEBUG [2014-05-28 11:51:41]     >> add 'org.nlpchina.web.controller.AdminResourceAction'
+951  DEBUG [2014-05-28 11:51:41]  module class location 'file:/home/ansj/workspace/nlp_china_web/target/classes/'
+951  DEBUG [2014-05-28 11:51:41]   > scan 'org.nlpchina.web'
+963  DEBUG [2014-05-28 11:51:41]  Found 24 resource by src( org/nlpchina/web/ ) , regex( ^.+[.]class$ )
+965  DEBUG [2014-05-28 11:51:41]     >> add 'org.nlpchina.web.controller.DocumentAction'
+965  DEBUG [2014-05-28 11:51:41]     >> add 'org.nlpchina.web.controller.ResourceAction'
+965  DEBUG [2014-05-28 11:51:41]     >> add 'org.nlpchina.web.controller.DemoAction'
+966  DEBUG [2014-05-28 11:51:41]     >> add 'org.nlpchina.web.controller.TestAction'
+967  DEBUG [2014-05-28 11:51:41]     >> add 'org.nlpchina.web.controller.AdminResourceAction'
+991  DEBUG [2014-05-28 11:51:41]     '/doc_menu/save/'           >> DocumentAction.saveMenu(...)   : DocMenu    | @Ok(redirect:/docs/editor/${obj.id}?code=${obj.extractingCode}) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+993  DEBUG [2014-05-28 11:51:41]     '/doc/save/'                >> DocumentAction.saveDoc(...)    : Map        | @Ok(json ) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+996  DEBUG [2014-05-28 11:51:41]     '/docs/'                    >> DocumentAction.multiDocument(...) : String     | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+997  DEBUG [2014-05-28 11:51:41]     '/doc'                      >> DocumentAction.singleDocument(...) : String     | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1002 DEBUG [2014-05-28 11:51:41]     '/docs/?/?'                 >> DocumentAction.docView(...)    : void       | @Ok(jsp:/document/doc_view.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1004 DEBUG [2014-05-28 11:51:41]     '/docs/?'                   >> DocumentAction.docView(...)    : void       | @Ok(jsp:/document/doc_view.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1007 DEBUG [2014-05-28 11:51:41]     '/doc/?'                    >> DocumentAction.docView(...)    : void       | @Ok(jsp:/document/doc_view.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1009 DEBUG [2014-05-28 11:51:41]     '/docs/editor/?/?'          >> DocumentAction.docEditor(...)  : void       | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1012 DEBUG [2014-05-28 11:51:41]     '/docs/editor/?'            >> DocumentAction.docEditor(...)  : void       | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1014 DEBUG [2014-05-28 11:51:41]     '/doc/editor/?'             >> DocumentAction.docEditor(...)  : void       | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1016 DEBUG [2014-05-28 11:51:41]     '/resource/?'               >> ResourceAction.findById(...)   : Resource   | @Ok(jsp:/resource.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1017 DEBUG [2014-05-28 11:51:41]     '/resource/list'            >> ResourceAction.list(...)       : void       | @Ok(jsp:/resource-list.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1020 DEBUG [2014-05-28 11:51:41]     '/resource/list/?'          >> ResourceAction.list(...)       : void       | @Ok(jsp:/resource-list.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1021 DEBUG [2014-05-28 11:51:41]     '/demo/'                    >> DemoAction.demo(...)           : void       | @Ok(jsp:/demo.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1024 DEBUG [2014-05-28 11:51:41]     '/test/execute_sql'         >> TestAction.executeSql(...)     : String     | @Ok(raw  ) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1028 DEBUG [2014-05-28 11:51:41]     '/admin/resource/editer'    >> AdminResourceAction.edite(...) : Resource   | @Ok(jsp:/admin/resource-editer.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1029 DEBUG [2014-05-28 11:51:41]     '/admin/resource/list'      >> AdminResourceAction.adminList(...) : void       | @Ok(jsp:/admin/resource-list.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1030 DEBUG [2014-05-28 11:51:41]     '/admin/resource/editer/?'  >> AdminResourceAction.editer(...) : Resource   | @Ok(jsp:/admin/resource-editer.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1031 DEBUG [2014-05-28 11:51:41]     '/admin/resource/delete/?'  >> AdminResourceAction.delete(...) : void       | @Ok(redirect:/admin/resource/list) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1032 DEBUG [2014-05-28 11:51:41]     '/admin/resource/insert'    >> AdminResourceAction.insert(...) : void       | @Ok(redirect:/admin/resource/list) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1033 INFO  [2014-05-28 11:51:41]  Found 20 module methods
+1033 DEBUG [2014-05-28 11:51:41]  @Localization not define
+1034 INFO  [2014-05-28 11:51:41]  Setup application...
+1116 DEBUG [2014-05-28 11:51:42]  Get 'generalService'<class org.nlpchina.web.service.GeneralService>
+1117 DEBUG [2014-05-28 11:51:42]  	 >> Load definition
+1118 DEBUG [2014-05-28 11:51:42]  Found IocObject(generalService) in IocLoader(AnnotationIocLoader@1699113578)
+1118 DEBUG [2014-05-28 11:51:42]  	 >> Make...'generalService'<class org.nlpchina.web.service.GeneralService>
+1120 DEBUG [2014-05-28 11:51:42]  class org.nlpchina.web.service.GeneralService , no config to enable AOP.
+1121 DEBUG [2014-05-28 11:51:42]  Save object 'generalService' to [app] 
+1125 DEBUG [2014-05-28 11:51:42]  Get 'dao'<null>
+1125 DEBUG [2014-05-28 11:51:42]  	 >> Load definition
+1125 DEBUG [2014-05-28 11:51:42]  Loading define for name=dao
+1133 DEBUG [2014-05-28 11:51:42]  Found IocObject(dao) in IocLoader(JsonLoader@1704629915)
+1134 DEBUG [2014-05-28 11:51:42]  	 >> Make...'dao'<null>
+1144 DEBUG [2014-05-28 11:51:42]  class org.nutz.dao.impl.NutDao , no config to enable AOP.
+1144 DEBUG [2014-05-28 11:51:42]  Save object 'dao' to [app] 
+1145 DEBUG [2014-05-28 11:51:42]  Get 'dataSource'<null>
+1145 DEBUG [2014-05-28 11:51:42]  	 >> Load definition
+1145 DEBUG [2014-05-28 11:51:42]  Loading define for name=dataSource
+1153 DEBUG [2014-05-28 11:51:42]  Found IocObject(dataSource) in IocLoader(JsonLoader@1704629915)
+1153 DEBUG [2014-05-28 11:51:42]  	 >> Make...'dataSource'<null>
+1167 DEBUG [2014-05-28 11:51:42]  class com.alibaba.druid.pool.DruidDataSource , no config to enable AOP.
+1167 DEBUG [2014-05-28 11:51:42]  Save object 'dataSource' to [app] 
+1184 DEBUG [2014-05-28 11:51:42]  Get 'dataSource'<null>
+1219 INFO  [2014-05-28 11:51:42]  Init file-pool by: /home/ansj/.nutz/tmp/dao/ [200000]
+1219 DEBUG [2014-05-28 11:51:42]  file-pool.home: '/home/ansj/.nutz/tmp/dao'
+1220 INFO  [2014-05-28 11:51:42]  file-pool.cursor: 0
+1225 DEBUG [2014-05-28 11:51:42]  Jdbcs init complete
+1225 INFO  [2014-05-28 11:51:42]  Get Connection from DataSource for JdbcExpert
+1645 INFO  [2014-05-28 11:51:42]  {dataSource-1} inited
+1656 DEBUG [2014-05-28 11:51:42]  JDBC Driver --> 1.3.176 (2014-04-05)
+1657 DEBUG [2014-05-28 11:51:42]  JDBC Name   --> H2 JDBC Driver
+1658 DEBUG [2014-05-28 11:51:42]  Database info --> H2:[H2 - 1.3.176 (2014-04-05)]
+1695 DEBUG [2014-05-28 11:51:42]  SELECT * FROM category  ORDER BY id ASC  
+1698 DEBUG [2014-05-28 11:51:42]  Get 'generalService'<class org.nlpchina.web.service.GeneralService>
+1701 DEBUG [2014-05-28 11:51:42]  SELECT * FROM tag  WHERE type=?
+    | 1 |
+    |---|
+    | 1 |
+  For example:> "SELECT * FROM tag  WHERE type=1"
+1705 INFO  [2014-05-28 11:51:42]  Nutz.Mvc[nutz] is up in 918ms
+0    INFO  [2014-05-28 11:54:50]  Nutz is licensed under the Apache License, Version 2.0 .
+Report bugs : https://github.com/nutzam/nutz/issues
+6    INFO  [2014-05-28 11:54:50]  NutFilter[nutz] starting ...
+719  DEBUG [2014-05-28 11:54:51]  Locations for Scans:
+[JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-logging-1.1.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-httpclient-3.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.apache.jasper.glassfish/2.2.2.v201112011158/org.apache.jasper.glassfish-2.2.2.v201112011158.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web/target/classes], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-xml/8.1.11.v20130520/jetty-xml-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp/2.2.0.v201112011158/javax.servlet.jsp-2.2.0.v201112011158.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/h2database/h2/1.3.176/h2-1.3.176.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/weibo4j.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/google/guava/guava/r09/guava-r09.jar], JarResourceLocation [jarPath=file:/home/ansj/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/ansj/tree_split/1.4/tree_split-1.4.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-webapp/8.1.11.v20130520/jetty-webapp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-servlet/8.1.11.v20130520/jetty-servlet-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-jsp/8.1.11.v20130520/jetty-jsp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp.jstl/1.2.0.v201105211821/javax.servlet.jsp.jstl-1.2.0.v201105211821.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/jackson-all-1.8.5.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/com.sun.el/2.2.0.v201108011116/com.sun.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/alibaba/fastjson/1.1.33/fastjson-1.1.33.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/ansj/ansj_seg/1.4.1/ansj_seg-1.4.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/log4j-1.2.16.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.eclipse.jdt.core/3.7.1/org.eclipse.jdt.core-3.7.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.apache.taglibs.standard.glassfish/1.2.0.v201112081803/org.apache.taglibs.standard.glassfish-1.2.0.v201112081803.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/alibaba/druid/1.0.5/druid-1.0.5.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-codec.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.el/2.2.0.v201108011116/javax.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-security/8.1.11.v20130520/jetty-security-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar]]
+720  INFO  [2014-05-28 11:54:51]  ErrorResourceLocation [loc=/home/ansj/workspace/nlp_china_web/src/main/webapp/WEB-INF/classes], maybe it is in your classpath, but not exist
+720  DEBUG [2014-05-28 11:54:51]  Locations for Scans:
+[JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-logging-1.1.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-httpclient-3.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.apache.jasper.glassfish/2.2.2.v201112011158/org.apache.jasper.glassfish-2.2.2.v201112011158.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web/target/classes], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-xml/8.1.11.v20130520/jetty-xml-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp/2.2.0.v201112011158/javax.servlet.jsp-2.2.0.v201112011158.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/h2database/h2/1.3.176/h2-1.3.176.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/weibo4j.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/google/guava/guava/r09/guava-r09.jar], JarResourceLocation [jarPath=file:/home/ansj/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/ansj/tree_split/1.4/tree_split-1.4.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-webapp/8.1.11.v20130520/jetty-webapp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-servlet/8.1.11.v20130520/jetty-servlet-8.1.11.v20130520.jar], ErrorResourceLocation [loc=/home/ansj/workspace/nlp_china_web/src/main/webapp/WEB-INF/classes], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-jsp/8.1.11.v20130520/jetty-jsp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp.jstl/1.2.0.v201105211821/javax.servlet.jsp.jstl-1.2.0.v201105211821.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/jackson-all-1.8.5.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/com.sun.el/2.2.0.v201108011116/com.sun.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/alibaba/fastjson/1.1.33/fastjson-1.1.33.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/ansj/ansj_seg/1.4.1/ansj_seg-1.4.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/log4j-1.2.16.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.eclipse.jdt.core/3.7.1/org.eclipse.jdt.core-3.7.1.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/org.apache.taglibs.standard.glassfish/1.2.0.v201112081803/org.apache.taglibs.standard.glassfish-1.2.0.v201112081803.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/com/alibaba/druid/1.0.5/druid-1.0.5.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-codec.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/orbit/javax.el/2.2.0.v201108011116/javax.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/eclipse/jetty/jetty-security/8.1.11.v20130520/jetty-security-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar]]
+723  DEBUG [2014-05-28 11:54:51]  MainModule: <org.nlpchina.web.BootStrap>
+743  DEBUG [2014-05-28 11:54:51]  Loading by class org.nutz.mvc.impl.NutLoading
+746  INFO  [2014-05-28 11:54:51]  Nutz Version : 1.b.50 
+746  INFO  [2014-05-28 11:54:51]  Nutz.Mvc[nutz] is initializing ...
+746  DEBUG [2014-05-28 11:54:51]  Web Container Information:
+747  DEBUG [2014-05-28 11:54:51]   - Default Charset : UTF-8
+747  DEBUG [2014-05-28 11:54:51]   - Current . path  : /home/ansj/workspace/nlp_china_web/.
+747  DEBUG [2014-05-28 11:54:51]   - Java Version    : 1.8.0
+747  DEBUG [2014-05-28 11:54:51]   - File separator  : /
+748  DEBUG [2014-05-28 11:54:51]   - Timezone        : Asia/Shanghai
+748  DEBUG [2014-05-28 11:54:51]   - OS              : Linux amd64
+748  DEBUG [2014-05-28 11:54:51]   - ServerInfo      : jetty/8.1.11.v20130520
+748  DEBUG [2014-05-28 11:54:51]   - ContextPath     : 
+749  DEBUG [2014-05-28 11:54:51]  MainModule: <org.nlpchina.web.BootStrap>
+749  DEBUG [2014-05-28 11:54:51]  >> app.root = /home/ansj/workspace/nlp_china_web/src/main/webapp
+751  DEBUG [2014-05-28 11:54:51]  @IocBy(type=org.nutz.mvc.ioc.provider.ComboIocProvider, args=[Ljava.lang.String;@7fac631b)
+779  DEBUG [2014-05-28 11:54:51]  Found 1 resource by src( ioc.js ) , regex( ^(.+[.])(js|json)$ )
+786  DEBUG [2014-05-28 11:54:51]  Loaded 3 bean define from path=[ioc.js] --> [dao, recommendBasicDao, dataSource]
+793  DEBUG [2014-05-28 11:54:51]  Found 24 resource by src( org/nlpchina/web/ ) , regex( ^.+[.]class$ )
+812  DEBUG [2014-05-28 11:54:51]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.DocumentAction
+821  DEBUG [2014-05-28 11:54:51]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.ResourceAction
+824  DEBUG [2014-05-28 11:54:51]  Found a Class with Ioc-Annotation : class org.nlpchina.web.service.ResourceService
+825  DEBUG [2014-05-28 11:54:51]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.DemoAction
+833  DEBUG [2014-05-28 11:54:51]  Found a Class with Ioc-Annotation : class org.nlpchina.web.service.GeneralService
+842  DEBUG [2014-05-28 11:54:51]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.TestAction
+843  DEBUG [2014-05-28 11:54:51]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.AdminResourceAction
+890  DEBUG [2014-05-28 11:54:51]  Using 91 castor for Castors
+896  INFO  [2014-05-28 11:54:51]  Scan complete ! Found 7 classes in 1 base-packages!
+beans = ["resourceAction", "demoAction", "generalService", "adminResourceAction", "documentAction", "resourceService", "testAction"]
+906  DEBUG [2014-05-28 11:54:51]  MainModule: <org.nlpchina.web.BootStrap>
+910  INFO  [2014-05-28 11:54:51]  Build URL mapping by org.nutz.mvc.impl.UrlMappingImpl ...
+912  DEBUG [2014-05-28 11:54:51]  @Views(DefaultViewMaker)
+923  DEBUG [2014-05-28 11:54:51]  @ChainBy(org.nutz.mvc.impl.NutActionChainMaker)
+927  DEBUG [2014-05-28 11:54:51]   > scan 'org.nlpchina.web.controller'
+947  DEBUG [2014-05-28 11:54:51]  Found 7 resource by src( org/nlpchina/web/controller/ ) , regex( ^.+[.]class$ )
+948  DEBUG [2014-05-28 11:54:51]     >> add 'org.nlpchina.web.controller.DocumentAction'
+949  DEBUG [2014-05-28 11:54:51]     >> add 'org.nlpchina.web.controller.ResourceAction'
+949  DEBUG [2014-05-28 11:54:51]     >> add 'org.nlpchina.web.controller.DemoAction'
+949  DEBUG [2014-05-28 11:54:51]     >> add 'org.nlpchina.web.controller.TestAction'
+950  DEBUG [2014-05-28 11:54:51]     >> add 'org.nlpchina.web.controller.AdminResourceAction'
+950  DEBUG [2014-05-28 11:54:51]  module class location 'file:/home/ansj/workspace/nlp_china_web/target/classes/'
+950  DEBUG [2014-05-28 11:54:51]   > scan 'org.nlpchina.web'
+967  DEBUG [2014-05-28 11:54:51]  Found 24 resource by src( org/nlpchina/web/ ) , regex( ^.+[.]class$ )
+970  DEBUG [2014-05-28 11:54:51]     >> add 'org.nlpchina.web.controller.DocumentAction'
+970  DEBUG [2014-05-28 11:54:51]     >> add 'org.nlpchina.web.controller.ResourceAction'
+971  DEBUG [2014-05-28 11:54:51]     >> add 'org.nlpchina.web.controller.DemoAction'
+972  DEBUG [2014-05-28 11:54:51]     >> add 'org.nlpchina.web.controller.TestAction'
+972  DEBUG [2014-05-28 11:54:51]     >> add 'org.nlpchina.web.controller.AdminResourceAction'
+993  DEBUG [2014-05-28 11:54:51]     '/doc_menu/save/'           >> DocumentAction.saveMenu(...)   : DocMenu    | @Ok(redirect:/docs/editor/${obj.id}?code=${obj.extractingCode}) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+995  DEBUG [2014-05-28 11:54:51]     '/doc/save/'                >> DocumentAction.saveDoc(...)    : Map        | @Ok(json ) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+997  DEBUG [2014-05-28 11:54:51]     '/docs/'                    >> DocumentAction.multiDocument(...) : String     | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+998  DEBUG [2014-05-28 11:54:51]     '/doc'                      >> DocumentAction.singleDocument(...) : String     | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1004 DEBUG [2014-05-28 11:54:51]     '/docs/?/?'                 >> DocumentAction.docView(...)    : void       | @Ok(jsp:/document/doc_view.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1006 DEBUG [2014-05-28 11:54:51]     '/docs/?'                   >> DocumentAction.docView(...)    : void       | @Ok(jsp:/document/doc_view.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1008 DEBUG [2014-05-28 11:54:51]     '/doc/?'                    >> DocumentAction.docView(...)    : void       | @Ok(jsp:/document/doc_view.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1010 DEBUG [2014-05-28 11:54:51]     '/docs/editor/?/?'          >> DocumentAction.docEditor(...)  : void       | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1012 DEBUG [2014-05-28 11:54:51]     '/docs/editor/?'            >> DocumentAction.docEditor(...)  : void       | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1013 DEBUG [2014-05-28 11:54:51]     '/doc/editor/?'             >> DocumentAction.docEditor(...)  : void       | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1015 DEBUG [2014-05-28 11:54:51]     '/resource/?'               >> ResourceAction.findById(...)   : Resource   | @Ok(jsp:/resource.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1016 DEBUG [2014-05-28 11:54:51]     '/resource/list'            >> ResourceAction.list(...)       : void       | @Ok(jsp:/resource-list.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1018 DEBUG [2014-05-28 11:54:51]     '/resource/list/?'          >> ResourceAction.list(...)       : void       | @Ok(jsp:/resource-list.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1020 DEBUG [2014-05-28 11:54:51]     '/demo/'                    >> DemoAction.demo(...)           : void       | @Ok(jsp:/demo.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1022 DEBUG [2014-05-28 11:54:51]     '/test/execute_sql'         >> TestAction.executeSql(...)     : String     | @Ok(raw  ) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1028 DEBUG [2014-05-28 11:54:51]     '/admin/resource/editer'    >> AdminResourceAction.edite(...) : Resource   | @Ok(jsp:/admin/resource-editer.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1029 DEBUG [2014-05-28 11:54:51]     '/admin/resource/list'      >> AdminResourceAction.adminList(...) : void       | @Ok(jsp:/admin/resource-list.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1031 DEBUG [2014-05-28 11:54:51]     '/admin/resource/editer/?'  >> AdminResourceAction.editer(...) : Resource   | @Ok(jsp:/admin/resource-editer.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1033 DEBUG [2014-05-28 11:54:51]     '/admin/resource/delete/?'  >> AdminResourceAction.delete(...) : void       | @Ok(redirect:/admin/resource/list) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1035 DEBUG [2014-05-28 11:54:51]     '/admin/resource/insert'    >> AdminResourceAction.insert(...) : void       | @Ok(redirect:/admin/resource/list) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1035 INFO  [2014-05-28 11:54:51]  Found 20 module methods
+1036 DEBUG [2014-05-28 11:54:51]  @Localization not define
+1036 INFO  [2014-05-28 11:54:51]  Setup application...
+1123 DEBUG [2014-05-28 11:54:51]  Get 'generalService'<class org.nlpchina.web.service.GeneralService>
+1125 DEBUG [2014-05-28 11:54:51]  	 >> Load definition
+1127 DEBUG [2014-05-28 11:54:51]  Found IocObject(generalService) in IocLoader(AnnotationIocLoader@1699113578)
+1127 DEBUG [2014-05-28 11:54:51]  	 >> Make...'generalService'<class org.nlpchina.web.service.GeneralService>
+1130 DEBUG [2014-05-28 11:54:51]  class org.nlpchina.web.service.GeneralService , no config to enable AOP.
+1131 DEBUG [2014-05-28 11:54:51]  Save object 'generalService' to [app] 
+1138 DEBUG [2014-05-28 11:54:51]  Get 'dao'<null>
+1139 DEBUG [2014-05-28 11:54:51]  	 >> Load definition
+1145 DEBUG [2014-05-28 11:54:51]  Loading define for name=dao
+1148 DEBUG [2014-05-28 11:54:51]  Found IocObject(dao) in IocLoader(JsonLoader@1704629915)
+1148 DEBUG [2014-05-28 11:54:51]  	 >> Make...'dao'<null>
+1153 DEBUG [2014-05-28 11:54:51]  class org.nutz.dao.impl.NutDao , no config to enable AOP.
+1153 DEBUG [2014-05-28 11:54:51]  Save object 'dao' to [app] 
+1154 DEBUG [2014-05-28 11:54:51]  Get 'dataSource'<null>
+1154 DEBUG [2014-05-28 11:54:51]  	 >> Load definition
+1154 DEBUG [2014-05-28 11:54:51]  Loading define for name=dataSource
+1159 DEBUG [2014-05-28 11:54:51]  Found IocObject(dataSource) in IocLoader(JsonLoader@1704629915)
+1159 DEBUG [2014-05-28 11:54:51]  	 >> Make...'dataSource'<null>
+1173 DEBUG [2014-05-28 11:54:51]  class com.alibaba.druid.pool.DruidDataSource , no config to enable AOP.
+1174 DEBUG [2014-05-28 11:54:51]  Save object 'dataSource' to [app] 
+1188 DEBUG [2014-05-28 11:54:51]  Get 'dataSource'<null>
+1240 INFO  [2014-05-28 11:54:51]  Init file-pool by: /home/ansj/.nutz/tmp/dao/ [200000]
+1240 DEBUG [2014-05-28 11:54:51]  file-pool.home: '/home/ansj/.nutz/tmp/dao'
+1241 INFO  [2014-05-28 11:54:51]  file-pool.cursor: 0
+1247 DEBUG [2014-05-28 11:54:51]  Jdbcs init complete
+1247 INFO  [2014-05-28 11:54:51]  Get Connection from DataSource for JdbcExpert
+1617 INFO  [2014-05-28 11:54:52]  {dataSource-1} inited
+1640 DEBUG [2014-05-28 11:54:52]  JDBC Driver --> 1.3.176 (2014-04-05)
+1640 DEBUG [2014-05-28 11:54:52]  JDBC Name   --> H2 JDBC Driver
+1641 DEBUG [2014-05-28 11:54:52]  Database info --> H2:[H2 - 1.3.176 (2014-04-05)]
+1678 DEBUG [2014-05-28 11:54:52]  SELECT * FROM category  ORDER BY id ASC  
+1681 DEBUG [2014-05-28 11:54:52]  Get 'generalService'<class org.nlpchina.web.service.GeneralService>
+1684 DEBUG [2014-05-28 11:54:52]  SELECT * FROM tag  WHERE type=?
+    | 1 |
+    |---|
+    | 1 |
+  For example:> "SELECT * FROM tag  WHERE type=1"
+1689 INFO  [2014-05-28 11:54:52]  Nutz.Mvc[nutz] is up in 940ms
+0    INFO  [2014-05-28 12:27:50]  Nutz is licensed under the Apache License, Version 2.0 .
+Report bugs : https://github.com/nutzam/nutz/issues
+5    INFO  [2014-05-28 12:27:50]  NutFilter[nutz] starting ...
+747  DEBUG [2014-05-28 12:27:51]  Locations for Scans:
+[JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp/2.2.0.v201112011158/javax.servlet.jsp-2.2.0.v201112011158.jar], JarResourceLocation [jarPath=/root/.m2/repository/com/alibaba/druid/1.0.5/druid-1.0.5.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp.jstl/1.2.0.v201105211821/javax.servlet.jsp.jstl-1.2.0.v201105211821.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-xml/8.1.11.v20130520/jetty-xml-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-logging-1.1.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-webapp/8.1.11.v20130520/jetty-webapp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/orbit/com.sun.el/2.2.0.v201108011116/com.sun.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-httpclient-3.1.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-security/8.1.11.v20130520/jetty-security-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/com/google/guava/guava/r09/guava-r09.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web/target/classes], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/orbit/org.eclipse.jdt.core/3.7.1/org.eclipse.jdt.core-3.7.1.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/weibo4j.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/com/alibaba/fastjson/1.1.33/fastjson-1.1.33.jar], JarResourceLocation [jarPath=/root/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/orbit/org.apache.taglibs.standard.glassfish/1.2.0.v201112081803/org.apache.taglibs.standard.glassfish-1.2.0.v201112081803.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/jackson-all-1.8.5.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/ansj/ansj_seg/1.4.1/ansj_seg-1.4.1.jar], JarResourceLocation [jarPath=/root/.m2/repository/com/h2database/h2/1.3.176/h2-1.3.176.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/orbit/org.apache.jasper.glassfish/2.2.2.v201112011158/org.apache.jasper.glassfish-2.2.2.v201112011158.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/log4j-1.2.16.jar], JarResourceLocation [jarPath=file:/root/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/orbit/javax.el/2.2.0.v201108011116/javax.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-codec.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-servlet/8.1.11.v20130520/jetty-servlet-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-jsp/8.1.11.v20130520/jetty-jsp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/ansj/tree_split/1.4/tree_split-1.4.jar]]
+748  INFO  [2014-05-28 12:27:51]  ErrorResourceLocation [loc=/home/ansj/workspace/nlp_china_web/src/main/webapp/WEB-INF/classes], maybe it is in your classpath, but not exist
+749  DEBUG [2014-05-28 12:27:51]  Locations for Scans:
+[JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp/2.2.0.v201112011158/javax.servlet.jsp-2.2.0.v201112011158.jar], JarResourceLocation [jarPath=/root/.m2/repository/com/alibaba/druid/1.0.5/druid-1.0.5.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet.jsp.jstl/1.2.0.v201105211821/javax.servlet.jsp.jstl-1.2.0.v201105211821.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-xml/8.1.11.v20130520/jetty-xml-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-logging-1.1.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-webapp/8.1.11.v20130520/jetty-webapp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/orbit/com.sun.el/2.2.0.v201108011116/com.sun.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-httpclient-3.1.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-security/8.1.11.v20130520/jetty-security-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/com/google/guava/guava/r09/guava-r09.jar], FileSystemResourceLocation [root=/home/ansj/workspace/nlp_china_web/target/classes], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/orbit/org.eclipse.jdt.core/3.7.1/org.eclipse.jdt.core-3.7.1.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/weibo4j.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/com/alibaba/fastjson/1.1.33/fastjson-1.1.33.jar], JarResourceLocation [jarPath=/root/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar], ErrorResourceLocation [loc=/home/ansj/workspace/nlp_china_web/src/main/webapp/WEB-INF/classes], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/orbit/org.apache.taglibs.standard.glassfish/1.2.0.v201112081803/org.apache.taglibs.standard.glassfish-1.2.0.v201112081803.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/jackson-all-1.8.5.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/ansj/ansj_seg/1.4.1/ansj_seg-1.4.1.jar], JarResourceLocation [jarPath=/root/.m2/repository/com/h2database/h2/1.3.176/h2-1.3.176.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/orbit/org.apache.jasper.glassfish/2.2.2.v201112011158/org.apache.jasper.glassfish-2.2.2.v201112011158.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/log4j-1.2.16.jar], JarResourceLocation [jarPath=file:/root/.m2/repository/org/nutz/nutz/1.b.50/nutz-1.b.50.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/orbit/javax.el/2.2.0.v201108011116/javax.el-2.2.0.v201108011116.jar], JarResourceLocation [jarPath=/home/ansj/workspace/nlp_china_web/lib/commons-codec.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-servlet/8.1.11.v20130520/jetty-servlet-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/jetty-jsp/8.1.11.v20130520/jetty-jsp-8.1.11.v20130520.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar], JarResourceLocation [jarPath=/root/.m2/repository/org/ansj/tree_split/1.4/tree_split-1.4.jar]]
+752  DEBUG [2014-05-28 12:27:51]  MainModule: <org.nlpchina.web.BootStrap>
+777  DEBUG [2014-05-28 12:27:51]  Loading by class org.nutz.mvc.impl.NutLoading
+783  INFO  [2014-05-28 12:27:51]  Nutz Version : 1.b.50 
+783  INFO  [2014-05-28 12:27:51]  Nutz.Mvc[nutz] is initializing ...
+784  DEBUG [2014-05-28 12:27:51]  Web Container Information:
+784  DEBUG [2014-05-28 12:27:51]   - Default Charset : UTF-8
+784  DEBUG [2014-05-28 12:27:51]   - Current . path  : /home/ansj/workspace/nlp_china_web/.
+785  DEBUG [2014-05-28 12:27:51]   - Java Version    : 1.8.0
+785  DEBUG [2014-05-28 12:27:51]   - File separator  : /
+785  DEBUG [2014-05-28 12:27:51]   - Timezone        : Asia/Shanghai
+785  DEBUG [2014-05-28 12:27:51]   - OS              : Linux amd64
+786  DEBUG [2014-05-28 12:27:51]   - ServerInfo      : jetty/8.1.11.v20130520
+786  DEBUG [2014-05-28 12:27:51]   - ContextPath     : 
+787  DEBUG [2014-05-28 12:27:51]  MainModule: <org.nlpchina.web.BootStrap>
+788  DEBUG [2014-05-28 12:27:51]  >> app.root = /home/ansj/workspace/nlp_china_web/src/main/webapp
+790  DEBUG [2014-05-28 12:27:51]  @IocBy(type=org.nutz.mvc.ioc.provider.ComboIocProvider, args=[Ljava.lang.String;@7fac631b)
+818  DEBUG [2014-05-28 12:27:51]  Found 1 resource by src( ioc.js ) , regex( ^(.+[.])(js|json)$ )
+825  DEBUG [2014-05-28 12:27:51]  Loaded 3 bean define from path=[ioc.js] --> [dao, recommendBasicDao, dataSource]
+837  DEBUG [2014-05-28 12:27:51]  Found 24 resource by src( org/nlpchina/web/ ) , regex( ^.+[.]class$ )
+855  DEBUG [2014-05-28 12:27:51]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.DocumentAction
+866  DEBUG [2014-05-28 12:27:51]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.ResourceAction
+871  DEBUG [2014-05-28 12:27:51]  Found a Class with Ioc-Annotation : class org.nlpchina.web.service.ResourceService
+873  DEBUG [2014-05-28 12:27:51]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.DemoAction
+880  DEBUG [2014-05-28 12:27:51]  Found a Class with Ioc-Annotation : class org.nlpchina.web.service.GeneralService
+890  DEBUG [2014-05-28 12:27:51]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.TestAction
+891  DEBUG [2014-05-28 12:27:51]  Found a Class with Ioc-Annotation : class org.nlpchina.web.controller.AdminResourceAction
+944  DEBUG [2014-05-28 12:27:51]  Using 91 castor for Castors
+946  INFO  [2014-05-28 12:27:51]  Scan complete ! Found 7 classes in 1 base-packages!
+beans = ["resourceAction", "demoAction", "generalService", "adminResourceAction", "documentAction", "resourceService", "testAction"]
+953  DEBUG [2014-05-28 12:27:51]  MainModule: <org.nlpchina.web.BootStrap>
+955  INFO  [2014-05-28 12:27:51]  Build URL mapping by org.nutz.mvc.impl.UrlMappingImpl ...
+956  DEBUG [2014-05-28 12:27:51]  @Views(DefaultViewMaker)
+961  DEBUG [2014-05-28 12:27:51]  @ChainBy(org.nutz.mvc.impl.NutActionChainMaker)
+963  DEBUG [2014-05-28 12:27:51]   > scan 'org.nlpchina.web.controller'
+971  DEBUG [2014-05-28 12:27:51]  Found 7 resource by src( org/nlpchina/web/controller/ ) , regex( ^.+[.]class$ )
+972  DEBUG [2014-05-28 12:27:51]     >> add 'org.nlpchina.web.controller.DocumentAction'
+972  DEBUG [2014-05-28 12:27:51]     >> add 'org.nlpchina.web.controller.ResourceAction'
+973  DEBUG [2014-05-28 12:27:51]     >> add 'org.nlpchina.web.controller.DemoAction'
+973  DEBUG [2014-05-28 12:27:51]     >> add 'org.nlpchina.web.controller.TestAction'
+973  DEBUG [2014-05-28 12:27:51]     >> add 'org.nlpchina.web.controller.AdminResourceAction'
+974  DEBUG [2014-05-28 12:27:51]  module class location 'file:/home/ansj/workspace/nlp_china_web/target/classes/'
+974  DEBUG [2014-05-28 12:27:51]   > scan 'org.nlpchina.web'
+982  DEBUG [2014-05-28 12:27:51]  Found 24 resource by src( org/nlpchina/web/ ) , regex( ^.+[.]class$ )
+985  DEBUG [2014-05-28 12:27:51]     >> add 'org.nlpchina.web.controller.DocumentAction'
+985  DEBUG [2014-05-28 12:27:51]     >> add 'org.nlpchina.web.controller.ResourceAction'
+986  DEBUG [2014-05-28 12:27:51]     >> add 'org.nlpchina.web.controller.DemoAction'
+987  DEBUG [2014-05-28 12:27:51]     >> add 'org.nlpchina.web.controller.TestAction'
+988  DEBUG [2014-05-28 12:27:51]     >> add 'org.nlpchina.web.controller.AdminResourceAction'
+1011 DEBUG [2014-05-28 12:27:51]     '/doc_menu/save/'           >> DocumentAction.saveMenu(...)   : DocMenu    | @Ok(redirect:/docs/editor/${obj.id}?code=${obj.extractingCode}) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1013 DEBUG [2014-05-28 12:27:51]     '/doc/save/'                >> DocumentAction.saveDoc(...)    : Map        | @Ok(json ) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1015 DEBUG [2014-05-28 12:27:51]     '/docs/'                    >> DocumentAction.multiDocument(...) : String     | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1016 DEBUG [2014-05-28 12:27:51]     '/doc'                      >> DocumentAction.singleDocument(...) : String     | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1023 DEBUG [2014-05-28 12:27:51]     '/docs/?/?'                 >> DocumentAction.docView(...)    : void       | @Ok(jsp:/document/doc_view.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1025 DEBUG [2014-05-28 12:27:51]     '/docs/?'                   >> DocumentAction.docView(...)    : void       | @Ok(jsp:/document/doc_view.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1027 DEBUG [2014-05-28 12:27:51]     '/doc/?'                    >> DocumentAction.docView(...)    : void       | @Ok(jsp:/document/doc_view.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1029 DEBUG [2014-05-28 12:27:51]     '/docs/editor/?/?'          >> DocumentAction.docEditor(...)  : void       | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1031 DEBUG [2014-05-28 12:27:51]     '/docs/editor/?'            >> DocumentAction.docEditor(...)  : void       | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1033 DEBUG [2014-05-28 12:27:51]     '/doc/editor/?'             >> DocumentAction.docEditor(...)  : void       | @Ok(jsp:/document/doc_editor.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1035 DEBUG [2014-05-28 12:27:51]     '/resource/?'               >> ResourceAction.findById(...)   : Resource   | @Ok(jsp:/resource.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1037 DEBUG [2014-05-28 12:27:51]     '/resource/list'            >> ResourceAction.list(...)       : void       | @Ok(jsp:/resource-list.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1039 DEBUG [2014-05-28 12:27:51]     '/resource/list/?'          >> ResourceAction.list(...)       : void       | @Ok(jsp:/resource-list.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1041 DEBUG [2014-05-28 12:27:51]     '/demo/'                    >> DemoAction.demo(...)           : void       | @Ok(jsp:/demo.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1044 DEBUG [2014-05-28 12:27:51]     '/test/execute_sql'         >> TestAction.executeSql(...)     : String     | @Ok(raw  ) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1049 DEBUG [2014-05-28 12:27:51]     '/admin/resource/editer'    >> AdminResourceAction.edite(...) : Resource   | @Ok(jsp:/admin/resource-editer.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1050 DEBUG [2014-05-28 12:27:51]     '/admin/resource/list'      >> AdminResourceAction.adminList(...) : void       | @Ok(jsp:/admin/resource-list.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1052 DEBUG [2014-05-28 12:27:51]     '/admin/resource/editer/?'  >> AdminResourceAction.editer(...) : Resource   | @Ok(jsp:/admin/resource-editer.jsp) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1054 DEBUG [2014-05-28 12:27:51]     '/admin/resource/delete/?'  >> AdminResourceAction.delete(...) : void       | @Ok(redirect:/admin/resource/list) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1055 DEBUG [2014-05-28 12:27:51]     '/admin/resource/insert'    >> AdminResourceAction.insert(...) : void       | @Ok(redirect:/admin/resource/list) @Fail(null ) | by 0 Filters | (I:UTF-8/O:UTF-8)
+1055 INFO  [2014-05-28 12:27:51]  Found 20 module methods
+1056 DEBUG [2014-05-28 12:27:51]  @Localization not define
+1056 INFO  [2014-05-28 12:27:51]  Setup application...
+1158 DEBUG [2014-05-28 12:27:51]  Get 'generalService'<class org.nlpchina.web.service.GeneralService>
+1159 DEBUG [2014-05-28 12:27:51]  	 >> Load definition
+1166 DEBUG [2014-05-28 12:27:51]  Found IocObject(generalService) in IocLoader(AnnotationIocLoader@1699113578)
+1167 DEBUG [2014-05-28 12:27:51]  	 >> Make...'generalService'<class org.nlpchina.web.service.GeneralService>
+1169 DEBUG [2014-05-28 12:27:51]  class org.nlpchina.web.service.GeneralService , no config to enable AOP.
+1170 DEBUG [2014-05-28 12:27:51]  Save object 'generalService' to [app] 
+1176 DEBUG [2014-05-28 12:27:51]  Get 'dao'<null>
+1176 DEBUG [2014-05-28 12:27:51]  	 >> Load definition
+1182 DEBUG [2014-05-28 12:27:51]  Loading define for name=dao
+1185 DEBUG [2014-05-28 12:27:51]  Found IocObject(dao) in IocLoader(JsonLoader@1704629915)
+1185 DEBUG [2014-05-28 12:27:51]  	 >> Make...'dao'<null>
+1190 DEBUG [2014-05-28 12:27:51]  class org.nutz.dao.impl.NutDao , no config to enable AOP.
+1191 DEBUG [2014-05-28 12:27:51]  Save object 'dao' to [app] 
+1191 DEBUG [2014-05-28 12:27:51]  Get 'dataSource'<null>
+1191 DEBUG [2014-05-28 12:27:51]  	 >> Load definition
+1191 DEBUG [2014-05-28 12:27:51]  Loading define for name=dataSource
+1197 DEBUG [2014-05-28 12:27:51]  Found IocObject(dataSource) in IocLoader(JsonLoader@1704629915)
+1197 DEBUG [2014-05-28 12:27:51]  	 >> Make...'dataSource'<null>
+1210 DEBUG [2014-05-28 12:27:52]  class com.alibaba.druid.pool.DruidDataSource , no config to enable AOP.
+1211 DEBUG [2014-05-28 12:27:52]  Save object 'dataSource' to [app] 
+1220 DEBUG [2014-05-28 12:27:52]  Get 'dataSource'<null>
+1247 INFO  [2014-05-28 12:27:52]  Init file-pool by: /root/.nutz/tmp/dao/ [200000]
+1248 DEBUG [2014-05-28 12:27:52]  file-pool.home: '/root/.nutz/tmp/dao'
+1249 INFO  [2014-05-28 12:27:52]  file-pool.cursor: 0
+1256 DEBUG [2014-05-28 12:27:52]  Jdbcs init complete
+1257 INFO  [2014-05-28 12:27:52]  Get Connection from DataSource for JdbcExpert
+1627 INFO  [2014-05-28 12:27:52]  {dataSource-1} inited
+1645 DEBUG [2014-05-28 12:27:52]  JDBC Driver --> 1.3.176 (2014-04-05)
+1645 DEBUG [2014-05-28 12:27:52]  JDBC Name   --> H2 JDBC Driver
+1646 DEBUG [2014-05-28 12:27:52]  Database info --> H2:[H2 - 1.3.176 (2014-04-05)]
+1684 DEBUG [2014-05-28 12:27:52]  SELECT * FROM category  ORDER BY id ASC  
+1687 DEBUG [2014-05-28 12:27:52]  Get 'generalService'<class org.nlpchina.web.service.GeneralService>
+1692 DEBUG [2014-05-28 12:27:52]  SELECT * FROM tag  WHERE type=?
+    | 1 |
+    |---|
+    | 1 |
+  For example:> "SELECT * FROM tag  WHERE type=1"
+1697 INFO  [2014-05-28 12:27:52]  Nutz.Mvc[nutz] is up in 910ms
+0    INFO  [2014-05-28 12:28:03]  Nutz is licensed under the Apache License, Version 2.0 .
+Report bugs : https://github.com/nutzam/nutz/issues

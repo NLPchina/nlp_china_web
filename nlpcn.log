@@ -1,0 +1,36 @@
+1258472 DEBUG [2014-05-28 20:19:27]  SELECT * FROM resource_user  WHERE site_id=? LIMIT 1 OFFSET 0 
+    |                1 |
+    |------------------|
+    | 3715229555096161 |
+  For example:> "SELECT * FROM resource_user  WHERE site_id=3715229555096161 LIMIT 1 OFFSET 0 "
+1258473 INFO  [2014-05-28 20:19:27]  gather find same doc id ! to be over!
+1266665 DEBUG [2014-05-28 20:19:35]  Found mapping for [GET] path=/resource/list : ResourceAction.list(...)
+1266666 DEBUG [2014-05-28 20:19:35]  Get 'resourceAction'<class org.nlpchina.web.controller.ResourceAction>
+1266667 DEBUG [2014-05-28 20:19:35]  SELECT * FROM resource  ORDER BY id DESC   LIMIT 20 OFFSET 20 
+1266668 DEBUG [2014-05-28 20:19:35]  SELECT COUNT(*) FROM resource 
+1266668 DEBUG [2014-05-28 20:19:35]  select t.name from tag as t, resource_tag as rt where rt.resource_id = 12 and rt.tag_id = t.id
+1266669 DEBUG [2014-05-28 20:19:35]  select t.name from tag as t, resource_tag as rt where rt.resource_id = 11 and rt.tag_id = t.id
+1266669 DEBUG [2014-05-28 20:19:35]  select t.name from tag as t, resource_tag as rt where rt.resource_id = 10 and rt.tag_id = t.id
+1266669 DEBUG [2014-05-28 20:19:35]  select t.name from tag as t, resource_tag as rt where rt.resource_id = 9 and rt.tag_id = t.id
+1266670 DEBUG [2014-05-28 20:19:35]  select t.name from tag as t, resource_tag as rt where rt.resource_id = 8 and rt.tag_id = t.id
+1266670 DEBUG [2014-05-28 20:19:35]  select t.name from tag as t, resource_tag as rt where rt.resource_id = 7 and rt.tag_id = t.id
+1266671 DEBUG [2014-05-28 20:19:35]  select t.name from tag as t, resource_tag as rt where rt.resource_id = 6 and rt.tag_id = t.id
+1266671 DEBUG [2014-05-28 20:19:35]  select t.name from tag as t, resource_tag as rt where rt.resource_id = 5 and rt.tag_id = t.id
+1266672 DEBUG [2014-05-28 20:19:35]  select t.name from tag as t, resource_tag as rt where rt.resource_id = 4 and rt.tag_id = t.id
+1266672 DEBUG [2014-05-28 20:19:35]  select t.name from tag as t, resource_tag as rt where rt.resource_id = 3 and rt.tag_id = t.id
+1266673 DEBUG [2014-05-28 20:19:35]  select t.name from tag as t, resource_tag as rt where rt.resource_id = 2 and rt.tag_id = t.id
+1266674 DEBUG [2014-05-28 20:19:35]  select t.name from tag as t, resource_tag as rt where rt.resource_id = 1 and rt.tag_id = t.id
+1282934 INFO  [2014-05-28 20:19:51]  Nutz.Mvc[nutz] is deposing ...
+1282934 DEBUG [2014-05-28 20:19:51]  Depose object 'resourceAction' ...
+1282934 DEBUG [2014-05-28 20:19:51]  Depose object 'demoAction' ...
+1282934 DEBUG [2014-05-28 20:19:51]  Depose object 'dao' ...
+1282935 DEBUG [2014-05-28 20:19:51]  Depose object 'generalService' ...
+1282935 DEBUG [2014-05-28 20:19:51]  Depose object 'loginAction' ...
+1282935 DEBUG [2014-05-28 20:19:51]  Depose object 'adminResourceAction' ...
+1282935 DEBUG [2014-05-28 20:19:51]  Depose object 'sinaWeiboService' ...
+1282935 DEBUG [2014-05-28 20:19:51]  Depose object 'resourceService' ...
+1282935 DEBUG [2014-05-28 20:19:51]  Depose object 'dataSource' ...
+1282937 INFO  [2014-05-28 20:19:51]  {dataSource-1} closed
+1282937 DEBUG [2014-05-28 20:19:51]  Depose object 'testAction' ...
+1282937 DEBUG [2014-05-28 20:19:51]  !!!Ioc is deposed, you can't use it anymore
+1282937 INFO  [2014-05-28 20:19:51]  Nutz.Mvc[nutz] is down in 3ms

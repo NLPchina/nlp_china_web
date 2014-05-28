@@ -15,7 +15,7 @@ public class DocMenu {
 	private String content;
 
 	@Column
-	private String author;
+	private Integer author;
 
 	@Column("publish_time")
 	private Date publishTime;
@@ -51,11 +51,11 @@ public class DocMenu {
 		this.content = content;
 	}
 
-	public String getAuthor() {
+	public Integer getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(String author) {
+	public void setAuthor(Integer author) {
 		this.author = author;
 	}
 

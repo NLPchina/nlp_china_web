@@ -12,3 +12,4 @@ data/
 /target
 h2db/
 h2db/*
+/weibo.log

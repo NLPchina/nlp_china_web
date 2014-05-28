@@ -7,12 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.nlpchina.web.domain.Resource;
 import org.nlpchina.web.domain.ResourceTag;
 import org.nlpchina.web.domain.Tag;
+import org.nlpchina.web.domain.UserInfo;
 import org.nlpchina.web.service.GeneralService;
 import org.nlpchina.web.service.ResourceService;
 import org.nutz.dao.Cnd;
 import org.nutz.dao.pager.Pager;
 import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
+import org.nutz.mvc.Mvcs;
 import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.annotation.Param;
@@ -66,13 +68,15 @@ public class AdminResourceAction {
 	@At("/admin/resource/insert")
 	@Ok("redirect:/admin/resource/list")
 	public void insert(@Param("::obj.") Resource obj) {
+		
+		UserInfo userInfo = (UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
+
 		try {
 			Resource old = null;
 
 			obj.setUpdateTime(new Date());
 
-			// TODO: 先写我的名字.稍后需要传入request来取得用户名
-			obj.setAuthor("ansj");
+			obj.setAuthor(userInfo.getId());
 
 			if (obj.getId() != null) {
 				old = resourceService.get(obj.getId());

@@ -33,11 +33,13 @@ public class Resource {
 	@Column("update_time")
 	private Date updateTime;
 	@Column
-	private String author;
+	private Integer author;
 	@Column("visit_url")
 	private String visitUrl;
 	@Column("category_id")
 	private Integer categoryId;
+	@Column("site_id")
+	private String siteId  ;
 
 	private String tags;
 
@@ -89,11 +91,11 @@ public class Resource {
 		this.updateTime = updateTime;
 	}
 
-	public String getAuthor() {
+	public Integer getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(String author) {
+	public void setAuthor(Integer author) {
 		this.author = author;
 	}
 
@@ -127,6 +129,16 @@ public class Resource {
 			return null ;
 		}
 		return category.getName();
+	}
+	
+	
+
+	public String getSiteId() {
+		return siteId;
+	}
+
+	public void setSiteId(String siteId) {
+		this.siteId = siteId;
 	}
 
 	public List<String> getTagList() {

@@ -2,6 +2,7 @@ package org.nlpchina.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.nlpchina.web.domain.Resource;
 import org.nlpchina.web.service.ResourceService;
 import org.nutz.dao.pager.Pager;
 import org.nutz.ioc.loader.annotation.Inject;
@@ -36,5 +37,11 @@ public class ResourceAction {
 		}
 		request.setAttribute("all", resourceService.search(categoryId, "id", pager));
 		request.setAttribute("pager", pager);
+	}
+	
+	@At("/resource/?")
+	@Ok("jsp:/resource.jsp")
+	public Resource findById(Integer id){
+		return resourceService.get(id) ;
 	}
 }

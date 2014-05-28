@@ -12,11 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.nlpchina.web.domain.DocMenu;
 import org.nlpchina.web.domain.Document;
+import org.nlpchina.web.domain.UserInfo;
 import org.nlpchina.web.service.GeneralService;
 import org.nlpchina.web.util.StringUtil;
 import org.nutz.dao.Cnd;
 import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
+import org.nutz.mvc.Mvcs;
 import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.annotation.Param;
@@ -38,6 +40,12 @@ public class DocumentAction {
 	@Ok("redirect:/docs/editor/${obj.id}?code=${obj.extractingCode}")
 	public DocMenu saveMenu(@Param("::docMenu") DocMenu docMenu) throws Exception {
 
+		UserInfo userInfo = (UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
+
+		if (userInfo == null) {
+			userInfo = UserInfo.DEFAULT_USER;
+		}
+
 		makeMenu2Content(docMenu);
 
 		if (docMenu.getId() == null) {
@@ -45,12 +53,12 @@ public class DocumentAction {
 			docMenu.setUpdateTime(new Date());
 			docMenu.setDocId(UUID.randomUUID().toString());
 			docMenu.setExtractingCode(UUID.randomUUID().toString().split("-")[1]);
-			docMenu.setAuthor("ansj");
+			docMenu.setAuthor(userInfo.getId());
 			generalService.save(docMenu);
 		} else {
 			DocMenu oldMenu = generalService.find(docMenu.getId(), DocMenu.class);
 			docMenu.setUpdateTime(new Date());
-			docMenu.setAuthor("ansj");
+			docMenu.setAuthor(userInfo.getId());
 			docMenu.setPublishTime(oldMenu.getPublishTime());
 			docMenu.setExtractingCode(oldMenu.getExtractingCode());
 			docMenu.setDocId(oldMenu.getDocId());
@@ -62,6 +70,13 @@ public class DocumentAction {
 	@At("/doc/save/")
 	@Ok("json")
 	public Map<String, String> saveDoc(@Param("::document") Document document) throws Exception {
+
+		UserInfo userInfo = (UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
+
+		if (userInfo == null) {
+			userInfo = UserInfo.DEFAULT_USER;
+		}
+
 		document.setUpdateTime(new Date());
 
 		Map<String, String> result = new HashMap<String, String>();
@@ -91,7 +106,7 @@ public class DocumentAction {
 
 		// 全新的存储
 		if (oldDoc == null) {
-			document.setAuthor("ansj");
+			document.setAuthor(userInfo.getId());
 			document.setPublishTime(new Date());
 			if (document.getMenuId() == null && StringUtil.isBlank(document.getExtractingCode())) {
 				document.setExtractingCode(UUID.randomUUID().toString().split("-")[1]);
@@ -113,7 +128,7 @@ public class DocumentAction {
 				return result;
 			}
 
-			document.setAuthor("ansj");
+			document.setAuthor(userInfo.getId());
 
 			document.setExtractingCode(oldDoc.getExtractingCode());
 
@@ -152,16 +167,18 @@ public class DocumentAction {
 
 	/**
 	 * 单文档查看
-	 * @throws IOException 
-	 * @throws ServletException 
+	 * 
+	 * @throws IOException
+	 * @throws ServletException
 	 */
 	@At("/doc/?")
 	@Ok("jsp:/document/doc_view.jsp")
-	public void docView(String docId, HttpServletRequest request , HttpServletResponse response) throws ServletException, IOException {
+	public void docView(String docId, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Document document = generalService.findByCondition(Document.class, Cnd.where("id", "=", docId));
 		if (document == null) {
 			request.setAttribute("message", "您访问的文档没有找到!");
-			request.getRequestDispatcher("/404.jsp").forward(request, response);;
+			request.getRequestDispatcher("/404.jsp").forward(request, response);
+			;
 		}
 		request.setAttribute("document", document);
 	}
@@ -207,7 +224,7 @@ public class DocumentAction {
 			request.getRequestDispatcher("/404.jsp");
 		}
 
-		makeMenu2Html(docMenu, false, null , docId);
+		makeMenu2Html(docMenu, false, null, docId);
 
 		request.setAttribute("document", document);
 		request.setAttribute("docMenu", docMenu);
@@ -285,7 +302,7 @@ public class DocumentAction {
 			return;
 		}
 
-		makeMenu2Html(docMenu, canEditor, updateCode , docId);
+		makeMenu2Html(docMenu, canEditor, updateCode, docId);
 
 		if (document == null) {
 			document = new Document();
@@ -302,7 +319,7 @@ public class DocumentAction {
 	 * @return
 	 * @throws Exception
 	 */
-	private void makeMenu2Html(DocMenu docMenu, boolean canEditor, String extractingCode , String activeId) {
+	private void makeMenu2Html(DocMenu docMenu, boolean canEditor, String extractingCode, String activeId) {
 
 		String content = docMenu.getContent();
 
@@ -321,23 +338,23 @@ public class DocumentAction {
 			}
 
 			String[] strs = temp.split("\\|");
-			boolean active = false ;
+			boolean active = false;
 			if (strs.length == 2) {
-				
-				active = strs[1].equalsIgnoreCase(activeId) ;
-				
+
+				active = strs[1].equalsIgnoreCase(activeId);
+
 				if (canEditor) {
-					sb.append("<li class='active'><a href='/docs/editor/" + docMenu.getId() + "/" + strs[1] + "?code=" + extractingCode+"'")  ;
-					if(active){
+					sb.append("<li class='active'><a href='/docs/editor/" + docMenu.getId() + "/" + strs[1] + "?code=" + extractingCode + "'");
+					if (active) {
 						sb.append(" style='color:orange;'>" + strs[0] + "</a></li>\n");
-					}else{
+					} else {
 						sb.append("'>" + strs[0] + "</a></li>\n");
 					}
 				} else {
 					sb.append("<li class='active'><a href='/docs/" + docMenu.getId() + "/" + strs[1].trim() + "'");
-					if(active){
+					if (active) {
 						sb.append(" style='color:orange;'>" + strs[0] + "</a></li>\n");
-					}else{
+					} else {
 						sb.append("'>" + strs[0] + "</a></li>\n");
 					}
 				}

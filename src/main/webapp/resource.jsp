@@ -8,6 +8,7 @@
 
 <head>
 <%@include file="/common/common.jsp"%>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 
@@ -30,43 +31,48 @@
     <div class="row">
         <div class="eight columns">   
         
-        <c:forEach items="${all }" var="resource">
             <div class="blog-post">
                 <div class="post-info">
-            		<img src="${ctx}/images/file-ico/${resource.sysImg }.png" alt="blog-img" >
-                    <div class="big-date"><fmt:formatDate value="${resource.publishTime}" pattern="dd"/></div>
-                    <div class="small-month"><fmt:formatDate value="${resource.publishTime}" pattern="MM"/> <fmt:formatDate value="${resource.publishTime}" pattern="yyyy"/></div>
+            		<img src="${ctx}/images/file-ico/${obj.sysImg }.png" alt="blog-img" >
+                    <div class="big-date"><fmt:formatDate value="${obj.publishTime}" pattern="dd"/></div>
+                    <div class="small-month"><fmt:formatDate value="${obj.publishTime}" pattern="MM"/> <fmt:formatDate value="${obj.publishTime}" pattern="yyyy"/></div>
                     <ul>
-                        <li class="author-icon"><a href="#">${resource.author }</a></li>
-                        <li class="tag-icon"><a href="#">${resource.categoryStr }</a></li>
+                        <li class="author-icon"><a href="#">${obj.author }</a></li>
+                        <li class="tag-icon"><a href="#">${obj.categoryStr }</a></li>
                     </ul>
                 </div>
                 <div class="post-content">            	                  
-                    <h4><a href="${ctx }/resource/${resource.id}">${resource.title }</a></h4>
-                    <p>${resource.summary }</p>
+                    <h4><a href="#">${obj.title }</a></h4>
+                    <p>${obj.summary }</p>
                      <div>
-                     	<c:forEach items="${resource.tagList }" var="tagName">
+                     	<c:forEach items="${obj.tagList }" var="tagName">
 		                    <a name="tag" class="button small blue" href="#">${tagName }</a>
 	                    </c:forEach>
                     </div>
-                </div>     
-            </div>
-            </c:forEach>  
-            
-            <!-- begin of pagination -->
-            <div class="blog-pagination">
-                <div class="pages blogpages">
-                    <span class="pageof">Page ${pager.pageNumber } of ${pager.pageCount }</span>
-                    	<c:forEach var="item" varStatus="status" begin="${pager.pageNumber-3<1?1:pager.pageNumber-3 }" end="${pager.pageNumber+5>=pager.pageCount?pager.pageCount:pager.pageNumber+5 }">
-						  <a href='${requestScope['javax.servlet.forward.request_uri']}?pager.pageNumber=${item}' ${pager.pageNumber==item?"class='current'":"" }>${item }</a>
-						</c:forEach>
-					<c:if test="${pager.pageNumber != pager.pageCount}">
-						<a href="${requestScope['javax.servlet.forward.request_uri']}?pager.pageNumber=${pager.pageNumber+1}">&raquo;</a>
-					</c:if>
-                    
                 </div>
+                
+	            <div align="justify" style="right: 0px; position: absolute;">
+						<wb:share-button appkey="4bxSJI" addition="number" type="icon" default_text="${obj.summary }" ></wb:share-button>
+				</div>
             </div>
-            <!-- end of pagination -->            
+            <div>
+            	
+            	<script type="text/javascript">
+					(function(){
+					var url = "http://widget.weibo.com/distribution/comments.php?width=0&url=auto&skin=1&appkey=2598075234&iframskin=1&dpc=1";
+					url = url.replace("url=auto", "url=" + encodeURIComponent(document.URL)); 
+					document.write('<iframe id="WBCommentFrame" src="' + url + '" scrolling="no" frameborder="0" style="width:100%"></iframe>');
+					})();
+					</script>
+					<script src="http://tjs.sjs.sinajs.cn/open/widget/js/widget/comment.js" type="text/javascript" charset="utf-8"></script>
+					<script type="text/javascript">
+					window.WBComment.init({
+					    "id": "WBCommentFrame"
+					});
+				</script>
+            
+            </div>
+            
         </div>
                 
         <div class="four columns">

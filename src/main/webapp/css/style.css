@@ -443,21 +443,14 @@ float:right;
 }
 
 a.trigger{
-width:24px;
+padding-top:3px;
 height:24px;
-text-decoration: none;
 top: 0px; right: 0;
-font-size: 0px;
-letter-spacing:-1px;
-color:#fff;
-background:url(../images/socials/social-open.gif) no-repeat;
+font-size: 12px;
 display: block;
 float:right;
 }
 
-a.active.trigger {
-background:url(../images/socials/social-closed.gif) no-repeat;
-}
 
 #top-social ul li{
 margin-right:1px;

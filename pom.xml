@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.nlpchina</groupId>
+	<groupId>org.nlpcn</groupId>
 	<artifactId>nlp_china</artifactId>
 	<version>0.1</version>
 	<packaging>jar</packaging>
@@ -13,7 +13,7 @@
 	<repositories>
         <repository>
             <id>mvn-repo</id>
-            <url>http://maven.ansj.org/</url>
+            <url>http://maven.nlpcn.org/</url>
         </repository>
     </repositories>
 
@@ -43,11 +43,32 @@
 
 
 		<!-- JSP and JSTL SUPPORT -->
+		
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>8.1.11.v20130520</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>8.1.11.v20130520</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-jsp</artifactId>
 			<version>8.1.11.v20130520</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+			<scope>provided</scope>
+		</dependency>
+		
 
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -73,15 +94,58 @@
 			<version>4.8.1</version>
 			<scope>test</scope>
 		</dependency>
+		
+		
+		<!-- disk jar -->
+		<dependency>
+			<groupId>org.nlpcn.web</groupId>
+			<artifactId>sportsEpgParser</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/weibo4j.jar</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.nlpcn.web</groupId>
+			<artifactId>sportsEpgParser</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/commons-codec.jar</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.nlpcn.web</groupId>
+			<artifactId>sportsEpgParser</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/commons-httpclient-3.1.jar</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.nlpcn.web</groupId>
+			<artifactId>sportsEpgParser</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/commons-logging-1.1.jar</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.nlpcn.web</groupId>
+			<artifactId>sportsEpgParser</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/jackson-all-1.8.5.jar</systemPath>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.nlpcn.web</groupId>
+			<artifactId>sportsEpgParser</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/log4j-1.2.16.jar</systemPath>
+		</dependency>
+		
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>8.1.15.v20140411</version>
-			</plugin>
-		</plugins>
-	</build>
 </project>

@@ -8,6 +8,7 @@ import org.nlpchina.web.domain.Category;
 import org.nlpchina.web.domain.Tag;
 import org.nlpchina.web.service.GeneralService;
 import org.nutz.dao.Cnd;
+import org.nutz.ioc.Ioc;
 import org.nutz.mvc.NutConfig;
 
 /**
@@ -19,6 +20,12 @@ import org.nutz.mvc.NutConfig;
 public class StaticValue {
 
 	public static Map<Integer, Category> categoryMap = new HashMap<Integer, Category>();
+	
+	public static String siteToken ;
+	
+	public static String siteUid ;
+	
+	public static Ioc ioc = null ;
 
 	public synchronized static void updateTags(NutConfig nc) {
 		GeneralService generalService = nc.getIoc().get(GeneralService.class);

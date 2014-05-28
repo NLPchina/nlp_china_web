@@ -1,5 +1,12 @@
 package org.nlpchina.web;
 
+import java.util.ResourceBundle;
+
+import org.eclipse.jetty.server.Connector;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.nio.SelectChannelConnector;
+import org.eclipse.jetty.util.thread.QueuedThreadPool;
+import org.eclipse.jetty.webapp.WebAppContext;
 import org.nlpchina.web.util.SiteSetup;
 import org.nutz.mvc.annotation.Encoding;
 import org.nutz.mvc.annotation.IocBy;
@@ -18,4 +25,32 @@ import org.nutz.mvc.ioc.provider.ComboIocProvider;
 @Encoding(input = "UTF-8", output = "UTF-8")
 @SetupBy(SiteSetup.class)
 public class BootStrap {
+	private static Server server;
+
+    public static void main(String[] args) throws Exception {
+    	ResourceBundle bundle = ResourceBundle.getBundle("config") ;
+        server = new Server();
+        QueuedThreadPool threadPool = new QueuedThreadPool();
+        server.setThreadPool(threadPool);
+        Connector connector = new SelectChannelConnector();
+        connector.setPort(Integer.parseInt(bundle.getString("port")));
+        server.setConnectors(new Connector[]{connector});
+        WebAppContext context = new WebAppContext(bundle.getString("web_dir"), "/");
+        server.setAttribute("org.eclipse.jetty.server.Request.maxFormContentSize", "-1") ;
+        context.setMaxFormContentSize(-1);
+        server.setHandler(context);
+        server.setStopAtShutdown(true);
+        server.setSendServerVersion(false);
+        server.start();
+        server.join();
+
+    }
+
+    public static void shutdown() {
+        try {
+            server.stop();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
