@@ -1,15 +1,8 @@
 *.class
-# Package Files #
 .settings/
 .classpath
 .project
-bin/
-.DS_Store
-.data/
-data/
-._.DS_Store
-._*
+nlpcn.log
+target/*
+/h2db/*
 /target
-h2db/
-h2db/*
-/weibo.log

@@ -24,8 +24,8 @@ public class SiteSetup implements Setup {
 		StaticValue.updateCategorys(nc);
 		StaticValue.updateTags(nc);
 
-		// init gather sina weibo
-		gatherSinaWeiboThread();
+		// init gather sina weibo 
+//		gatherSinaWeiboThread();
 	}
 
 	private void gatherSinaWeiboThread() {
