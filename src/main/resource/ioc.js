@@ -1,4 +1,6 @@
 var ioc = {
+		
+		
     // 数据源
     dataSource : {
         type :"com.alibaba.druid.pool.DruidDataSource",

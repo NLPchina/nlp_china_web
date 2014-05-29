@@ -3,9 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.nlpcn</groupId>
-	<artifactId>nlp_china</artifactId>
+	<artifactId>nlpcn-web</artifactId>
 	<version>0.1</version>
-	<packaging>jar</packaging>
 
 	<name>nlp_china</name>
 	<url>http://maven.apache.org</url>
@@ -16,11 +15,42 @@
             <url>http://maven.nlpcn.org/</url>
         </repository>
     </repositories>
-
+    
+    
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<prjectPath>/home/ansj/workspace/nlp_china_web</prjectPath>
 	</properties>
 
+
+<build>
+		<defaultGoal>compile</defaultGoal>
+		<finalName>nlpcn</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>  <!--使用maven-assembly-plugin -->
+				<version>2.2.1</version>
+				<configuration>
+					<descriptors>
+						<descriptor>distribution.xml</descriptor>
+					</descriptors>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	
+
+	</build>
 	<dependencies>
 
 		<dependency>
@@ -99,51 +129,51 @@
 		<!-- disk jar -->
 		<dependency>
 			<groupId>org.nlpcn.web</groupId>
-			<artifactId>sportsEpgParser</artifactId>
+			<artifactId>weibo4j</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/lib/weibo4j.jar</systemPath>
+			<systemPath>${prjectPath}/lib/weibo4j.jar</systemPath>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.nlpcn.web</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${prjectPath}/lib/commons-codec.jar</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.nlpcn.web</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${prjectPath}/lib/commons-httpclient-3.1.jar</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.nlpcn.web</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${prjectPath}/lib/commons-logging-1.1.jar</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.nlpcn.web</groupId>
+			<artifactId>jackson-all-1.8.5</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${prjectPath}/lib/jackson-all-1.8.5.jar</systemPath>
+		</dependency>
+		
 		
 		<dependency>
 			<groupId>org.nlpcn.web</groupId>
 			<artifactId>sportsEpgParser</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/lib/commons-codec.jar</systemPath>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.nlpcn.web</groupId>
-			<artifactId>sportsEpgParser</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/commons-httpclient-3.1.jar</systemPath>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.nlpcn.web</groupId>
-			<artifactId>sportsEpgParser</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/commons-logging-1.1.jar</systemPath>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.nlpcn.web</groupId>
-			<artifactId>sportsEpgParser</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/jackson-all-1.8.5.jar</systemPath>
-		</dependency>
-		
-		
-		<dependency>
-			<groupId>org.nlpcn.web</groupId>
-			<artifactId>sportsEpgParser</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/log4j-1.2.16.jar</systemPath>
+			<systemPath>${prjectPath}/lib/log4j-1.2.16.jar</systemPath>
 		</dependency>
 		
 	</dependencies>
