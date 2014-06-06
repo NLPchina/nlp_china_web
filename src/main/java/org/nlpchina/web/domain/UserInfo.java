@@ -10,9 +10,7 @@ import weibo4j.model.User;
 
 @Table("user_info")
 public class UserInfo {
-	public static final UserInfo DEFAULT_USER = new UserInfo(){
-		private Integer id = 0 ;
-	} ;
+	public static final UserInfo DEFAULT_USER = instanceDefaultUser() ;
 	
 	public static final String SINA_WEIBO = "sinaWeibo" ;
 	
@@ -47,6 +45,13 @@ public class UserInfo {
 	@Column("avatar_large")
 	private String avatarLarge; // 大头像地址
 	public UserInfo() {}
+	
+	
+	private static UserInfo instanceDefaultUser() {
+		UserInfo userInfo = new UserInfo();
+		userInfo.setId(0);
+		return userInfo ;
+	}
 	public void update(User user, String accessToken) {
 		siteType = SINA_WEIBO;
 		userType = 0;
@@ -65,7 +70,7 @@ public class UserInfo {
 	}
 
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(Integer id) {

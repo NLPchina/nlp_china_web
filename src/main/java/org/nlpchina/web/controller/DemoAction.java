@@ -91,4 +91,8 @@ public class DemoAction {
 		}
 		return result;
 	}
+	
+	public static void main(String[] args) {
+		System.out.println(ToAnalysis.parse("1987．08"));
+	}
 }

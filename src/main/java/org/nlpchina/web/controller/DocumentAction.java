@@ -149,7 +149,7 @@ public class DocumentAction {
 	 * @return
 	 */
 	@At("/docs/")
-	@Ok("jsp:/document/doc_editor.jsp")
+	@Ok("jsp:/document/editor_multi.jsp")
 	public String multiDocument(HttpServletRequest request) {
 		return "multi";
 	}
@@ -160,7 +160,7 @@ public class DocumentAction {
 	 * @return
 	 */
 	@At("/doc")
-	@Ok("jsp:/document/doc_editor.jsp")
+	@Ok("jsp:/document/editor_single.jsp")
 	public String singleDocument() {
 		return "single";
 	}
@@ -172,7 +172,7 @@ public class DocumentAction {
 	 * @throws ServletException
 	 */
 	@At("/doc/?")
-	@Ok("jsp:/document/doc_view.jsp")
+	@Ok("jsp:/document/view_single.jsp")
 	public void docView(String docId, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Document document = generalService.findByCondition(Document.class, Cnd.where("id", "=", docId));
 		if (document == null) {
@@ -191,7 +191,7 @@ public class DocumentAction {
 	 * @throws Exception
 	 */
 	@At("/docs/?")
-	@Ok("jsp:/document/doc_view.jsp")
+	@Ok("jsp:/document/view_multi.jsp")
 	public void docView(Integer docMenuId, HttpServletRequest request) throws Exception {
 		docView(docMenuId, null, request);
 	}
@@ -205,7 +205,7 @@ public class DocumentAction {
 	 * @param request
 	 */
 	@At("/docs/?/?")
-	@Ok("jsp:/document/doc_view.jsp")
+	@Ok("jsp:/document/view_multi.jsp")
 	public void docView(Integer docMenuId, String docId, HttpServletRequest request) {
 
 		DocMenu docMenu = generalService.find(docMenuId, DocMenu.class);
@@ -224,7 +224,7 @@ public class DocumentAction {
 			request.getRequestDispatcher("/404.jsp");
 		}
 
-		makeMenu2Html(docMenu, false, null, docId);
+		makeMenu2HtmlView(docMenu, null, docId);
 
 		request.setAttribute("document", document);
 		request.setAttribute("docMenu", docMenu);
@@ -237,7 +237,7 @@ public class DocumentAction {
 	 * @throws Exception
 	 */
 	@At("/doc/editor/?")
-	@Ok("jsp:/document/doc_editor.jsp")
+	@Ok("jsp:/document/editor_single.jsp")
 	public void docEditor(String docId, @Param("code") String extractingCode, HttpServletRequest request) {
 		// TODO:先判断用户权限
 
@@ -260,7 +260,7 @@ public class DocumentAction {
 	 * @throws Exception
 	 */
 	@At("/docs/editor/?")
-	@Ok("jsp:/document/doc_editor.jsp")
+	@Ok("jsp:/document/editor_multi.jsp")
 	public void docEditor(Integer docMenuId, @Param("code") String extractingCode, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		docEditor(docMenuId, null, extractingCode, request, response);
 	}
@@ -275,7 +275,7 @@ public class DocumentAction {
 	 * @throws Exception
 	 */
 	@At("/docs/editor/?/?")
-	@Ok("jsp:/document/doc_editor.jsp")
+	@Ok("jsp:/document/editor_multi.jsp")
 	public void docEditor(Integer docMenuId, String docId, @Param("code") String extractingCode, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		// TODO:先判断用户权限
@@ -302,7 +302,7 @@ public class DocumentAction {
 			return;
 		}
 
-		makeMenu2Html(docMenu, canEditor, updateCode, docId);
+		makeMenu2Html(docMenu, updateCode, docId);
 
 		if (document == null) {
 			document = new Document();
@@ -319,7 +319,7 @@ public class DocumentAction {
 	 * @return
 	 * @throws Exception
 	 */
-	private void makeMenu2Html(DocMenu docMenu, boolean canEditor, String extractingCode, String activeId) {
+	private void makeMenu2Html(DocMenu docMenu, String extractingCode, String activeId) {
 
 		String content = docMenu.getContent();
 
@@ -333,31 +333,56 @@ public class DocumentAction {
 			}
 			String temp = line.trim();
 			if (temp.startsWith("#")) {
-				sb.append("<li><a>" + temp.substring(1) + "</a></li>\n");
+				sb.append("<li class='active'><a>" + temp.substring(1) + "</a></li>\n");
 				continue;
 			}
 
 			String[] strs = temp.split("\\|");
 			boolean active = false;
 			if (strs.length == 2) {
-
 				active = strs[1].equalsIgnoreCase(activeId);
-
-				if (canEditor) {
-					sb.append("<li class='active'><a href='/docs/editor/" + docMenu.getId() + "/" + strs[1] + "?code=" + extractingCode + "'");
-					if (active) {
-						sb.append(" style='color:orange;'>" + strs[0] + "</a></li>\n");
-					} else {
-						sb.append("'>" + strs[0] + "</a></li>\n");
-					}
+				sb.append("<li><a href='/docs/editor/" + docMenu.getId() + "/" + strs[1] + "?code=" + extractingCode + "'");
+				if (active) {
+					sb.append(" style='color:orange;'>" + strs[0] + "</a></li>\n");
 				} else {
-					sb.append("<li class='active'><a href='/docs/" + docMenu.getId() + "/" + strs[1].trim() + "'");
-					if (active) {
-						sb.append(" style='color:orange;'>" + strs[0] + "</a></li>\n");
-					} else {
-						sb.append("'>" + strs[0] + "</a></li>\n");
-					}
+					sb.append("'>" + strs[0] + "</a></li>\n");
 				}
+			}
+		}
+
+		docMenu.setHtml(sb.toString());
+	}
+
+	/**
+	 * 解析文档类生成html
+	 * 
+	 * @param docMenu
+	 * @return
+	 * @throws Exception
+	 */
+	private void makeMenu2HtmlView(DocMenu docMenu, String extractingCode, String activeId) {
+
+		String content = docMenu.getContent();
+
+		String[] split = content.split("\n");
+
+		StringBuilder sb = new StringBuilder();
+
+		for (String line : split) {
+			if (StringUtil.isBlank(line)) {
+				continue;
+			}
+			String temp = line.trim();
+			if (temp.startsWith("#")) {
+				sb.append("<a class='list-group-item active' >" + temp.substring(1) + "</a>\n");
+				continue;
+			}
+
+			String[] strs = temp.split("\\|");
+			boolean active = false;
+			if (strs.length == 2) {
+				active = strs[1].equalsIgnoreCase(activeId);
+				sb.append("<a class='list-group-item' href='/docs/" + docMenu.getId() + "/" + strs[1]+"'>" + strs[0] + "</a>\n");
 			}
 		}
 

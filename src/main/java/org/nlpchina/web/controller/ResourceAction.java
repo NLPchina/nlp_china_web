@@ -35,6 +35,7 @@ public class ResourceAction {
 		if (pager == null) {
 			pager = new Pager();
 		}
+		pager.setPageSize(10) ;
 		request.setAttribute("all", resourceService.search(categoryId, "id", pager));
 		request.setAttribute("pager", pager);
 	}

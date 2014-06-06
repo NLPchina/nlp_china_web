@@ -83,6 +83,7 @@
           <a href="#" class="list-group-item">导航条</a>
 		  <a href="#keyWords" class="list-group-item">关键词提取</a>
 		  <a href="#nlpResult" class="list-group-item">NLP分词</a>
+		  <a href="#tag" class="list-group-item">开放式分类</a>
 		  <a href="#summaryStr" class="list-group-item">摘要&高亮</a>
 		  <a href="#classification" class="list-group-item">文本分类</a>
 		  <a href="#emotional" class="list-group-item">情感分析</a>

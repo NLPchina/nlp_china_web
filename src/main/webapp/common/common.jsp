@@ -22,7 +22,6 @@
 <!-- //      Javascript Files        // -->
 <!-- ////////////////////////////////// -->
 <script src="${ctx}/js/jquery.min.js"></script>
-<script src="${ctx}/js/jquery.easing-1.3.min.js"></script>
 <script src="${ctx}/js/tooltip.js"></script>
 <script src="${ctx}/js/dropdown.js"></script>
 <script src="${ctx}/js/tinynav.min.js"></script>

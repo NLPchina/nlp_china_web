@@ -89,7 +89,7 @@
       });
 
       $('#code').val(val) ;
-      
+
       document.getElementById('out').innerHTML = marked(val);
     }
 
@@ -113,7 +113,6 @@
 
     
      update(editor);
-     editor.focus();
     
 	
   </script>
