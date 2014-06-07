@@ -374,7 +374,7 @@ public class DocumentAction {
 			}
 			String temp = line.trim();
 			if (temp.startsWith("#")) {
-				sb.append("<a class='list-group-item active' >" + temp.substring(1) + "</a>\n");
+				sb.append("<li class='active'><a>" + temp.substring(1) + "</a></li>\n");
 				continue;
 			}
 
@@ -382,7 +382,7 @@ public class DocumentAction {
 			boolean active = false;
 			if (strs.length == 2) {
 				active = strs[1].equalsIgnoreCase(activeId);
-				sb.append("<a class='list-group-item' href='/docs/" + docMenu.getId() + "/" + strs[1]+"'>" + strs[0] + "</a>\n");
+				sb.append("<li><a href='/docs/" + docMenu.getId() + "/" + strs[1]+"'>" + strs[0] + "</a></li>\n");
 			}
 		}
 

@@ -44,9 +44,8 @@
 	 
 	
 	<title>中国自然语言开源组织</title>
-	<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
-	<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-	<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="${ctx }/document/css/bootstrap.css">
+	<script src="${ctx }/document/js/bootstrap.min.js"></script>
 	
 	<script src="${ctx}/document/js/marked.js"></script>
 	<script src="${ctx}/document/js/highlight.pack.js"></script>
@@ -65,27 +64,13 @@
 		.panel { padding: 0px; }
 		
 		
-		#demo-page .col-xs-9 .chunk .words .v, #demo-page .col-xs-9 .chunk .words .vd, #demo-page .col-xs-9 .chunk .words .vn, #demo-page .col-xs-9 .chunk .words .vshi, #demo-page .col-xs-9 .chunk .words .vyou, #demo-page .col-xs-9 .chunk .words .vf, #demo-page .col-xs-9 .chunk .words .vx, #demo-page .col-xs-9 .chunk .words .vi, #demo-page .col-xs-9 .chunk .words .vl, #demo-page .col-xs-9 .chunk .words .vg, #demo-page .col-xs-9 .chunk .word-mean .v, #demo-page .col-xs-9 .chunk .word-mean .vd, #demo-page .col-xs-9 .chunk .word-mean .vn, #demo-page .col-xs-9 .chunk .word-mean .vshi, #demo-page .col-xs-9 .chunk .word-mean .vyou, #demo-page .col-xs-9 .chunk .word-mean .vf, #demo-page .col-xs-9 .chunk .word-mean .vx, #demo-page .col-xs-9 .chunk .word-mean .vi, #demo-page .col-xs-9 .chunk .word-mean .vl, #demo-page .col-xs-9 .chunk .word-mean .vg
-		
-		.dl {
-			display: block;
-			-webkit-margin-before: 1em;
-			-webkit-margin-after: 1em;
-			-webkit-margin-start: 0px;
-			-webkit-margin-end: 0px;
-		}
-	
-		.affix{
-			top: 10px;
-		}
-		
 		a:VISITED {
 			font-size: 200px; 
 		}
 		
 	</style>
 </head>
-<body  data-spy="scroll" data-target="#sideBar">
+<body >
 <!-- header start here -->
 <%@include file="/header.jsp"%>
 <!-- header end here -->
@@ -103,16 +88,16 @@
 
 
 <!-- maincontent start here -->
-<section id="content-wrapper">   
+<section>   
     
-    <div style=" width: 100%" >
-      <div class="col-md-2">
-        <div  class="list-group" id="sideBar" data-offset-top="230" data-spy="affix" style="width: 166px;" >
-         	<a class="list-group-item" href='/docs/${docMenu.id }'>文档首页</a>
+    <div style="padding:50px;" >
+      <div class="col-md-3">
+        <ul  class="nav nav-pills nav-stacked ;white-space:nowrap;"  >
+         	<li><a href='/docs/${docMenu.id }'>sdfsfsdfsdfsfdsdfsdfsfdsfsfdsfsdfd文档首页</a></li>
 			${docMenu.html }
-		</div>
+		</ul>
       </div>
-      <div class="col-md-10">
+      <div class="col-md-9">
       		<article id="content" class="markdown-body entry-content" itemprop="mainContentOfPage" id="out" style="padding-left: 8px;">
       		<!-- 
 			<iframe src="${ctx }/document/view.jsp" name="docEditor" id="docEditor" width="100%" height="500px;" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" onLoad="iFrameHeight()"></iframe>

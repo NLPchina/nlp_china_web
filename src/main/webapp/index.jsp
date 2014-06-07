@@ -8,11 +8,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="cn"> <!--<![endif]-->
 
 <head>
-<meta property="wb:webmaster" content="ea9803886bcbe0a2" />
 <%@include file="common/common.jsp"%>
+<script src="${ctx}/js/camera.min.js"></script>
 <script>
 $(document).ready(function() { 
-    //Camera Jquery
     $('#camera-slide').camera({
         thumbnails: false,
         hover: false,
@@ -112,8 +111,8 @@ $(document).ready(function() {
     <div class="row">
         <div class="three columns mobile-two">
             <h5>语料资源分享 &raquo;</h5>
-            <div class="link-zoom">
-                <a class="fancybox" href="images/portfolio-big/pf-big.jpg" title="Hyperion">
+            <div class="link-url">
+                <a href="${ctx }/resource/list/2" target="_self">
                     <img src="images/sample-images/front-img1.jpg" alt="" class="fade" />
                 </a>
             </div>
@@ -121,23 +120,23 @@ $(document).ready(function() {
         <div class="three columns mobile-two">
             <h5>制作技术文档 &raquo;</h5>
             <div class="link-url">
-                <a href="http://sc.chinaz.com" target="_self">
+                <a href="${ctx }/resource/list/2" target="_self">
                     <img src="images/sample-images/front-img2.jpg" alt="" class="fade" />
                 </a>
             </div>
         </div>
         <div class="three columns mobile-two">
             <h5>开源项目展示 &raquo;</h5>
-            <div class="link-more">
-                <a href="about.html">
+            <div class="link-url">
+                <a href="${ctx }/resource/list/4" target="_self">
                     <img src="images/sample-images/front-img3.jpg" alt="" class="fade" />
                 </a>
             </div>
         </div>
         <div class="three columns mobile-two">
             <h5>有趣的开发者们 &raquo;</h5>
-            <div class="link-video">
-                <a class="fancybox" href="http://sc.chinaz.com" title="Hyperion Sample Video">
+            <div class="link-url">
+                <a href="javascript:alert('开发中...')" >
                     <img src="images/sample-images/front-img4.jpg" alt="" class="fade" />
                 </a>
             </div>
@@ -148,18 +147,18 @@ $(document).ready(function() {
         <div class="row front-feature-icon">
             <div class="four columns mobile-one">
                 <img src="images/sample-images/front-icon1.png" alt="" class="img-center" />
-                <h5>We made Responsive design</h5>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;NLP并不是计算机时代的延续，而是一场独立的技术革命。这些看似简单的语言统计程序，将成为蒸汽机与发电机一般的时代引擎，启动未来几十年的奇幻发明。”   “总有一天本网站将看起来滑稽老土，不值一提，但它曾见证淹没它的浪潮如何兴起，而新世界的技术怪物们，他们曾经到过这里。比如你。</p>
+                <h5>关于&nbsp;&nbsp;NLPCN</h5>
+                <p align="left">&nbsp;&nbsp;&nbsp;&nbsp;NLPCN是一个非盈利的自然语言处理组织。我们遵循开放自由的理念，乐于分享，勤于开源，为为数不多的数据处理的开发者提供了一个资源共享,开源项目介绍,开发者展示的平台.</p>
             </div>
             <div class="four columns mobile-one">
                 <img src="images/sample-images/front-icon2.png" alt="" class="img-center" />
-                <h5>Complete pack of business idea</h5>
-                <p>Lorem ipsum dolor sit amet consectetur incididunt ut labore et dolore magna aliqua adipisicing elit seddo eiusmod tempor.</p>
+                <h5>在这里你能获得什么</h5>
+                <p align="left">&nbsp;&nbsp;&nbsp;&nbsp;靠谱的第一手资源,靠谱的开源项目,方便快捷的个人文档建立平台.本网站的初衷是以人为本,以资源和开源项目的分享为目标.分享展示自然语言处理的一些成果</p>
             </div>
             <div class="four columns mobile-one">
                 <img src="images/sample-images/front-icon3.png" alt="" class="img-center" />
-                <h5>Simple, Efficient, and Low cost</h5>
-                <p>Lorem ipsum dolor sit amet consectetur incididunt ut labore et dolore magna aliqua adipisicing elit seddo eiusmod tempor.</p>
+                <h5>加入我们</h5>
+                <p align="left">&nbsp;&nbsp;&nbsp;&nbsp;首先这是一个松散的组织,但是为了组织更好的发展我们希望加入者至少能在资源或者项目上有所贡献,同时我们愿意为每一个开发者研究者,提供一个分享展示的平台。</p>
             </div>
         </div>
     </div>
@@ -168,11 +167,11 @@ $(document).ready(function() {
         <div class="twelve columns">
             <div class="featured-box">
                 <div class="nine columns">
-                    <h5>Are you ready to Grow your business with Hyperion HTML Template?</h5>
-                    <p>Hyperion is a modern minimalist responsive HTML template created for business websites.</p>
+                    <h5>捐赠者的权利:获得更好的技术支持,对捐赠的机构给予增加友情链接广告等方式的宣传</h5>
+                    <p>为什么需要捐赠?首先NLPCN一个非盈利性的组织,但是一些优秀的源项目的展示需要硬件成本,所以我们希望能通过这种方来获得您的支持.</p>
                 </div>
                 <div class="three columns">
-                    <a href="#" class="button medium gray arrow-icon">Try it free today</a>
+                    <a href="#" class="button medium gray arrow-icon">&nbsp;&nbsp;捐&nbsp;&nbsp;&nbsp;赠&nbsp;&nbsp;</a>
                 </div>
                 <div class="clear"></div>
             </div>

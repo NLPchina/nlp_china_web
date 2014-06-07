@@ -39,7 +39,6 @@ public class AdminResourceAction {
 		}
 		request.setAttribute("obj", resourceService.search(categoryId, "id", pager));
 		request.setAttribute("pager", pager);
-		System.out.println(JSONArray.toJSON(pager));
 	}
 
 	@At("/admin/resource/editer")

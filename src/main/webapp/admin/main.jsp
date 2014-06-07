@@ -17,31 +17,31 @@
 		<a href="dashboard.html" class='company'>NLPChina 后台管理</a>
 		<ul class='mini'>
 			<li class='dropdown dropdown-noclose supportContainer'>
-				<a href="${ctx }/admin/resource/list" class='dropdown-toggle' data-toggle="dropdown" target="iframepage">
+				<a href="${ctx }/admin/resource/list" class='dropdown-toggle' target="iframepage">
 					<img src="img/icons/fugue/book-question.png" alt="">
 					资源管理
 				</a>
 			</li>
 			<li class='dropdown pendingContainer'>
-				<a href="http://ansjsun.github.io/ansj_seg/" data-toggle="dropdown" class='dropdown-toggle' target="iframepage">
+				<a href="http://ansjsun.github.io/ansj_seg/" class='dropdown-toggle' target="iframepage">
 					<img src="img/icons/fugue/document-task.png" alt="">
-					文档工具
+					文档管理
 				</a>
 			</li>
-			<li class='dropdown messageContainer'>
+			<li class='dropdown messageContainer' target="iframepage">
 				<a href="#" class='dropdown-toggle' data-toggle='dropdown'>
 					<img src="img/icons/fugue/balloons-white.png" alt="">
 					访谈管理
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="${ctx }/admin/user/list" target="iframepage">
 					<img src="img/icons/fugue/gear.png" alt="">
-					Settings
+					用户管理
 				</a>
 			</li>
 			<li>
-				<a href="index.html">
+				<a href="${ctx }/">
 					<img src="img/icons/fugue/control-power.png" alt="">
 					Logout
 				</a>
