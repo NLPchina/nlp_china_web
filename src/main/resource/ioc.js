@@ -24,13 +24,4 @@ var ioc = {
         args : [ {refer :"dataSource"}]
     }
 
-	// basicDao
-	recommendBasicDao : {
-		type : 'org.nlpchina.web.dao.BasicDao',
-		fields : {
-			dao : {
-				refer : "dao"
-			}
-		}
-	}
 };
