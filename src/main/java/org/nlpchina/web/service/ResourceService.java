@@ -50,41 +50,13 @@ public class ResourceService {
 			}
 		}
 		for (Resource resource : query) {
-			Sql sql = Sqls.create("select t.name from tag as t, resource_tag as rt where rt.resource_id = " + resource.getId() + " and rt.tag_id = t.id");
-			dao.execute(sql.setCallback(new SqlCallback() {
-				@Override
-				public String invoke(Connection conn, ResultSet rs, Sql sql) throws SQLException {
-					// TODO Auto-generated method stub
-					List<String> result = new ArrayList<String>();
-					while (rs.next()) {
-						result.add(rs.getString(1));
-					}
-					return Joiner.on(',').join(result);
-				}
-			}));
-			
-			List<UserInfo> user=dao.query(UserInfo.class, Cnd.where("id", "=", resource.getAuthor()));
-			if(user.size()>0){
-				resource.setAuthor_Name(user.get(0).getName());
-			}else {
-				System.out.print("resourceservice:用户id无效");
-			}
-			
-			resource.setTags((String) sql.getResult());
+			resourceRelationFull(resource);
 		}
 		return query;
 	}
 
-	/**
-	 * 找到一个tag和级联的信息
-	 * 
-	 * @param id
-	 * @return
-	 */
-	public Resource get(Integer id) {
-		Resource resource = dao.fetch(Resource.class, id);
-
-		Sql sql = Sqls.create("select t.name from tag as t, resource_tag as rt where rt.resource_id = " + id + " and rt.tag_id = t.id");
+	private void resourceRelationFull(Resource resource) {
+		Sql sql = Sqls.create("select t.name from tag as t, resource_tag as rt where rt.resource_id = " + resource.getId() + " and rt.tag_id = t.id");
 		dao.execute(sql.setCallback(new SqlCallback() {
 			@Override
 			public String invoke(Connection conn, ResultSet rs, Sql sql) throws SQLException {
@@ -97,7 +69,26 @@ public class ResourceService {
 			}
 		}));
 		
+		List<UserInfo> user=dao.query(UserInfo.class, Cnd.where("id", "=", resource.getAuthor()));
+		if(user.size()>0){
+			resource.setAuthor_Name(user.get(0).getName());
+		}else {
+			System.out.print("resourceservice:用户id无效");
+		}
+		
 		resource.setTags((String) sql.getResult());
+	}
+
+	/**
+	 * 找到一个tag和级联的信息
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public Resource get(Integer id) {
+		Resource resource = dao.fetch(Resource.class, id);
+
+		resourceRelationFull(resource);
 		return resource;
 	}
 	
@@ -111,7 +102,7 @@ public class ResourceService {
 	 * @param pager
 	 * @return
 	 */
-	public List<Resource> resource_tag_search(Integer tagId, String order, Pager pager) {
+	public List<Resource> resourceTagSearch(Integer tagId, String order, Pager pager) {
 		
 		List<Resource> query = null;
 
@@ -129,26 +120,7 @@ public class ResourceService {
 			System.out.print("resourceservice: tagid无效");
 		}
 		for (Resource resource : query) {
-			Sql sql = Sqls.create("select t.name from tag as t, resource_tag as rt where rt.resource_id = " + resource.getId() + " and rt.tag_id = t.id");
-			dao.execute(sql.setCallback(new SqlCallback() {
-				@Override
-				public String invoke(Connection conn, ResultSet rs, Sql sql) throws SQLException {
-					// TODO Auto-generated method stub
-					List<String> result = new ArrayList<String>();
-					while (rs.next()) {
-						result.add(rs.getString(1));
-					}
-					return Joiner.on(',').join(result);
-				}
-			}));
-			
-			List<UserInfo> user=dao.query(UserInfo.class, Cnd.where("id", "=", resource.getAuthor()));
-			if(user.size()>0){
-				resource.setAuthor_Name(user.get(0).getName());
-			}else {
-				System.out.print("resourceservice:用户id无效");
-			}
-			resource.setTags((String) sql.getResult());
+			resourceRelationFull(resource);
 		}
 		return query;
 	}
