@@ -37,7 +37,7 @@
                     <div class="big-date"><fmt:formatDate value="${resource.publishTime}" pattern="dd"/></div>
                     <div class="small-month"><fmt:formatDate value="${resource.publishTime}" pattern="MM"/> <fmt:formatDate value="${resource.publishTime}" pattern="yyyy"/></div>
                     <ul>
-                        <li class="author-icon"><a href="#">${resource.author }</a></li>
+                        <li class="author-icon"><a href="#">${resource.author_Name }</a></li>
                         <li class="tag-icon"><a href="#">${resource.categoryStr }</a></li>
                     </ul>
                 </div>
@@ -93,7 +93,7 @@
             	<h5>Tag Cloud</h5>
                 <div class="tag-cloud">
                 	<c:forEach items="${APP_TAGS }" var="tag">
-                    <a title="Link title" href="#">${tag.name }</a>
+                    <a title="Link title" href="/resource/resource_tag_list/${tag.id }">${tag.name }</a>
                     </c:forEach>                        
                 </div>
             </aside>

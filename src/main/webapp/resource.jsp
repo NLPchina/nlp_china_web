@@ -46,7 +46,7 @@
                     <p>${obj.summary }</p>
                      <div>
                      	<c:forEach items="${obj.tagList }" var="tagName">
-		                    <a name="tag" class="button small blue" href="#">${tagName }</a>
+		                    <a name="tag" class="button small blue" href="${ctx }/resource/list?">${tagName }</a>
 	                    </c:forEach>
                     </div>
                 </div>

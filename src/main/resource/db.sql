@@ -97,7 +97,6 @@ create table user_info(
 	gender  varchar(5) NOT NULL,
 	avatar_large  varchar(127) NOT NULL,
 ) ;
-
 	
 DROP TABLE IF EXISTS `resource_user` ;
 create table resource_user(

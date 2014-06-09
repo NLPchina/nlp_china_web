@@ -43,7 +43,7 @@ public class LoginAction {
 		if (true) {
 			//zuoge jia denglu !!!
 			UserInfo userInfo = new UserInfo();
-			userInfo.setId(1);
+			userInfo.setId(33);
 			userInfo.setName("admin");
 			Mvcs.getHttpSession().setAttribute("userInfo", userInfo);
 			return;
@@ -69,7 +69,6 @@ public class LoginAction {
 				StaticValue.siteToken = token.getAccessToken();
 				StaticValue.siteUid = uid;
 			}
-
 			Mvcs.getHttpSession().setAttribute("userInfo", userInfo);
 
 		} catch (WeiboException e) {

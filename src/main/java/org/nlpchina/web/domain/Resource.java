@@ -43,6 +43,8 @@ public class Resource {
 
 	private String tags;
 
+	private String author_Name;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -139,6 +141,15 @@ public class Resource {
 
 	public void setSiteId(String siteId) {
 		this.siteId = siteId;
+	}
+
+	
+	public String getAuthor_Name() {
+		return author_Name;
+	}
+
+	public void setAuthor_Name(String author_Name) {
+		this.author_Name = author_Name;
 	}
 
 	public List<String> getTagList() {

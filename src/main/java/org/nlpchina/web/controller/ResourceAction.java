@@ -45,4 +45,17 @@ public class ResourceAction {
 	public Resource findById(Integer id){
 		return resourceService.get(id) ;
 	}
+	
+	//点击tag标签后显示资源列表
+	@At("/resource/resource_tag_list/?")
+	@Ok("jsp:/resource-list.jsp")
+	public void resource_tag_list(Integer tagId, HttpServletRequest request, @Param("::pager") Pager pager) {
+		if (pager == null) {
+			pager = new Pager();
+		}
+		pager.setPageSize(10) ;
+		request.setAttribute("all", resourceService.resource_tag_search(tagId, "id", pager));
+		request.setAttribute("pager", pager);
+	}
+	
 }
