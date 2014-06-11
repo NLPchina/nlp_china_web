@@ -43,7 +43,7 @@ public class Resource {
 
 	private String tags;
 
-	private String author_Name;
+	private UserInfo userInfo;
 	
 	public Integer getId() {
 		return id;
@@ -143,20 +143,20 @@ public class Resource {
 		this.siteId = siteId;
 	}
 
-	
-	public String getAuthor_Name() {
-		return author_Name;
-	}
-
-	public void setAuthor_Name(String author_Name) {
-		this.author_Name = author_Name;
-	}
 
 	public List<String> getTagList() {
 		if (StringUtils.isEmpty(tags)) {
 			return Collections.emptyList();
 		}
 		return Lists.newArrayList(tags.split(","));
+	}
+
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
 	}
 	
 }

@@ -1100,7 +1100,6 @@ width:100%;
 float:left;
 margin:5px 0 45px;
 }
-
 .tag-cloud a,.tag-cloud a:visited {
 font-size:11px;
 text-shadow:0 1px 0 #ffecb7;
@@ -1138,7 +1137,17 @@ float:left;
 margin:0 8px 9px 0;
 padding:4px 9px 5px 19px;
 }
-
+.tag-cloud tagselected{
+	background-color: #775908;
+}
+.tag-cloud tagselected a,.tag-cloud tagselected a:visited,.tag-cloud tagselected a:hover{
+font-size: 11px;
+text-shadow: 0 1px 0 #555555;
+display: block;
+color: #fff;
+background: url(../images/tag-bg-hover.gif) no-repeat left;
+background-color: #775908;
+}
 /* Blog Pagination */
 .blog-pagination {
 width:100%;
