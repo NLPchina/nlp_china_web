@@ -24,6 +24,14 @@
 			<ul>
 				<li><a href="${ctx }/">首页</a></li>
 				<li><a href="#">精品分享</a></li>
+				<li><a href="${ctx }/resource/list/${categoryId}">
+						${categoryId==0||categoryId==null?"全部分类":"" }
+						<c:forEach var="category" items="${APP_CATEGORYS }">
+							${category.id==categoryId?category.name:"" }
+						</c:forEach>
+					</a>
+				</li>
+					
 			</ul>
 		</div>
 	</section>

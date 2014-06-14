@@ -3,12 +3,11 @@ package org.nlpchina.web.database;
 import java.io.File;
 import java.sql.SQLException;
 
-import love.cq.util.IOUtil;
-import love.cq.util.StringUtil;
-
 import org.apache.log4j.Logger;
 import org.h2.tools.Server;
 import org.nlpchina.web.service.GeneralService;
+import org.nlpcn.commons.lang.util.IOUtil;
+import org.nlpcn.commons.lang.util.StringUtil;
 import org.nutz.mvc.NutConfig;
 
 /**

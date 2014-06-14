@@ -8,12 +8,12 @@
 
 <head>
 	<%@include file="common/common.jsp"%>
-	<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="${ctx }/css/bootstrap.css">
 	<link rel="stylesheet" href="${ctx }/css/wordstyle.css">
-	<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-	<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
-	<script src="http://indyarmy.com/awesomeCloud/jquery.awesomeCloud-0.2.min.js"></script>
-	<script src="http://www.bootcss.com/p/chart.js/assets/Chart.js"></script>
+	<script src="${ctx }/js/jquery.min.js"></script>
+	<script src="${ctx }/js/bootstrap.js"></script>
+	<script src="${ctx }/js/jquery.awesomeCloud-0.2.min.js"></script>
+	<script src="${ctx }/js/Chart.js"></script>
 	
 	<style type="text/css">
 		
@@ -82,15 +82,12 @@
         <div  class="list-group" id="sideBar" data-offset-top="230" data-spy="affix" style="width: 166px;" >
           <a href="#" class="list-group-item">导航条</a>
 		  <a href="#keyWords" class="list-group-item">关键词提取</a>
-		  <a href="#nlpResult" class="list-group-item">NLP分词</a>
-		  <a href="#tag" class="list-group-item">开放式分类</a>
+		  <a href="#nlpResult" class="list-group-item">中文分词</a>
 		  <a href="#summaryStr" class="list-group-item">摘要&高亮</a>
+		  <a href="#jianfanpin" class="list-group-item">简繁体&拼音</a>
 		  <a href="#classification" class="list-group-item">文本分类</a>
 		  <a href="#emotional" class="list-group-item">情感分析</a>
 		  <a href="#wordRelation" class="list-group-item">语义联想</a>
-		  <a href="#toResult" class="list-group-item">精准分词</a>
-		  <a href="#indexResult" class="list-group-item">索引分词</a>
-		  <a href="#nlpMinResult" class="list-group-item">细粒度分词</a>
 		  <a class="list-group-item">依存文法(待续)</a>
 		</div>
       </div>
@@ -117,16 +114,56 @@
 			 </div>
 		</div>
 		
-		<div class="panel panel-default" id="nlpResult">
 		
-			 <div class="panel-heading">NLP分词</div>
-			 <div class="panel-body">
-			 	<dl style="line-height: 32px;">
-		 		<c:forEach items="${nlpResult }" var="word">
-		 			<dd class="word_${word[1] } word_width">${word[0] }</dd>
-		 		</c:forEach>
-		 		</dl>
-			 </div>
+		<!-- Nav tabs -->
+		<div class="panel panel-default" id="nlpResult">
+			<ul class="nav nav-tabs">
+			  <li class="active"><a href="#nlp_seg" data-toggle="tab">NLP分词</a></li>
+			  <li><a href="#to_seg" data-toggle="tab">精准分词</a></li>
+			  <li><a href="#index_seg" data-toggle="tab">索引分词</a></li>
+			  <li><a href="#min_seg" data-toggle="tab">细颗粒度分词</a></li>
+			</ul>
+			
+			<!-- Tab panes -->
+			<div class="tab-content">
+			  <div class="tab-pane active" id="nlp_seg">
+				 <div class="panel-body">
+				 	<dl style="line-height: 32px;">
+			 		<c:forEach items="${nlpResult }" var="word">
+			 			<dd class="word_${word[1] } word_width">${word[0] }</dd>
+			 		</c:forEach>
+			 		</dl>
+				 </div>
+			  </div>
+			  <div class="tab-pane" id="to_seg">
+			  	 <div class="panel-body">
+				 	<dl style="line-height: 32px;">
+			 		<c:forEach items="${toResult }" var="word">
+			 			<dd class="word_${word[1] } word_width">${word[0] }</dd>
+			 		</c:forEach>
+			 		</dl>
+				  </div>
+			  </div>
+			  <div class="tab-pane" id="index_seg">
+				  <div class="panel-body">
+				 	<dl style="line-height: 32px;">
+				 		<c:forEach items="${indexResult }" var="word">
+				 			<dd class="word_${word[1] } word_width">${word[0] }</dd>
+				 		</c:forEach>
+			 		</dl>
+				  </div>
+			  </div>
+			  <div class="tab-pane" id="min_seg">
+			  	   <div class="panel-body">
+				 		<dl style="line-height: 32px;">
+				 		<c:forEach items="${nlpMinResult }" var="word">
+				 			<dd class="word_${word[1] } word_width">${word[0] }</dd>
+				 		</c:forEach>
+				 		</dl>
+					</div>
+			  
+			  </div>
+			</div>
 		</div>
 		
 		<div class="panel panel-default" id="summaryStr">
@@ -134,6 +171,35 @@
 			 <div class="panel-body">
 			 <pre style="font-size: 20px;">${summaryStr }</pre> 
 			  </div>
+		</div>
+		
+		<div class="panel panel-default" id="jianfanpin">
+			 <ul class="nav nav-tabs">
+			  <li class="active"><a href="#jian" data-toggle="tab">繁体中文</a></li>
+			  <li><a href="#fan" data-toggle="tab">简体中文</a></li>
+			  <li><a href="#pin" data-toggle="tab">汉语拼音</a></li>
+			</ul>
+			
+			<!-- Tab panes -->
+			<div class="tab-content">
+			  <div class="tab-pane active" id="jian">
+				 <div class="panel-body">
+			 		<pre style="font-size: 20px;">${fanStr }</pre> 
+			     </div>
+			  </div>
+			  <div class="tab-pane" id="fan">
+			  	 <div class="panel-body">
+			 		<pre style="font-size: 20px;">${jianStr }</pre> 
+			     </div>
+			  </div>
+			  <div class="tab-pane" id="pin">
+				 <div class="panel-body">
+			 		<pre style="font-size: 12px;">${pinStr }</pre> 
+			     </div>
+			  </div>
+			  
+			  
+			</div>
 		</div>
 		
 		
@@ -159,43 +225,16 @@
 			  </div>
 		</div>
 		
-		<div class="panel panel-default" id="toResult">
-			 <div class="panel-heading">精准分词</div>
-			 <div class="panel-body">
-			 	<dl style="line-height: 32px;">
-		 		<c:forEach items="${toResult }" var="word">
-		 			<dd class="word_${word[1] } word_width">${word[0] }</dd>
-		 		</c:forEach>
-		 		</dl>
-			  </div>
-		</div>
-		
-		<div class="panel panel-default" id="indexResult">
-			 <div class="panel-heading">索引分词</div>
-			 <div class="panel-body">
-			 	<dl style="line-height: 32px;">
-			 		<c:forEach items="${indexResult }" var="word">
-			 			<dd class="word_${word[1] } word_width">${word[0] }</dd>
-			 		</c:forEach>
-		 		</dl>
-			  </div>
-		</div>
-		
-		<div class="panel panel-default" id="nlpMinResult">
-			 <div class="panel-heading">细粒度分词</div>
-			 <div class="panel-body">
-		 		<dl style="line-height: 32px;">
-		 		<c:forEach items="${nlpMinResult }" var="word">
-		 			<dd class="word_${word[1] } word_width">${word[0] }</dd>
-		 		</c:forEach>
-		 		</dl>
-			  </div>
-		</div>
-		
 		
       </div>
     </div>
 </section>
+
+
+<!-- footer start here -->
+<%@include file="foot.jsp"%>
+<!-- footer end here -->
+
 <!-- maincontent end here -->
 <script type="text/javascript">
 
@@ -255,8 +294,14 @@ $(window).scroll(function() {
 		 }
 	 });
 	 
-	 $("[href!='#"+oldActive+"']").addClass("active") ;
-	 $("[href!='#"+active+"']").removeClass("active") ;
+	 if(active==oldActive){
+		 return false ;
+	 }
+	 
+	 console.log(active+"   "+oldActive)
+	 
+	 $("[href='#"+active+"']").addClass("active") ;
+	 $("[href='#"+oldActive+"']").removeClass("active") ;
 });
 </script>
 <!-- footer start here -->

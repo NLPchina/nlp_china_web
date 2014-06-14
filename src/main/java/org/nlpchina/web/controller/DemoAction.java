@@ -5,8 +5,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import love.cq.util.StringUtil;
-
 import org.ansj.app.keyword.KeyWordComputer;
 import org.ansj.app.keyword.Keyword;
 import org.ansj.app.summary.SummaryComputer;
@@ -17,6 +15,9 @@ import org.ansj.splitWord.analysis.BaseAnalysis;
 import org.ansj.splitWord.analysis.IndexAnalysis;
 import org.ansj.splitWord.analysis.NlpAnalysis;
 import org.ansj.splitWord.analysis.ToAnalysis;
+import org.nlpcn.commons.lang.jianfan.JianFan;
+import org.nlpcn.commons.lang.pinyin.Pinyin;
+import org.nlpcn.commons.lang.util.StringUtil;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.Ok;
@@ -60,7 +61,11 @@ public class DemoAction {
 		SummaryComputer sc = new SummaryComputer(null, content);
 		Summary summary = sc.toSummary();
 		String summaryStr = new TagContent("<font color=\"red\">", "</font>").tagContent(summary)+"....";
-
+		
+		
+		request.setAttribute("fanStr", JianFan.j2F(content));
+		request.setAttribute("jianStr", JianFan.f2J(content));
+		request.setAttribute("pinStr", Pinyin.pinyinStr(content));
 		request.setAttribute("nlpResult", nlpResult);
 		request.setAttribute("nlpMinResult", nlpMinResult);
 		request.setAttribute("toResult", toResult);
@@ -76,7 +81,7 @@ public class DemoAction {
 		List<String[]> result = Lists.newArrayList();
 		for (Term term : parse) {
 			if (StringUtil.isNotBlank(term.getName())) {
-				result.add(new String[] { term.getName(), term.getNatrue().natureStr });
+				result.add(new String[] { term.getName(), term.getNatureStr() });
 			}
 		}
 		return result;
@@ -86,7 +91,7 @@ public class DemoAction {
 		List<String[]> result = Lists.newArrayList();
 		for (Term term : parse) {
 			if (StringUtil.isNotBlank(term.getName())) {
-				result.add(new String[] { term.getSubTerm() == null ? term.getName() : term.getSubTerm().toString(), term.getNatrue().natureStr });
+				result.add(new String[] { term.getSubTerm() == null ? term.getName() : term.getSubTerm().toString(), term.getNatureStr() });
 			}
 		}
 		return result;

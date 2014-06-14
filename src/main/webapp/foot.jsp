@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 
 <footer>
-    <div class="row">
+    <div class="row" style="margin:0 auto">
         <div class="three columns mobile-two">
             <img src="${ctx }/images/logo2.png" alt="" class="img-left" />
             <p class="copyright-text">&copy; Copyright &copy; 2014.Company nlpcn All rights reserved.</p>

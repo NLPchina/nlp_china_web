@@ -14,7 +14,7 @@ import org.nlpchina.web.domain.DocMenu;
 import org.nlpchina.web.domain.Document;
 import org.nlpchina.web.domain.UserInfo;
 import org.nlpchina.web.service.GeneralService;
-import org.nlpchina.web.util.StringUtil;
+import org.nlpcn.commons.lang.util.StringUtil;
 import org.nutz.dao.Cnd;
 import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;

@@ -3,8 +3,6 @@ package org.nlpchina.web;
 import java.io.File;
 import java.util.ResourceBundle;
 
-import love.cq.util.StringUtil;
-
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.nio.SelectChannelConnector;
