@@ -43,6 +43,8 @@ public class Resource {
 
 	private String tags;
 
+	private UserInfo userInfo;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -141,11 +143,20 @@ public class Resource {
 		this.siteId = siteId;
 	}
 
+
 	public List<String> getTagList() {
 		if (StringUtils.isEmpty(tags)) {
 			return Collections.emptyList();
 		}
 		return Lists.newArrayList(tags.split(","));
+	}
+
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
 	}
 	
 }
