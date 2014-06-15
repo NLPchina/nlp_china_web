@@ -37,8 +37,8 @@
                     <div class="big-date"><fmt:formatDate value="${obj.publishTime}" pattern="dd"/></div>
                     <div class="small-month"><fmt:formatDate value="${obj.publishTime}" pattern="MM"/> <fmt:formatDate value="${obj.publishTime}" pattern="yyyy"/></div>
                     <ul>
-                        <li class="author-icon"><a href="#">${obj.author }</a></li>
-                        <li class="tag-icon"><a href="#">${obj.categoryStr }</a></li>
+                        <li class="author-icon"><a href="#">${obj.userInfo.name }</a></li>
+                        <li class="tag-icon"><a href="${ctx }/resource/list/${category.id }">${obj.categoryStr }</a></li>
                     </ul>
                 </div>
                 <div class="post-content">            	                  
@@ -53,6 +53,9 @@
                 
 	            <div align="justify" style="right: 0px; position: absolute;">
 						<wb:share-button appkey="4bxSJI" addition="number" type="icon" default_text="${obj.summary }" ></wb:share-button>
+				</div>
+				
+				<div style="float: right">
 				</div>
             </div>
             <div>

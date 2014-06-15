@@ -7,3 +7,4 @@ target/*
 /h2db/*
 /target
 /nlpcn.log.1
+.DS_Store
