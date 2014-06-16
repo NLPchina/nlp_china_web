@@ -45,6 +45,8 @@ public class Resource {
 
 	private UserInfo userInfo;
 	
+	private List<Tag> tagEntityList;//tag实体对象，为了方便并没有替换tags
+	
 	public Integer getId() {
 		return id;
 	}
@@ -157,6 +159,14 @@ public class Resource {
 
 	public void setUserInfo(UserInfo userInfo) {
 		this.userInfo = userInfo;
+	}
+
+	public List<Tag> getTagEntityList() {
+		return tagEntityList;
+	}
+
+	public void setTagEntityList(List<Tag> tagEntityList) {
+		this.tagEntityList = tagEntityList;
 	}
 	
 }

@@ -1,10 +1,6 @@
 package org.nlpchina.web.service;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.nlpchina.web.domain.Resource;
@@ -14,13 +10,10 @@ import org.nutz.dao.Cnd;
 import org.nutz.dao.Dao;
 import org.nutz.dao.Sqls;
 import org.nutz.dao.pager.Pager;
-import org.nutz.dao.sql.Criteria;
 import org.nutz.dao.sql.Sql;
-import org.nutz.dao.sql.SqlCallback;
 import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
 
-import com.google.common.base.Joiner;
 
 @IocBean
 public class ResourceService {
@@ -88,19 +81,12 @@ public class ResourceService {
 	}
 
 	private void resourceRelationFull(Resource resource) {
-		Sql sql = Sqls.create("select t.name from tag as t, resource_tag as rt where rt.resource_id = " + resource.getId() + " and rt.tag_id = t.id");
-		dao.execute(sql.setCallback(new SqlCallback() {
-			@Override
-			public String invoke(Connection conn, ResultSet rs, Sql sql) throws SQLException {
-				// TODO Auto-generated method stub
-				List<String> result = new ArrayList<String>();
-				while (rs.next()) {
-					result.add(rs.getString(1));
-				}
-				return Joiner.on(',').join(result);
-			}
-		}));
-
+		List<Tag> tags;
+		Sql sql_resource = Sqls.create("select * from tag as t, resource_tag as rt where rt.resource_id = " + resource.getId() + " and rt.tag_id = t.id");
+		sql_resource.setCallback(Sqls.callback.entities());
+		sql_resource.setEntity(dao.getEntity(Tag.class));
+		dao.execute(sql_resource);
+		tags = sql_resource.getList(Tag.class);
 		List<UserInfo> user = dao.query(UserInfo.class, Cnd.where("id", "=", resource.getAuthor()));
 		if (user.size() > 0) {
 			resource.setUserInfo(user.get(0));
@@ -108,7 +94,7 @@ public class ResourceService {
 			System.out.print("resourceservice:用户id无效");
 		}
 
-		resource.setTags((String) sql.getResult());
+		resource.setTagEntityList(tags);
 	}
 
 	/**
@@ -133,7 +119,7 @@ public class ResourceService {
 	 * @param pager
 	 * @return
 	 */
-	public List<Resource> resourceTagSearch(String tagIds, String order, Pager pager) {
+	public List<Resource> resourceTagSearchAnd(String tagIds, String order, Pager pager) {
 
 		List<Resource> query = null;
 		// 将tagids字符串拆分成id数组进行and查询
@@ -163,7 +149,7 @@ public class ResourceService {
 	}
 
 	/**
-	 * 旧的，无and关系的tag查询
+	 * 无and关系的tag查询
 	 * 
 	 * @param tagIds
 	 *                标签ids
@@ -171,7 +157,7 @@ public class ResourceService {
 	 * @param pager
 	 * @return
 	 */
-	public List<Resource> resourceTagSearchold(Integer tagId, String order, Pager pager) {
+	public List<Resource> resourceTagSearch(Integer tagId, String order, Pager pager) {
 
 		List<Resource> query = null;
 
@@ -194,6 +180,39 @@ public class ResourceService {
 		return query;
 	}
 
+	/**
+	 * 根据用户id资源查询
+	 * 
+	 * @param userId
+	 *                用户id
+	 * @param order
+	 * @param pager
+	 * @return
+	 */
+	public List<Resource> userResourceSearch(Integer userId, String order, Pager pager) {
+
+		List<Resource> query = null;
+
+		if (userId != null) {
+			Sql sql_resource = Sqls.create("select * from resource as r where r.author = " + userId);
+			sql_resource.setCallback(Sqls.callback.entities());
+			sql_resource.setEntity(dao.getEntity(Resource.class));
+			dao.execute(sql_resource);
+			query = sql_resource.getList(Resource.class);
+			if (pager != null) {
+				pager.setRecordCount(query.size());
+			}
+
+		} else {
+			System.out.print("resourceservice: userid无效");
+		}
+		for (Resource resource : query) {
+			resourceRelationFull(resource);
+		}
+		return query;
+	}
+
+	
 	/**
 	 * 获取tagNames
 	 * 
