@@ -42,7 +42,7 @@
                 	<li><a href="https://api.weibo.com/oauth2/authorize?client_id=2598075234&response_type=code&redirect_uri=http://www.nlpcn.org/sinaWeibo/login">微博登陆</a></li>
                 </c:if>
                 <c:if test="${userInfo!=null }" >
-                	<li><a href="${ctx }/login_out">退出${userInfo.name }</a></li>
+                	<li><a href="${ctx }/admin/main.jsp">${userInfo.name }的管理平台</a></li>
                 </c:if>
             </ul>
         </nav>

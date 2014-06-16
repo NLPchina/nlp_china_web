@@ -13,45 +13,16 @@
 </head>
 <body class='login_body'>
 	<div class="wrap">
-		<h2>Neat Admin Template</h2>
-		<h4>Welcome to the login page</h4>
-		<form action="dashboard.html"  autocomplete="off" method="post" class="validate">
+		<h2>亲爱的你还木有登录..</h2>
 		<div class="alert alert-error">
-			<strong>Error!</strong> Please enter an username and a password.
+			<strong>请点击右上角用新浪微博账号登录.本站不存储您的任何密码!请敞开使用!!</strong> 
 		</div>
-		<div class="login">
-			<div class="email">
-				<label for="user">Email</label><div class="email-input"><div class="control-group"><div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span><input type="text" id="user" name="user" class="{required:true}"></div></div></div>
-			</div>
-			<div class="pw">
-				<label for="pw">Password</label><div class="pw-input"><div class="control-group"><div class="input-prepend"><span class="add-on"><i class="icon-lock"></i></span><input type="password" id="pw" name="pw" class='{required:true}'></div></div></div>
-			</div>
-			<div class="remember">
-				<label class="checkbox">
-					<input type="checkbox" value="1" name="remember"> Remember me on this computer
-				</label>
-			</div>
-		</div>
+		
 		<div class="submit">
-			<a href="#">Lost password?</a>
-			<button class="btn btn-red5">Login</button>
-		</div>
-		<div class="login social">
-			<div class="btn-row">
-				<a href="#" class="btn btn-social btn-twitter"><img src="img/twitter.png" alt="">Sign in with Twitter</a>
-				<a href="#" class="btn btn-social btn-fb"><img src="img/facebook.png" alt="">Sign in with Facebook</a>
-			</div>
-			<div class="btn-row">
-				<a href="#" class="btn btn-social btn-dr"><img src="img/dribble.png" alt="">Sign in with Dribble</a>
-				<a href="#" class="btn btn-social btn-fo"><img src="img/forrst.png" alt="">Sign in with Forrst</a>
-			</div>
-		</div>
-		</form>
-		<div class="social-shadow-hider"></div>
-		<div class="social-toggle">
-			<a href="#" class='toggle-social'>Sign in with social network <b class="caret"></b></a>
+			<button class="btn btn-red5" onclick="location.href='https://api.weibo.com/oauth2/authorize?client_id=2598075234&response_type=code&redirect_uri=http://www.nlpcn.org/sinaWeibo/login'">Login</button>
 		</div>
 	</div>
+	
 <script src="js/jquery.js"></script>
 <script src="js/jquery.validate.min.js"></script>
 <script src="js/jquery.metadata.js"></script>

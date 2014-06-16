@@ -29,11 +29,12 @@ public class BootStrap {
 
 	public static void main(String[] args) throws Exception {
 		ResourceBundle bundle = ResourceBundle.getBundle("config");
-		String web_dir = null ;
+		String web_dir = null;
 
-		if( bundle.containsKey("web_dir")){
-			web_dir =  bundle.getString("web_dir"); ;
-		}else if (new File("src/main/webapp").isDirectory()) {
+		if (bundle.containsKey("web_dir")) {
+			web_dir = bundle.getString("web_dir");
+			;
+		} else if (new File("src/main/webapp").isDirectory()) {
 			web_dir = "src/main/webapp";
 		} else if (new File("webapp").isDirectory()) {
 			web_dir = "webapp";
@@ -49,6 +50,7 @@ public class BootStrap {
 		server.setConnectors(new Connector[] { connector });
 		WebAppContext context = new WebAppContext(web_dir, "/");
 		server.setAttribute("org.eclipse.jetty.server.Request.maxFormContentSize", "-1");
+		server.setAttribute("org.mortbay.util.URI.charset", "utf-8");
 		context.setMaxFormContentSize(-1);
 		server.setHandler(context);
 		server.setStopAtShutdown(true);
