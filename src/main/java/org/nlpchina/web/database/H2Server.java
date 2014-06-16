@@ -2,11 +2,11 @@ package org.nlpchina.web.database;
 
 import java.io.File;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 
 import org.apache.log4j.Logger;
 import org.h2.tools.Server;
 import org.nlpchina.web.service.GeneralService;
+import org.nlpchina.web.util.StaticValue;
 import org.nlpcn.commons.lang.util.IOUtil;
 import org.nlpcn.commons.lang.util.StringUtil;
 import org.nutz.mvc.NutConfig;
@@ -23,10 +23,8 @@ public class H2Server {
 	private static Server server;
 
 	public static void startServer(NutConfig nc) {
-		ResourceBundle bundle = ResourceBundle.getBundle("config");
-
-		// 如果是测试状态
-		if (!Boolean.parseBoolean(bundle.getString("test"))) {
+		// 如果不是测试状态
+		if (!StaticValue.IS_TEST) {
 			return;
 		}
 

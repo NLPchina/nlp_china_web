@@ -3,6 +3,7 @@ package org.nlpchina.web.util;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 import org.nlpchina.web.domain.Category;
 import org.nlpchina.web.domain.Tag;
@@ -20,12 +21,16 @@ import org.nutz.mvc.NutConfig;
 public class StaticValue {
 
 	public static Map<Integer, Category> categoryMap = new HashMap<Integer, Category>();
-	
-	public static String siteToken ;
-	
-	public static String siteUid ;
-	
-	public static Ioc ioc = null ;
+
+	public static String siteToken;
+
+	public static String siteUid;
+
+	public static Ioc ioc = null;
+
+	public static final ResourceBundle BUNDLE = ResourceBundle.getBundle("config");
+
+	public static final boolean IS_TEST = Boolean.getBoolean(BUNDLE.getString("test"));
 
 	public synchronized static void updateTags(NutConfig nc) {
 		GeneralService generalService = nc.getIoc().get(GeneralService.class);
