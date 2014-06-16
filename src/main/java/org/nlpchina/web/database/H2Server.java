@@ -2,6 +2,7 @@ package org.nlpchina.web.database;
 
 import java.io.File;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import org.apache.log4j.Logger;
 import org.h2.tools.Server;
@@ -22,6 +23,12 @@ public class H2Server {
 	private static Server server;
 
 	public static void startServer(NutConfig nc) {
+		ResourceBundle bundle = ResourceBundle.getBundle("config");
+
+		// 如果是测试状态
+		if (!Boolean.parseBoolean(bundle.getString("test"))) {
+			return;
+		}
 
 		if (server != null && server.isRunning(true)) {
 			return;
@@ -40,7 +47,7 @@ public class H2Server {
 				} else if (new File("src/main/resource/db.sql").isFile()) {
 					content = IOUtil.getContent("src/main/resource/db.sql", IOUtil.UTF8);
 				}
-				if(StringUtil.isNotBlank(content)){
+				if (StringUtil.isNotBlank(content)) {
 					nc.getIoc().get(GeneralService.class).executeSql(content);
 				}
 			}
