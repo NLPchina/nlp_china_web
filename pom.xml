@@ -5,9 +5,12 @@
 	<groupId>org.nlpcn</groupId>
 	<artifactId>nlpcn-web</artifactId>
 	<version>0.1</version>
-
+	<packaging>jar</packaging>
+	
 	<name>nlp_china</name>
 	<url>http://maven.apache.org</url>
+	
+	
 
 	<repositories>
 		<repository>
@@ -199,4 +202,5 @@
 
 	</dependencies>
 
+	
 </project>
