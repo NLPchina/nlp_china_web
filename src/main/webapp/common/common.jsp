@@ -21,7 +21,7 @@
 <!-- ////////////////////////////////// -->
 <!-- //      Javascript Files        // -->
 <!-- ////////////////////////////////// -->
-<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.js"></script>
+<script src="${ctx }/js/jquery-1.7.1.js"></script>
 <script src="${ctx}/js/dropdown.js"></script>
  
 <title>中国自然语言开源组织</title>
