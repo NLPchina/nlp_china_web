@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -40,12 +41,22 @@
 					用户管理
 				</a>
 			</li>
+			<c:if test="${userInfo!=null }" >
 			<li>
-				<a href="${ctx }/">
+				<a href="${ctx }/login_out" target="_self">
 					<img src="img/icons/fugue/control-power.png" alt="">
-					Logout
+					退出${userInfo.name }
 				</a>
 			</li>
+			</c:if>
+			<c:if test="${userInfo==null }">
+			<li>
+				<a href="https://api.weibo.com/oauth2/authorize?client_id=2598075234&response_type=code&redirect_uri=http://www.nlpcn.org/sinaWeibo/login" target="iframepage">
+					<img src="img/icons/fugue/control-power.png" alt="">
+					微博登陆
+				</a>
+			</li>
+             </c:if>
 		</ul>
 	</div>
 </div>
@@ -61,7 +72,7 @@
 
 
 <div class="main">
-		<iframe src="${ctx }/admin/resource/list" id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%" onLoad="iFrameHeight()" ></iframe>
+		<iframe src="${ctx }/admin/resource/list" id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%" height="800px;" onLoad="iFrameHeight()" ></iframe>
 </div>
 </body>
 

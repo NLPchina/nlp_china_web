@@ -28,9 +28,9 @@ create table category (
 ) ;
 
 insert into category(id,name) values(1,'学术论文') ;
-insert into CATEGORY(id,name) values(2,'语料资源') ;
-insert into CATEGORY(id,name) values(3,'技术文档') ;
-insert into CATEGORY(id,name) values(4,'开源项目') ;
+insert into category(id,name) values(2,'语料资源') ;
+insert into category(id,name) values(3,'技术文档') ;
+insert into category(id,name) values(4,'开源项目') ;
 
 
 DROP TABLE IF EXISTS `resource` ;
@@ -95,7 +95,7 @@ create table user_info(
 	profile_image_url  varchar(127) NOT NULL,
 	user_domain  varchar(127) NOT NULL,
 	gender  varchar(5) NOT NULL,
-	avatar_large  varchar(127) NOT NULL,
+	avatar_large  varchar(127) NOT NULL
 ) ;
 	
 DROP TABLE IF EXISTS `resource_user` ;
@@ -104,5 +104,5 @@ create table resource_user(
 	resource_id int NOT NULL,
 	user_id int NOT NULL,
 	type int NOT NULL,
-	site_id BIGINT NOT NULL,
+	site_id BIGINT NOT NULL
 ) ;

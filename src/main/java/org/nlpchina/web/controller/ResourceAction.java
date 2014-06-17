@@ -54,26 +54,40 @@ public class ResourceAction {
 	// 点击tag标签后显示资源列表
 	@At("/resource/resource_tag_list/?")
 	@Ok("jsp:/resource-list.jsp")
-	public void resourceTagList(String tagIds, HttpServletRequest request, @Param("::pager") Pager pager) {
+	public void resourceTagList(Integer tagId, HttpServletRequest request, @Param("::pager") Pager pager) {
 		if (pager == null) {
 			pager = new Pager();
 		}
 		pager.setPageSize(10);
-		request.setAttribute("all", resourceService.resourceTagSearch(tagIds, "id", pager));
+		request.setAttribute("all", resourceService.resourceTagSearch(tagId, "id", pager));
+		request.setAttribute("pager", pager);
+		request.setAttribute("tags", resourceService.getTagNames(tagId.toString()));
+	}
+	
+	// 用户资源列表
+		@At("/resource/user-resource-list/?")
+		@Ok("jsp:/resource-list.jsp")
+		public void userResourceList(Integer userId, HttpServletRequest request, @Param("::pager") Pager pager) {
+			if (pager == null) {
+				pager = new Pager();
+			}
+			pager.setPageSize(10);
+			request.setAttribute("all", resourceService.userResourceSearch(userId, "id", pager));
+			request.setAttribute("pager", pager);
+		}
+
+	// 点击and关系tag标签后显示资源列表
+	@At("/resource/resource_tag_list_and/?")
+	@Ok("jsp:/resource-list.jsp")
+	public void resourceTagListAnd(String tagIds, HttpServletRequest request, @Param("::pager") Pager pager) {
+		if (pager == null) {
+			pager = new Pager();
+		}
+		pager.setPageSize(10);
+		request.setAttribute("all", resourceService.resourceTagSearchAnd(tagIds, "id", pager));
 		request.setAttribute("pager", pager);
 		request.setAttribute("tags", resourceService.getTagNames(tagIds));
 		request.setAttribute("idString", tagIds);
 	}
 
-	// 旧的无and关系点击tag标签后显示资源列表
-	@At("/resource/resource_tag_listold/?")
-	@Ok("jsp:/resource-list.jsp")
-	public void resourceTagListold(Integer tagId, HttpServletRequest request, @Param("::pager") Pager pager) {
-		if (pager == null) {
-			pager = new Pager();
-		}
-		pager.setPageSize(10);
-		request.setAttribute("all", resourceService.resourceTagSearchold(tagId, "id", pager));
-		request.setAttribute("pager", pager);
-	}
 }

@@ -78,7 +78,7 @@
 							</div>
 							<ul>
 								<li class="author-icon"><a href="${resource.userInfo.url }">${resource.userInfo.name }</a></li>
-								<li class="tag-icon"><a href="#">${resource.categoryStr }</a></li>
+								<li class="tag-icon"><a href="${ctx }/resource/list/${resource.categoryId }">${resource.categoryStr }</a></li>
 							</ul>
 						</div>
 						<div class="post-content">

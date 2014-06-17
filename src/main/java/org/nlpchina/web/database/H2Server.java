@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import org.apache.log4j.Logger;
 import org.h2.tools.Server;
 import org.nlpchina.web.service.GeneralService;
+import org.nlpchina.web.util.StaticValue;
 import org.nlpcn.commons.lang.util.IOUtil;
 import org.nlpcn.commons.lang.util.StringUtil;
 import org.nutz.mvc.NutConfig;
@@ -22,6 +23,10 @@ public class H2Server {
 	private static Server server;
 
 	public static void startServer(NutConfig nc) {
+		// 如果不是测试状态
+		if (!StaticValue.IS_TEST) {
+			return;
+		}
 
 		if (server != null && server.isRunning(true)) {
 			return;
@@ -40,7 +45,7 @@ public class H2Server {
 				} else if (new File("src/main/resource/db.sql").isFile()) {
 					content = IOUtil.getContent("src/main/resource/db.sql", IOUtil.UTF8);
 				}
-				if(StringUtil.isNotBlank(content)){
+				if (StringUtil.isNotBlank(content)) {
 					nc.getIoc().get(GeneralService.class).executeSql(content);
 				}
 			}

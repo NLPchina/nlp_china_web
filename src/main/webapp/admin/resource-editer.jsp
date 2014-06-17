@@ -31,7 +31,7 @@
 						</div>
 						
 						<div class="box-content">
-							<form action="${ctx}/admin/resource/insert" class='validate form-horizontal' method="get">
+							<form action="${ctx}/admin/resource/insert" class='validate form-horizontal' method="post">
 									<input type="hidden" value="${obj.id}" name="obj.id" id="obj.id"/>
 									<div class="control-group">
 										<label for="check" class="control-label">标题</label>

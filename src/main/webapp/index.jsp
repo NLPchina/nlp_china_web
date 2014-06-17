@@ -10,8 +10,10 @@
 <head>
 <%@include file="common/common.jsp"%>
 <script src="${ctx}/js/camera.min.js"></script>
+<script src="js/jquery.easing-1.3.min.js"></script>
 <script>
 $(document).ready(function() { 
+    //Camera Jquery
     $('#camera-slide').camera({
         thumbnails: false,
         hover: false,
@@ -36,9 +38,9 @@ $(document).ready(function() {
         <!-- slide 1 here -->
         <div data-src="images/slideshow/bg-slide1.jpg">
             <div class="caption-type1 moveFromLeft">
-                <h1>We build rock solid Responsive website</h1>
-                <p>Used by thousands of creative freelancers and companies worldwide, Hyperion gives you everything you need to run your small business.</p>
-                <a href="#" class="button-slide medium gray">Let's start something</a>
+                <h1>欢迎来到NLPCN.ORG</h1>
+                <p> NLPCN是一个非盈利的自然语言处理组织。我们遵循开放自由的理念，乐于分享，勤于开源，为为数不多的数据处理的开发者提供了一个资源共享,开源项目介绍,开发者展示的平台.</p>
+                <a href="${ctx }/demo" class="button-slide medium gray">开源产品展示</a>
             </div>
             <div class="caption-type1 moveFromRight">
                 <img src="images/slideshow/slide1.png" alt="" />
@@ -48,8 +50,8 @@ $(document).ready(function() {
         <!-- slide 2 here -->
         <div data-src="images/slideshow/bg-slide2.jpg">
             <div class="caption-type2 moveFromTop">
-                <h1>We build rock solid Responsive website</h1>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt</p>
+                <h1>创建自己的技术文档,合作撰写文档</h1>
+                <p>在这里你可以方便的管理,撰写自己的文档.采用流行的MarkDown格式.美观大方.可以把文档的编辑方式发给你信任的人.一起修改文档,无需登录,无需注册.永久保留.随时导出PDF,HTML等各种格式.</p>
             </div>
             <div class="caption-type2 moveFromBottom">
                 <img src="images/slideshow/slide2.png" alt="" />
@@ -62,8 +64,8 @@ $(document).ready(function() {
                 <img src="images/slideshow/slide3.png" alt="" />
             </div>
             <div class="caption-type3 moveFromRight">
-                <h1>Latest web technology</h1>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                <h1>开放的资源品台</h1>
+                <p>学术论文,语料资源,技术文档,开源项目教程,精品资源大放送.服务与每一个NLP爱好者,还等什么加入我们分享资源,一起打造国内质量最高的自然语言处理资源平台.方便的资源整合分析.</p>
                 <img src="images/slideshow/slide3a.png" alt="" class="html-badge" />
             </div>                
         </div>
