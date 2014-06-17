@@ -3,7 +3,6 @@ package org.nlpchina.web.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.nlpchina.web.domain.Resource;
-import org.nlpchina.web.domain.Tag;
 import org.nlpchina.web.service.GeneralService;
 import org.nlpchina.web.service.ResourceService;
 import org.nutz.dao.pager.Pager;
