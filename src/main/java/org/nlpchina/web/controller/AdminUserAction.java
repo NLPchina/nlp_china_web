@@ -36,7 +36,7 @@ public class AdminUserAction {
 	}
 
 	@At("/admin/user/editer/?")
-	@Ok("jsp:/admin/userprofile.jsp")
+	@Ok("jsp:/admin/user-editer.jsp")
 	public void editer( Integer id, HttpServletRequest request) {
 		if (id == null || id < 1) {
 			System.err.println("用户id错误");
@@ -49,7 +49,7 @@ public class AdminUserAction {
 	}
 
 	@At("/admin/user/save/")
-	@Ok("jsp:/admin/userprofile.jsp")
+	@Ok("jsp:/admin/user-editer.jsp")
 	public void save( HttpServletRequest request, @Param("::user") UserInfo user) {
 		UserInfo admin=(UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
 		if (user==null||admin==null) {
