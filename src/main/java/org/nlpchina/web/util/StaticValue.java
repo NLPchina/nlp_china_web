@@ -30,7 +30,7 @@ public class StaticValue {
 
 	public static final ResourceBundle BUNDLE = ResourceBundle.getBundle("config");
 
-	public static final boolean IS_TEST = Boolean.getBoolean(BUNDLE.getString("test"));
+	public static final boolean IS_TEST = Boolean.parseBoolean(BUNDLE.getString("test"));
 
 	public synchronized static void updateTags(NutConfig nc) {
 		GeneralService generalService = nc.getIoc().get(GeneralService.class);

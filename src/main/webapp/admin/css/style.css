@@ -1784,6 +1784,33 @@ body.paper {
   margin-top: 4px;
   margin-left: 5px;
 }
+
+/*
+  below added in 2014/6/23
+*/
+
+.navi .main-nav > li a .icoo {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  float: left;
+  width: 24px;
+  height: 24px;
+  display: block;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+}
+.navi .main-nav > li a .icoo im {
+  opacity: 1;
+  filter: alpha(opacity=1);
+  margin-top: 4px;
+  margin-left: 5px;
+}
+/*
+ above added in 2014/6/23
+*/
+
 .navi .main-nav > li .collapsed-nav {
   list-style-type: none;
   margin: 0 0 5px 0;
