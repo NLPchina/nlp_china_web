@@ -47,7 +47,7 @@
 						<div class="box-head tabs">
 							<h3>文档查看</h3>
 							<ul class='nav nav-tabs'>
-								<li><a href="${ctx }/admin/resource/editer">新增资源</a></li>
+								<li><a href="${ctx }/doc/"  target="_top">新增资源</a></li>
 							</ul>
 						</div>
 						<div class="box-content box-nomargin">
@@ -65,7 +65,7 @@
 										<tbody>
 											<c:forEach items="${alls }" var="doc">
 												<tr>
-													<td>${doc.id }</td>
+													<td>${doc.name }</td>
 													
 													<td>${doc.publishTime }</td>
 													<td>${doc.updateTime }</td>

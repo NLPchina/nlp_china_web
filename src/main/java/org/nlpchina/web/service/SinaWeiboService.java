@@ -25,7 +25,7 @@ public class SinaWeiboService {
 	private static final Logger LOG = Logger.getLogger(SinaWeiboService.class.getName());
 	
 	@Inject
-	protected Dao dao;
+	public Dao dao;
 
 	public void gather(String token) {
 		Comments cm = new Comments();

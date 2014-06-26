@@ -4,6 +4,7 @@ import java.util.ResourceBundle;
 
 import org.apache.log4j.Logger;
 import org.nlpchina.web.domain.UserInfo;
+import org.nlpchina.web.service.GeneralService;
 import org.nlpchina.web.service.SinaWeiboService;
 import org.nlpchina.web.util.StaticValue;
 import org.nutz.ioc.loader.annotation.Inject;
@@ -32,7 +33,8 @@ public class LoginAction {
 
 	@Inject
 	private SinaWeiboService sinaWeiboService;
-
+	@Inject
+	private GeneralService generalService;
 	@At("/sinaWeibo/login")
 	// zhege jiushi fangwendizhi ...
 	@Ok("redirect:/")
@@ -43,9 +45,8 @@ public class LoginAction {
 		}
 		if (test) {
 			// zuoge jia denglu !!!
-			UserInfo userInfo = new UserInfo();
-			userInfo.setId(33);
-			userInfo.setName("admin");
+			UserInfo userInfo = generalService.find(1, UserInfo.class);
+			userInfo.setUserType(2);
 			Mvcs.getHttpSession().setAttribute("userInfo", userInfo);
 			return;
 		}

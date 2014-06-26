@@ -15,8 +15,14 @@
 <body>
 <div class="topbar clearfix">
 	<div class="container-fluid">
-		<a href="dashboard.html" class='company'>NLPChina 后台管理</a>
+		<a href="#" class='company'>NLPChina 后台管理</a>
 		<ul class='mini'>
+		<li class='dropdown dropdown-noclose supportContainer'>
+				<a href="${ctx }/" class='dropdown-toggle'>
+					<img src="img/icons/fugue/star.png" alt="">
+					返回首页
+				</a>
+			</li>
 			<li class='dropdown dropdown-noclose supportContainer'>
 				<a href="${ctx }/admin/resource/list" class='dropdown-toggle' target="iframepage">
 					<img src="img/icons/fugue/book-question.png" alt="">
