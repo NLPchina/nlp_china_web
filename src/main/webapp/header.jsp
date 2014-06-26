@@ -34,7 +34,6 @@
                 	<ul> 
 		                <li><a href="${ctx }/doc/">创建单页文档</a></li>
 		                <li><a href="${ctx }/docs/">创建多页文档</a></li>
-		                <li><a href="${ctx }/resource/list/3">查看我的文档</a></li>
 	                </ul>
                 </li>
                 <li id="demo"><a href="${ctx }/demo">演示平台</a></li>
