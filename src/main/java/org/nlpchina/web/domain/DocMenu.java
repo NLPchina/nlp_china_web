@@ -32,6 +32,8 @@ public class DocMenu {
 	
 	private String html ;
 	
+	private Integer num;//共有几篇文章
+	
 	public Integer getId() {
 		return id;
 	}
@@ -97,6 +99,14 @@ public class DocMenu {
 
 	public void setExtractingCode(String extractingCode) {
 		this.extractingCode = extractingCode;
+	}
+
+	public Integer getNum() {
+		return num;
+	}
+
+	public void setNum(Integer num) {
+		this.num = num;
 	}
 
 }

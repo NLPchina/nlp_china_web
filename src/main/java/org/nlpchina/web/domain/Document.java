@@ -1,5 +1,6 @@
 package org.nlpchina.web.domain;
 
+import java.io.StringReader;
 import java.util.Date;
 
 import org.nutz.dao.entity.annotation.Column;
@@ -85,5 +86,15 @@ public class Document {
 		this.menuId = menuId;
 	}
 	
+	
+	public String getName() {
+		 String[] strings=content.split("\n");
+		 for (String str : strings) {
+			if (str.trim().length()>0) {
+				return str;
+			}
+		 }
+		 return null;
+	}
 	
 }

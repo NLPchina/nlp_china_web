@@ -25,13 +25,15 @@
 		                <li><a href="${ctx }/resource/list/2">语料资源</a></li>
 		                <li><a href="${ctx }/resource/list/3">技术文档</a></li>
 		                <li><a href="${ctx }/resource/list/4">开源项目</a></li>
+		                <c:if test="${userInfo!=null }" >
+		                <li><a href="${ctx }/resource/user-resource-list/${userInfo.id}">我的分享</a></li>
+		                </c:if>
 	                </ul>
                 </li>
                 <li id="document" class="dropdown"><a href="#">开发者文档</a>
                 	<ul> 
 		                <li><a href="${ctx }/doc/">创建单页文档</a></li>
 		                <li><a href="${ctx }/docs/">创建多页文档</a></li>
-		                <li><a href="${ctx }/resource/list/3">查看我的文档</a></li>
 	                </ul>
                 </li>
                 <li id="demo"><a href="${ctx }/demo">演示平台</a></li>

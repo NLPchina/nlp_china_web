@@ -15,8 +15,14 @@
 <body>
 <div class="topbar clearfix">
 	<div class="container-fluid">
-		<a href="dashboard.html" class='company'>NLPChina 后台管理</a>
+		<a href="#" class='company'>NLPChina 后台管理</a>
 		<ul class='mini'>
+		<li class='dropdown dropdown-noclose supportContainer'>
+				<a href="${ctx }/" class='dropdown-toggle'>
+					<img src="img/icons/fugue/star.png" alt="">
+					返回首页
+				</a>
+			</li>
 			<li class='dropdown dropdown-noclose supportContainer'>
 				<a href="${ctx }/admin/resource/list" class='dropdown-toggle' target="iframepage">
 					<img src="img/icons/fugue/book-question.png" alt="">
@@ -24,7 +30,7 @@
 				</a>
 			</li>
 			<li class='dropdown pendingContainer'>
-				<a href="http://ansjsun.github.io/ansj_seg/" class='dropdown-toggle' target="iframepage">
+				<a href="${ctx}/docs/single-list/" class='dropdown-toggle' target="iframepage">
 					<img src="img/icons/fugue/document-task.png" alt="">
 					文档管理
 				</a>
@@ -35,13 +41,12 @@
 					访谈管理
 				</a>
 			</li>
-			<li>
-				<a href="${ctx }/admin/user/list" target="iframepage">
-					<img src="img/icons/fugue/gear.png" alt="">
-					用户管理
-				</a>
-			</li>
-			<c:if test="${userInfo!=null }" >
+				<c:if test="${ sessionScope.userInfo.userType==2 }">
+					<li><a href="${ctx }/admin/user/list" target="iframepage">
+							<img src="img/icons/fugue/gear.png" alt=""> 用户管理
+					</a></li>
+				</c:if>
+				<c:if test="${userInfo!=null }" >
 			<li>
 				<a href="${ctx }/login_out" target="_self">
 					<img src="img/icons/fugue/control-power.png" alt="">

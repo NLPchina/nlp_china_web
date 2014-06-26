@@ -54,7 +54,7 @@ public class UserInfo {
 	}
 	public void update(User user, String accessToken) {
 		siteType = SINA_WEIBO;
-		userType = 0;
+		//userType = 0;
 		this.accessToken = accessToken;
 		registerTime = new Date();
 		updateTime = new Date();

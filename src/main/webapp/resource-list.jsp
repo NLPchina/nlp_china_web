@@ -6,9 +6,7 @@
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
 
 <head>
 <%@include file="/common/common.jsp"%>
@@ -47,20 +45,22 @@
 				<div>
 					<c:if test="${tags!=null}">
 						<c:if test="${!empty tags}">
-				             已选条件：&nbsp;&nbsp;
+				             您选择的条件：&nbsp;&nbsp;
 				        </c:if>
 					</c:if>
 					<c:forEach items="${tags}" var="tag">
 						<c:if test="${tag.query!=null }">
 							<a name="tagSelected" class="button small blue"
 								href="/resource/resource_tag_list/${tag.query }">${tag.name }
-								<font>&nbsp;×&nbsp;</font></a>
+								<font>&nbsp;×</font></a>
 						</c:if>
 						<c:if test="${tag.query==null }">
 							<a name="tagSelected" title="取消" class="button small blue"
 								href="${ctx }/resource/list">${tag.name } <font>&nbsp;×&nbsp;</font></a>
 						</c:if>
 					</c:forEach>
+					<p></p>
+					<p></p>
 				</div>
 
 
@@ -77,7 +77,7 @@
 								<fmt:formatDate value="${resource.publishTime}" pattern="yyyy" />
 							</div>
 							<ul>
-								<li class="author-icon"><a href="${resource.userInfo.url }">${resource.userInfo.name }</a></li>
+								<li class="author-icon"><a href="/resource/user-resource-list/${resource.userInfo.id }">${resource.userInfo.name }</a></li>
 								<li class="tag-icon"><a href="${ctx }/resource/list/${resource.categoryId }">${resource.categoryStr }</a></li>
 							</ul>
 						</div>
@@ -87,8 +87,8 @@
 							</h4>
 							<p>${resource.summary }</p>
 							<div>
-								<c:forEach items="${resource.tagList }" var="tagName">
-									<a name="tag" class="button small blue" href="#">${tagName }</a>
+								<c:forEach items="${resource.tagEntityList }" var="tag">
+									<a name="tag" class="button small blue" href="/resource/resource_tag_list/${tag.id }">${tag.name }</a>
 								</c:forEach>
 							</div>
 						</div>
