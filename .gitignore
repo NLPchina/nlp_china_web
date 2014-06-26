@@ -9,4 +9,4 @@ target/*
 /nlpcn.log.1
 .DS_Store
 src/main/resource/zs_*
-
+/bin

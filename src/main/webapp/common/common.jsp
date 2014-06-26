@@ -24,9 +24,9 @@
 <!-- ////////////////////////////////// -->
 <!-- //      Javascript Files        // -->
 <!-- ////////////////////////////////// -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="${ctx}/js/jquery.easing-1.3.min.js"></script>
 <script src="${ctx}/js/tooltip.js"></script>
+<script src="${ctx }/js/jquery-1.7.1.js"></script>
 <script src="${ctx}/js/dropdown.js"></script>
 <script src="${ctx}/js/tinynav.min.js"></script>
 <script src="${ctx}/js/jquery.fancybox.js?v=2.0.6"></script>
