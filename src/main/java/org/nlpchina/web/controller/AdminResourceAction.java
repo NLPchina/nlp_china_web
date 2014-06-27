@@ -53,11 +53,20 @@ public class AdminResourceAction {
 	@At("/admin/resource/editer/?")
 	@Ok("jsp:/admin/resource-editer.jsp")
 	public Resource editer(Integer id, HttpServletRequest request) {
-		if (id == null || id < 1) {
+		UserInfo userInfo=(UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
+		
+		if (userInfo!=null&&userInfo.getUserType()>0) {
+			if (id == null || id < 1) {
+				return null;
+			} else {
+				return resourceService.get(id);
+			}
+		}else {
+			System.err.println("未登录或用户权限不够");
 			return null;
-		} else {
-			return resourceService.get(id);
 		}
+		
+		
 	}
 
 	@At("/admin/resource/delete/?")
@@ -72,13 +81,12 @@ public class AdminResourceAction {
 	public void insert(@Param("::obj.") Resource obj) {
 		
 		UserInfo userInfo = (UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
-
 		try {
 			Resource old = null;
 
 			obj.setUpdateTime(new Date());
 
-			obj.setAuthor(userInfo.getId());
+			
 
 			if (obj.getId() != null) {
 				old = resourceService.get(obj.getId());
@@ -87,6 +95,7 @@ public class AdminResourceAction {
 			obj.setUpdateTime(new Date());
 
 			if (old == null) {
+				obj.setAuthor(userInfo.getId());
 				obj.setPublishTime(new Date());
 				obj = generalService.save(obj);
 			} else {

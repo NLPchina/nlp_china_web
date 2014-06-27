@@ -100,13 +100,14 @@
 										</div>
 									</div>
 									
-									<div class="control-group">
+								<!-- 	
+								<div class="control-group">
 										<label for="check" class="control-label">访问地址</label>
 										<div class="controls">
 											<input type="text" name="obj.visitUrl" id="obj.visitUrl" class='span9 input-square' value="${obj.visitUrl }"/>
 										</div>
 									</div>
-									
+								 -->
 									<div class="control-group">
 										<label for="tags" class="control-label">Tags</label>
 										<div class="controls">

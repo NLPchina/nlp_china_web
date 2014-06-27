@@ -93,7 +93,17 @@ public class ResourceService {
 		} else {
 			System.out.print("resourceservice:用户id无效");
 		}
-
+        
+		String tagString="";//资源tag回填
+		for (int i = 0; i < tags.size(); i++) {
+			if (i<(tags.size()-1)) {
+				tagString=tagString+tags.get(i).getName()+",";
+			}else {
+				tagString=tagString+tags.get(i).getName();
+			}
+		}
+		
+		resource.setTags(tagString);
 		resource.setTagEntityList(tags);
 	}
 

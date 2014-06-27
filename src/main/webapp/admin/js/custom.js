@@ -302,7 +302,16 @@ $(document).ready(function() {
 			},
 			success: function(label) {
 				label.addClass('valid').closest('.control-group').removeClass('error success').addClass('success');
-			}
+			},
+			invalidHandler: function(event, validator) {
+			    // 'this' refers to the form
+			    var errors = validator.numberOfInvalids();
+			    if (errors) {
+			    	$.jGrowl("Your form contains " + errors + " errors,see details below.");
+			    } else {
+					$.jGrowl("Form was submitted and saved to database.");
+			    }
+			  }
 		});
 	}
 	// - wizard

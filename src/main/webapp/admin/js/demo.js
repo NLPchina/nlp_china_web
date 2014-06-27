@@ -78,8 +78,10 @@ $(document).ready(function() {
 		$('body').removeClass().addClass($(this).attr("class"));
 	});
 	$("input[type=submit], button[type=submit]").click(function(e){
-		if(!$(this).parents('form').hasClass("wizard")){
-			$.jGrowl("Form was submitted and saved to database.");
+		
+		if(!$(this).parents('form').hasClass("error")){
+			//alert('click');
+			//$.jGrowl("Form was submitted and saved to database.");
 		}
 	});
 	if($('.flot').length > 0){
