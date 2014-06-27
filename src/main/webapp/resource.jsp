@@ -118,6 +118,16 @@
 	for(i = 0 ; i<tags.length ;i++){
 		tags[i].className = "button small "+style[i%style.length] ;
 	}
+	
+	$(document).ready(function(){
+
+		 $("p").each(function(){
+			    var s=$(this).html();
+			    var re = /((http|https):\/\/[\w.\/-]+)(?![^<]+>)/gi;
+			    $(this).html(s.replace(re,"<a href='$1' target='_blank'>$1</a>"));
+			  });
+
+		});
 </script>
 
 <!-- footer start here -->
