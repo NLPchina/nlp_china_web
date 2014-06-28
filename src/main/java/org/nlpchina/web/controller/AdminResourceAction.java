@@ -16,16 +16,12 @@ import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.Mvcs;
 import org.nutz.mvc.annotation.At;
-import org.nutz.mvc.annotation.By;
-import org.nutz.mvc.annotation.Filters;
 import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.annotation.Param;
-import org.nutz.mvc.filter.CheckSession;
 
 import com.alibaba.druid.util.StringUtils;
 
 @IocBean
-@Filters(@By(type=CheckSession.class, args={"userInfo", "/admin/login.htm"}))
 public class AdminResourceAction {
 
 	@Inject
@@ -37,10 +33,12 @@ public class AdminResourceAction {
 	@At("/admin/resource/list")
 	@Ok("jsp:/admin/resource-list.jsp")
 	public void adminList(HttpServletRequest request, @Param("category_id") Integer categoryId, @Param("::pager") Pager pager) {
-		if(pager == null){
-			pager = new Pager() ;
+		if (pager == null) {
+			pager = new Pager();
 		}
-		request.setAttribute("obj", resourceService.search(categoryId, "id", pager));
+		UserInfo userInfo = (UserInfo) request.getSession().getAttribute("userInfo");
+
+		request.setAttribute("obj", resourceService.search(categoryId, "id", pager, userInfo.getId()));
 		request.setAttribute("pager", pager);
 	}
 
@@ -53,25 +51,41 @@ public class AdminResourceAction {
 	@At("/admin/resource/editer/?")
 	@Ok("jsp:/admin/resource-editer.jsp")
 	public Resource editer(Integer id, HttpServletRequest request) {
-		UserInfo userInfo=(UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
-		
-		if (userInfo!=null&&userInfo.getUserType()>0) {
+		UserInfo userInfo = (UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
+
+		if (userInfo != null && userInfo.getUserType() > 0) {
 			if (id == null || id < 1) {
 				return null;
 			} else {
 				return resourceService.get(id);
 			}
-		}else {
+		} else {
 			System.err.println("未登录或用户权限不够");
 			return null;
 		}
-		
-		
+
 	}
 
 	@At("/admin/resource/delete/?")
 	@Ok("redirect:/admin/resource/list")
 	public void delete(Integer id) {
+		UserInfo userInfo = (UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
+
+		if (userInfo == null) {
+			throw new RuntimeException("autor err! you are not login !");
+		}
+
+		Resource old = resourceService.get(id);
+
+		if (old == null) {
+			return;
+		}
+
+		// 如果资源id和用户id不匹配.那么抛出异常
+		if (!old.getAuthor().equals(userInfo.getId())) {
+			throw new RuntimeException("autor err! this is not your resource !");
+		}
+
 		generalService.delById(id, Resource.class);
 		generalService.delete("resource_tag", Cnd.where("resource_id", "=", id));
 	}
@@ -79,14 +93,12 @@ public class AdminResourceAction {
 	@At("/admin/resource/insert")
 	@Ok("redirect:/admin/resource/list")
 	public void insert(@Param("::obj.") Resource obj) {
-		
+
 		UserInfo userInfo = (UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
 		try {
 			Resource old = null;
 
 			obj.setUpdateTime(new Date());
-
-			
 
 			if (obj.getId() != null) {
 				old = resourceService.get(obj.getId());
@@ -99,6 +111,11 @@ public class AdminResourceAction {
 				obj.setPublishTime(new Date());
 				obj = generalService.save(obj);
 			} else {
+				// 如果资源id和用户id不匹配.那么抛出异常
+				if (!old.getAuthor().equals(userInfo.getId())) {
+					throw new RuntimeException("autor err!");
+				}
+
 				obj.setPublishTime(old.getPublishTime());
 				generalService.update(obj);
 			}

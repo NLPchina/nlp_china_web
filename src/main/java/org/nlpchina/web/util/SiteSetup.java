@@ -2,7 +2,6 @@ package org.nlpchina.web.util;
 
 import org.apache.log4j.Logger;
 import org.nlpchina.web.database.H2Server;
-import org.nlpchina.web.service.SinaWeiboService;
 import org.nutz.mvc.NutConfig;
 import org.nutz.mvc.Setup;
 
@@ -23,6 +22,7 @@ public class SiteSetup implements Setup {
 		try {
 			StaticValue.updateCategorys(nc);
 			StaticValue.updateTags(nc);
+			StaticValue.ioc = nc.getIoc() ;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

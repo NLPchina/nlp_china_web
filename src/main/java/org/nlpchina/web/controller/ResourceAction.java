@@ -40,7 +40,7 @@ public class ResourceAction {
 			pager = new Pager();
 		}
 		pager.setPageSize(10);
-		request.setAttribute("all", resourceService.search(categoryId, "id", pager));
+		request.setAttribute("all", resourceService.search(categoryId, "id", pager, null));
 		request.setAttribute("categoryId", categoryId);
 		request.setAttribute("pager", pager);
 	}
@@ -63,18 +63,18 @@ public class ResourceAction {
 		request.setAttribute("pager", pager);
 		request.setAttribute("tags", resourceService.getTagNames(tagId.toString()));
 	}
-	
+
 	// 用户资源列表
-		@At("/resource/user-resource-list/?")
-		@Ok("jsp:/resource-list.jsp")
-		public void userResourceList(Integer userId, HttpServletRequest request, @Param("::pager") Pager pager) {
-			if (pager == null) {
-				pager = new Pager();
-			}
-			pager.setPageSize(10);
-			request.setAttribute("all", resourceService.userResourceSearch(userId, "id", pager));
-			request.setAttribute("pager", pager);
+	@At("/resource/user-resource-list/?")
+	@Ok("jsp:/resource-list.jsp")
+	public void userResourceList(Integer userId, HttpServletRequest request, @Param("::pager") Pager pager) {
+		if (pager == null) {
+			pager = new Pager();
 		}
+		pager.setPageSize(10);
+		request.setAttribute("all", resourceService.userResourceSearch(userId, "id", pager));
+		request.setAttribute("pager", pager);
+	}
 
 	// 点击and关系tag标签后显示资源列表
 	@At("/resource/resource_tag_list_and/?")

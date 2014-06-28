@@ -8,8 +8,12 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.nio.SelectChannelConnector;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
 import org.eclipse.jetty.webapp.WebAppContext;
+import org.nlpchina.web.util.AuthorFilter;
+import org.nlpchina.web.util.SiteFilter;
 import org.nlpchina.web.util.SiteSetup;
+import org.nutz.mvc.annotation.By;
 import org.nutz.mvc.annotation.Encoding;
+import org.nutz.mvc.annotation.Filters;
 import org.nutz.mvc.annotation.IocBy;
 import org.nutz.mvc.annotation.Modules;
 import org.nutz.mvc.annotation.SetupBy;
@@ -24,6 +28,7 @@ import org.nutz.mvc.ioc.provider.ComboIocProvider;
 @IocBy(type = ComboIocProvider.class, args = { "*org.nutz.ioc.loader.json.JsonLoader", "ioc.js", "*org.nutz.ioc.loader.annotation.AnnotationIocLoader", "org.nlpchina.web" })
 @Encoding(input = "UTF-8", output = "UTF-8")
 @SetupBy(SiteSetup.class)
+@Filters({ @By(type = SiteFilter.class), @By(type = AuthorFilter.class) })
 public class BootStrap {
 	private static Server server;
 

@@ -14,7 +14,6 @@ import org.nutz.dao.sql.Sql;
 import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
 
-
 @IocBean
 public class ResourceService {
 	@Inject
@@ -29,21 +28,23 @@ public class ResourceService {
 	 * @param pager
 	 * @return
 	 */
-	public List<Resource> search(Integer categoryId, String order, Pager pager) {
+	public List<Resource> search(Integer categoryId, String order, Pager pager, Integer userId) {
 		List<Resource> query = null;
 
-		if (categoryId != null && categoryId != 0) {
-			query = dao.query(Resource.class, Cnd.where("categoryId", "=", categoryId).desc("id"), pager);
-			if (pager != null) {
-				pager.setRecordCount(dao.count(Resource.class, Cnd.where("categoryId", "=", categoryId)));
-			}
-
-		} else {
-			query = dao.query(Resource.class, Cnd.orderBy().desc("id"), pager);
-			if (pager != null) {
-				pager.setRecordCount(dao.count(Resource.class));
-			}
+		Cnd cnd = Cnd.NEW();
+		if (userId != null) {
+			cnd = cnd.and("author", "=", userId);
 		}
+
+		if (categoryId != null && categoryId != 0) {
+			cnd = cnd.and("categoryId", "=", categoryId);
+		}
+
+		if (pager != null) {
+			pager.setRecordCount(dao.count(Resource.class, cnd));
+		}
+		query = dao.query(Resource.class, cnd.desc("id"), pager);
+
 		for (Resource resource : query) {
 			resourceRelationFull(resource);
 		}
@@ -93,16 +94,16 @@ public class ResourceService {
 		} else {
 			System.out.print("resourceservice:用户id无效");
 		}
-        
-		String tagString="";//资源tag回填
+
+		String tagString = "";// 资源tag回填
 		for (int i = 0; i < tags.size(); i++) {
-			if (i<(tags.size()-1)) {
-				tagString=tagString+tags.get(i).getName()+",";
-			}else {
-				tagString=tagString+tags.get(i).getName();
+			if (i < (tags.size() - 1)) {
+				tagString = tagString + tags.get(i).getName() + ",";
+			} else {
+				tagString = tagString + tags.get(i).getName();
 			}
 		}
-		
+
 		resource.setTags(tagString);
 		resource.setTagEntityList(tags);
 	}
@@ -222,7 +223,6 @@ public class ResourceService {
 		return query;
 	}
 
-	
 	/**
 	 * 获取tagNames
 	 * 

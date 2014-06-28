@@ -2,6 +2,8 @@ package org.nlpchina.web.controller;
 
 import java.util.ResourceBundle;
 
+import javax.servlet.http.Cookie;
+
 import org.apache.log4j.Logger;
 import org.nlpchina.web.domain.UserInfo;
 import org.nlpchina.web.service.GeneralService;
@@ -22,6 +24,8 @@ import weibo4j.http.AccessToken;
 import weibo4j.model.User;
 import weibo4j.model.WeiboException;
 
+import com.alibaba.fastjson.JSONObject;
+
 @IocBean
 public class LoginAction {
 
@@ -35,17 +39,17 @@ public class LoginAction {
 	private SinaWeiboService sinaWeiboService;
 	@Inject
 	private GeneralService generalService;
+
 	@At("/sinaWeibo/login")
-	// zhege jiushi fangwendizhi ...
 	@Ok("redirect:/")
-	// zhege shi fangwen chenggong 后的跳转地址。。具体看 nutz 文档。
 	public void sinaWeiBoLogin(@Param("code") String code) throws FailToGetValueException, NoSuchFieldException {
-		if (StaticValue.ioc == null) {
-			StaticValue.ioc = Mvcs.getIoc();
-		}
+
 		if (test) {
 			// zuoge jia denglu !!!
 			UserInfo userInfo = generalService.find(1, UserInfo.class);
+			if (userInfo == null) {
+				userInfo = new UserInfo();
+			}
 			userInfo.setUserType(2);
 			Mvcs.getHttpSession().setAttribute("userInfo", userInfo);
 			return;
@@ -56,7 +60,6 @@ public class LoginAction {
 			AccessToken token = new Oauth().getAccessTokenByCode(code);
 			// i do not know why it private uid ; i use reflection
 			String uid = AT_MIRROR.getValue(token, AT_MIRROR.getField("uid")).toString();
-
 			// get userInfo
 			Users um = new Users();
 			um.client.setToken(token.getAccessToken());
@@ -70,6 +73,17 @@ public class LoginAction {
 			}
 			Mvcs.getHttpSession().setAttribute("userInfo", userInfo);
 
+			// 给用户种一个cookie
+			JSONObject job = new JSONObject();
+			job.put("name", user.getName());
+			job.put("t", userInfo.getUpdateTime().getTime());
+			job.put("id", userInfo.getId());
+			job.put("k", cookieSecretKey(userInfo.getUpdateTime().getTime(), userInfo.getName(), userInfo.getId()));
+			Cookie cookie = new Cookie("userInfo", job.toJSONString());
+			cookie.setMaxAge(30 * 24 * 3600);
+			cookie.setPath("/");
+			Mvcs.getResp().addCookie(cookie);
+
 		} catch (WeiboException e) {
 			if (401 == e.getStatusCode()) {
 				LOG.info("Unable to get the access token.");
@@ -80,12 +94,21 @@ public class LoginAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
 
 	@At("/login_out")
 	@Ok("redirect:/")
 	public void loginOut() {
 		Mvcs.getHttpSession().removeAttribute("userInfo");
+		Cookie cookie = new Cookie("userInfo", null);
+		// 删除cookie
+		cookie.setMaxAge(0);
+		Mvcs.getResp().addCookie(cookie);
+	}
+
+	private double cookieSecretKey(long t, String userName, int id) {
+		return Math.log((t - userName.hashCode() / Math.log(id + 1)) * 3 + 1);
 	}
 
 }

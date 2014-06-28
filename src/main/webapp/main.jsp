@@ -173,7 +173,7 @@ $(document).ready(function() {
                     <p>为什么需要捐赠?首先NLPCN一个非盈利性的组织,但是一些优秀的源项目的展示需要硬件成本,所以我们希望能通过这种方来获得您的支持.</p>
                 </div>
                 <div class="three columns">
-                    <a href="${ctx }/donate.jsp" class="button medium gray arrow-icon">&nbsp;&nbsp;捐&nbsp;&nbsp;&nbsp;赠&nbsp;&nbsp;</a>
+                    <a href="${ctx }/donate" class="button medium gray arrow-icon">&nbsp;&nbsp;捐&nbsp;&nbsp;&nbsp;赠&nbsp;&nbsp;</a>
                 </div>
                 <div class="clear"></div>
             </div>

@@ -56,7 +56,6 @@ public class UserInfo {
 		siteType = SINA_WEIBO;
 		//userType = 0;
 		this.accessToken = accessToken;
-		registerTime = new Date();
 		updateTime = new Date();
 		siteId = user.getId();
 		name = user.getScreenName();

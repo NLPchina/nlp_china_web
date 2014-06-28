@@ -9,8 +9,8 @@
 
 <meta name="viewport" content="width=device-width">
 
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="${ctx }/admin/css/bootstrap.css">
+<link rel="stylesheet" href="${ctx }/admin/css/style.css">
 </head>
 <body>
 <div class="topbar clearfix">
@@ -19,49 +19,33 @@
 		<ul class='mini'>
 		<li class='dropdown dropdown-noclose supportContainer'>
 				<a href="${ctx }/" class='dropdown-toggle'>
-					<img src="img/icons/fugue/star.png" alt="">
+					<img src="${ctx }/admin/img/icons/fugue/star.png" alt="">
 					返回首页
 				</a>
 			</li>
 			<li class='dropdown dropdown-noclose supportContainer'>
 				<a href="${ctx }/admin/resource/list" class='dropdown-toggle' target="iframepage">
-					<img src="img/icons/fugue/book-question.png" alt="">
+					<img src="${ctx }/admin/img/icons/fugue/book-question.png" alt="">
 					资源管理
 				</a>
 			</li>
 			<li class='dropdown pendingContainer'>
 				<a href="${ctx}/docs/single-list/" class='dropdown-toggle' target="iframepage">
-					<img src="img/icons/fugue/document-task.png" alt="">
+					<img src="${ctx }/admin/img/icons/fugue/document-task.png" alt="">
 					文档管理
 				</a>
 			</li>
-			<li class='dropdown messageContainer' target="iframepage">
-				<a href="#" class='dropdown-toggle' data-toggle='dropdown'>
-					<img src="img/icons/fugue/balloons-white.png" alt="">
-					访谈管理
-				</a>
-			</li>
-				<c:if test="${ sessionScope.userInfo.userType==2 }">
-					<li><a href="${ctx }/admin/user/list" target="iframepage">
-							<img src="img/icons/fugue/gear.png" alt=""> 用户管理
-					</a></li>
-				</c:if>
-				<c:if test="${userInfo!=null }" >
+			<c:if test="${ sessionScope.userInfo.userType==2 }">
+				<li><a href="${ctx }/admin/user/list" target="iframepage">
+						<img src="${ctx }/admin/img/icons/fugue/gear.png" alt=""> 用户管理
+				</a></li>
+			</c:if>
 			<li>
 				<a href="${ctx }/login_out" target="_self">
-					<img src="img/icons/fugue/control-power.png" alt="">
+					<img src="${ctx }/admin/img/icons/fugue/control-power.png" alt="">
 					退出${userInfo.name }
 				</a>
 			</li>
-			</c:if>
-			<c:if test="${userInfo==null }">
-			<li>
-				<a href="https://api.weibo.com/oauth2/authorize?client_id=2598075234&response_type=code&redirect_uri=http://www.nlpcn.org/sinaWeibo/login" target="iframepage">
-					<img src="img/icons/fugue/control-power.png" alt="">
-					微博登陆
-				</a>
-			</li>
-             </c:if>
 		</ul>
 	</div>
 </div>
