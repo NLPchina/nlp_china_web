@@ -112,6 +112,11 @@
 				<span data-weight="${30-status.index<10?10:30-status.index}">${keyWord.name }</span>			 	
 			 	</c:forEach>
 			 </div>
+			 <div class="panel-heading text-right">
+					<a href="http://ansjsun.github.io/ansj_seg/" target="_blank"><button type="button" class="btn btn-info btn-xs">相关文档</button></a>
+					<a href="http://weibo.com/ansjsun" target="_blank"><button type="button" class="btn btn-warning btn-xs">联系作者</button></a>
+					<a href="https://github.com/ansjsun/ansj_seg" target="_blank"><button type="button" class="btn btn-success btn-xs">项目主页</button></a>
+			 </div>
 		</div>
 		
 		
@@ -161,9 +166,13 @@
 				 		</c:forEach>
 				 		</dl>
 					</div>
-			  
 			  </div>
 			</div>
+			<div class="panel-heading text-right">
+					<a href="http://ansjsun.github.io/ansj_seg/" target="_blank"><button type="button" class="btn btn-info btn-xs">相关文档</button></a>
+					<a href="http://weibo.com/ansjsun" target="_blank"><button type="button" class="btn btn-warning btn-xs">联系作者</button></a>
+					<a href="https://github.com/ansjsun/ansj_seg" target="_blank"><button type="button" class="btn btn-success btn-xs">项目主页</button></a>
+			 </div>
 		</div>
 		
 		<div class="panel panel-default" id="summaryStr">
@@ -171,6 +180,11 @@
 			 <div class="panel-body">
 			 <pre style="font-size: 20px;">${summaryStr }</pre> 
 			  </div>
+			  <div class="panel-heading text-right">
+					<a href="http://ansjsun.github.io/ansj_seg/" target="_blank"><button type="button" class="btn btn-info btn-xs">相关文档</button></a>
+					<a href="http://weibo.com/ansjsun" target="_blank"><button type="button" class="btn btn-warning btn-xs">联系作者</button></a>
+					<a href="https://github.com/ansjsun/ansj_seg" target="_blank"><button type="button" class="btn btn-success btn-xs">项目主页</button></a>
+			 </div>
 		</div>
 		
 		<div class="panel panel-default" id="jianfanpin">
@@ -197,9 +211,10 @@
 			 		<pre style="font-size: 12px;">${pinStr }</pre> 
 			     </div>
 			  </div>
-			  
-			  
 			</div>
+			<div class="panel-heading text-right">
+					<a href="https://github.com/NLPchina/nlp-lang" target="_blank"><button type="button" class="btn btn-success btn-xs">项目主页</button></a>
+			 </div>
 		</div>
 		
 		

@@ -107,6 +107,7 @@ public class SinaWeiboService {
 		if (userInfo == null) {
 			userInfo = new UserInfo();
 			userInfo.update(user, token) ;
+			userInfo.setRegisterTime(new Date()); 
 			userInfo.setSiteType(UserInfo.SINA_WEIBO);
 			userInfo = dao.insert(userInfo);
 		} else {
