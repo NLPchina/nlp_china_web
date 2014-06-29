@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.nlpchina.web.domain.DocMenu;
 import org.nlpchina.web.domain.Document;
+import org.nlpchina.web.domain.Resource;
 import org.nlpchina.web.domain.UserInfo;
 import org.nlpchina.web.service.GeneralService;
 import org.nlpcn.commons.lang.util.StringUtil;
@@ -141,6 +144,110 @@ public class DocumentAction {
 		}
 	}
 
+	/**
+	 * 将单页文档发布为资源
+	 * @param docId
+	 * @return
+	 */
+	@At("/doc/publishsingle/?")
+	@Ok("json")
+	public Map<String, String> publishDoc(String docId,HttpServletRequest request){
+		Document document=generalService.findByCondition(Document.class, Cnd.where("id", "=", docId));
+		UserInfo userInfo=(UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
+		Map<String, String> result = new HashMap<String, String>();
+		if (document!=null&&userInfo!=null&&(document.getAuthor()==userInfo.getId())) {
+			Resource resource=new Resource();
+			Date date=new Date();
+			resource.setAuthor(userInfo.getId());
+			resource.setCategoryId(3);
+			resource.setPublishTime(date);
+			if (document.getContent().length()>250) {
+				resource.setSummary(document.getContent().substring(0, 250));
+			}else {
+				resource.setSummary(document.getContent());
+			}
+			resource.setSysImg("document");
+			
+			resource.setTitle(document.getName());
+			resource.setUpdateTime(date);
+			
+			String url=request.getContextPath()+"/doc/"+docId;
+			resource.setVisitUrl(url);
+			try {
+				generalService.save(resource);
+				result.put("msg", "文档发布成功");
+				result.put("sta", "1");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				result.put("msg", "sorry, we have a problem now, please try again or contanct administrator! ");
+				result.put("sta", "0");
+				e.printStackTrace();
+			}
+		}else {
+			result.put("msg", "未登录，或尝试发布他人文档");
+			result.put("sta", "0");
+			System.err.println("因为用户id和文档id冲突，不能发布资源");
+		}
+		
+		return result;
+		
+	}
+	
+	
+	/**
+	 * 将多页文档发布为资源
+	 * @param docId
+	 * @return
+	 */
+	@At("/doc/publishmenu/?")
+	@Ok("json")
+	public Map<String, String> publishMenuDoc(Integer menuId,HttpServletRequest request){
+		DocMenu docMenu=generalService.find(menuId, DocMenu.class);
+		UserInfo userInfo=(UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
+		Map<String, String> result = new HashMap<String, String>();
+		if (docMenu!=null&&userInfo!=null&&(docMenu.getAuthor()==userInfo.getId())) {
+			Resource resource=new Resource();
+			Date date=new Date();
+			resource.setAuthor(userInfo.getId());
+			resource.setCategoryId(3);
+			resource.setPublishTime(date);
+			if (docMenu.getContent().length()>250) {
+				resource.setSummary(docMenu.getContent().substring(0, 250));
+			}else {
+				resource.setSummary(docMenu.getContent());
+			}
+			resource.setSysImg("document");
+			
+			Pattern pattern = Pattern.compile("<.+?>", Pattern.DOTALL);
+			makeMenu2HtmlView(docMenu, null, docMenu.getDocId());
+			Matcher matcher = pattern.matcher(docMenu.getHtml());
+			String string = matcher.replaceAll(" ");
+			resource.setTitle(string);
+			resource.setUpdateTime(date);
+			
+			String url=request.getContextPath()+"/docs/"+menuId;
+			resource.setVisitUrl(url);
+			try {
+				generalService.save(resource);
+				result.put("msg", "文档发布成功");
+				result.put("sta", "1");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				result.put("msg", "sorry, we have a problem now, please try again or contanct administrator! ");
+				result.put("sta", "0");
+				e.printStackTrace();
+			}
+		}else {
+			result.put("msg", "未登录，或尝试发布他人文档");
+			result.put("sta", "0");
+			System.err.println("因为用户id和文档id冲突，不能发布资源");
+		}
+		
+		return result;
+		
+	}
+	
+	
 	/**
 	 * 多文档编辑初始进入页
 	 * 

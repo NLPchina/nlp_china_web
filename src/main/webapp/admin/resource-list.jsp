@@ -47,7 +47,6 @@
 													<th>id</th>
 													<th>标题</th>
 													<th>发布时间</th>
-													<th>作者</th>
 													<th>分类</th>
 													<th>标签</th>
 													<th>操作</th>
@@ -58,8 +57,7 @@
 												<tr>
 													<td>${resource.id }</td>
 													<td>${resource.title }</td>
-													<td>${resource.publishTime }</td>
-													<td>${resource.author }</td>
+													<td><fmt:formatDate value="${resource.publishTime }"  pattern="yyyy-MM-dd HH:mm:ss"/></td>
 													<td>${resource.categoryStr }</td>
 													<td>${resource.tags }</td>
 													<td>
