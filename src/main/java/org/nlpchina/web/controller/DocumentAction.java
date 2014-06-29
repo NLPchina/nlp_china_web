@@ -128,7 +128,7 @@ public class DocumentAction {
 				return result;
 			}
 
-			document.setAuthor(userInfo.getId());
+			//document.setAuthor(userInfo.getId());
 
 			document.setExtractingCode(oldDoc.getExtractingCode());
 
