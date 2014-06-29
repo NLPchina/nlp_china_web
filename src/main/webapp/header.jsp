@@ -37,7 +37,7 @@
 	                </ul>
                 </li>
                 <li id="demo"><a href="${ctx }/demo">演示平台</a></li>
-                <li id="developer" ><a href="javascript:alert('开发中....')">开发者们</a></li>
+                <li id="developer" ><a href="${ctx }/group">开发者们</a></li>
                 
                 <c:if test="${userInfo==null }">
                 	<!-- <li><a href="${ctx }/sinaWeibo/login">微博登陆</a></li> -->

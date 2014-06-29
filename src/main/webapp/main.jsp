@@ -122,7 +122,7 @@ $(document).ready(function() {
         <div class="three columns mobile-two">
             <h5>制作技术文档 &raquo;</h5>
             <div class="link-url">
-                <a href="${ctx }/resource/list/2" target="_self">
+                <a href="${ctx }/doc/7c9194d0-502f-49a4-8a74-5ee27539953b" target="_self">
                     <img src="images/sample-images/front-img2.jpg" alt="" class="fade" />
                 </a>
             </div>
@@ -130,7 +130,7 @@ $(document).ready(function() {
         <div class="three columns mobile-two">
             <h5>开源项目展示 &raquo;</h5>
             <div class="link-url">
-                <a href="${ctx }/resource/list/4" target="_self">
+                <a href="${ctx }/demo" target="_self">
                     <img src="images/sample-images/front-img3.jpg" alt="" class="fade" />
                 </a>
             </div>
@@ -138,7 +138,7 @@ $(document).ready(function() {
         <div class="three columns mobile-two">
             <h5>有趣的开发者们 &raquo;</h5>
             <div class="link-url">
-                <a href="javascript:alert('开发中...')" >
+                <a href="${ctx }/group" >
                     <img src="images/sample-images/front-img4.jpg" alt="" class="fade" />
                 </a>
             </div>
