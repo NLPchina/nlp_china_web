@@ -93,7 +93,7 @@
     <div style="padding:50px;" >
       <div class="col-md-3">
         <ul  class="nav nav-pills nav-stacked ;white-space:nowrap;"  >
-         	<li><a href='/docs/${docMenu.id }'>sdfsfsdfsdfsfdsdfsdfsfdsfsfdsfsdfd文档首页</a></li>
+         	<li><a href='/docs/${docMenu.id }'>文档首页</a></li>
 			${docMenu.html }
 		</ul>
       </div>

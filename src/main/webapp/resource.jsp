@@ -50,7 +50,11 @@
 	                    </c:forEach>
                     </div>
                 </div>
-                
+                <c:if test="${obj.visitUrl!=null }">
+                <a class="button small blue"
+								href="${obj.visitUrl }">查看文档
+								</a>
+				</c:if>
 	            <div align="justify" style="right: 0px; position: absolute;">
 						<wb:share-button appkey="4bxSJI" addition="number" type="icon" default_text="${obj.summary }" pic="http://www.nlpcn.org/images/file-ico/${obj.sysImg }.png" ></wb:share-button>
 				</div>

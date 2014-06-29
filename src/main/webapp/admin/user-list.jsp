@@ -56,8 +56,8 @@
 													<td><img src="${user.profileImageUrl }"/></td>
 													<td>${user.name }</td>
 													<td>${user.userType==2?"管理员":user.userType==1?"组织用户":"普通用户" }</td>
-													<td>${user.registerTime }</td>
-													<td>${user.updateTime }</td>
+													<td><fmt:formatDate value="${user.registerTime }"  pattern="yyyy-MM-dd HH:mm:ss"/></td>
+													<td><fmt:formatDate value="${user.updateTime }"  pattern="yyyy-MM-dd HH:mm:ss"/></td>
 													<td>${user.gender=='m'?"男":user.gender=='f'?"女":"未知" }</td>
 													<td>
 														<a href="${ctx }/admin/user/editer/${user.id }">修改</a> 

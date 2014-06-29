@@ -67,8 +67,8 @@
 												<tr>
 													<td>${doc.name }</td>
 													
-													<td>${doc.publishTime }</td>
-													<td>${doc.updateTime }</td>
+													<td><fmt:formatDate value="${doc.publishTime }"  pattern="yyyy-MM-dd HH:mm:ss"/></td>
+													<td><fmt:formatDate value="${doc.updateTime }"  pattern="yyyy-MM-dd HH:mm:ss"/></td>
 													<td><a
 														href="${ctx }/doc/editor/${doc.id }?code=${doc.extractingCode}"  target="_top" >修改</a>
 														<a href="${ctx }/docs/single/delete/${doc.id }">删除</a>

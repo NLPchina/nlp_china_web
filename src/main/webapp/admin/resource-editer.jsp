@@ -54,7 +54,7 @@
 												<tr>
 													<td>
 														<label>
-															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="calulator" ${obj.sysImg=="calulator"?"checked='checked'":""}>
+															<input type="radio" name="obj.sysImg" id="obj.sysImg" value="calulator" ${obj.sysImg=="calulator"?"checked='checked'":""}  class="required">
 															<img src="${ctx}/images/file-ico/calulator.png" style="width: 64px;height: 64px;"/>
 														</label>
 													</td>

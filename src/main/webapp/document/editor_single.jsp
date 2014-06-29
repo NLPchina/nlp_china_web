@@ -27,7 +27,9 @@
         	<li><a href="/">首页</a></li>
             <li><a href="#">单文档编辑</a></li>
             <li><a href="#" id="saveDocumentBnt">保存文档</a></li>
+          
             <c:if test="${document.id!=null}">
+            <li><a href="#" id="publishDocumentBnt">发布为资源</a></li>
             <li><a href="#" id="editorUrl">编辑地址</a></li>
             <li><a href="#" id="viewUrl">阅读地址</a></li>
           	</c:if>
@@ -72,6 +74,22 @@
 			,"json");
 		});
 
+		
+		//发布文档
+		$("#publishDocumentBnt").click(function () {
+			$.post("${ctx }/doc/publishsingle/${document.id}",{},
+				function(data,status){
+				    if(data.sta=="1"){
+				    	var str="文档发布成功！<br/>  <a href='${ctx }/admin/'>点此去往“资源管理”</a></br>";
+				    	bootbox.alert(str);
+				    }else{
+				    	bootbox.alert(data.msg);
+				    }
+				}
+			,"json");
+		});
+
+		
 		$(window).bind('beforeunload',function(){
 			if(document.getElementById("document.content").value == window.frames["docEditor"].document.getElementById('code').value ){
 			}else{
@@ -79,6 +97,9 @@
 			}
 			
 		}); 
+		
+		
+		
 		
 		$("#editorUrl").click(function () {
 			bootbox.alert("编辑地址为:<a href='#'>"+window.location.href+"</a></br> 这个地址有写入权限.请妥善保存,不要交给不可信的人!")
