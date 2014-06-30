@@ -95,6 +95,18 @@
 			            </thead>
 			            <tbody>
 			            	<tr>
+			                    <td>胡建</td>
+			                    <td>2014年06月26日</td>
+			                    <td>组织内部人员</td>
+			                    <td>300￥</td>
+			                </tr>
+			            	<tr class="odd">
+			                    <td>蔡晴</td>
+			                    <td>2014年06月26日</td>
+			                    <td>友情赞助</td>
+			                    <td>100￥</td>
+			                </tr>
+			            	<tr>
 			                    <td>刘少博</td>
 			                    <td>2014年06月26日</td>
 			                    <td>组织内部人员</td>
@@ -126,7 +138,7 @@
 			                </tr>  
 			                <tr class="odd">
 			                    <td colspan="3">捐赠合计：</td>
-			                    <td>500￥</td>
+			                    <td>900￥</td>
 			                </tr> 
 			            </tbody>
 			    </table>
@@ -161,8 +173,14 @@
 			                </tr>
 			                
 			                <tr class="odd">
+			                    <td>充值用来购买nlpcn.org域名</td>
+			                    <td>2014年02月26日</td>
+			                    <td>60￥</td>
+			                </tr>
+			                
+			                <tr>
 			                    <td colspan="2">支出合计：</td>
-			                    <td>500￥</td>
+			                    <td>560￥</td>
 			                </tr>      
 			            </tbody>
 			    </table>
