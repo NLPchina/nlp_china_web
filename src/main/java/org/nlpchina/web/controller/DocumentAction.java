@@ -158,8 +158,9 @@ public class DocumentAction {
 		UserInfo userInfo=(UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
 		Map<String, String> result = new HashMap<String, String>();
 		if (document!=null&&userInfo!=null&&(document.getAuthor()==userInfo.getId())) {
-			String url="http://" + request.getServerName() + ":" + (request.getServerPort()==80?"":request.getServerPort()) + request.getContextPath()+"/doc/"+docId;
-			
+			StringBuffer fullurl = request.getRequestURL();
+			String tempContextUrl = fullurl.delete(fullurl.length() - request.getRequestURI().length(), fullurl.length()).append(request.getServletContext().getContextPath()).append("/").toString();
+			String url=tempContextUrl+"doc/"+docId;
 			Resource resource=generalService.findByCondition(Resource.class, Cnd.where("visit_url", "=", url));
 			if (resource==null) {//资源是否已发布
 				resource=new Resource();
@@ -218,7 +219,9 @@ public class DocumentAction {
 		UserInfo userInfo=(UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
 		Map<String, String> result = new HashMap<String, String>();
 		if (docMenu!=null&&userInfo!=null&&(docMenu.getAuthor()==userInfo.getId())) {
-			String url="http://" + request.getServerName() + ":" + (request.getServerPort()==80?"":request.getServerPort()) + request.getContextPath()+"/docs/"+menuId;
+			StringBuffer fullurl = request.getRequestURL();
+			String tempContextUrl = fullurl.delete(fullurl.length() - request.getRequestURI().length(), fullurl.length()).append(request.getServletContext().getContextPath()).append("/").toString();
+			String url=tempContextUrl+"docs/"+menuId;
             
 			Resource resource=generalService.findByCondition(Resource.class, Cnd.where("visit_url", "=", url));
 			if (resource==null) {//是否已发布
