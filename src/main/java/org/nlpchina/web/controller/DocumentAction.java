@@ -26,6 +26,8 @@ import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.annotation.Param;
 
+import com.alibaba.druid.sql.visitor.functions.Concat;
+
 @IocBean
 public class DocumentAction {
 
@@ -156,33 +158,43 @@ public class DocumentAction {
 		UserInfo userInfo=(UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
 		Map<String, String> result = new HashMap<String, String>();
 		if (document!=null&&userInfo!=null&&(document.getAuthor()==userInfo.getId())) {
-			Resource resource=new Resource();
-			Date date=new Date();
-			resource.setAuthor(userInfo.getId());
-			resource.setCategoryId(3);
-			resource.setPublishTime(date);
-			if (document.getContent().length()>250) {
-				resource.setSummary(document.getContent().substring(0, 250));
+			String url="http://" + request.getServerName() + ":" + (request.getServerPort()==80?"":request.getServerPort()) + request.getContextPath()+"/doc/"+docId;
+			
+			Resource resource=generalService.findByCondition(Resource.class, Cnd.where("visit_url", "=", url));
+			if (resource==null) {//资源是否已发布
+				resource=new Resource();
+				Date date=new Date();
+				resource.setAuthor(userInfo.getId());
+				resource.setCategoryId(3);
+				resource.setPublishTime(date);
+				resource.setVisitUrl(url);
+				String summary="文档查看地址："+url+"\n" +document.getContent();
+				if (summary.length()>250) {
+					resource.setSummary(summary.substring(0, 250));
+				}else {
+					resource.setSummary(summary);
+				}
+				resource.setSysImg("document");
+				
+				resource.setTitle(document.getName());
+				resource.setUpdateTime(date);
+				
+				
+				try {
+					generalService.save(resource);
+					result.put("msg", "文档发布成功");
+					result.put("sta", "1");
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					result.put("msg", "sorry, we have a problem now, please try again or contanct administrator! ");
+					result.put("sta", "0");
+					e.printStackTrace();
+				}
 			}else {
-				resource.setSummary(document.getContent());
-			}
-			resource.setSysImg("document");
-			
-			resource.setTitle(document.getName());
-			resource.setUpdateTime(date);
-			
-			String url=request.getContextPath()+"/doc/"+docId;
-			resource.setVisitUrl(url);
-			try {
-				generalService.save(resource);
-				result.put("msg", "文档发布成功");
-				result.put("sta", "1");
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				result.put("msg", "sorry, we have a problem now, please try again or contanct administrator! ");
+				result.put("msg", "文档已经发布过，不能重新发布，如有问题，联系管理员");
 				result.put("sta", "0");
-				e.printStackTrace();
 			}
+			
 		}else {
 			result.put("msg", "未登录，或尝试发布他人文档");
 			result.put("sta", "0");
@@ -206,37 +218,52 @@ public class DocumentAction {
 		UserInfo userInfo=(UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
 		Map<String, String> result = new HashMap<String, String>();
 		if (docMenu!=null&&userInfo!=null&&(docMenu.getAuthor()==userInfo.getId())) {
-			Resource resource=new Resource();
-			Date date=new Date();
-			resource.setAuthor(userInfo.getId());
-			resource.setCategoryId(3);
-			resource.setPublishTime(date);
-			if (docMenu.getContent().length()>250) {
-				resource.setSummary(docMenu.getContent().substring(0, 250));
+			String url="http://" + request.getServerName() + ":" + (request.getServerPort()==80?"":request.getServerPort()) + request.getContextPath()+"/docs/"+menuId;
+            
+			Resource resource=generalService.findByCondition(Resource.class, Cnd.where("visit_url", "=", url));
+			if (resource==null) {//是否已发布
+				resource=new Resource();
+				Date date=new Date();
+				resource.setAuthor(userInfo.getId());
+				resource.setCategoryId(3);
+				resource.setPublishTime(date);
+				System.err.println("地址："+url);
+				resource.setVisitUrl(url);
+				Document defaultDocument=generalService.findByCondition(Document.class, Cnd.where("id", "=", docMenu.getDocId()));
+				String summary="文档查看地址："+url;
+				if (defaultDocument!=null) {
+					summary=summary+"\n" +defaultDocument.getContent();
+				}
+				if (summary.length()>250) {
+					resource.setSummary(summary.substring(0, 250));
+				}else {
+					resource.setSummary(summary);
+				}
+				resource.setSysImg("document");
+				
+				Pattern pattern = Pattern.compile("<.+?>", Pattern.DOTALL);
+				makeMenu2HtmlView(docMenu, null, docMenu.getDocId());
+				Matcher matcher = pattern.matcher(docMenu.getHtml());
+				String string = matcher.replaceAll(" ");
+				resource.setTitle(string);
+				resource.setUpdateTime(date);
+				
+				
+				try {
+					generalService.save(resource);
+					result.put("msg", "文档发布成功");
+					result.put("sta", "1");
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					result.put("msg", "sorry, we have a problem now, please try again or contanct administrator! ");
+					result.put("sta", "0");
+					e.printStackTrace();
+				}
 			}else {
-				resource.setSummary(docMenu.getContent());
-			}
-			resource.setSysImg("document");
-			
-			Pattern pattern = Pattern.compile("<.+?>", Pattern.DOTALL);
-			makeMenu2HtmlView(docMenu, null, docMenu.getDocId());
-			Matcher matcher = pattern.matcher(docMenu.getHtml());
-			String string = matcher.replaceAll(" ");
-			resource.setTitle(string);
-			resource.setUpdateTime(date);
-			
-			String url=request.getContextPath()+"/docs/"+menuId;
-			resource.setVisitUrl(url);
-			try {
-				generalService.save(resource);
-				result.put("msg", "文档发布成功");
-				result.put("sta", "1");
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				result.put("msg", "sorry, we have a problem now, please try again or contanct administrator! ");
+				result.put("msg", "文档已经发布过，不能重新发布，如有问题，联系管理员");
 				result.put("sta", "0");
-				e.printStackTrace();
 			}
+			
 		}else {
 			result.put("msg", "未登录，或尝试发布他人文档");
 			result.put("sta", "0");

@@ -183,7 +183,7 @@
 
 		 $("p").each(function(){
 			    var s=$(this).html();
-			    var re = /((http|https):\/\/[\w.\/-]+)(?![^<]+>)/gi;
+			    var re = /((http|https|ftp):\/\/[\w.\/:-]+)(?![^<]+>)/gi;
 			    $(this).html(s.replace(re,"<a href='$1' target='_blank'>$1</a>"));
 			  });
 
