@@ -158,9 +158,7 @@ public class DocumentAction {
 		UserInfo userInfo=(UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
 		Map<String, String> result = new HashMap<String, String>();
 		if (document!=null&&userInfo!=null&&(document.getAuthor()==userInfo.getId())) {
-			StringBuffer fullurl = request.getRequestURL();
-			String tempContextUrl = fullurl.delete(fullurl.length() - request.getRequestURI().length(), fullurl.length()).append(request.getServletContext().getContextPath()).append("/").toString();
-			String url=tempContextUrl+"doc/"+docId;
+			String url="http://www.nlpcn.org/doc/"+docId;
 			Resource resource=generalService.findByCondition(Resource.class, Cnd.where("visit_url", "=", url));
 			if (resource==null) {//资源是否已发布
 				resource=new Resource();
@@ -219,9 +217,7 @@ public class DocumentAction {
 		UserInfo userInfo=(UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
 		Map<String, String> result = new HashMap<String, String>();
 		if (docMenu!=null&&userInfo!=null&&(docMenu.getAuthor()==userInfo.getId())) {
-			StringBuffer fullurl = request.getRequestURL();
-			String tempContextUrl = fullurl.delete(fullurl.length() - request.getRequestURI().length(), fullurl.length()).append(request.getServletContext().getContextPath()).append("/").toString();
-			String url=tempContextUrl+"docs/"+menuId;
+			String url="http://www.nlpcn.org/docs/"+menuId;
             
 			Resource resource=generalService.findByCondition(Resource.class, Cnd.where("visit_url", "=", url));
 			if (resource==null) {//是否已发布
