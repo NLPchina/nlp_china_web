@@ -77,9 +77,14 @@ jQuery(function() {
     });
 
     $btn.on( 'click', function() {
+    	
+    	parent.document.all("upload").style.height=document.body.scrollHeight;
+    	parent.document.all("upload").style.width=document.body.scrollWidth;
+    	
         if ( state === 'uploading' ) {
             uploader.stop();
         } else {
+        	
             uploader.upload();
         }
     });

@@ -19,7 +19,18 @@
 <link rel="stylesheet" href="${ctx}/admin/css/chosen.css">
 <link rel="stylesheet" href="${ctx}/admin/css/jquery.jgrowl.css">
 <link rel="stylesheet" href="${ctx}/admin/css/style.css">
-<link rel="stylesheet" type="text/css" href="${ctx}/admin/dist/webuploader.css">
+
+
+
+<link rel="shortcut icon" href="http://gmuteam.github.io/webuploader/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="${ctx }/admin/dist/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="${ctx }/admin/dist/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="${ctx }/admin/dist/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="${ctx }/admin/dist/syntax.css">
+    <link rel="stylesheet" type="text/css" href="${ctx }/admin/dist/style.css">
+    
+    <link rel="stylesheet" type="text/css" href="${ctx }/admin/dist/webuploader.css">
+
 
 <!--引入JS-->
 </head>
@@ -103,37 +114,11 @@
 										</div>
 									</div>
 
-
-
-								<!--dom结构部分-->
-								<div id="uploader" class="control-group">
-								   <div class="controls">
-									<div id="thelist" class="uploader-list"></div>
-                                    </div>
-
-									<div class="controls">
-										<table style="width: 30%;">
-											<tr>
-												<td><div id="picker" class="webuploader-container">
-														<div class="webuploader-pick">选择文件</div>
-														<div id="rt_rt_18roiksk4pivejp1kr31p9g1ac01"
-															style="position: absolute; top: 0px; left: 0px; bottom: auto; right: auto; overflow: hidden; width: 88px; height: 34px;">
-															<input type="file" multiple="multiple"
-																style="position: absolute; clip: rect(1px, 1px, 1px, 1px);"><label
-																style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label>
-														</div>
-													</div></td>
-
-
-												<td><button id="ctlBtn" class="btn btn-default">开始上传</button></td>
-											</tr>
-										</table>
-
-
-									</div>
-
-								</div>
-
+<div class="control-group">
+<div class="controls">
+<iframe width="100%" onload=' this.style.height=Math.max(this.contentWindow.document.body.scrollHeight,this.contentWindow.document.documentElement.scrollHeight,200)+"px";' src="${ctx}/admin/fileupload.jsp"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+</div>
+</div>								
 
 
 								<!-- 	
@@ -189,12 +174,6 @@
 <script src="${ctx}/admin/js/custom.js"></script>
 <script src="${ctx}/admin/js/demo.js"></script>
 
-	<script type="text/javascript">
-		// 添加全局站点信息
-		var BASE_URL = '/webuploader';
-	</script>
-	<script type="text/javascript" src="${ctx}/admin/dist/webuploader.js"></script>
-    <script type="text/javascript" src="${ctx }/admin/dist/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="${ctx }/admin/dist/getting-started.js"></script>
+	
 </body>
 </html>
