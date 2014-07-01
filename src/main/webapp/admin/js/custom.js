@@ -294,6 +294,16 @@ $(document).ready(function() {
 	// - validation
 	if($('.validate').length > 0){
 		$('.validate').validate({
+
+			submitHandler : function(form) {
+				if(jQuery("input[type='radio']:checked").length != 0){
+					form.submit();
+				}else{
+					alert("您忘记选择文件类型图片了");
+				}
+											
+			},
+			
 			errorPlacement:function(error, element){
 					element.parents('.controls').append(error);
 			},
