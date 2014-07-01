@@ -29,7 +29,9 @@
             <li><a href="#" id="saveDocumentBnt">保存文档</a></li>
           
             <c:if test="${document.id!=null}">
-            <li><a href="#" id="publishDocumentBnt">发布为资源</a></li>
+            <c:if test="${ sessionScope.userInfo.userType==2 }">
+                <li><a href="#" id="publishDocumentBnt">发布为资源</a></li>
+            </c:if>
             <li><a href="#" id="editorUrl">编辑地址</a></li>
             <li><a href="#" id="viewUrl">阅读地址</a></li>
           	</c:if>
