@@ -29,38 +29,23 @@
 <body>
 
 <div id="uploader" class="wu-example">
+    <!--用来存放文件信息-->
     <div id="thelist" class="uploader-list"></div>
     <div class="btns">
-        <div id="picker" class="webuploader-container"><div class="webuploader-pick">选择文件</div><div 
-
-id="rt_rt_18rpcbhf81i7712lr19ev1m9d1sqb1" style="position: absolute; top: 0px; left: 0px; bottom: auto; right: auto; overflow: 
-
-hidden; width: 88px; height: 34px;"><input type="file" multiple="multiple" style="position: absolute; clip: rect(1px 1px 1px 
-
-1px);"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 
-
-255);"></label></div></div>
+        <div id="picker">选择文件</div>
         <button id="ctlBtn" class="btn btn-default">开始上传</button>
     </div>
 </div>
-<script type="text/javascript">
-    // 添加全局站点信息
-    var BASE_URL = '/webuploader';
+	<script type="text/javascript">
+	    // 添加全局站点信息
+	    var BASE_URL = '${ctx}/admin';
     </script>
     <script type="text/javascript" src="${ctx }/admin/dist/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="${ctx }/admin/dist/bootstrap.min.js"></script>
-    <script type="text/javascript" src="${ctx }/admin/dist/global.js"></script>
     
-        <script type="text/javascript" src="${ctx }/admin/dist/webuploader.js"></script>
-    
-        <script type="text/javascript" src="${ctx }/admin/dist/getting-started.js"></script>
-    
-    <script type="text/javascript">
-    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F67c4841095cbee8275705e1f6224a3c7' 
+    <script type="text/javascript" src="${ctx }/admin/dist/webuploader.js"></script>
 
-type='text/javascript'%3E%3C/script%3E"));
-    </script><script src="${ctx }/admin/dist/h.js" type="text/javascript"></script>
+    <script type="text/javascript" src="${ctx }/admin/dist/getting-started.js"></script>
     
     
 </body></html>

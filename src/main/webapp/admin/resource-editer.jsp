@@ -21,17 +21,6 @@
 <link rel="stylesheet" href="${ctx}/admin/css/style.css">
 
 
-
-<link rel="shortcut icon" href="http://gmuteam.github.io/webuploader/images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="${ctx }/admin/dist/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${ctx }/admin/dist/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="${ctx }/admin/dist/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="${ctx }/admin/dist/syntax.css">
-    <link rel="stylesheet" type="text/css" href="${ctx }/admin/dist/style.css">
-    
-    <link rel="stylesheet" type="text/css" href="${ctx }/admin/dist/webuploader.css">
-
-
 <!--引入JS-->
 </head>
 <body>
