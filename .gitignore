@@ -11,3 +11,4 @@ target/*
 src/main/resource/zs_*
 /bin
 /webapp
+/src/main/webapp/WEB-INF/tmp/
