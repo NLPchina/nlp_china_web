@@ -24,10 +24,16 @@ jQuery(function() {
 
     // 当有文件添加进来的时候
     uploader.on( 'fileQueued', function( file ) {
-        $list.append( '<div id="' + file.id + '" class="item">' +
-            '<h4 class="info">' + file.name + '</h4>' +
-            '<p class="state">等待上传...</p>' +
-        '</div>' );
+    	if($('.item').length==0){
+    		$list.append( '<div id="' + file.id + '" class="item">' +
+    	            '<h4 class="info">' + file.name + '</h4>' +
+    	            '<p class="state">等待上传...</p>' +
+    	        '</div>' );
+    	}else{
+    		uploader.removeFile(file);
+    		alert("只可以传一个文件");
+    	}
+        
     });
 
     // 文件上传过程中创建进度条实时显示。
@@ -48,8 +54,10 @@ jQuery(function() {
         $percent.css( 'width', percentage * 100 + '%' );
     });
 
-    uploader.on( 'uploadSuccess', function( file ) {
+    uploader.on( 'uploadSuccess', function( file,response ) {
         $( '#'+file.id ).find('p.state').text('已上传');
+        var str=$("#summary",parent.document).val();
+        $("#summary",parent.document).val(("下载地址： "+response.filelist+"\n "+str));
     });
 
     uploader.on( 'uploadError', function( file ) {

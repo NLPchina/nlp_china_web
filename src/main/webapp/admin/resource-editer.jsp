@@ -99,7 +99,7 @@
 									<div class="control-group">
 										<label for="textcounter" class="control-label">摘要</label>
 										<div class="controls">
-											<textarea name="obj.summary" id="obj.summary" class='input-square span9 counter required' data-max="255" rows='6'>${obj.summary }</textarea>
+											<textarea name="obj.summary" id="summary" class='input-square span9 counter required' data-max="255" rows='6'>${obj.summary }</textarea>
 										</div>
 									</div>
 

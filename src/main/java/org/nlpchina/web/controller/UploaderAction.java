@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.nlpchina.web.domain.UserInfo;
 import org.nutz.ioc.loader.annotation.IocBean;
@@ -19,10 +21,12 @@ import org.nutz.mvc.upload.UploadAdaptor;
 public class UploaderAction {
 
 	@At("/admin/resource/uploader")
-	@Ok("raw")
+	@Ok("json")
 	@AdaptBy(type = UploadAdaptor.class, args = { "${app.root}/WEB-INF/tmp" })
-	public void resourceUploader(@Param("file") TempFile[] file) {
+	public Map<String, String> resourceUploader(@Param("file") TempFile[] file) {
 		UserInfo userInfo = (UserInfo) Mvcs.getHttpSession().getAttribute("userInfo");
+		Map<String, String> result = new HashMap<String, String>();
+		
 		if (userInfo == null || userInfo.getUserType() < 1) {
 			throw new RuntimeException("Not enough permissions");
 		}
@@ -31,10 +35,13 @@ public class UploaderAction {
 		for (TempFile tempFile : file) {
 			try {
 				writeFile(tempFile, "webapp/upload/" + userInfo.getId() + "/", (timeValue + 1) + "_" + tempFile.getMeta().getFileLocalName());
+				result.put("filelist", "http://www.nlpcn.org/"+"webapp/upload/" + userInfo.getId() + "/"+(timeValue + 1) + "_" + tempFile.getMeta().getFileLocalName());
 			} catch (IOException e) {
 				throw new RuntimeException("update error!");
 			}
 		}
+		
+		return result;
 	}
 
 	/**
