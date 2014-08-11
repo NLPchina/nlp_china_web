@@ -64,8 +64,8 @@ $(document).ready(function() {
                 <img src="images/slideshow/slide3.png" alt="" />
             </div>
             <div class="caption-type3 moveFromRight">
-                <h1>开放的资源品台</h1>
-                <p>学术论文,语料资源,技术文档,开源项目教程,精品资源大放送.服务与每一个NLP爱好者,还等什么加入我们分享资源,一起打造国内质量最高的自然语言处理资源平台.方便的资源整合分析.</p>
+                <h1>开放的资源平台</h1>
+                <p>学术论文,语料资源,技术文档,开源项目教程,精品资源大放送.服务于每一个NLP爱好者,还等什么加入我们分享资源,一起打造国内质量最高的自然语言处理资源平台.方便的资源整合分析.</p>
                 <img src="images/slideshow/slide3a.png" alt="" class="html-badge" />
             </div>                
         </div>
