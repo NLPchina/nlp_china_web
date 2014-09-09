@@ -203,7 +203,13 @@
 			<scope>system</scope>
 			<systemPath>${prjectPath}/lib/log4j-1.2.16.jar</systemPath>
 		</dependency>
-
+       <dependency>
+			<groupId>org.nlpcn.web</groupId>
+			<artifactId>markdown4j-2.2.jar</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${prjectPath}/lib/markdown4j-2.2.jar</systemPath>
+		</dependency>
 
 	</dependencies>
 

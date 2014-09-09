@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.markdown4j.Markdown4jProcessor;
 import org.nlpchina.web.domain.DocMenu;
 import org.nlpchina.web.domain.Document;
 import org.nlpchina.web.domain.Resource;
@@ -241,7 +242,7 @@ public class DocumentAction {
 				resource.setSysImg("document");
 				
 				Pattern pattern = Pattern.compile("<.+?>", Pattern.DOTALL);
-				makeMenu2HtmlView(docMenu, null, docMenu.getDocId());
+				makeMenu2HtmlView(docMenu, null, docMenu.getDocId(),request);
 				Matcher matcher = pattern.matcher(docMenu.getHtml());
 				String string = matcher.replaceAll(" ");
 				resource.setTitle(string);
@@ -341,26 +342,41 @@ public class DocumentAction {
 	@Ok("jsp:/document/view_multi.jsp")
 	public void docView(Integer docMenuId, String docId, HttpServletRequest request) {
 
+		boolean index=false;
+		if (docId==null||StringUtil.isBlank(docId)) {
+			index=true;
+		}
 		DocMenu docMenu = generalService.find(docMenuId, DocMenu.class);
 
 		if (docMenu == null) {
 			request.getRequestDispatcher("/404.jsp");
 		}
 
-		if (StringUtil.isBlank(docId)) {
+		if (docId==null||StringUtil.isBlank(docId)) {
 			docId = docMenu.getDocId();
 		}
 
 		Document document = generalService.findByCondition(Document.class, Cnd.where("id", "=", docId));
 
 		if (document == null) {
+
 			request.getRequestDispatcher("/404.jsp");
 		}
 
-		makeMenu2HtmlView(docMenu, null, docId);
-
+		makeMenu2HtmlView(docMenu, null, docId,request);
+		try {
+			document.setContent(new Markdown4jProcessor().process(document.getContent()));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		UserInfo userInfo=generalService.find(docMenu.getAuthor(), UserInfo.class);
+		
+		request.setAttribute("user", userInfo);
 		request.setAttribute("document", document);
 		request.setAttribute("docMenu", docMenu);
+
+		
 	}
 
 	/**
@@ -490,10 +506,11 @@ public class DocumentAction {
 	 * 解析文档类生成html
 	 * 
 	 * @param docMenu
+	 * @param request 
 	 * @return
 	 * @throws Exception
 	 */
-	private void makeMenu2HtmlView(DocMenu docMenu, String extractingCode, String activeId) {
+	private void makeMenu2HtmlView(DocMenu docMenu, String extractingCode, String activeId, HttpServletRequest request) {
 
 		String content = docMenu.getContent();
 
@@ -501,24 +518,65 @@ public class DocumentAction {
 
 		StringBuilder sb = new StringBuilder();
 
+		float num=0;//页数
+		float request_num=0;//请求的第几页
+		
+		boolean active = false;
 		for (String line : split) {
+			num++;
 			if (StringUtil.isBlank(line)) {
 				continue;
 			}
 			String temp = line.trim();
 			if (temp.startsWith("#")) {
-				sb.append("<li class='active'><a>" + temp.substring(1) + "</a></li>\n");
+				sb.append("<li  data-level=\"1\" data-path=\"IntroReactiveProgramming.html\"><a><i class=\"fa fa-check\"></i> <b>1.</b>"+ temp.substring(1)+" </a></li>");
+				//sb.append("<li class='active'><a>" + temp.substring(1) + "</a></li>\n");
 				continue;
 			}
 
 			String[] strs = temp.split("\\|");
-			boolean active = false;
+		
 			if (strs.length == 2) {
-				active = strs[1].equalsIgnoreCase(activeId);
-				sb.append("<li><a href='/docs/" + docMenu.getId() + "/" + strs[1]+"'>" + strs[0] + "</a></li>\n");
+				if (!active) {
+					active = strs[1].equalsIgnoreCase(activeId);
+				    request_num++;
+				}
+				if (strs[1].equalsIgnoreCase(activeId)) {
+					sb.append("<li  style='background-color:white' data-level=\""+num+"\" data-path=\""+"/docs/"+docMenu.getId()+"/"+strs[1]+"\"><a href='/docs/" + docMenu.getId() + "/" + strs[1]+"'>"+"<i class=\"fa fa-check \"></i> <b>"+(int)num+".</b>"+ strs[0]+" </a></li>");
+
+				}else {
+					sb.append("<li  data-level=\""+num+"\" data-path=\""+"/docs/"+docMenu.getId()+"/"+strs[1]+"\"><a href='/docs/" + docMenu.getId() + "/" + strs[1]+"'>"+" <b>"+(int)num+".</b>"+ strs[0]+" </a></li>");
+
+				}
+                
+				//sb.append("<li><a href='/docs/" + docMenu.getId() + "/" + strs[1]+"'>" + strs[0] + "</a></li>\n");
 			}
 		}
 
+		if (active) {
+			request.setAttribute("progress",100*((request_num+1)/(num+1)));
+			if ((int) (request_num-2)>-1) {
+				String[] pages=split[((int) (request_num-2))].split("\\|");
+				String prepage=pages[1];
+				request.setAttribute("prepage",prepage);
+			}else {
+				request.setAttribute("prepage",-1);
+			}
+			
+			if (request_num<num) {
+				String nextpage=split[(int) (request_num)].split("\\|")[1];
+				request.setAttribute("nextpage",nextpage);
+			}
+		}else {
+			request.setAttribute("progress",100*(1/(num+1)));
+			if (num>0) {
+				System.err.println(split[0]);
+				String[] pages=split[0].split("\\|");
+				String nextpage=pages[1];
+				request.setAttribute("nextpage",nextpage);
+			}
+			
+		}
 		docMenu.setHtml(sb.toString());
 	}
 

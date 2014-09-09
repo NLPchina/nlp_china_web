@@ -1,10 +1,5 @@
 package org.nlpchina.web;
 
-import org.nlpcn.es4sql.SearchDao;
-import org.nlpcn.es4sql.domain.Select;
-import org.nlpcn.es4sql.parse.SqlParser;
-import org.nlpcn.es4sql.query.Query;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -23,8 +18,6 @@ public class AppTest
     public AppTest( String testName )
     {
         super( testName );
-        Select select = new SqlParser().parseSelect(sql);
-
     }
 
     /**
