@@ -6,11 +6,11 @@
 	<artifactId>nlpcn-web</artifactId>
 	<version>0.1</version>
 	<packaging>jar</packaging>
-	
+
 	<name>nlp_china</name>
 	<url>http://maven.apache.org</url>
-	
-	
+
+
 
 	<repositories>
 		<repository>
@@ -148,7 +148,11 @@
 			<version>5.1.30</version>
 		</dependency>
 
-
+		<dependency>
+			<groupId>org.nlpcn</groupId>
+			<artifactId>elasticsearch-sql</artifactId>
+			<version>0.1</version>
+		</dependency>
 
 		<!-- disk jar -->
 		<dependency>
@@ -200,7 +204,8 @@
 			<systemPath>${prjectPath}/lib/log4j-1.2.16.jar</systemPath>
 		</dependency>
 
+
 	</dependencies>
 
-	
+
 </project>

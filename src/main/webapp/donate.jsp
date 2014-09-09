@@ -44,13 +44,13 @@
             </div>
         </div>
     </div>
-    
+
     <div class="row">
     	<div class="twelve columns">
         	<div class="divider"></div>
         </div>
     </div>
-       
+
     <div class="row">
         <div class="six columns">
             <h5>捐赠方式一（网银汇款）</h5>
@@ -94,6 +94,30 @@
 			                </tr>
 			            </thead>
 			            <tbody>
+                    <tr>
+                          <td>林永楷</td>
+                          <td>2014年08月29日</td>
+                          <td>神秘人士</td>
+                          <td>11￥</td>
+                      </tr>
+                    <tr class="odd">
+                          <td>石亮</td>
+                          <td>2014年08月27日</td>
+                          <td>神秘人士</td>
+                          <td>28￥</td>
+                      </tr>
+                      <tr>
+                            <td>刘刚</td>
+                            <td>2014年08月13日</td>
+                            <td>神秘人士</td>
+                            <td>10￥</td>
+                        </tr>
+                      <tr class="odd">
+                            <td>陈淑烨</td>
+                            <td>2014年08月12日</td>
+                            <td>神秘人士</td>
+                            <td>10￥</td>
+                        </tr>
 			            	<tr>
 			                    <td>胡建</td>
 			                    <td>2014年06月26日</td>
@@ -129,21 +153,17 @@
 			                    <td>2014年06月26日</td>
 			                    <td>友情赞助</td>
 			                    <td>20￥</td>
-			                </tr>    
+			                </tr>
 			                <tr>
 			                    <td>Ansj</td>
 			                    <td>2014年04月26日</td>
 			                    <td>组织内部人员</td>
 			                    <td>200￥</td>
-			                </tr>  
-			                <tr class="odd">
-			                    <td colspan="3">捐赠合计：</td>
-			                    <td>900￥</td>
-			                </tr> 
+			                </tr>
 			            </tbody>
 			    </table>
 			 </div>
-        </div>        
+        </div>
         <div class="six columns">
             <div class="table-blue">
 			    <h5>支出记录</h5>
@@ -156,6 +176,11 @@
 			                </tr>
 			            </thead>
 			            <tbody>
+                    <tr>
+                          <td>域名服务器续费</td>
+                          <td>2014年07月26日</td>
+                          <td>500￥</td>
+                      </tr>
 			            	<tr>
 			                    <td>充值用来购买VPS服务器</td>
 			                    <td>2014年06月26日</td>
@@ -171,23 +196,18 @@
 			                    <td>2014年04月26日</td>
 			                    <td>200￥</td>
 			                </tr>
-			                
+
 			                <tr class="odd">
 			                    <td>充值用来购买nlpcn.org域名</td>
 			                    <td>2014年02月26日</td>
 			                    <td>60￥</td>
 			                </tr>
-			                
-			                <tr>
-			                    <td colspan="2">支出合计：</td>
-			                    <td>560￥</td>
-			                </tr>      
 			            </tbody>
 			    </table>
 			 </div>
         </div>
-    </div>    
-    
+    </div>
+
     <div class="row">
     	<div class="twelve columns">
         	<h5>特别感谢</h5>
