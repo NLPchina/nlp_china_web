@@ -123,11 +123,11 @@
 				<c:if test="${ prepage==null }">
 					<li style='background-color: white' data-level="0"
 						data-path="/docs/${docMenu.id }"><a
-						href="/docs/${docMenu.id }"> 文档首页</a></li>
+						href="/docs/${docMenu.id }"> introduction</a></li>
 				</c:if>
 				<c:if test="${ prepage!=null }">
 					<li data-level="0" data-path="/docs/${docMenu.id }"><a
-						href="/docs/${docMenu.id }"> 文档首页</a></li>
+						href="/docs/${docMenu.id }"> introduction</a></li>
 				</c:if>
 
 				${docMenu.html }
@@ -148,8 +148,13 @@
 					<div class="page-inner">
 
 						<section class="normal" id="section-gitbook_3">
-
-							${document.content}</section>
+							<c:if test="${ document==null }">
+                                                                               该页尚未编辑
+                            </c:if>
+							<c:if test="${ document!=null }">
+                              ${document.content}
+                            </c:if>
+						</section>
 
 					</div>
 				</div>

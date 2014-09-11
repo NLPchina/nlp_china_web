@@ -1,11 +1,18 @@
 package org.nlpchina.web.controller;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.nlpchina.web.domain.UserInfo;
 import org.nutz.ioc.loader.annotation.IocBean;
@@ -34,8 +41,9 @@ public class UploaderAction {
 		long timeValue = System.currentTimeMillis();
 		for (TempFile tempFile : file) {
 			try {
-				writeFile(tempFile, "webapp/upload/" + userInfo.getId() + "/", (timeValue + 1) + "_" + tempFile.getMeta().getFileLocalName());
-				result.put("filelist", "http://www.nlpcn.org/"+"webapp/upload/" + userInfo.getId() + "/"+(timeValue + 1) + "_" + tempFile.getMeta().getFileLocalName());
+				String filname=tempFile.getMeta().getFileLocalName();
+				writeFile(tempFile, "webapp/upload/" + userInfo.getId() + "/", (timeValue + 1) + "_" + filname);
+				result.put("filelist", "http://www.nlpcn.org/"+"download/" + userInfo.getId() + "/"+(timeValue + 1) + "_" + filname+"/");
 			} catch (IOException e) {
 				throw new RuntimeException("update error!");
 			}
@@ -75,4 +83,23 @@ public class UploaderAction {
 		}
 
 	}
+	
+	@At("/download/?/?/")
+	public void download(String userId,String filename, String suffix,HttpServletRequest request, HttpServletResponse response) throws Exception{
+		File file = new File("webapp\\upload\\"+userId+"\\"+filename);//
+	    InputStream fis = new BufferedInputStream(new FileInputStream(file));
+	    byte[] buffer = new byte[fis.available()];
+	    fis.read(buffer);
+	    fis.close();
+	    response.reset();
+	    // 先去掉文件名称中的空格,然后转换编码格式为utf-8,保证不出现乱码,这个文件名称用于浏览器的下载框中自动显示的文件名
+	    response.addHeader("Content-Disposition", "attachment;filename=" + new String(filename.replaceAll(" ", "").getBytes("utf-8"),"iso8859-1"));
+	    response.addHeader("Content-Length", "" + file.length());
+	    OutputStream os = new BufferedOutputStream(response.getOutputStream());
+	    response.setContentType("application/octet-stream");
+	    os.write(buffer);// 输出文件
+	    os.flush();
+	    os.close();
+	}
+	
 }

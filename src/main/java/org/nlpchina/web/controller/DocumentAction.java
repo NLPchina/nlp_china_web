@@ -360,12 +360,15 @@ public class DocumentAction {
 
 		if (document == null) {
 
+			System.err.println("null c++++++++");
 			request.getRequestDispatcher("/404.jsp");
 		}
 
 		makeMenu2HtmlView(docMenu, null, docId,request);
 		try {
-			document.setContent(new Markdown4jProcessor().process(document.getContent()));
+			if (document!=null) {
+				document.setContent(new Markdown4jProcessor().process(document.getContent()));
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -512,6 +515,7 @@ public class DocumentAction {
 	 */
 	private void makeMenu2HtmlView(DocMenu docMenu, String extractingCode, String activeId, HttpServletRequest request) {
 
+		//自动机  状态: 首页  自由状态 在章节中
 		String content = docMenu.getContent();
 
 		String[] split = content.split("\n");
@@ -519,7 +523,11 @@ public class DocumentAction {
 		StringBuilder sb = new StringBuilder();
 
 		float num=0;//页数
+		int chnum=0;//章节数
+		int chapagenum=0;//章节下的页数
 		float request_num=0;//请求的第几页
+		boolean inchap=false;
+		
 		
 		boolean active = false;
 		for (String line : split) {
@@ -529,8 +537,20 @@ public class DocumentAction {
 			}
 			String temp = line.trim();
 			if (temp.startsWith("#")) {
-				sb.append("<li  data-level=\"1\" data-path=\"IntroReactiveProgramming.html\"><a><i class=\"fa fa-check\"></i> <b>1.</b>"+ temp.substring(1)+" </a></li>");
+				if (!active) {
+				    request_num++;
+				}
+				chnum++;
+				chapagenum=0;
+				if (inchap) {
+					sb.append("</ul>  </li>");
+				}
+				sb.append("<li data-level=\""+chnum+"\" data-path=\"\"><a><i class=\"fa fa-check\"></i> <b>"+chnum+".</b>"+ temp.substring(1)+" </a> <ul class=\"articles\">");
 				//sb.append("<li class='active'><a>" + temp.substring(1) + "</a></li>\n");
+				
+				if (!inchap) {
+					inchap=true;
+				}
 				continue;
 			}
 
@@ -541,39 +561,70 @@ public class DocumentAction {
 					active = strs[1].equalsIgnoreCase(activeId);
 				    request_num++;
 				}
+				
 				if (strs[1].equalsIgnoreCase(activeId)) {
-					sb.append("<li  style='background-color:white' data-level=\""+num+"\" data-path=\""+"/docs/"+docMenu.getId()+"/"+strs[1]+"\"><a href='/docs/" + docMenu.getId() + "/" + strs[1]+"'>"+"<i class=\"fa fa-check \"></i> <b>"+(int)num+".</b>"+ strs[0]+" </a></li>");
+					String chapter=chnum+"."+(chapagenum+1);
+					sb.append("<li  style='background-color:white' data-level=\""+(inchap==true?chapter:1)+"\" data-path=\""+"/docs/"+docMenu.getId()+"/"+strs[1]+"\"><a href='/docs/" + docMenu.getId() + "/" + strs[1]+"'>"+"<i class=\"fa fa-check \"></i> <b>"+(inchap==true?chapter:"")+"</b>"+ strs[0]+" </a></li>");
 
 				}else {
-					sb.append("<li  data-level=\""+num+"\" data-path=\""+"/docs/"+docMenu.getId()+"/"+strs[1]+"\"><a href='/docs/" + docMenu.getId() + "/" + strs[1]+"'>"+" <b>"+(int)num+".</b>"+ strs[0]+" </a></li>");
+					String chapter=chnum+"."+(chapagenum+1);
+
+					sb.append("<li  data-level=\""+(inchap==true?chapter:1)+"\" data-path=\""+"/docs/"+docMenu.getId()+"/"+strs[1]+"\"><a href='/docs/" + docMenu.getId() + "/" + strs[1]+"'>"+" <b>"+(inchap==true?chapter:"")+"</b>"+ strs[0]+" </a></li>");
 
 				}
                 
 				//sb.append("<li><a href='/docs/" + docMenu.getId() + "/" + strs[1]+"'>" + strs[0] + "</a></li>\n");
 			}
+			
+			chapagenum++;//该章节下的文章数+1
 		}
 
-		if (active) {
+		if (inchap) {
+			sb.append("</ul>  </li>");
+		}
+		if (active) {//是否在首页
+			
+			boolean flag=false;
 			request.setAttribute("progress",100*((request_num+1)/(num+1)));
-			if ((int) (request_num-2)>-1) {
-				String[] pages=split[((int) (request_num-2))].split("\\|");
-				String prepage=pages[1];
-				request.setAttribute("prepage",prepage);
-			}else {
+			for (int i = (int) (request_num-2); i >=0; i--) {
+				String[] pages=split[i].split("\\|");
+				if (pages.length>1) {
+					String prepage=pages[1];
+					request.setAttribute("prepage",prepage);
+					flag=true;
+					break;
+				}
+			}
+
+			if (!flag) {
 				request.setAttribute("prepage",-1);
 			}
 			
 			if (request_num<num) {
-				String nextpage=split[(int) (request_num)].split("\\|")[1];
-				request.setAttribute("nextpage",nextpage);
+				for (int i = (int) (request_num); i < split.length; i++) {
+					String[] pages=split[i].split("\\|");
+					if (pages.length>1) {
+						String nextpage=pages[1];
+						request.setAttribute("nextpage",nextpage);
+					    break;
+					}
+				}
 			}
 		}else {
+			
 			request.setAttribute("progress",100*(1/(num+1)));
 			if (num>0) {
-				System.err.println(split[0]);
-				String[] pages=split[0].split("\\|");
-				String nextpage=pages[1];
-				request.setAttribute("nextpage",nextpage);
+				
+				for (int i = 0; i < split.length; i++) {
+					String[] pages=split[i].split("\\|");
+					if (pages.length>1) {
+						String nextpage=pages[1];
+						request.setAttribute("nextpage",nextpage);
+					    break;
+					}
+				}
+				
+				
 			}
 			
 		}
