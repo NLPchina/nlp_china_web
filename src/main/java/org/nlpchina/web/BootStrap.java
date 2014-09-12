@@ -53,9 +53,7 @@ public class BootStrap {
 		Connector connector = new SelectChannelConnector();
 		connector.setPort(Integer.parseInt(bundle.getString("port")));
 		server.setConnectors(new Connector[] { connector });
-		
-		connector.setRequestHeaderSize(1024);
-		
+		connector.setRequestHeaderSize(1024*1024*10);
 		WebAppContext context = new WebAppContext(web_dir, "/");
 		server.setAttribute("org.eclipse.jetty.server.Request.maxFormContentSize", "-1");
 		server.setAttribute("org.mortbay.util.URI.charset", "utf-8");
