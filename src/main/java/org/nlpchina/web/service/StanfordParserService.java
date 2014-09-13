@@ -42,8 +42,8 @@ public class StanfordParserService {
 		if (sentenceList.size() > 0) {
 			String s = sentenceList.get(0) ;
 			
-			if(s.length()>50){
-				s = s.substring(0,49) ;
+			if(s.length()>30){
+				s = s.substring(0,20) ;
 			}
 			
 			List<Term> parse = ToAnalysis.parse(s);
