@@ -14,20 +14,20 @@
 	<script src="${ctx }/js/bootstrap.js"></script>
 	<script src="${ctx }/js/jquery.awesomeCloud-0.2.min.js"></script>
 	<script src="${ctx }/js/Chart.js"></script>
-	
+
 	<style type="text/css">
-		
+
 		a:link,a:visited,a:active {
 			text-decoration:none;
 		}
-		
+
 		.panel_main { background: #eee; border: solid 1px #ddd; margin: 0 0 22px 0; padding: 20px 25px 20px 25px; position:relative; }
-		
+
 		.panel { padding: 0px; }
-		
-		
+
+
 		#demo-page .col-xs-9 .chunk .words .v, #demo-page .col-xs-9 .chunk .words .vd, #demo-page .col-xs-9 .chunk .words .vn, #demo-page .col-xs-9 .chunk .words .vshi, #demo-page .col-xs-9 .chunk .words .vyou, #demo-page .col-xs-9 .chunk .words .vf, #demo-page .col-xs-9 .chunk .words .vx, #demo-page .col-xs-9 .chunk .words .vi, #demo-page .col-xs-9 .chunk .words .vl, #demo-page .col-xs-9 .chunk .words .vg, #demo-page .col-xs-9 .chunk .word-mean .v, #demo-page .col-xs-9 .chunk .word-mean .vd, #demo-page .col-xs-9 .chunk .word-mean .vn, #demo-page .col-xs-9 .chunk .word-mean .vshi, #demo-page .col-xs-9 .chunk .word-mean .vyou, #demo-page .col-xs-9 .chunk .word-mean .vf, #demo-page .col-xs-9 .chunk .word-mean .vx, #demo-page .col-xs-9 .chunk .word-mean .vi, #demo-page .col-xs-9 .chunk .word-mean .vl, #demo-page .col-xs-9 .chunk .word-mean .vg
-		
+
 		.dl {
 			display: block;
 			-webkit-margin-before: 1em;
@@ -35,7 +35,7 @@
 			-webkit-margin-start: 0px;
 			-webkit-margin-end: 0px;
 		}
-	
+
 		.wordcloud {
 			height: 3in;
 			margin: 0.2in auto;
@@ -44,15 +44,15 @@
 			page-break-inside: avoid;
 			width: 8.5in;
 		}
-		
+
 		.affix{
 			top: 10px;
 		}
-		
+
 		a:VISITED {
-			font-size: 200px; 
+			font-size: 200px;
 		}
-		
+
 	</style>
 </head>
 <body  data-spy="scroll" data-target="#sideBar">
@@ -73,10 +73,10 @@
 
 
 <!-- maincontent start here -->
-<section id="content-wrapper">   
-    
+<section id="content-wrapper">
+
     <div class="divider"></div>
-    
+
     <div style=" width: 100%" >
       <div class="col-md-2">
         <div  class="list-group" id="sideBar" data-offset-top="230" data-spy="affix" style="width: 166px;" >
@@ -88,14 +88,14 @@
 		  <a href="#classification" class="list-group-item">文本分类</a>
 		  <a href="#emotional" class="list-group-item">情感分析</a>
 		  <a href="#wordRelation" class="list-group-item">语义联想</a>
-		  <a class="list-group-item">依存文法(待续)</a>
+		  <a href="#parseRelation" class="list-group-item">依存文法</a>
 		</div>
       </div>
       <div class="col-md-10" role="main" id="main">
-      
+
       	<div class=" well" >
 			<ul class="pen">
-	        	<li>单文本分析</li>                           
+	        	<li>单文本分析</li>
 	        </ul>
 	        <form  action="${ctx }/demo" method="post">
 			<textarea id="content" name="content" class="input">${content }</textarea>
@@ -104,12 +104,12 @@
 			</div>
 			</form>
 	    </div>
-	    
+
 		<div class="panel panel-default" id="keyWords">
 			 <div class="panel-heading">关键词提取</div>
 			 <div class="panel-body wordcloud" id="wordcloud" >
 			 	<c:forEach items="${keyWords }" var="keyWord" varStatus="status">
-				<span data-weight="${30-status.index<10?10:30-status.index}">${keyWord.name }</span>			 	
+				<span data-weight="${30-status.index<10?10:30-status.index}">${keyWord.name }</span>
 			 	</c:forEach>
 			 </div>
 			 <div class="panel-heading text-right">
@@ -118,8 +118,8 @@
 					<a href="https://github.com/ansjsun/ansj_seg" target="_blank"><button type="button" class="btn btn-success btn-xs">项目主页</button></a>
 			 </div>
 		</div>
-		
-		
+
+
 		<!-- Nav tabs -->
 		<div class="panel panel-default" id="nlpResult">
 			<ul class="nav nav-tabs">
@@ -128,7 +128,7 @@
 			  <li><a href="#index_seg" data-toggle="tab">索引分词</a></li>
 			  <li><a href="#min_seg" data-toggle="tab">细颗粒度分词</a></li>
 			</ul>
-			
+
 			<!-- Tab panes -->
 			<div class="tab-content">
 			  <div class="tab-pane active" id="nlp_seg">
@@ -174,11 +174,11 @@
 					<a href="https://github.com/ansjsun/ansj_seg" target="_blank"><button type="button" class="btn btn-success btn-xs">项目主页</button></a>
 			 </div>
 		</div>
-		
+
 		<div class="panel panel-default" id="summaryStr">
 			 <div class="panel-heading">摘要&高亮</div>
 			 <div class="panel-body">
-			 <pre style="font-size: 20px;">${summaryStr }</pre> 
+			 <pre style="font-size: 20px;">${summaryStr }</pre>
 			  </div>
 			  <div class="panel-heading text-right">
 					<a href="http://ansjsun.github.io/ansj_seg/" target="_blank"><button type="button" class="btn btn-info btn-xs">相关文档</button></a>
@@ -186,29 +186,29 @@
 					<a href="https://github.com/ansjsun/ansj_seg" target="_blank"><button type="button" class="btn btn-success btn-xs">项目主页</button></a>
 			 </div>
 		</div>
-		
+
 		<div class="panel panel-default" id="jianfanpin">
 			 <ul class="nav nav-tabs">
 			  <li class="active"><a href="#jian" data-toggle="tab">繁体中文</a></li>
 			  <li><a href="#fan" data-toggle="tab">简体中文</a></li>
 			  <li><a href="#pin" data-toggle="tab">汉语拼音</a></li>
 			</ul>
-			
+
 			<!-- Tab panes -->
 			<div class="tab-content">
 			  <div class="tab-pane active" id="jian">
 				 <div class="panel-body">
-			 		<pre style="font-size: 20px;">${fanStr }</pre> 
+			 		<pre style="font-size: 20px;">${fanStr }</pre>
 			     </div>
 			  </div>
 			  <div class="tab-pane" id="fan">
 			  	 <div class="panel-body">
-			 		<pre style="font-size: 20px;">${jianStr }</pre> 
+			 		<pre style="font-size: 20px;">${jianStr }</pre>
 			     </div>
 			  </div>
 			  <div class="tab-pane" id="pin">
 				 <div class="panel-body">
-			 		<pre style="font-size: 12px;">${pinStr }</pre> 
+			 		<pre style="font-size: 12px;">${pinStr }</pre>
 			     </div>
 			  </div>
 			</div>
@@ -216,31 +216,38 @@
 					<a href="https://github.com/NLPchina/nlp-lang" target="_blank"><button type="button" class="btn btn-success btn-xs">项目主页</button></a>
 			 </div>
 		</div>
-		
-		
+
+
 		<div class="panel panel-default" id="classification">
 			 <div class="panel-heading">文本分类</div>
 			 <div class="panel-body">
-			 		Orange Data for Development is an open data challenge, 
+			 		Orange Data for Development is an open data challenge,
 			  </div>
 		</div>
-		
-		
+
+
 		<div class="panel panel-default" id="emotional">
 			 <div class="panel-heading">情感分析</div>
 			 <div class="panel-body" align="center">
 					<canvas id="pieChartCanvas" width="449" height="300" style="width: 449px; height: 300px;"></canvas>
 			 </div>
 		</div>
-		
+
 		<div class="panel panel-default" id="wordRelation">
 			 <div class="panel-heading">语义联想</div>
 			 <div class="panel-body">
-			 		Orange Data for Development is an open data challenge, 
+			 		Orange Data for Development is an open data challenge,
 			  </div>
 		</div>
-		
-		
+
+		<div class="panel panel-default" id="parseRelation">
+			<div class="panel-heading">依存问法</div>
+			<div>
+					<iframe src=""  width="100%" height="500px;" frameborder="0" id="prFrame" name="prFrame"></iframe>
+				</div>
+		</div>
+
+
       </div>
     </div>
 </section>
@@ -250,10 +257,17 @@
 <%@include file="foot.jsp"%>
 <!-- footer end here -->
 
+<form action="/syntactic/" METHOD=POST id="syntactic" target="prFrame">
+	<textarea name="content" style="width:0px;height:0px;">${content }</textarea>
+</form>
+
 <!-- maincontent end here -->
 <script type="text/javascript">
 
+document.getElementById("syntactic").submit() ;
+
 $(document).ready(function(){
+
 	$("#wordcloud").awesomeCloud({
 		"size" : {
 			"grid" : 6,
@@ -267,7 +281,7 @@ $(document).ready(function(){
 		},
 		"shape" : "square"
 	});
-	
+
 	var pieData = [
 					{
 						value: 30,
@@ -285,7 +299,8 @@ $(document).ready(function(){
 				];
 
 	var myPie = new Chart(document.getElementById("pieChartCanvas").getContext("2d")).Pie(pieData);
-	
+
+
 });
 
 //收集所有的div top
@@ -308,13 +323,13 @@ $(window).scroll(function() {
 			 return false;
 		 }
 	 });
-	 
+
 	 if(active==oldActive){
 		 return false ;
 	 }
-	 
+
 	 console.log(active+"   "+oldActive)
-	 
+
 	 $("[href='#"+active+"']").addClass("active") ;
 	 $("[href='#"+oldActive+"']").removeClass("active") ;
 });

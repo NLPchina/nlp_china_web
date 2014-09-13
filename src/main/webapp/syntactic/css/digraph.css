@@ -1,0 +1,41 @@
+.ne-O > .label > rect {
+  fill: #00ffd0;
+}
+
+.ne-PERSON > .label > rect {
+  fill: #b997ff;
+}
+
+.ne-DATE > .label > rect {
+  fill: #ffae6a;
+}
+
+.ne-ORGANIZATION > .label > rect {
+  fill: #96c2ff;
+}
+
+.ne-LOCATION > .label > rect {
+  fill: #7e7e7e;
+}
+
+.ne-ORDINAL > .label > rect {
+  fill: #92ff7d;
+}
+
+.ne-NUMBER > .label > rect {
+  fill: #fdb9ff;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden
+}
+
+.main-svg {
+  position: fixed;
+  left: 0;
+  height: 1000px;
+  width: 100%;
+  border: 1px solid #999;
+}

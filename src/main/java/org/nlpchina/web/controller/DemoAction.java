@@ -15,9 +15,11 @@ import org.ansj.splitWord.analysis.BaseAnalysis;
 import org.ansj.splitWord.analysis.IndexAnalysis;
 import org.ansj.splitWord.analysis.NlpAnalysis;
 import org.ansj.splitWord.analysis.ToAnalysis;
+import org.nlpchina.web.service.StanfordParserService;
 import org.nlpcn.commons.lang.jianfan.JianFan;
 import org.nlpcn.commons.lang.pinyin.Pinyin;
 import org.nlpcn.commons.lang.util.StringUtil;
+import org.nutz.dao.entity.annotation.View;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.Ok;
@@ -60,9 +62,8 @@ public class DemoAction {
 		// 文档摘要
 		SummaryComputer sc = new SummaryComputer(null, content);
 		Summary summary = sc.toSummary();
-		String summaryStr = new TagContent("<font color=\"red\">", "</font>").tagContent(summary)+"....";
-		
-		
+		String summaryStr = new TagContent("<font color=\"red\">", "</font>").tagContent(summary) + "....";
+
 		request.setAttribute("fanStr", JianFan.j2F(content));
 		request.setAttribute("jianStr", JianFan.f2J(content));
 		request.setAttribute("pinStr", Pinyin.pinyinStr(content));
@@ -75,6 +76,12 @@ public class DemoAction {
 		request.setAttribute("summaryStr", summaryStr);
 		request.setAttribute("content", content);
 
+	}
+
+	@At("/syntactic/")
+	@Ok("jsp:/syntactic/home.jsp")
+	public String syntactic(@Param("content") String content) {
+		return StanfordParserService.parse(content);
 	}
 
 	private List<String[]> nameAndNature(List<Term> parse) {
@@ -96,7 +103,7 @@ public class DemoAction {
 		}
 		return result;
 	}
-	
+
 	public static void main(String[] args) {
 		System.out.println(ToAnalysis.parse("1987．08"));
 	}
