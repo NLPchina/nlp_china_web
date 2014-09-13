@@ -40,7 +40,13 @@ public class StanfordParserService {
 		List<String> sentenceList = su.toSentenceList(str);
 
 		if (sentenceList.size() > 0) {
-			List<Term> parse = ToAnalysis.parse(sentenceList.get(0));
+			String s = sentenceList.get(0) ;
+			
+			if(s.length()>50){
+				s = s.substring(0,49) ;
+			}
+			
+			List<Term> parse = ToAnalysis.parse(s);
 
 			List<CoreLabel> rawWords = new ArrayList<CoreLabel>();
 
