@@ -210,6 +210,14 @@
 			<scope>system</scope>
 			<systemPath>${prjectPath}/lib/markdown4j-2.2.jar</systemPath>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.nlpcn.web</groupId>
+			<artifactId>markdown4j-2.2.jar</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${prjectPath}/lib/stanford-parser.jar</systemPath>
+		</dependency>
 
 	</dependencies>
 
