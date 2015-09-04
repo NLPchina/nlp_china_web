@@ -42,8 +42,8 @@ public class H2Server {
 				String content = null;
 				if (new File("config/db.sql").isFile()) {
 					content = IOUtil.getContent("config/db.sql", IOUtil.UTF8);
-				} else if (new File("src/main/resource/db.sql").isFile()) {
-					content = IOUtil.getContent("src/main/resource/db.sql", IOUtil.UTF8);
+				} else if (new File("src/main/resources/db.sql").isFile()) {
+					content = IOUtil.getContent("src/main/resources/db.sql", IOUtil.UTF8);
 				}
 				if (StringUtil.isNotBlank(content)) {
 					nc.getIoc().get(GeneralService.class).executeSql(content);
