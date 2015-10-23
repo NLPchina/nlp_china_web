@@ -12,12 +12,12 @@
 
 
 
-	<repositories>
-		<repository>
-			<id>mvn-repo</id>
-			<url>http://maven.ansj.org/</url>
-		</repository>
-	</repositories>
+	<!--<repositories>-->
+	<!--	<repository>-->
+	<!--		<id>mvn-repo</id>-->
+	<!--		<url>http://maven.ansj.org/</url>-->
+	<!--	</repository>-->
+	<!--</repositories>-->
 
 
 	<properties>
