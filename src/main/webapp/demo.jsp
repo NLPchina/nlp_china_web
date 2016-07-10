@@ -314,6 +314,12 @@ function init(){
 		$("#f2j_result").empty() ;
 	    $("#f2j_result").html(result.obj);
 	});
+	
+	
+	
+	
+	
+	
 
 
 	$.post('http://www.nlpcn.org:9999/api/NlplangApi/pinyin',{content: text},function(result){
