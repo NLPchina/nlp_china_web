@@ -55,7 +55,7 @@
 
 	</style>
 </head>
-<body  data-spy="scroll" data-target="#sideBar">
+<body  data-spy="scroll" data-target="#sideBar" >
 <!-- header start here -->
 <%@include file="header.jsp"%>
 <!-- header end here -->
@@ -73,7 +73,7 @@
 
 
 <!-- maincontent start here -->
-<section id="content-wrapper">
+<section id="content-wrapper" >
 
     <div class="divider"></div>
 
@@ -85,10 +85,7 @@
 		  <a href="#nlpResult" class="list-group-item">中文分词</a>
 		  <a href="#summaryStr" class="list-group-item">摘要&高亮</a>
 		  <a href="#jianfanpin" class="list-group-item">简繁体&拼音</a>
-		  <a href="#classification" class="list-group-item">文本分类</a>
-		  <a href="#emotional" class="list-group-item">情感分析</a>
-		  <a href="#wordRelation" class="list-group-item">语义联想</a>
-		  <a href="#parseRelation" class="list-group-item">依存文法</a>
+		  <a href="#parseRelation" class="list-group-item">依存句法</a>
 		</div>
       </div>
       <div class="col-md-10" role="main" id="main">
@@ -97,20 +94,19 @@
 			<ul class="pen">
 	        	<li>单文本分析</li>
 	        </ul>
-	        <form  action="${ctx }/demo" method="post">
-			<textarea id="content" name="content" class="input">${content }</textarea>
+	        <form method="post">
+			<textarea id="content" name="content" class="input">语言是人类区别其他动物的本质特性。在所有生物中，只有人类才具有语言能力。人类的多种智能都与语言有着密切的关系。人类的逻辑思维以语言为形式，人类的绝大部分知识也是以语言文字的形式记载和流传下来的。因而，它也是人工智能的一个重要，甚至核心部分。
+用自然语言与计算机进行通信，这是人们长期以来所追求的。因为它既有明显的实际意义，同时也有重要的理论意义：人们可以用自己最习惯的语言来使用计算机，而无需再花大量的时间和精力去学习不很自然和习惯的各种计算机语言；人们也可通过它进一步了解人类的语言能力和智能的机制。</textarea>
 			<div  style="text-align:right;padding: 6px;">
-			<button type="submit" class="btn btn-primary btn-lg">提交文本</button>
+			<button type="button" class="btn btn-primary btn-lg" id="reload_content">提交文本</button>
 			</div>
 			</form>
 	    </div>
-
+	    
 		<div class="panel panel-default" id="keyWords">
 			 <div class="panel-heading">关键词提取</div>
-			 <div class="panel-body wordcloud" id="wordcloud" >
-			 	<c:forEach items="${keyWords }" var="keyWord" varStatus="status">
-				<span data-weight="${30-status.index<10?10:30-status.index}">${keyWord.name }</span>
-			 	</c:forEach>
+			 <div class="panel-body wordcloud" id="wordcloud">
+				
 			 </div>
 			 <div class="panel-heading text-right">
 					<a href="http://ansjsun.github.io/ansj_seg/" target="_blank"><button type="button" class="btn btn-info btn-xs">相关文档</button></a>
@@ -125,46 +121,37 @@
 			<ul class="nav nav-tabs">
 			  <li class="active"><a href="#nlp_seg" data-toggle="tab">NLP分词</a></li>
 			  <li><a href="#to_seg" data-toggle="tab">精准分词</a></li>
+			  <li><a href="#dic_seg" data-toggle="tab">词典优先分词</a></li>
 			  <li><a href="#index_seg" data-toggle="tab">索引分词</a></li>
-			  <li><a href="#min_seg" data-toggle="tab">细颗粒度分词</a></li>
+			  <li><a href="#base_seg" data-toggle="tab">细颗粒度分词</a></li>
 			</ul>
 
 			<!-- Tab panes -->
 			<div class="tab-content">
 			  <div class="tab-pane active" id="nlp_seg">
 				 <div class="panel-body">
-				 	<dl style="line-height: 32px;">
-			 		<c:forEach items="${nlpResult }" var="word">
-			 			<dd class="word_${word[1] } word_width">${word[0] }</dd>
-			 		</c:forEach>
-			 		</dl>
+				 	<dl style="line-height: 32px;" id="nlp_seg_result"></dl>
 				 </div>
 			  </div>
 			  <div class="tab-pane" id="to_seg">
 			  	 <div class="panel-body">
-				 	<dl style="line-height: 32px;">
-			 		<c:forEach items="${toResult }" var="word">
-			 			<dd class="word_${word[1] } word_width">${word[0] }</dd>
-			 		</c:forEach>
-			 		</dl>
-				  </div>
+				 	<dl style="line-height: 32px;" id="to_seg_result">
+				 	</dl>
+				 </div>
+			  </div>
+			  <div class="tab-pane" id="dic_seg">
+				 <div class="panel-body">
+				 	<dl style="line-height: 32px;" id="dic_seg_result"></dl>
+				 </div>
 			  </div>
 			  <div class="tab-pane" id="index_seg">
 				  <div class="panel-body">
-				 	<dl style="line-height: 32px;">
-				 		<c:forEach items="${indexResult }" var="word">
-				 			<dd class="word_${word[1] } word_width">${word[0] }</dd>
-				 		</c:forEach>
-			 		</dl>
+				 	<dl style="line-height: 32px;" id="index_seg_result"></dl>
 				  </div>
 			  </div>
-			  <div class="tab-pane" id="min_seg">
+			  <div class="tab-pane" id="base_seg">
 			  	   <div class="panel-body">
-				 		<dl style="line-height: 32px;">
-				 		<c:forEach items="${nlpMinResult }" var="word">
-				 			<dd class="word_${word[1] } word_width">${word[0] }</dd>
-				 		</c:forEach>
-				 		</dl>
+				 		<dl style="line-height: 32px;" id="base_seg_result"></dl>
 					</div>
 			  </div>
 			</div>
@@ -178,7 +165,7 @@
 		<div class="panel panel-default" id="summaryStr">
 			 <div class="panel-heading">摘要&高亮</div>
 			 <div class="panel-body">
-			 <pre style="font-size: 20px;">${summaryStr }</pre>
+			 <pre style="font-size: 20px;" id="summaryStr_result"></pre>
 			  </div>
 			  <div class="panel-heading text-right">
 					<a href="http://ansjsun.github.io/ansj_seg/" target="_blank"><button type="button" class="btn btn-info btn-xs">相关文档</button></a>
@@ -187,7 +174,7 @@
 			 </div>
 		</div>
 
-		<div class="panel panel-default" id="jianfanpin">
+		<div class="panel panel-default" id="jianfanpin" >
 			 <ul class="nav nav-tabs">
 			  <li class="active"><a href="#jian" data-toggle="tab">繁体中文</a></li>
 			  <li><a href="#fan" data-toggle="tab">简体中文</a></li>
@@ -198,17 +185,17 @@
 			<div class="tab-content">
 			  <div class="tab-pane active" id="jian">
 				 <div class="panel-body">
-			 		<pre style="font-size: 20px;">${fanStr }</pre>
+			 		<pre style="font-size: 20px;" id="j2f_result">{{fanStr }}</pre>
 			     </div>
 			  </div>
 			  <div class="tab-pane" id="fan">
 			  	 <div class="panel-body">
-			 		<pre style="font-size: 20px;">${jianStr }</pre>
+			 		<pre style="font-size: 20px;" id="f2j_result">{{jianStr }}</pre>
 			     </div>
 			  </div>
 			  <div class="tab-pane" id="pin">
 				 <div class="panel-body">
-			 		<pre style="font-size: 12px;">${pinStr }</pre>
+			 		<pre style="font-size: 20px;" id="pinyin_result">{{pinStr }}</pre>
 			     </div>
 			  </div>
 			</div>
@@ -217,34 +204,17 @@
 			 </div>
 		</div>
 
-
-		<div class="panel panel-default" id="classification">
-			 <div class="panel-heading">文本分类</div>
-			 <div class="panel-body">
-			 		Orange Data for Development is an open data challenge,
-			  </div>
-		</div>
-
-
-		<div class="panel panel-default" id="emotional">
-			 <div class="panel-heading">情感分析</div>
-			 <div class="panel-body" align="center">
-					<canvas id="pieChartCanvas" width="449" height="300" style="width: 449px; height: 300px;"></canvas>
-			 </div>
-		</div>
-
-		<div class="panel panel-default" id="wordRelation">
-			 <div class="panel-heading">语义联想</div>
-			 <div class="panel-body">
-			 		Orange Data for Development is an open data challenge,
-			  </div>
-		</div>
-
+	
 		<div class="panel panel-default" id="parseRelation">
-			<div class="panel-heading">依存问法</div>
+			<div class="panel-heading">依存句法</div>
 			<div>
-					<iframe src=""  width="100%" height="500px;" frameborder="0" id="prFrame" name="prFrame"></iframe>
-				</div>
+				<iframe src=""  width="100%" height="500px;" frameborder="0" id="prFrame" name="prFrame"></iframe>
+			</div>
+			<div class="panel-heading text-right">
+					<a href="https://github.com/milkcat/MilkCat" target="_blank"><button type="button" class="btn btn-info btn-xs">相关文档</button></a>
+					<a href="http://weibo.com/u/2605372777" target="_blank"><button type="button" class="btn btn-warning btn-xs">联系作者</button></a>
+					<a href="https://github.com/milkcat/MilkCat" target="_blank"><button type="button" class="btn btn-success btn-xs">项目主页</button></a>
+			 </div>
 		</div>
 
 
@@ -257,50 +227,123 @@
 <%@include file="foot.jsp"%>
 <!-- footer end here -->
 
-<form action="/syntactic/" METHOD=POST id="syntactic" target="prFrame">
-	<textarea name="content" style="width:0px;height:0px;">${content }</textarea>
+<form action="http://milkcat.io/tree2svg?ct=svg" METHOD=POST id="syntactic" target="prFrame" onsubmit="setContent()">
+	<textarea name="q" style="width:0px;height:0px;" id="milkcat"></textarea>
 </form>
 
 <!-- maincontent end here -->
 <script type="text/javascript">
 
-document.getElementById("syntactic").submit() ;
+
+function setContent(){
+	var text = $("#content").val() ;
+	$("#milkcat").val(text) ;
+}
+
+
+function init(){
+	
+	var text = $("#content").val() ;
+	
+	
+	$.post('http://www.nlpcn.org:9999/api/SegApi/toSeg',{content: text},function(result){
+		$("#to_seg_result").empty() ;
+		result.obj.forEach(function(term){
+			$("#to_seg_result").append('<dd class="word_'+term.natureStr+' word_width">'+term.name+'</dd>\n');			
+		});
+	});
+	
+	$.post('http://www.nlpcn.org:9999/api/SegApi/nlpSeg',{content: text},function(result){
+		$("#nlp_seg_result").empty() ;
+		result.obj.forEach(function(term){
+			$("#nlp_seg_result").append('<dd class="word_'+term.natureStr+' word_width">'+term.name+'</dd>\n');			
+		});
+	});
+	
+	$.post('http://www.nlpcn.org:9999/api/SegApi/indexSeg',{content: text},function(result){
+		$("#index_seg_result").empty() ;
+		result.obj.forEach(function(term){
+			$("#index_seg_result").append('<dd class="word_'+term.natureStr+' word_width">'+term.name+'</dd>\n');			
+		});
+	});
+	
+	$.post('http://www.nlpcn.org:9999/api/SegApi/baseSeg',{content: text},function(result){
+		$("#base_seg_result").empty() ;
+		result.obj.forEach(function(term){
+			$("#base_seg_result").append('<dd class="word_'+term.natureStr+' word_width">'+term.name+'</dd>\n');			
+		});
+	});
+	
+	$.post('http://www.nlpcn.org:9999/api/SegApi/dicSeg',{content: text},function(result){
+		$("#dic_seg_result").empty() ;
+		result.obj.forEach(function(term){
+			$("#dic_seg_result").append('<dd class="word_'+term.natureStr+' word_width">'+term.name+'</dd>\n');			
+		});
+	});
+	
+	
+	$.post('http://www.nlpcn.org:9999/api/KeywordsApi/keyword',{content: text},function(result){
+		$("#wordcloud").empty() ;
+	    result.obj.forEach(function(term , index){
+	    	console.log(term) ;
+	    	$("#wordcloud").append('<span data-weight="'+(30-index<10?10:30-index)+'">'+term.name+'</span>');	
+	    });
+	    
+	    $("#wordcloud").awesomeCloud({
+    		"size" : {
+    			"grid" : 6,
+    			"normalize" : false
+    		},
+    		"options" : {
+    			"color" : "random-dark",
+    			"rotationRatio" : 0.3,
+    			"printMultiplier" : 1,
+    			"sort" : "highest"
+    		},
+    		"shape" : "square"
+    	});
+	});
+	
+
+	$.post('http://www.nlpcn.org:9999/api/NlplangApi/j2f',{content: text},function(result){
+		$("#j2f_result").empty() ;
+	    $("#j2f_result").html(result.obj);
+	});
+	
+	$.post('http://www.nlpcn.org:9999/api/NlplangApi/f2j',{content: text},function(result){
+		$("#f2j_result").empty() ;
+	    $("#f2j_result").html(result.obj);
+	});
+	
+	
+	
+	
+	
+	
+
+
+	$.post('http://www.nlpcn.org:9999/api/NlplangApi/pinyin',{content: text},function(result){
+		$("#pinyin_result").empty() ;
+	    $("#pinyin_result").html(result.obj);
+	});
+	
+	$.post('http://www.nlpcn.org:9999/api/KeywordsApi/summary',{content: text},function(result){
+		$("#summaryStr_result").empty() ;
+	    $("#summaryStr_result").html(result.obj);
+	});
+	
+	
+	$('#syntactic').submit() ;
+}
+
+
 
 $(document).ready(function(){
-
-	$("#wordcloud").awesomeCloud({
-		"size" : {
-			"grid" : 6,
-			"normalize" : false
-		},
-		"options" : {
-			"color" : "random-dark",
-			"rotationRatio" : 0.3,
-			"printMultiplier" : 1,
-			"sort" : "highest"
-		},
-		"shape" : "square"
+	init();
+	
+	$('#reload_content').click(function(){
+		init() ;
 	});
-
-	var pieData = [
-					{
-						value: 30,
-						color:"#F38630"
-					},
-					{
-						value : 50,
-						color : "#E0E4CC"
-					},
-					{
-						value : 100,
-						color : "#69D2E7"
-					}
-
-				];
-
-	var myPie = new Chart(document.getElementById("pieChartCanvas").getContext("2d")).Pie(pieData);
-
-
 });
 
 //收集所有的div top
