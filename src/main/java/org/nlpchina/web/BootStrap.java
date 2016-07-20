@@ -35,7 +35,7 @@ public class BootStrap {
 	public static void main(String[] args) throws Exception {
 		ResourceBundle bundle = ResourceBundle.getBundle("config");
 		String web_dir = null;
-
+		
 		if (bundle.containsKey("web_dir")) {
 			web_dir = bundle.getString("web_dir");
 			;
