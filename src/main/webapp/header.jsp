@@ -36,7 +36,7 @@
 		                <li><a href="${ctx }/docs/">创建多页文档</a></li>
 	                </ul>
                 </li>
-                <li id="demo"><a href="${ctx }/demo.jsp">演示平台</a></li>
+                <li id="demo"><a href="${ctx }/demo">演示平台</a></li>
                 <li id="developer" ><a href="${ctx }/group">开发者们</a></li>
                 
                 <c:if test="${userInfo==null }">
